@@ -1,0 +1,595 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		EB11EDC61D9AB24900804D34 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EB11EDC51D9AB24900804D34 /* main.m */; };
+		EB11EDC91D9AB24900804D34 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EB11EDC81D9AB24900804D34 /* AppDelegate.m */; };
+		EB11EDCC1D9AB24900804D34 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB11EDCB1D9AB24900804D34 /* ViewController.m */; };
+		EB11EDCF1D9AB24900804D34 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB11EDCD1D9AB24900804D34 /* Main.storyboard */; };
+		EB11EDD11D9AB24900804D34 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB11EDD01D9AB24900804D34 /* Assets.xcassets */; };
+		EB11EDD41D9AB24900804D34 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB11EDD21D9AB24900804D34 /* LaunchScreen.storyboard */; };
+		EB11EDDF1D9AB24900804D34 /* RelaxAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EB11EDDE1D9AB24900804D34 /* RelaxAppTests.m */; };
+		EB11EDEA1D9AB24900804D34 /* RelaxAppUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = EB11EDE91D9AB24900804D34 /* RelaxAppUITests.m */; };
+		EB11EDFA1D9AB2E900804D34 /* BaseVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EB11EDF81D9AB2E900804D34 /* BaseVC.m */; };
+		EB11EDFB1D9AB2E900804D34 /* BaseVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB11EDF91D9AB2E900804D34 /* BaseVC.xib */; };
+		EB11EDFF1D9AB30B00804D34 /* HomeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EB11EDFD1D9AB30B00804D34 /* HomeVC.m */; };
+		EB11EE001D9AB30B00804D34 /* HomeVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB11EDFE1D9AB30B00804D34 /* HomeVC.xib */; };
+		EB11EE031D9AB4BA00804D34 /* MainNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB11EE021D9AB4BA00804D34 /* MainNavigationController.m */; };
+		EB11EE0C1D9AB7AF00804D34 /* TabVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EB11EE0A1D9AB7AF00804D34 /* TabVC.m */; };
+		EB11EE0D1D9AB7AF00804D34 /* TabVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB11EE0B1D9AB7AF00804D34 /* TabVC.xib */; };
+		EB11EE111D9AC16100804D34 /* MainNavHome.m in Sources */ = {isa = PBXBuildFile; fileRef = EB11EE0F1D9AC16100804D34 /* MainNavHome.m */; };
+		EB11EE121D9AC16100804D34 /* MainNavHome.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB11EE101D9AC16100804D34 /* MainNavHome.xib */; };
+		EB11EE151D9AC41600804D34 /* MainNavigationBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = EB11EE141D9AC41600804D34 /* MainNavigationBaseView.m */; };
+		EB11EE191D9AC55300804D34 /* BaseNavigation.m in Sources */ = {isa = PBXBuildFile; fileRef = EB11EE171D9AC55300804D34 /* BaseNavigation.m */; };
+		EB11EE1A1D9AC55300804D34 /* BaseNavigation.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB11EE181D9AC55300804D34 /* BaseNavigation.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		EB11EDDB1D9AB24900804D34 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EB11EDB91D9AB24800804D34 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EB11EDC01D9AB24800804D34;
+			remoteInfo = RelaxApp;
+		};
+		EB11EDE61D9AB24900804D34 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EB11EDB91D9AB24800804D34 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EB11EDC01D9AB24800804D34;
+			remoteInfo = RelaxApp;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		EB11EDC11D9AB24900804D34 /* RelaxApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RelaxApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EB11EDC51D9AB24900804D34 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		EB11EDC71D9AB24900804D34 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		EB11EDC81D9AB24900804D34 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		EB11EDCA1D9AB24900804D34 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		EB11EDCB1D9AB24900804D34 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		EB11EDCE1D9AB24900804D34 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		EB11EDD01D9AB24900804D34 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		EB11EDD31D9AB24900804D34 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		EB11EDD51D9AB24900804D34 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EB11EDDA1D9AB24900804D34 /* RelaxAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RelaxAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EB11EDDE1D9AB24900804D34 /* RelaxAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RelaxAppTests.m; sourceTree = "<group>"; };
+		EB11EDE01D9AB24900804D34 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EB11EDE51D9AB24900804D34 /* RelaxAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RelaxAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EB11EDE91D9AB24900804D34 /* RelaxAppUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RelaxAppUITests.m; sourceTree = "<group>"; };
+		EB11EDEB1D9AB24900804D34 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EB11EDF71D9AB2E900804D34 /* BaseVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseVC.h; sourceTree = "<group>"; };
+		EB11EDF81D9AB2E900804D34 /* BaseVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseVC.m; sourceTree = "<group>"; };
+		EB11EDF91D9AB2E900804D34 /* BaseVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BaseVC.xib; sourceTree = "<group>"; };
+		EB11EDFC1D9AB30B00804D34 /* HomeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeVC.h; sourceTree = "<group>"; };
+		EB11EDFD1D9AB30B00804D34 /* HomeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeVC.m; sourceTree = "<group>"; };
+		EB11EDFE1D9AB30B00804D34 /* HomeVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeVC.xib; sourceTree = "<group>"; };
+		EB11EE011D9AB4BA00804D34 /* MainNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainNavigationController.h; sourceTree = "<group>"; };
+		EB11EE021D9AB4BA00804D34 /* MainNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainNavigationController.m; sourceTree = "<group>"; };
+		EB11EE091D9AB7AF00804D34 /* TabVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabVC.h; sourceTree = "<group>"; };
+		EB11EE0A1D9AB7AF00804D34 /* TabVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabVC.m; sourceTree = "<group>"; };
+		EB11EE0B1D9AB7AF00804D34 /* TabVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TabVC.xib; sourceTree = "<group>"; };
+		EB11EE0E1D9AC16100804D34 /* MainNavHome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainNavHome.h; sourceTree = "<group>"; };
+		EB11EE0F1D9AC16100804D34 /* MainNavHome.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainNavHome.m; sourceTree = "<group>"; };
+		EB11EE101D9AC16100804D34 /* MainNavHome.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainNavHome.xib; sourceTree = "<group>"; };
+		EB11EE131D9AC41600804D34 /* MainNavigationBaseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainNavigationBaseView.h; sourceTree = "<group>"; };
+		EB11EE141D9AC41600804D34 /* MainNavigationBaseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainNavigationBaseView.m; sourceTree = "<group>"; };
+		EB11EE161D9AC55300804D34 /* BaseNavigation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseNavigation.h; sourceTree = "<group>"; };
+		EB11EE171D9AC55300804D34 /* BaseNavigation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseNavigation.m; sourceTree = "<group>"; };
+		EB11EE181D9AC55300804D34 /* BaseNavigation.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BaseNavigation.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		EB11EDBE1D9AB24800804D34 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EB11EDD71D9AB24900804D34 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EB11EDE21D9AB24900804D34 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		EB11EDB81D9AB24800804D34 = {
+			isa = PBXGroup;
+			children = (
+				EB11EDC31D9AB24900804D34 /* RelaxApp */,
+				EB11EDDD1D9AB24900804D34 /* RelaxAppTests */,
+				EB11EDE81D9AB24900804D34 /* RelaxAppUITests */,
+				EB11EDC21D9AB24900804D34 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		EB11EDC21D9AB24900804D34 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EB11EDC11D9AB24900804D34 /* RelaxApp.app */,
+				EB11EDDA1D9AB24900804D34 /* RelaxAppTests.xctest */,
+				EB11EDE51D9AB24900804D34 /* RelaxAppUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EB11EDC31D9AB24900804D34 /* RelaxApp */ = {
+			isa = PBXGroup;
+			children = (
+				EB11EE011D9AB4BA00804D34 /* MainNavigationController.h */,
+				EB11EE021D9AB4BA00804D34 /* MainNavigationController.m */,
+				EB11EE161D9AC55300804D34 /* BaseNavigation.h */,
+				EB11EE171D9AC55300804D34 /* BaseNavigation.m */,
+				EB11EE181D9AC55300804D34 /* BaseNavigation.xib */,
+				EB11EE131D9AC41600804D34 /* MainNavigationBaseView.h */,
+				EB11EE141D9AC41600804D34 /* MainNavigationBaseView.m */,
+				EB11EE0E1D9AC16100804D34 /* MainNavHome.h */,
+				EB11EE0F1D9AC16100804D34 /* MainNavHome.m */,
+				EB11EE101D9AC16100804D34 /* MainNavHome.xib */,
+				EB11EE091D9AB7AF00804D34 /* TabVC.h */,
+				EB11EE0A1D9AB7AF00804D34 /* TabVC.m */,
+				EB11EE0B1D9AB7AF00804D34 /* TabVC.xib */,
+				EB11EDC71D9AB24900804D34 /* AppDelegate.h */,
+				EB11EDC81D9AB24900804D34 /* AppDelegate.m */,
+				EB11EDF71D9AB2E900804D34 /* BaseVC.h */,
+				EB11EDF81D9AB2E900804D34 /* BaseVC.m */,
+				EB11EDF91D9AB2E900804D34 /* BaseVC.xib */,
+				EB11EDFC1D9AB30B00804D34 /* HomeVC.h */,
+				EB11EDFD1D9AB30B00804D34 /* HomeVC.m */,
+				EB11EDFE1D9AB30B00804D34 /* HomeVC.xib */,
+				EB11EDCA1D9AB24900804D34 /* ViewController.h */,
+				EB11EDCB1D9AB24900804D34 /* ViewController.m */,
+				EB11EDCD1D9AB24900804D34 /* Main.storyboard */,
+				EB11EDD01D9AB24900804D34 /* Assets.xcassets */,
+				EB11EDD21D9AB24900804D34 /* LaunchScreen.storyboard */,
+				EB11EDD51D9AB24900804D34 /* Info.plist */,
+				EB11EDC41D9AB24900804D34 /* Supporting Files */,
+			);
+			path = RelaxApp;
+			sourceTree = "<group>";
+		};
+		EB11EDC41D9AB24900804D34 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				EB11EDC51D9AB24900804D34 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		EB11EDDD1D9AB24900804D34 /* RelaxAppTests */ = {
+			isa = PBXGroup;
+			children = (
+				EB11EDDE1D9AB24900804D34 /* RelaxAppTests.m */,
+				EB11EDE01D9AB24900804D34 /* Info.plist */,
+			);
+			path = RelaxAppTests;
+			sourceTree = "<group>";
+		};
+		EB11EDE81D9AB24900804D34 /* RelaxAppUITests */ = {
+			isa = PBXGroup;
+			children = (
+				EB11EDE91D9AB24900804D34 /* RelaxAppUITests.m */,
+				EB11EDEB1D9AB24900804D34 /* Info.plist */,
+			);
+			path = RelaxAppUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		EB11EDC01D9AB24800804D34 /* RelaxApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EB11EDEE1D9AB24900804D34 /* Build configuration list for PBXNativeTarget "RelaxApp" */;
+			buildPhases = (
+				EB11EDBD1D9AB24800804D34 /* Sources */,
+				EB11EDBE1D9AB24800804D34 /* Frameworks */,
+				EB11EDBF1D9AB24800804D34 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RelaxApp;
+			productName = RelaxApp;
+			productReference = EB11EDC11D9AB24900804D34 /* RelaxApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+		EB11EDD91D9AB24900804D34 /* RelaxAppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EB11EDF11D9AB24900804D34 /* Build configuration list for PBXNativeTarget "RelaxAppTests" */;
+			buildPhases = (
+				EB11EDD61D9AB24900804D34 /* Sources */,
+				EB11EDD71D9AB24900804D34 /* Frameworks */,
+				EB11EDD81D9AB24900804D34 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EB11EDDC1D9AB24900804D34 /* PBXTargetDependency */,
+			);
+			name = RelaxAppTests;
+			productName = RelaxAppTests;
+			productReference = EB11EDDA1D9AB24900804D34 /* RelaxAppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		EB11EDE41D9AB24900804D34 /* RelaxAppUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EB11EDF41D9AB24900804D34 /* Build configuration list for PBXNativeTarget "RelaxAppUITests" */;
+			buildPhases = (
+				EB11EDE11D9AB24900804D34 /* Sources */,
+				EB11EDE21D9AB24900804D34 /* Frameworks */,
+				EB11EDE31D9AB24900804D34 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EB11EDE71D9AB24900804D34 /* PBXTargetDependency */,
+			);
+			name = RelaxAppUITests;
+			productName = RelaxAppUITests;
+			productReference = EB11EDE51D9AB24900804D34 /* RelaxAppUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		EB11EDB91D9AB24800804D34 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0800;
+				ORGANIZATIONNAME = JoJo;
+				TargetAttributes = {
+					EB11EDC01D9AB24800804D34 = {
+						CreatedOnToolsVersion = 8.0;
+						ProvisioningStyle = Automatic;
+					};
+					EB11EDD91D9AB24900804D34 = {
+						CreatedOnToolsVersion = 8.0;
+						ProvisioningStyle = Automatic;
+						TestTargetID = EB11EDC01D9AB24800804D34;
+					};
+					EB11EDE41D9AB24900804D34 = {
+						CreatedOnToolsVersion = 8.0;
+						ProvisioningStyle = Automatic;
+						TestTargetID = EB11EDC01D9AB24800804D34;
+					};
+				};
+			};
+			buildConfigurationList = EB11EDBC1D9AB24800804D34 /* Build configuration list for PBXProject "RelaxApp" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = EB11EDB81D9AB24800804D34;
+			productRefGroup = EB11EDC21D9AB24900804D34 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				EB11EDC01D9AB24800804D34 /* RelaxApp */,
+				EB11EDD91D9AB24900804D34 /* RelaxAppTests */,
+				EB11EDE41D9AB24900804D34 /* RelaxAppUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		EB11EDBF1D9AB24800804D34 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EB11EDD41D9AB24900804D34 /* LaunchScreen.storyboard in Resources */,
+				EB11EDD11D9AB24900804D34 /* Assets.xcassets in Resources */,
+				EB11EE0D1D9AB7AF00804D34 /* TabVC.xib in Resources */,
+				EB11EE001D9AB30B00804D34 /* HomeVC.xib in Resources */,
+				EB11EDCF1D9AB24900804D34 /* Main.storyboard in Resources */,
+				EB11EE121D9AC16100804D34 /* MainNavHome.xib in Resources */,
+				EB11EE1A1D9AC55300804D34 /* BaseNavigation.xib in Resources */,
+				EB11EDFB1D9AB2E900804D34 /* BaseVC.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EB11EDD81D9AB24900804D34 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EB11EDE31D9AB24900804D34 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		EB11EDBD1D9AB24800804D34 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EB11EDCC1D9AB24900804D34 /* ViewController.m in Sources */,
+				EB11EDC91D9AB24900804D34 /* AppDelegate.m in Sources */,
+				EB11EE0C1D9AB7AF00804D34 /* TabVC.m in Sources */,
+				EB11EE111D9AC16100804D34 /* MainNavHome.m in Sources */,
+				EB11EE191D9AC55300804D34 /* BaseNavigation.m in Sources */,
+				EB11EE031D9AB4BA00804D34 /* MainNavigationController.m in Sources */,
+				EB11EDC61D9AB24900804D34 /* main.m in Sources */,
+				EB11EDFF1D9AB30B00804D34 /* HomeVC.m in Sources */,
+				EB11EDFA1D9AB2E900804D34 /* BaseVC.m in Sources */,
+				EB11EE151D9AC41600804D34 /* MainNavigationBaseView.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EB11EDD61D9AB24900804D34 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EB11EDDF1D9AB24900804D34 /* RelaxAppTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EB11EDE11D9AB24900804D34 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EB11EDEA1D9AB24900804D34 /* RelaxAppUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		EB11EDDC1D9AB24900804D34 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EB11EDC01D9AB24800804D34 /* RelaxApp */;
+			targetProxy = EB11EDDB1D9AB24900804D34 /* PBXContainerItemProxy */;
+		};
+		EB11EDE71D9AB24900804D34 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EB11EDC01D9AB24800804D34 /* RelaxApp */;
+			targetProxy = EB11EDE61D9AB24900804D34 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		EB11EDCD1D9AB24900804D34 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EB11EDCE1D9AB24900804D34 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		EB11EDD21D9AB24900804D34 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EB11EDD31D9AB24900804D34 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		EB11EDEC1D9AB24900804D34 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		EB11EDED1D9AB24900804D34 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		EB11EDEF1D9AB24900804D34 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = RelaxApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = manh.jojo.RelaxApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		EB11EDF01D9AB24900804D34 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = RelaxApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = manh.jojo.RelaxApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		EB11EDF21D9AB24900804D34 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = RelaxAppTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = manh.jojo.RelaxAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RelaxApp.app/RelaxApp";
+			};
+			name = Debug;
+		};
+		EB11EDF31D9AB24900804D34 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = RelaxAppTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = manh.jojo.RelaxAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RelaxApp.app/RelaxApp";
+			};
+			name = Release;
+		};
+		EB11EDF51D9AB24900804D34 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = RelaxAppUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = manh.jojo.RelaxAppUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = RelaxApp;
+			};
+			name = Debug;
+		};
+		EB11EDF61D9AB24900804D34 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = RelaxAppUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = manh.jojo.RelaxAppUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = RelaxApp;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		EB11EDBC1D9AB24800804D34 /* Build configuration list for PBXProject "RelaxApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EB11EDEC1D9AB24900804D34 /* Debug */,
+				EB11EDED1D9AB24900804D34 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EB11EDEE1D9AB24900804D34 /* Build configuration list for PBXNativeTarget "RelaxApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EB11EDEF1D9AB24900804D34 /* Debug */,
+				EB11EDF01D9AB24900804D34 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EB11EDF11D9AB24900804D34 /* Build configuration list for PBXNativeTarget "RelaxAppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EB11EDF21D9AB24900804D34 /* Debug */,
+				EB11EDF31D9AB24900804D34 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EB11EDF41D9AB24900804D34 /* Build configuration list for PBXNativeTarget "RelaxAppUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EB11EDF51D9AB24900804D34 /* Debug */,
+				EB11EDF61D9AB24900804D34 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = EB11EDB91D9AB24800804D34 /* Project object */;
+}
