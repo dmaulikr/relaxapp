@@ -7,7 +7,9 @@
 //
 
 #import "BaseVC.h"
+#import <AVFoundation/AVFoundation.h>
 
-@interface HomeVC : BaseVC
+@interface HomeVC : BaseVC<AVAudioPlayerDelegate>
+
 
 @end

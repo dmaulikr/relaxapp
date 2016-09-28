@@ -22,7 +22,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    self.navigationController.navigationBar.hidden = YES;
     [self loadNavigation];
+    //clean
+    [self.view removeConstraints:self.view.constraints];
     [self addTabbarBottom];
 }
 
@@ -55,10 +58,9 @@
     self.vBottom.frame = rectTab;
     
     [self.view addSubview:self.vBottom];
-    
-    
+
     [self.view addConstraints:[NSLayoutConstraint
-                               constraintsWithVisualFormat:@"V:|-0-[vv]-0-[tview(50)]-0-|"
+                               constraintsWithVisualFormat:@"V:|-0-[vv]-0-[tview(90)]-0-|"
                                options:NSLayoutFormatDirectionLeadingToTrailing
                                metrics:nil
                                views:NSDictionaryOfVariableBindings(vv,tview)]];
@@ -70,6 +72,56 @@
                                options:NSLayoutFormatDirectionLeadingToTrailing
                                metrics:nil
                                views:NSDictionaryOfVariableBindings(tview)]];
+    [self.view addConstraint: [NSLayoutConstraint
+                               constraintWithItem:self.vContrainer attribute:NSLayoutAttributeTop
+                               relatedBy:NSLayoutRelationEqual
+                               toItem:self.view
+                               attribute:NSLayoutAttributeTop
+                               multiplier:1.0 constant:20] ];
+    
+    [self.view addConstraint: [NSLayoutConstraint
+                               constraintWithItem:self.vContrainer attribute:NSLayoutAttributeLeading
+                               relatedBy:NSLayoutRelationEqual
+                               toItem:self.view
+                               attribute:NSLayoutAttributeLeading
+                               multiplier:1.0 constant:0] ];
+    
+    
+    [self.view addConstraint: [NSLayoutConstraint
+                               constraintWithItem:self.vContrainer attribute:NSLayoutAttributeTrailing
+                               relatedBy:NSLayoutRelationEqual
+                               toItem:self.view
+                               attribute:NSLayoutAttributeTrailing
+                               multiplier:1.0 constant:0] ];
+    //back ground image
+    [self.view addConstraint: [NSLayoutConstraint
+                               constraintWithItem:self.imgBackGround attribute:NSLayoutAttributeTop
+                               relatedBy:NSLayoutRelationEqual
+                               toItem:self.view
+                               attribute:NSLayoutAttributeTop
+                               multiplier:1.0 constant:20] ];
+    
+    [self.view addConstraint: [NSLayoutConstraint
+                               constraintWithItem:self.imgBackGround attribute:NSLayoutAttributeLeading
+                               relatedBy:NSLayoutRelationEqual
+                               toItem:self.view
+                               attribute:NSLayoutAttributeLeading
+                               multiplier:1.0 constant:0] ];
+    
+    
+    [self.view addConstraint: [NSLayoutConstraint
+                               constraintWithItem:self.imgBackGround attribute:NSLayoutAttributeTrailing
+                               relatedBy:NSLayoutRelationEqual
+                               toItem:self.view
+                               attribute:NSLayoutAttributeTrailing
+                               multiplier:1.0 constant:0] ];
+
+    [self.view addConstraint: [NSLayoutConstraint
+                               constraintWithItem:self.imgBackGround attribute:NSLayoutAttributeBottom
+                               relatedBy:NSLayoutRelationEqual
+                               toItem:self.view
+                               attribute:NSLayoutAttributeBottom
+                               multiplier:1.0 constant:0] ];
 
 }
 -(IBAction)tabBottomVCAction:(id)sender

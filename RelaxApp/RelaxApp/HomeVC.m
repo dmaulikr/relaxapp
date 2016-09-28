@@ -7,7 +7,7 @@
 //
 
 #import "HomeVC.h"
-
+#import "CollectionVC.h"
 @interface HomeVC ()
 
 @end
@@ -19,7 +19,13 @@
     // Do any additional setup after loading the view from its nib.
     [self addMainNav:nil];
 }
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    CollectionVC *colectionView = [[CollectionVC alloc] initWithEVC];
+    [colectionView addContraintSupview:self.vContrainer];
 
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

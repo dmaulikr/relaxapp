@@ -8,6 +8,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeVC">
             <connections>
+                <outlet property="imgBackGround" destination="gs3-0O-fox" id="43a-Ee-g3P"/>
                 <outlet property="vContrainer" destination="jmE-MP-vBO" id="qpg-Qn-vMl"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -17,26 +18,25 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1.splash.png" translatesAutoresizingMaskIntoConstraints="NO" id="gs3-0O-fox"/>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jmE-MP-vBO">
-                    <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Ahihi" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x4a-qd-oqi">
-                            <frame key="frameInset" minX="152" minY="261" width="42" height="21"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <nil key="textColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                    </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 </view>
             </subviews>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" red="0.070588235294117646" green="0.40392156862745099" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="jmE-MP-vBO" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="18h-x0-R2v"/>
                 <constraint firstAttribute="trailing" secondItem="jmE-MP-vBO" secondAttribute="trailing" id="1Xz-Re-MLQ"/>
+                <constraint firstItem="gs3-0O-fox" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="N4u-xQ-E2k"/>
+                <constraint firstAttribute="bottom" secondItem="gs3-0O-fox" secondAttribute="bottom" id="OE7-TA-Lgt"/>
+                <constraint firstItem="gs3-0O-fox" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="PQT-aO-Gfy"/>
                 <constraint firstAttribute="bottom" secondItem="jmE-MP-vBO" secondAttribute="bottom" id="fGg-jv-cwe"/>
                 <constraint firstItem="jmE-MP-vBO" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="uLG-gg-JTA"/>
+                <constraint firstAttribute="trailing" secondItem="gs3-0O-fox" secondAttribute="trailing" id="xDg-va-eBo"/>
             </constraints>
         </view>
     </objects>
+    <resources>
+        <image name="1.splash.png" width="375" height="667"/>
+    </resources>
 </document>

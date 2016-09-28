@@ -10,6 +10,8 @@
 #import "TabVC.h"
 @interface BaseVC : UIViewController
 @property (nonatomic, strong) IBOutlet UIView *vContrainer;
+@property (nonatomic, strong) IBOutlet UIImageView *imgBackGround;
+
 @property (nonatomic, strong) TabVC *vBottom;
 -(void) addMainNav:(NSString*) nameView;
 @end
