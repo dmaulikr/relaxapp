@@ -17,14 +17,14 @@
                         <button opaque="NO" tag="10" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lcA-GA-oZR">
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         </button>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rNU-mD-K7S">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_favorist.png" translatesAutoresizingMaskIntoConstraints="NO" id="rNU-mD-K7S">
                             <constraints>
                                 <constraint firstAttribute="width" constant="22" id="33I-C6-dyA"/>
                                 <constraint firstAttribute="height" constant="22" id="fZa-M6-SR4"/>
                             </constraints>
                         </imageView>
                     </subviews>
-                    <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstItem="rNU-mD-K7S" firstAttribute="centerY" secondItem="lcA-GA-oZR" secondAttribute="centerY" id="OVG-RD-tAf"/>
                         <constraint firstItem="lcA-GA-oZR" firstAttribute="top" secondItem="3SV-85-KFB" secondAttribute="top" id="OfW-uo-lza"/>
@@ -37,18 +37,18 @@
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="08s-HP-nFZ" userLabel="ViewTitle">
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MZO-z2-IsN">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HALL OF SUPREME HARMONY" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MZO-z2-IsN">
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <nil key="textColor"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="sub title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j39-lQ-y5Q">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BEJING,CHINA" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j39-lQ-y5Q">
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <nil key="textColor"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
-                    <color key="backgroundColor" red="1" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstItem="j39-lQ-y5Q" firstAttribute="top" secondItem="MZO-z2-IsN" secondAttribute="bottom" id="B4R-eV-gS9"/>
                         <constraint firstItem="MZO-z2-IsN" firstAttribute="top" secondItem="08s-HP-nFZ" secondAttribute="top" constant="5" id="MQk-MB-E0h"/>
@@ -63,14 +63,14 @@
                         <button opaque="NO" tag="10" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Tw-bZ-B7Z">
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         </button>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ULN-n5-x6A">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_clearall.png" translatesAutoresizingMaskIntoConstraints="NO" id="ULN-n5-x6A">
                             <constraints>
                                 <constraint firstAttribute="width" constant="22" id="0YL-vp-c9S"/>
                                 <constraint firstAttribute="height" constant="22" id="LUX-ia-bRQ"/>
                             </constraints>
                         </imageView>
                     </subviews>
-                    <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="9Tw-bZ-B7Z" secondAttribute="trailing" id="8NH-lB-Jsl"/>
                         <constraint firstItem="ULN-n5-x6A" firstAttribute="centerY" secondItem="9Tw-bZ-B7Z" secondAttribute="centerY" id="C3E-WF-rkF"/>
@@ -98,4 +98,8 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
         </view>
     </objects>
+    <resources>
+        <image name="ic_clearall.png" width="16" height="15"/>
+        <image name="ic_favorist.png" width="20" height="23"/>
+    </resources>
 </document>

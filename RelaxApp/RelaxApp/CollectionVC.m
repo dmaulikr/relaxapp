@@ -9,6 +9,7 @@
 #import "CollectionVC.h"
 #import "CollectionCell.h"
 #import "SpringboardLayout.h"
+#import "Define.h"
 @implementation CollectionVC
 -(instancetype)initWithCoder:(NSCoder *)aDecoder
 {
@@ -42,7 +43,7 @@
     
     [viewSuper addSubview:view];
     
-    [viewSuper addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(0)-[view]-(0)-|"
+    [viewSuper addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(65)-[view]-(0)-|"
                                                                       options:0
                                                                       metrics:nil
                                                                         views:NSDictionaryOfVariableBindings(view)]];
@@ -71,6 +72,7 @@
 
 -(void)instance
 {
+    self.pageControl.currentPageIndicatorTintColor = UIColorFromRGB(COLOR_PAGE_ACTIVE);
     [self.collectionView registerNib:[UINib nibWithNibName:@"CollectionCell" bundle:nil] forCellWithReuseIdentifier:@"collectionID"];
 }
 // collection view data source methods ////////////////////////////////////

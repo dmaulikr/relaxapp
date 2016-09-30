@@ -11,14 +11,10 @@
 		EB05825B1D9C35A300E29C9B /* 1.splash.png in Resources */ = {isa = PBXBuildFile; fileRef = EB05825A1D9C35A300E29C9B /* 1.splash.png */; };
 		EB11EDC61D9AB24900804D34 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EB11EDC51D9AB24900804D34 /* main.m */; };
 		EB11EDC91D9AB24900804D34 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EB11EDC81D9AB24900804D34 /* AppDelegate.m */; };
-		EB11EDCC1D9AB24900804D34 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB11EDCB1D9AB24900804D34 /* ViewController.m */; };
-		EB11EDCF1D9AB24900804D34 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB11EDCD1D9AB24900804D34 /* Main.storyboard */; };
 		EB11EDD11D9AB24900804D34 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB11EDD01D9AB24900804D34 /* Assets.xcassets */; };
 		EB11EDD41D9AB24900804D34 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB11EDD21D9AB24900804D34 /* LaunchScreen.storyboard */; };
 		EB11EDDF1D9AB24900804D34 /* RelaxAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EB11EDDE1D9AB24900804D34 /* RelaxAppTests.m */; };
 		EB11EDEA1D9AB24900804D34 /* RelaxAppUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = EB11EDE91D9AB24900804D34 /* RelaxAppUITests.m */; };
-		EB11EDFA1D9AB2E900804D34 /* BaseVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EB11EDF81D9AB2E900804D34 /* BaseVC.m */; };
-		EB11EDFB1D9AB2E900804D34 /* BaseVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB11EDF91D9AB2E900804D34 /* BaseVC.xib */; };
 		EB11EDFF1D9AB30B00804D34 /* HomeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EB11EDFD1D9AB30B00804D34 /* HomeVC.m */; };
 		EB11EE001D9AB30B00804D34 /* HomeVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB11EDFE1D9AB30B00804D34 /* HomeVC.xib */; };
 		EB11EE031D9AB4BA00804D34 /* MainNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB11EE021D9AB4BA00804D34 /* MainNavigationController.m */; };
@@ -37,6 +33,18 @@
 		EB11EE6A1D9AF45000804D34 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB11EE691D9AF45000804D34 /* QuartzCore.framework */; };
 		EB11EE6E1D9AF4A300804D34 /* CollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EB11EE6C1D9AF4A300804D34 /* CollectionCell.m */; };
 		EB11EE6F1D9AF4A300804D34 /* CollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB11EE6D1D9AF4A300804D34 /* CollectionCell.xib */; };
+		EBFB07A41D9EA06000AF2569 /* FavoriteView.m in Sources */ = {isa = PBXBuildFile; fileRef = EBFB07A31D9EA06000AF2569 /* FavoriteView.m */; };
+		EBFB07A61D9EA07300AF2569 /* FavoriteView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBFB07A51D9EA07300AF2569 /* FavoriteView.xib */; };
+		EBFB07A91D9EA08700AF2569 /* TimerView.m in Sources */ = {isa = PBXBuildFile; fileRef = EBFB07A81D9EA08700AF2569 /* TimerView.m */; };
+		EBFB07AB1D9EA0A100AF2569 /* TimerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBFB07AA1D9EA0A100AF2569 /* TimerView.xib */; };
+		EBFB07AE1D9EA0C100AF2569 /* SettingView.m in Sources */ = {isa = PBXBuildFile; fileRef = EBFB07AD1D9EA0C100AF2569 /* SettingView.m */; };
+		EBFB07B01D9EA0D300AF2569 /* SettingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBFB07AF1D9EA0D300AF2569 /* SettingView.xib */; };
+		EBFB07B31D9EA1F000AF2569 /* BaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = EBFB07B21D9EA1F000AF2569 /* BaseView.m */; };
+		EBFB07B61D9EAD7200AF2569 /* VolumeView.m in Sources */ = {isa = PBXBuildFile; fileRef = EBFB07B51D9EAD7200AF2569 /* VolumeView.m */; };
+		EBFB07B81D9EAD8500AF2569 /* VolumeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBFB07B71D9EAD8500AF2569 /* VolumeView.xib */; };
+		EBFB07BA1D9EC6B400AF2569 /* volume.png in Resources */ = {isa = PBXBuildFile; fileRef = EBFB07B91D9EC6B400AF2569 /* volume.png */; };
+		EBFB07BC1D9ECCE500AF2569 /* ic_favorist.png in Resources */ = {isa = PBXBuildFile; fileRef = EBFB07BB1D9ECCE500AF2569 /* ic_favorist.png */; };
+		EBFB07BE1D9ECCF300AF2569 /* ic_clearall.png in Resources */ = {isa = PBXBuildFile; fileRef = EBFB07BD1D9ECCF300AF2569 /* ic_clearall.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,9 +72,6 @@
 		EB11EDC51D9AB24900804D34 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		EB11EDC71D9AB24900804D34 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		EB11EDC81D9AB24900804D34 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		EB11EDCA1D9AB24900804D34 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		EB11EDCB1D9AB24900804D34 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		EB11EDCE1D9AB24900804D34 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EB11EDD01D9AB24900804D34 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EB11EDD31D9AB24900804D34 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EB11EDD51D9AB24900804D34 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -76,9 +81,6 @@
 		EB11EDE51D9AB24900804D34 /* RelaxAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RelaxAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB11EDE91D9AB24900804D34 /* RelaxAppUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RelaxAppUITests.m; sourceTree = "<group>"; };
 		EB11EDEB1D9AB24900804D34 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		EB11EDF71D9AB2E900804D34 /* BaseVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseVC.h; sourceTree = "<group>"; };
-		EB11EDF81D9AB2E900804D34 /* BaseVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseVC.m; sourceTree = "<group>"; };
-		EB11EDF91D9AB2E900804D34 /* BaseVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BaseVC.xib; sourceTree = "<group>"; };
 		EB11EDFC1D9AB30B00804D34 /* HomeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeVC.h; sourceTree = "<group>"; };
 		EB11EDFD1D9AB30B00804D34 /* HomeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeVC.m; sourceTree = "<group>"; };
 		EB11EDFE1D9AB30B00804D34 /* HomeVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeVC.xib; sourceTree = "<group>"; };
@@ -105,6 +107,24 @@
 		EB11EE6B1D9AF4A300804D34 /* CollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionCell.h; sourceTree = "<group>"; };
 		EB11EE6C1D9AF4A300804D34 /* CollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionCell.m; sourceTree = "<group>"; };
 		EB11EE6D1D9AF4A300804D34 /* CollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollectionCell.xib; sourceTree = "<group>"; };
+		EBFB07A21D9EA06000AF2569 /* FavoriteView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoriteView.h; sourceTree = "<group>"; };
+		EBFB07A31D9EA06000AF2569 /* FavoriteView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoriteView.m; sourceTree = "<group>"; };
+		EBFB07A51D9EA07300AF2569 /* FavoriteView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FavoriteView.xib; sourceTree = "<group>"; };
+		EBFB07A71D9EA08700AF2569 /* TimerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimerView.h; sourceTree = "<group>"; };
+		EBFB07A81D9EA08700AF2569 /* TimerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimerView.m; sourceTree = "<group>"; };
+		EBFB07AA1D9EA0A100AF2569 /* TimerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TimerView.xib; sourceTree = "<group>"; };
+		EBFB07AC1D9EA0C100AF2569 /* SettingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingView.h; sourceTree = "<group>"; };
+		EBFB07AD1D9EA0C100AF2569 /* SettingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingView.m; sourceTree = "<group>"; };
+		EBFB07AF1D9EA0D300AF2569 /* SettingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingView.xib; sourceTree = "<group>"; };
+		EBFB07B11D9EA1F000AF2569 /* BaseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseView.h; sourceTree = "<group>"; };
+		EBFB07B21D9EA1F000AF2569 /* BaseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseView.m; sourceTree = "<group>"; };
+		EBFB07B41D9EAD7200AF2569 /* VolumeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VolumeView.h; sourceTree = "<group>"; };
+		EBFB07B51D9EAD7200AF2569 /* VolumeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VolumeView.m; sourceTree = "<group>"; };
+		EBFB07B71D9EAD8500AF2569 /* VolumeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VolumeView.xib; sourceTree = "<group>"; };
+		EBFB07B91D9EC6B400AF2569 /* volume.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = volume.png; sourceTree = "<group>"; };
+		EBFB07BB1D9ECCE500AF2569 /* ic_favorist.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_favorist.png; sourceTree = "<group>"; };
+		EBFB07BD1D9ECCF300AF2569 /* ic_clearall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_clearall.png; sourceTree = "<group>"; };
+		EBFB07BF1D9EE03100AF2569 /* Define.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Define.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,6 +178,9 @@
 		EB11EDC31D9AB24900804D34 /* RelaxApp */ = {
 			isa = PBXGroup;
 			children = (
+				EBFB07BD1D9ECCF300AF2569 /* ic_clearall.png */,
+				EBFB07BB1D9ECCE500AF2569 /* ic_favorist.png */,
+				EBFB07B91D9EC6B400AF2569 /* volume.png */,
 				EB05825A1D9C35A300E29C9B /* 1.splash.png */,
 				EB11EE551D9AD94800804D34 /* 1.mp3 */,
 				EB11EE5E1D9AE0F300804D34 /* 2.mp3 */,
@@ -172,19 +195,28 @@
 				EB11EE6D1D9AF4A300804D34 /* CollectionCell.xib */,
 				EB0582571D9C0D2200E29C9B /* SpringboardLayout.h */,
 				EB0582581D9C0D2200E29C9B /* SpringboardLayout.m */,
-				EB11EDF71D9AB2E900804D34 /* BaseVC.h */,
-				EB11EDF81D9AB2E900804D34 /* BaseVC.m */,
-				EB11EDF91D9AB2E900804D34 /* BaseVC.xib */,
+				EBFB07B11D9EA1F000AF2569 /* BaseView.h */,
+				EBFB07B21D9EA1F000AF2569 /* BaseView.m */,
+				EBFB07A21D9EA06000AF2569 /* FavoriteView.h */,
+				EBFB07A31D9EA06000AF2569 /* FavoriteView.m */,
+				EBFB07A51D9EA07300AF2569 /* FavoriteView.xib */,
+				EBFB07A71D9EA08700AF2569 /* TimerView.h */,
+				EBFB07A81D9EA08700AF2569 /* TimerView.m */,
+				EBFB07AA1D9EA0A100AF2569 /* TimerView.xib */,
+				EBFB07AC1D9EA0C100AF2569 /* SettingView.h */,
+				EBFB07AD1D9EA0C100AF2569 /* SettingView.m */,
+				EBFB07AF1D9EA0D300AF2569 /* SettingView.xib */,
+				EBFB07B41D9EAD7200AF2569 /* VolumeView.h */,
+				EBFB07B51D9EAD7200AF2569 /* VolumeView.m */,
+				EBFB07B71D9EAD8500AF2569 /* VolumeView.xib */,
 				EB11EDFC1D9AB30B00804D34 /* HomeVC.h */,
 				EB11EDFD1D9AB30B00804D34 /* HomeVC.m */,
 				EB11EDFE1D9AB30B00804D34 /* HomeVC.xib */,
-				EB11EDCA1D9AB24900804D34 /* ViewController.h */,
-				EB11EDCB1D9AB24900804D34 /* ViewController.m */,
-				EB11EDCD1D9AB24900804D34 /* Main.storyboard */,
 				EB11EDD01D9AB24900804D34 /* Assets.xcassets */,
 				EB11EDD21D9AB24900804D34 /* LaunchScreen.storyboard */,
 				EB11EDD51D9AB24900804D34 /* Info.plist */,
 				EB11EDC41D9AB24900804D34 /* Supporting Files */,
+				EBFB07BF1D9EE03100AF2569 /* Define.h */,
 			);
 			path = RelaxApp;
 			sourceTree = "<group>";
@@ -351,18 +383,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				EB11EE561D9AD94800804D34 /* 1.mp3 in Resources */,
+				EBFB07B01D9EA0D300AF2569 /* SettingView.xib in Resources */,
+				EBFB07BC1D9ECCE500AF2569 /* ic_favorist.png in Resources */,
 				EB11EDD41D9AB24900804D34 /* LaunchScreen.storyboard in Resources */,
 				EB11EDD11D9AB24900804D34 /* Assets.xcassets in Resources */,
 				EB11EE6F1D9AF4A300804D34 /* CollectionCell.xib in Resources */,
+				EBFB07BA1D9EC6B400AF2569 /* volume.png in Resources */,
 				EB11EE681D9AEC7000804D34 /* CollectionVC.xib in Resources */,
 				EB11EE0D1D9AB7AF00804D34 /* TabVC.xib in Resources */,
+				EBFB07AB1D9EA0A100AF2569 /* TimerView.xib in Resources */,
 				EB11EE001D9AB30B00804D34 /* HomeVC.xib in Resources */,
-				EB11EDCF1D9AB24900804D34 /* Main.storyboard in Resources */,
 				EB11EE121D9AC16100804D34 /* MainNavHome.xib in Resources */,
+				EBFB07B81D9EAD8500AF2569 /* VolumeView.xib in Resources */,
+				EBFB07A61D9EA07300AF2569 /* FavoriteView.xib in Resources */,
 				EB11EE5F1D9AE0F300804D34 /* 2.mp3 in Resources */,
+				EBFB07BE1D9ECCF300AF2569 /* ic_clearall.png in Resources */,
 				EB11EE1A1D9AC55300804D34 /* BaseNavigation.xib in Resources */,
 				EB05825B1D9C35A300E29C9B /* 1.splash.png in Resources */,
-				EB11EDFB1D9AB2E900804D34 /* BaseVC.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -387,18 +424,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EB11EDCC1D9AB24900804D34 /* ViewController.m in Sources */,
+				EBFB07A91D9EA08700AF2569 /* TimerView.m in Sources */,
 				EB11EDC91D9AB24900804D34 /* AppDelegate.m in Sources */,
+				EBFB07B31D9EA1F000AF2569 /* BaseView.m in Sources */,
 				EB11EE0C1D9AB7AF00804D34 /* TabVC.m in Sources */,
 				EB11EE6E1D9AF4A300804D34 /* CollectionCell.m in Sources */,
 				EB11EE111D9AC16100804D34 /* MainNavHome.m in Sources */,
+				EBFB07A41D9EA06000AF2569 /* FavoriteView.m in Sources */,
 				EB11EE191D9AC55300804D34 /* BaseNavigation.m in Sources */,
 				EB11EE031D9AB4BA00804D34 /* MainNavigationController.m in Sources */,
 				EB11EDC61D9AB24900804D34 /* main.m in Sources */,
+				EBFB07B61D9EAD7200AF2569 /* VolumeView.m in Sources */,
+				EBFB07AE1D9EA0C100AF2569 /* SettingView.m in Sources */,
 				EB11EDFF1D9AB30B00804D34 /* HomeVC.m in Sources */,
 				EB0582591D9C0D2200E29C9B /* SpringboardLayout.m in Sources */,
 				EB11EE661D9AEC5200804D34 /* CollectionVC.m in Sources */,
-				EB11EDFA1D9AB2E900804D34 /* BaseVC.m in Sources */,
 				EB11EE151D9AC41600804D34 /* MainNavigationBaseView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -435,14 +475,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		EB11EDCD1D9AB24900804D34 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				EB11EDCE1D9AB24900804D34 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		EB11EDD21D9AB24900804D34 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -548,6 +580,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = RelaxApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = manh.jojo.RelaxApp;
@@ -559,6 +592,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = RelaxApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = manh.jojo.RelaxApp;
