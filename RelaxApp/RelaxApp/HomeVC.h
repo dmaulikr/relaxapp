@@ -12,8 +12,14 @@
 #import "TimerView.h"
 #import "SettingView.h"
 #import "VolumeView.h"
-@interface HomeVC : UIViewController<AVAudioPlayerDelegate>
+#import "AFHTTPSessionManager.h"
+#import "IDZAQAudioPlayer.h"
+@interface HomeVC : UIViewController<AVAudioPlayerDelegate, IDZAudioPlayerDelegate>
+{
+    AFURLSessionManager *manager;
+    AFHTTPSessionManager *managerCategory;
 
+}
 @property (nonatomic, strong) IBOutlet UIView *vContrainer;
 @property (nonatomic, strong) IBOutlet UIImageView *imgBackGround;
 

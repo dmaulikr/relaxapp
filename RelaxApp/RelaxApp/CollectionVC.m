@@ -10,6 +10,16 @@
 #import "CollectionCell.h"
 #import "SpringboardLayout.h"
 #import "Define.h"
+
+@interface CollectionVC ()
+{
+    NSMutableArray                  *arrCategory;
+    NSMutableArray                  *arrPage;
+    NSMutableArray                  *arrMusic;
+    NSMutableArray                  *arrPlayList;
+
+}
+@end
 @implementation CollectionVC
 -(instancetype)initWithCoder:(NSCoder *)aDecoder
 {
@@ -56,7 +66,7 @@
     int item_height = 90;
     CGRect rect = self.frame;
     int paddingHorizontal = (rect.size.width - 3*item_width)/3;
-    int paddingVertical = (rect.size.height - 5*item_height)/6;
+    int paddingVertical = (rect.size.height - 65  - 5*item_height)/6;
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
     // setting cell attributes globally via layout properties ///////////////
     [self.collectionView setCollectionViewLayout:layout];
@@ -65,28 +75,65 @@
     layout.minimumLineSpacing = paddingHorizontal;
     layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
     layout.sectionInset = UIEdgeInsetsMake(paddingVertical/2 + 10, paddingHorizontal/2, paddingVertical/2 + 10, paddingHorizontal/2);
-    
-    double pages = ceil(100/15 + 0.5);
-    [self.pageControl setNumberOfPages:pages];
+    [self.collectionView setShowsHorizontalScrollIndicator:NO];
+    [self.collectionView setShowsVerticalScrollIndicator:NO];
 }
 
 -(void)instance
 {
     self.pageControl.currentPageIndicatorTintColor = UIColorFromRGB(COLOR_PAGE_ACTIVE);
     [self.collectionView registerNib:[UINib nibWithNibName:@"CollectionCell" bundle:nil] forCellWithReuseIdentifier:@"collectionID"];
+    self.collectionView.allowsSelection = NO;
+    arrCategory = [NSMutableArray new];
+    arrMusic  = [NSMutableArray new];
+    arrPlayList = [NSMutableArray new];
 }
+//MARK: - DATA
+-(void)fnSetDataCategory:(NSArray*)category
+{
+    arrCategory = [category mutableCopy];
+    
+    
+    NSString *myJSON = [[NSString alloc] initWithContentsOfFile:[self getFullPathWithFileName:@"1/example.json"] encoding:NSUTF8StringEncoding error:NULL];
+    NSError *error =  nil;
+    NSDictionary *dicTmp = [NSJSONSerialization JSONObjectWithData:[myJSON dataUsingEncoding:NSUTF8StringEncoding] options:kNilOptions error:&error];
+    arrMusic = [dicTmp[@"Exprorer Cities"] mutableCopy];
+  //  [arrMusic addObjectsFromArray:dicTmp[@"Exprorer Cities"]];
+ //   [arrMusic addObjectsFromArray:dicTmp[@"Exprorer Cities"]];
+ //   [arrMusic addObjectsFromArray:dicTmp[@"Exprorer Cities"]];
+
+    double pages = ceil(arrMusic.count/15);
+    [self.pageControl setNumberOfPages:pages];
+
+    [self.collectionView reloadData];
+}
+-(NSString*)getFullPathWithFileName:(NSString*)fileName
+{
+    NSArray       *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString  *documentsDirectory = [paths objectAtIndex:0];
+    NSString *archivePath = [documentsDirectory stringByAppendingPathComponent:fileName];
+    return archivePath;
+}
+//MARK: - COLLECTION
 // collection view data source methods ////////////////////////////////////
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return 100;
+    return arrMusic.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
+    NSDictionary *dic = arrMusic[indexPath.row];
     CollectionCell *cell = (CollectionCell *)[collectionView dequeueReusableCellWithReuseIdentifier:@"collectionID" forIndexPath:indexPath];
 
-    cell.lbTitle.text = [NSString stringWithFormat:@"Rio de janeiro %ld", (long)indexPath.row];
+    cell.lbTitle.text = dic[@"titleShort"];
+    NSString *fullPath = [self getFullPathWithFileName:[NSString stringWithFormat:@"1/%@",dic[@"img"]]];
+    cell.imgIcon.image = [UIImage imageWithContentsOfFile:fullPath];
+    [cell setCallback:^(GESTURE_TYPE type, NSInteger index)
+     {
+
+     }];
     return cell;
 }
 /////////////////////////////////////////////////////////////////////////////////

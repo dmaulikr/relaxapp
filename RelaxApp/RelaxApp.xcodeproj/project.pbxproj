@@ -45,6 +45,36 @@
 		EBFB07BA1D9EC6B400AF2569 /* volume.png in Resources */ = {isa = PBXBuildFile; fileRef = EBFB07B91D9EC6B400AF2569 /* volume.png */; };
 		EBFB07BC1D9ECCE500AF2569 /* ic_favorist.png in Resources */ = {isa = PBXBuildFile; fileRef = EBFB07BB1D9ECCE500AF2569 /* ic_favorist.png */; };
 		EBFB07BE1D9ECCF300AF2569 /* ic_clearall.png in Resources */ = {isa = PBXBuildFile; fileRef = EBFB07BD1D9ECCF300AF2569 /* ic_clearall.png */; };
+		EBFF13B71DA00E1700CA98F1 /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EBFF13AB1DA00E1700CA98F1 /* AFHTTPSessionManager.m */; };
+		EBFF13B81DA00E1700CA98F1 /* AFNetworkReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EBFF13AE1DA00E1700CA98F1 /* AFNetworkReachabilityManager.m */; };
+		EBFF13B91DA00E1700CA98F1 /* AFSecurityPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = EBFF13B01DA00E1700CA98F1 /* AFSecurityPolicy.m */; };
+		EBFF13BA1DA00E1700CA98F1 /* AFURLRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = EBFF13B21DA00E1700CA98F1 /* AFURLRequestSerialization.m */; };
+		EBFF13BB1DA00E1700CA98F1 /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = EBFF13B41DA00E1700CA98F1 /* AFURLResponseSerialization.m */; };
+		EBFF13BC1DA00E1700CA98F1 /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EBFF13B61DA00E1700CA98F1 /* AFURLSessionManager.m */; };
+		EBFF13F81DA01D7500CA98F1 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = EBFF13F41DA01CFA00CA98F1 /* libz.tbd */; };
+		EBFF14231DA01E4700CA98F1 /* aescrypt.c in Sources */ = {isa = PBXBuildFile; fileRef = EBFF14001DA01E4600CA98F1 /* aescrypt.c */; };
+		EBFF14241DA01E4700CA98F1 /* aeskey.c in Sources */ = {isa = PBXBuildFile; fileRef = EBFF14011DA01E4600CA98F1 /* aeskey.c */; };
+		EBFF14251DA01E4700CA98F1 /* aestab.c in Sources */ = {isa = PBXBuildFile; fileRef = EBFF14031DA01E4600CA98F1 /* aestab.c */; };
+		EBFF14261DA01E4700CA98F1 /* entropy.c in Sources */ = {isa = PBXBuildFile; fileRef = EBFF14071DA01E4600CA98F1 /* entropy.c */; };
+		EBFF14271DA01E4700CA98F1 /* fileenc.c in Sources */ = {isa = PBXBuildFile; fileRef = EBFF14091DA01E4600CA98F1 /* fileenc.c */; };
+		EBFF14281DA01E4700CA98F1 /* hmac.c in Sources */ = {isa = PBXBuildFile; fileRef = EBFF140B1DA01E4600CA98F1 /* hmac.c */; };
+		EBFF14291DA01E4700CA98F1 /* prng.c in Sources */ = {isa = PBXBuildFile; fileRef = EBFF140D1DA01E4600CA98F1 /* prng.c */; };
+		EBFF142A1DA01E4700CA98F1 /* pwd2key.c in Sources */ = {isa = PBXBuildFile; fileRef = EBFF140F1DA01E4600CA98F1 /* pwd2key.c */; };
+		EBFF142B1DA01E4700CA98F1 /* sha1.c in Sources */ = {isa = PBXBuildFile; fileRef = EBFF14111DA01E4600CA98F1 /* sha1.c */; };
+		EBFF142C1DA01E4700CA98F1 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EBFF14131DA01E4600CA98F1 /* Info.plist */; };
+		EBFF142D1DA01E4700CA98F1 /* ioapi.c in Sources */ = {isa = PBXBuildFile; fileRef = EBFF14161DA01E4600CA98F1 /* ioapi.c */; };
+		EBFF142E1DA01E4700CA98F1 /* mztools.c in Sources */ = {isa = PBXBuildFile; fileRef = EBFF14181DA01E4600CA98F1 /* mztools.c */; };
+		EBFF142F1DA01E4700CA98F1 /* unzip.c in Sources */ = {isa = PBXBuildFile; fileRef = EBFF141A1DA01E4600CA98F1 /* unzip.c */; };
+		EBFF14301DA01E4700CA98F1 /* zip.c in Sources */ = {isa = PBXBuildFile; fileRef = EBFF141C1DA01E4600CA98F1 /* zip.c */; };
+		EBFF14321DA01E4700CA98F1 /* SSZipArchive.m in Sources */ = {isa = PBXBuildFile; fileRef = EBFF14201DA01E4600CA98F1 /* SSZipArchive.m */; };
+		EBFF14621DA04B7E00CA98F1 /* Ogg.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBFF14601DA04B7E00CA98F1 /* Ogg.framework */; };
+		EBFF14631DA04B7E00CA98F1 /* Vorbis.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBFF14611DA04B7E00CA98F1 /* Vorbis.framework */; };
+		EBFF14741DA04C2800CA98F1 /* IDZAQAudioPlayerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBFF14651DA04C2800CA98F1 /* IDZAQAudioPlayerViewController.xib */; };
+		EBFF14751DA04C2800CA98F1 /* IDZAudioPlayerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBFF14671DA04C2800CA98F1 /* IDZAudioPlayerViewController.xib */; };
+		EBFF14761DA04C2800CA98F1 /* IDZAQAudioPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = EBFF146A1DA04C2800CA98F1 /* IDZAQAudioPlayer.m */; };
+		EBFF14771DA04C2800CA98F1 /* IDZAQAudioPlayerAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EBFF146C1DA04C2800CA98F1 /* IDZAQAudioPlayerAppDelegate.m */; };
+		EBFF14781DA04C2800CA98F1 /* IDZAudioPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EBFF14701DA04C2800CA98F1 /* IDZAudioPlayerViewController.m */; };
+		EBFF14791DA04C2800CA98F1 /* IDZOggVorbisFileDecoder.mm in Sources */ = {isa = PBXBuildFile; fileRef = EBFF14721DA04C2800CA98F1 /* IDZOggVorbisFileDecoder.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -125,6 +155,71 @@
 		EBFB07BB1D9ECCE500AF2569 /* ic_favorist.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_favorist.png; sourceTree = "<group>"; };
 		EBFB07BD1D9ECCF300AF2569 /* ic_clearall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_clearall.png; sourceTree = "<group>"; };
 		EBFB07BF1D9EE03100AF2569 /* Define.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Define.h; sourceTree = "<group>"; };
+		EBFF13AA1DA00E1700CA98F1 /* AFHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPSessionManager.h; sourceTree = "<group>"; };
+		EBFF13AB1DA00E1700CA98F1 /* AFHTTPSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPSessionManager.m; sourceTree = "<group>"; };
+		EBFF13AC1DA00E1700CA98F1 /* AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworking.h; sourceTree = "<group>"; };
+		EBFF13AD1DA00E1700CA98F1 /* AFNetworkReachabilityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworkReachabilityManager.h; sourceTree = "<group>"; };
+		EBFF13AE1DA00E1700CA98F1 /* AFNetworkReachabilityManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFNetworkReachabilityManager.m; sourceTree = "<group>"; };
+		EBFF13AF1DA00E1700CA98F1 /* AFSecurityPolicy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFSecurityPolicy.h; sourceTree = "<group>"; };
+		EBFF13B01DA00E1700CA98F1 /* AFSecurityPolicy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFSecurityPolicy.m; sourceTree = "<group>"; };
+		EBFF13B11DA00E1700CA98F1 /* AFURLRequestSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLRequestSerialization.h; sourceTree = "<group>"; };
+		EBFF13B21DA00E1700CA98F1 /* AFURLRequestSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLRequestSerialization.m; sourceTree = "<group>"; };
+		EBFF13B31DA00E1700CA98F1 /* AFURLResponseSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLResponseSerialization.h; sourceTree = "<group>"; };
+		EBFF13B41DA00E1700CA98F1 /* AFURLResponseSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLResponseSerialization.m; sourceTree = "<group>"; };
+		EBFF13B51DA00E1700CA98F1 /* AFURLSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLSessionManager.h; sourceTree = "<group>"; };
+		EBFF13B61DA00E1700CA98F1 /* AFURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLSessionManager.m; sourceTree = "<group>"; };
+		EBFF13F41DA01CFA00CA98F1 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		EBFF13F61DA01D1100CA98F1 /* libz.1.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.1.tbd; path = usr/lib/libz.1.tbd; sourceTree = SDKROOT; };
+		EBFF13FE1DA01E4600CA98F1 /* aes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = aes.h; sourceTree = "<group>"; };
+		EBFF13FF1DA01E4600CA98F1 /* aes_via_ace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = aes_via_ace.h; sourceTree = "<group>"; };
+		EBFF14001DA01E4600CA98F1 /* aescrypt.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = aescrypt.c; sourceTree = "<group>"; };
+		EBFF14011DA01E4600CA98F1 /* aeskey.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = aeskey.c; sourceTree = "<group>"; };
+		EBFF14021DA01E4600CA98F1 /* aesopt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = aesopt.h; sourceTree = "<group>"; };
+		EBFF14031DA01E4600CA98F1 /* aestab.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = aestab.c; sourceTree = "<group>"; };
+		EBFF14041DA01E4600CA98F1 /* aestab.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = aestab.h; sourceTree = "<group>"; };
+		EBFF14051DA01E4600CA98F1 /* brg_endian.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = brg_endian.h; sourceTree = "<group>"; };
+		EBFF14061DA01E4600CA98F1 /* brg_types.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = brg_types.h; sourceTree = "<group>"; };
+		EBFF14071DA01E4600CA98F1 /* entropy.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = entropy.c; sourceTree = "<group>"; };
+		EBFF14081DA01E4600CA98F1 /* entropy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = entropy.h; sourceTree = "<group>"; };
+		EBFF14091DA01E4600CA98F1 /* fileenc.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = fileenc.c; sourceTree = "<group>"; };
+		EBFF140A1DA01E4600CA98F1 /* fileenc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fileenc.h; sourceTree = "<group>"; };
+		EBFF140B1DA01E4600CA98F1 /* hmac.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = hmac.c; sourceTree = "<group>"; };
+		EBFF140C1DA01E4600CA98F1 /* hmac.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = hmac.h; sourceTree = "<group>"; };
+		EBFF140D1DA01E4600CA98F1 /* prng.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = prng.c; sourceTree = "<group>"; };
+		EBFF140E1DA01E4600CA98F1 /* prng.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = prng.h; sourceTree = "<group>"; };
+		EBFF140F1DA01E4600CA98F1 /* pwd2key.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = pwd2key.c; sourceTree = "<group>"; };
+		EBFF14101DA01E4600CA98F1 /* pwd2key.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pwd2key.h; sourceTree = "<group>"; };
+		EBFF14111DA01E4600CA98F1 /* sha1.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = sha1.c; sourceTree = "<group>"; };
+		EBFF14121DA01E4600CA98F1 /* sha1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sha1.h; sourceTree = "<group>"; };
+		EBFF14131DA01E4600CA98F1 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EBFF14151DA01E4600CA98F1 /* crypt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = crypt.h; sourceTree = "<group>"; };
+		EBFF14161DA01E4600CA98F1 /* ioapi.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ioapi.c; sourceTree = "<group>"; };
+		EBFF14171DA01E4600CA98F1 /* ioapi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ioapi.h; sourceTree = "<group>"; };
+		EBFF14181DA01E4600CA98F1 /* mztools.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = mztools.c; sourceTree = "<group>"; };
+		EBFF14191DA01E4600CA98F1 /* mztools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mztools.h; sourceTree = "<group>"; };
+		EBFF141A1DA01E4600CA98F1 /* unzip.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = unzip.c; sourceTree = "<group>"; };
+		EBFF141B1DA01E4600CA98F1 /* unzip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = unzip.h; sourceTree = "<group>"; };
+		EBFF141C1DA01E4600CA98F1 /* zip.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = zip.c; sourceTree = "<group>"; };
+		EBFF141D1DA01E4600CA98F1 /* zip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zip.h; sourceTree = "<group>"; };
+		EBFF141F1DA01E4600CA98F1 /* SSZipArchive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSZipArchive.h; sourceTree = "<group>"; };
+		EBFF14201DA01E4600CA98F1 /* SSZipArchive.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSZipArchive.m; sourceTree = "<group>"; };
+		EBFF14211DA01E4700CA98F1 /* SSZipCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSZipCommon.h; sourceTree = "<group>"; };
+		EBFF14221DA01E4700CA98F1 /* ZipArchive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZipArchive.h; sourceTree = "<group>"; };
+		EBFF14601DA04B7E00CA98F1 /* Ogg.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Ogg.framework; path = Frameworks/Ogg.framework; sourceTree = "<group>"; };
+		EBFF14611DA04B7E00CA98F1 /* Vorbis.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Vorbis.framework; path = Frameworks/Vorbis.framework; sourceTree = "<group>"; };
+		EBFF14661DA04C2800CA98F1 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/IDZAQAudioPlayerViewController.xib; sourceTree = "<group>"; };
+		EBFF14681DA04C2800CA98F1 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/IDZAudioPlayerViewController.xib; sourceTree = "<group>"; };
+		EBFF14691DA04C2800CA98F1 /* IDZAQAudioPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDZAQAudioPlayer.h; sourceTree = "<group>"; };
+		EBFF146A1DA04C2800CA98F1 /* IDZAQAudioPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDZAQAudioPlayer.m; sourceTree = "<group>"; };
+		EBFF146B1DA04C2800CA98F1 /* IDZAQAudioPlayerAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDZAQAudioPlayerAppDelegate.h; sourceTree = "<group>"; };
+		EBFF146C1DA04C2800CA98F1 /* IDZAQAudioPlayerAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDZAQAudioPlayerAppDelegate.m; sourceTree = "<group>"; };
+		EBFF146D1DA04C2800CA98F1 /* IDZAudioDecoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDZAudioDecoder.h; sourceTree = "<group>"; };
+		EBFF146E1DA04C2800CA98F1 /* IDZAudioPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDZAudioPlayer.h; sourceTree = "<group>"; };
+		EBFF146F1DA04C2800CA98F1 /* IDZAudioPlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDZAudioPlayerViewController.h; sourceTree = "<group>"; };
+		EBFF14701DA04C2800CA98F1 /* IDZAudioPlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDZAudioPlayerViewController.m; sourceTree = "<group>"; };
+		EBFF14711DA04C2800CA98F1 /* IDZOggVorbisFileDecoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDZOggVorbisFileDecoder.h; sourceTree = "<group>"; };
+		EBFF14721DA04C2800CA98F1 /* IDZOggVorbisFileDecoder.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = IDZOggVorbisFileDecoder.mm; sourceTree = "<group>"; };
+		EBFF14731DA04C2800CA98F1 /* IDZTrace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDZTrace.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +227,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EBFF14621DA04B7E00CA98F1 /* Ogg.framework in Frameworks */,
+				EBFF14631DA04B7E00CA98F1 /* Vorbis.framework in Frameworks */,
+				EBFF13F81DA01D7500CA98F1 /* libz.tbd in Frameworks */,
 				EB11EE6A1D9AF45000804D34 /* QuartzCore.framework in Frameworks */,
 				EB11EE591D9ADAFF00804D34 /* AVFoundation.framework in Frameworks */,
 			);
@@ -184,6 +282,9 @@
 				EB05825A1D9C35A300E29C9B /* 1.splash.png */,
 				EB11EE551D9AD94800804D34 /* 1.mp3 */,
 				EB11EE5E1D9AE0F300804D34 /* 2.mp3 */,
+				EBFF14641DA04C2800CA98F1 /* IDZAQAudioPlayer */,
+				EBFF13FC1DA01E4600CA98F1 /* SSZipArchive */,
+				EBFF13A91DA00E1700CA98F1 /* AFNetworking */,
 				EB11EE631D9AEBCF00804D34 /* Nav */,
 				EB11EDC71D9AB24900804D34 /* AppDelegate.h */,
 				EB11EDC81D9AB24900804D34 /* AppDelegate.m */,
@@ -197,8 +298,8 @@
 				EB0582581D9C0D2200E29C9B /* SpringboardLayout.m */,
 				EBFB07B11D9EA1F000AF2569 /* BaseView.h */,
 				EBFB07B21D9EA1F000AF2569 /* BaseView.m */,
-				EBFB07A21D9EA06000AF2569 /* FavoriteView.h */,
 				EBFB07A31D9EA06000AF2569 /* FavoriteView.m */,
+				EBFB07A21D9EA06000AF2569 /* FavoriteView.h */,
 				EBFB07A51D9EA07300AF2569 /* FavoriteView.xib */,
 				EBFB07A71D9EA08700AF2569 /* TimerView.h */,
 				EBFB07A81D9EA08700AF2569 /* TimerView.m */,
@@ -250,6 +351,10 @@
 		EB11EE571D9ADAFF00804D34 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EBFF14601DA04B7E00CA98F1 /* Ogg.framework */,
+				EBFF14611DA04B7E00CA98F1 /* Vorbis.framework */,
+				EBFF13F61DA01D1100CA98F1 /* libz.1.tbd */,
+				EBFF13F41DA01CFA00CA98F1 /* libz.tbd */,
 				EB11EE691D9AF45000804D34 /* QuartzCore.framework */,
 				EB11EE581D9ADAFF00804D34 /* AVFoundation.framework */,
 			);
@@ -274,6 +379,104 @@
 				EB11EE0B1D9AB7AF00804D34 /* TabVC.xib */,
 			);
 			name = Nav;
+			sourceTree = "<group>";
+		};
+		EBFF13A91DA00E1700CA98F1 /* AFNetworking */ = {
+			isa = PBXGroup;
+			children = (
+				EBFF13AA1DA00E1700CA98F1 /* AFHTTPSessionManager.h */,
+				EBFF13AB1DA00E1700CA98F1 /* AFHTTPSessionManager.m */,
+				EBFF13AC1DA00E1700CA98F1 /* AFNetworking.h */,
+				EBFF13AD1DA00E1700CA98F1 /* AFNetworkReachabilityManager.h */,
+				EBFF13AE1DA00E1700CA98F1 /* AFNetworkReachabilityManager.m */,
+				EBFF13AF1DA00E1700CA98F1 /* AFSecurityPolicy.h */,
+				EBFF13B01DA00E1700CA98F1 /* AFSecurityPolicy.m */,
+				EBFF13B11DA00E1700CA98F1 /* AFURLRequestSerialization.h */,
+				EBFF13B21DA00E1700CA98F1 /* AFURLRequestSerialization.m */,
+				EBFF13B31DA00E1700CA98F1 /* AFURLResponseSerialization.h */,
+				EBFF13B41DA00E1700CA98F1 /* AFURLResponseSerialization.m */,
+				EBFF13B51DA00E1700CA98F1 /* AFURLSessionManager.h */,
+				EBFF13B61DA00E1700CA98F1 /* AFURLSessionManager.m */,
+			);
+			path = AFNetworking;
+			sourceTree = "<group>";
+		};
+		EBFF13FC1DA01E4600CA98F1 /* SSZipArchive */ = {
+			isa = PBXGroup;
+			children = (
+				EBFF13FD1DA01E4600CA98F1 /* aes */,
+				EBFF14131DA01E4600CA98F1 /* Info.plist */,
+				EBFF14141DA01E4600CA98F1 /* minizip */,
+				EBFF141F1DA01E4600CA98F1 /* SSZipArchive.h */,
+				EBFF14201DA01E4600CA98F1 /* SSZipArchive.m */,
+				EBFF14211DA01E4700CA98F1 /* SSZipCommon.h */,
+				EBFF14221DA01E4700CA98F1 /* ZipArchive.h */,
+			);
+			path = SSZipArchive;
+			sourceTree = "<group>";
+		};
+		EBFF13FD1DA01E4600CA98F1 /* aes */ = {
+			isa = PBXGroup;
+			children = (
+				EBFF13FE1DA01E4600CA98F1 /* aes.h */,
+				EBFF13FF1DA01E4600CA98F1 /* aes_via_ace.h */,
+				EBFF14001DA01E4600CA98F1 /* aescrypt.c */,
+				EBFF14011DA01E4600CA98F1 /* aeskey.c */,
+				EBFF14021DA01E4600CA98F1 /* aesopt.h */,
+				EBFF14031DA01E4600CA98F1 /* aestab.c */,
+				EBFF14041DA01E4600CA98F1 /* aestab.h */,
+				EBFF14051DA01E4600CA98F1 /* brg_endian.h */,
+				EBFF14061DA01E4600CA98F1 /* brg_types.h */,
+				EBFF14071DA01E4600CA98F1 /* entropy.c */,
+				EBFF14081DA01E4600CA98F1 /* entropy.h */,
+				EBFF14091DA01E4600CA98F1 /* fileenc.c */,
+				EBFF140A1DA01E4600CA98F1 /* fileenc.h */,
+				EBFF140B1DA01E4600CA98F1 /* hmac.c */,
+				EBFF140C1DA01E4600CA98F1 /* hmac.h */,
+				EBFF140D1DA01E4600CA98F1 /* prng.c */,
+				EBFF140E1DA01E4600CA98F1 /* prng.h */,
+				EBFF140F1DA01E4600CA98F1 /* pwd2key.c */,
+				EBFF14101DA01E4600CA98F1 /* pwd2key.h */,
+				EBFF14111DA01E4600CA98F1 /* sha1.c */,
+				EBFF14121DA01E4600CA98F1 /* sha1.h */,
+			);
+			path = aes;
+			sourceTree = "<group>";
+		};
+		EBFF14141DA01E4600CA98F1 /* minizip */ = {
+			isa = PBXGroup;
+			children = (
+				EBFF14151DA01E4600CA98F1 /* crypt.h */,
+				EBFF14161DA01E4600CA98F1 /* ioapi.c */,
+				EBFF14171DA01E4600CA98F1 /* ioapi.h */,
+				EBFF14181DA01E4600CA98F1 /* mztools.c */,
+				EBFF14191DA01E4600CA98F1 /* mztools.h */,
+				EBFF141A1DA01E4600CA98F1 /* unzip.c */,
+				EBFF141B1DA01E4600CA98F1 /* unzip.h */,
+				EBFF141C1DA01E4600CA98F1 /* zip.c */,
+				EBFF141D1DA01E4600CA98F1 /* zip.h */,
+			);
+			path = minizip;
+			sourceTree = "<group>";
+		};
+		EBFF14641DA04C2800CA98F1 /* IDZAQAudioPlayer */ = {
+			isa = PBXGroup;
+			children = (
+				EBFF14651DA04C2800CA98F1 /* IDZAQAudioPlayerViewController.xib */,
+				EBFF14671DA04C2800CA98F1 /* IDZAudioPlayerViewController.xib */,
+				EBFF14691DA04C2800CA98F1 /* IDZAQAudioPlayer.h */,
+				EBFF146A1DA04C2800CA98F1 /* IDZAQAudioPlayer.m */,
+				EBFF146B1DA04C2800CA98F1 /* IDZAQAudioPlayerAppDelegate.h */,
+				EBFF146C1DA04C2800CA98F1 /* IDZAQAudioPlayerAppDelegate.m */,
+				EBFF146D1DA04C2800CA98F1 /* IDZAudioDecoder.h */,
+				EBFF146E1DA04C2800CA98F1 /* IDZAudioPlayer.h */,
+				EBFF146F1DA04C2800CA98F1 /* IDZAudioPlayerViewController.h */,
+				EBFF14701DA04C2800CA98F1 /* IDZAudioPlayerViewController.m */,
+				EBFF14711DA04C2800CA98F1 /* IDZOggVorbisFileDecoder.h */,
+				EBFF14721DA04C2800CA98F1 /* IDZOggVorbisFileDecoder.mm */,
+				EBFF14731DA04C2800CA98F1 /* IDZTrace.h */,
+			);
+			path = IDZAQAudioPlayer;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -384,6 +587,7 @@
 			files = (
 				EB11EE561D9AD94800804D34 /* 1.mp3 in Resources */,
 				EBFB07B01D9EA0D300AF2569 /* SettingView.xib in Resources */,
+				EBFF14751DA04C2800CA98F1 /* IDZAudioPlayerViewController.xib in Resources */,
 				EBFB07BC1D9ECCE500AF2569 /* ic_favorist.png in Resources */,
 				EB11EDD41D9AB24900804D34 /* LaunchScreen.storyboard in Resources */,
 				EB11EDD11D9AB24900804D34 /* Assets.xcassets in Resources */,
@@ -391,6 +595,7 @@
 				EBFB07BA1D9EC6B400AF2569 /* volume.png in Resources */,
 				EB11EE681D9AEC7000804D34 /* CollectionVC.xib in Resources */,
 				EB11EE0D1D9AB7AF00804D34 /* TabVC.xib in Resources */,
+				EBFF142C1DA01E4700CA98F1 /* Info.plist in Resources */,
 				EBFB07AB1D9EA0A100AF2569 /* TimerView.xib in Resources */,
 				EB11EE001D9AB30B00804D34 /* HomeVC.xib in Resources */,
 				EB11EE121D9AC16100804D34 /* MainNavHome.xib in Resources */,
@@ -399,6 +604,7 @@
 				EB11EE5F1D9AE0F300804D34 /* 2.mp3 in Resources */,
 				EBFB07BE1D9ECCF300AF2569 /* ic_clearall.png in Resources */,
 				EB11EE1A1D9AC55300804D34 /* BaseNavigation.xib in Resources */,
+				EBFF14741DA04C2800CA98F1 /* IDZAQAudioPlayerViewController.xib in Resources */,
 				EB05825B1D9C35A300E29C9B /* 1.splash.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -424,22 +630,46 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EBFF14761DA04C2800CA98F1 /* IDZAQAudioPlayer.m in Sources */,
+				EBFF14791DA04C2800CA98F1 /* IDZOggVorbisFileDecoder.mm in Sources */,
 				EBFB07A91D9EA08700AF2569 /* TimerView.m in Sources */,
 				EB11EDC91D9AB24900804D34 /* AppDelegate.m in Sources */,
 				EBFB07B31D9EA1F000AF2569 /* BaseView.m in Sources */,
+				EBFF14771DA04C2800CA98F1 /* IDZAQAudioPlayerAppDelegate.m in Sources */,
+				EBFF14241DA01E4700CA98F1 /* aeskey.c in Sources */,
 				EB11EE0C1D9AB7AF00804D34 /* TabVC.m in Sources */,
+				EBFF142E1DA01E4700CA98F1 /* mztools.c in Sources */,
+				EBFF14261DA01E4700CA98F1 /* entropy.c in Sources */,
 				EB11EE6E1D9AF4A300804D34 /* CollectionCell.m in Sources */,
 				EB11EE111D9AC16100804D34 /* MainNavHome.m in Sources */,
+				EBFF14281DA01E4700CA98F1 /* hmac.c in Sources */,
 				EBFB07A41D9EA06000AF2569 /* FavoriteView.m in Sources */,
+				EBFF142D1DA01E4700CA98F1 /* ioapi.c in Sources */,
+				EBFF13BA1DA00E1700CA98F1 /* AFURLRequestSerialization.m in Sources */,
 				EB11EE191D9AC55300804D34 /* BaseNavigation.m in Sources */,
+				EBFF13B91DA00E1700CA98F1 /* AFSecurityPolicy.m in Sources */,
+				EBFF14291DA01E4700CA98F1 /* prng.c in Sources */,
+				EBFF14251DA01E4700CA98F1 /* aestab.c in Sources */,
 				EB11EE031D9AB4BA00804D34 /* MainNavigationController.m in Sources */,
+				EBFF14301DA01E4700CA98F1 /* zip.c in Sources */,
+				EBFF142A1DA01E4700CA98F1 /* pwd2key.c in Sources */,
 				EB11EDC61D9AB24900804D34 /* main.m in Sources */,
+				EBFF13B81DA00E1700CA98F1 /* AFNetworkReachabilityManager.m in Sources */,
 				EBFB07B61D9EAD7200AF2569 /* VolumeView.m in Sources */,
 				EBFB07AE1D9EA0C100AF2569 /* SettingView.m in Sources */,
+				EBFF13BC1DA00E1700CA98F1 /* AFURLSessionManager.m in Sources */,
+				EBFF14231DA01E4700CA98F1 /* aescrypt.c in Sources */,
 				EB11EDFF1D9AB30B00804D34 /* HomeVC.m in Sources */,
+				EBFF14781DA04C2800CA98F1 /* IDZAudioPlayerViewController.m in Sources */,
+				EBFF14271DA01E4700CA98F1 /* fileenc.c in Sources */,
 				EB0582591D9C0D2200E29C9B /* SpringboardLayout.m in Sources */,
+				EBFF142F1DA01E4700CA98F1 /* unzip.c in Sources */,
 				EB11EE661D9AEC5200804D34 /* CollectionVC.m in Sources */,
+				EBFF13B71DA00E1700CA98F1 /* AFHTTPSessionManager.m in Sources */,
+				EBFF13BB1DA00E1700CA98F1 /* AFURLResponseSerialization.m in Sources */,
 				EB11EE151D9AC41600804D34 /* MainNavigationBaseView.m in Sources */,
+				EBFF142B1DA01E4700CA98F1 /* sha1.c in Sources */,
+				EBFF14321DA01E4700CA98F1 /* SSZipArchive.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -481,6 +711,22 @@
 				EB11EDD31D9AB24900804D34 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		EBFF14651DA04C2800CA98F1 /* IDZAQAudioPlayerViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EBFF14661DA04C2800CA98F1 /* en */,
+			);
+			name = IDZAQAudioPlayerViewController.xib;
+			sourceTree = "<group>";
+		};
+		EBFF14671DA04C2800CA98F1 /* IDZAudioPlayerViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EBFF14681DA04C2800CA98F1 /* en */,
+			);
+			name = IDZAudioPlayerViewController.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -581,6 +827,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				DEVELOPMENT_TEAM = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Frameworks",
+				);
 				INFOPLIST_FILE = RelaxApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = manh.jojo.RelaxApp;
@@ -593,6 +844,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				DEVELOPMENT_TEAM = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Frameworks",
+				);
 				INFOPLIST_FILE = RelaxApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = manh.jojo.RelaxApp;

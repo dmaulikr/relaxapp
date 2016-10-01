@@ -15,6 +15,34 @@
     // Initialization code
     [self.imgIcon.layer setMasksToBounds:YES];
     self.imgIcon.layer.cornerRadius= 10.0;
+    /**Adds a gesture recognizer for a long press.*/
+    UILongPressGestureRecognizer * pressRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(handleLongPress:)];
+    pressRecognizer.minimumPressDuration = 1.5;
+    [self addGestureRecognizer:pressRecognizer];
+    
+    /**Adds a gesture recognizer for a tab.*/
+    UITapGestureRecognizer * tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap:)];
+    tapRecognizer.numberOfTapsRequired = 1;
+    [tapRecognizer requireGestureRecognizerToFail:pressRecognizer];
+    [self addGestureRecognizer:tapRecognizer];
+
+}
+#pragma mark User-Interaction handling
+
+-(void)handleTap:(UIGestureRecognizer *)gestureRecognizer{
+    if (_callback) {
+        _callback(GESTURE_TAP,self.imgIcon.tag);
+    }
+ 
 }
 
+-(void)handleLongPress:(UIGestureRecognizer *)gestureRecognizer {
+    if (_callback) {
+        _callback(GESTURE_LONG,self.imgIcon.tag);
+    }
+}
+-(void)setCallback:(CollectionCellCallback)callback
+{
+    _callback = callback;
+}
 @end

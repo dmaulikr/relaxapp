@@ -14,4 +14,6 @@
 
 -(instancetype)initWithEVC;
 -(void)addContraintSupview:(UIView*)viewSuper;
+-(void)fnSetDataCategory:(NSArray*)category;
+
 @end
