@@ -31,4 +31,8 @@
 {
     self .hidden = YES;
 }
+- (IBAction)volumeSliderChanged:(id)sender
+{
+    UISlider *slider = (UISlider*)sender;
+}
 @end

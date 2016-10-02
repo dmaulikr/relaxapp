@@ -123,7 +123,10 @@ static void IDZPropertyListener(void* inUserData,
             pPlayer.currentTime = 0;
         }
         if(!isRunning)
+        {
             pPlayer.state = IDZAudioPlayerStateStopped;
+            [pPlayer play];
+        }
     }
     
 }
@@ -168,7 +171,10 @@ static void IDZPropertyListener(void* inUserData,
     mQueueStartTime = 0.0;
     return self;
 }
-
+- (void)setVolume:(float)Level
+{
+    AudioQueueSetParameter(mQueue, kAudioQueueParam_Volume, Level);
+}
 - (BOOL)prepareToPlay
 {
     for(int i = 0; i < IDZ_BUFFER_COUNT; ++i)

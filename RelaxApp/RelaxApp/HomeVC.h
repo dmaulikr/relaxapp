@@ -12,6 +12,7 @@
 #import "TimerView.h"
 #import "SettingView.h"
 #import "VolumeView.h"
+#import "VolumeItem.h"
 #import "AFHTTPSessionManager.h"
 #import "IDZAQAudioPlayer.h"
 @interface HomeVC : UIViewController<AVAudioPlayerDelegate, IDZAudioPlayerDelegate>
@@ -27,6 +28,7 @@
 @property (nonatomic, strong)  FavoriteView *vFavorite;
 @property (nonatomic, strong)  SettingView *vSetting;
 @property (nonatomic, strong)  TimerView *vTimer;
-@property (nonatomic, strong)  VolumeView *vVolume;
+@property (nonatomic, strong)  VolumeView *vVolumeTotal;
+@property (nonatomic, strong)  VolumeItem *vVolumeItem;
 
 @end

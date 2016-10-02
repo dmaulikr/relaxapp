@@ -77,6 +77,7 @@
     layout.sectionInset = UIEdgeInsetsMake(paddingVertical/2 + 10, paddingHorizontal/2, paddingVertical/2 + 10, paddingHorizontal/2);
     [self.collectionView setShowsHorizontalScrollIndicator:NO];
     [self.collectionView setShowsVerticalScrollIndicator:NO];
+    
 }
 
 -(void)instance
@@ -107,12 +108,34 @@
 
     [self.collectionView reloadData];
 }
+-(void)updateDataMusic:(NSArray*)arrTmp
+{
+    arrMusic = [arrTmp mutableCopy];
+    double pages = ceil(arrMusic.count/15);
+    [self.pageControl setNumberOfPages:pages];
+    
+    [self.collectionView reloadData];
+
+}
 -(NSString*)getFullPathWithFileName:(NSString*)fileName
 {
     NSArray       *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString  *documentsDirectory = [paths objectAtIndex:0];
     NSString *archivePath = [documentsDirectory stringByAppendingPathComponent:fileName];
     return archivePath;
+}
+//MARK: -
+-(void)selectItem:(NSInteger)index
+{
+    NSDictionary *dic = arrMusic[index];
+
+        if (_callback) {
+            _callback(dic);
+        }
+}
+-(void)setCallback:(CollectionVCCallback)callback
+{
+    _callback = callback;
 }
 //MARK: - COLLECTION
 // collection view data source methods ////////////////////////////////////
@@ -130,9 +153,20 @@
     cell.lbTitle.text = dic[@"titleShort"];
     NSString *fullPath = [self getFullPathWithFileName:[NSString stringWithFormat:@"1/%@",dic[@"img"]]];
     cell.imgIcon.image = [UIImage imageWithContentsOfFile:fullPath];
+    if ([dic[@"active"] boolValue]) {
+        cell.imgCheck.hidden = NO;
+    }
+    else
+    {
+        cell.imgCheck.hidden = YES;
+    }
+    __weak CollectionVC *myWeak = self;
+    cell.imgIcon.tag = indexPath.row;
     [cell setCallback:^(GESTURE_TYPE type, NSInteger index)
      {
-
+         if (type == GESTURE_TAP) {
+             [myWeak selectItem:index];
+         }
      }];
     return cell;
 }

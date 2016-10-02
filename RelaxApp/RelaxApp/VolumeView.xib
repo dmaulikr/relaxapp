@@ -23,7 +23,11 @@
                         <imageView userInteractionEnabled="NO" alpha="0.90000000000000002" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="h2X-TV-CCd">
                             <color key="backgroundColor" red="0.066666666666666666" green="0.37254901960784315" blue="0.89411764705882346" alpha="1" colorSpace="calibratedRGB"/>
                         </imageView>
-                        <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="lhm-Tv-Dr3"/>
+                        <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="lhm-Tv-Dr3">
+                            <connections>
+                                <action selector="volumeSliderChanged:" destination="jM3-di-xTg" eventType="touchUpInside" id="hU3-dW-7gZ"/>
+                            </connections>
+                        </slider>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dWv-fh-TEr">
                             <constraints>
                                 <constraint firstAttribute="width" constant="40" id="O5j-jm-xXa"/>

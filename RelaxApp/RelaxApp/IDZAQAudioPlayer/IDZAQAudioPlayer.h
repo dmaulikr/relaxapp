@@ -49,6 +49,6 @@
  * @brief The current audio device time.
  */
 @property(readonly) NSTimeInterval deviceCurrentTime;
-
+- (void)setVolume:(float)Level;
 @end
 
