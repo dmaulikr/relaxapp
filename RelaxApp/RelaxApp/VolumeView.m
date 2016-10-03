@@ -8,15 +8,16 @@
 
 #import "VolumeView.h"
 #import "Define.h"
+extern float volumeGlobal;
 @implementation VolumeView
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
+-(instancetype)initWithClassName:(NSString*)className
+{
+    self = [[[NSBundle mainBundle] loadNibNamed:className owner:self options:nil] objectAtIndex:0] ;
+    if (self) {
+    }
+    return self;
 }
-*/
 -(void)awakeFromNib
 {
     [super awakeFromNib];
@@ -27,12 +28,91 @@
     [self.slider setThumbImage:[UIImage imageNamed:@"Oval"] forState:UIControlStateNormal];
     [self.vBackGround setBackgroundColor:UIColorFromRGB(COLOR_VOLUME)];
 }
+-(void)addContraintSupview:(UIView*)viewSuper
+{
+    UIView *view = self;
+    self.translatesAutoresizingMaskIntoConstraints = NO;
+    view.frame = viewSuper.frame;
+    
+    [viewSuper addSubview:view];
+    
+    [viewSuper addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[view(50)]-(0)-|"
+                                                                      options:0
+                                                                      metrics:nil
+                                                                        views:NSDictionaryOfVariableBindings(view)]];
+    
+    [viewSuper addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-(0)-[view]-(0)-|"
+                                                                      options:0
+                                                                      metrics:nil
+                                                                        views:NSDictionaryOfVariableBindings(view)]];
+    
+    [timer invalidate];
+    timer = nil;
+    timer = [NSTimer scheduledTimerWithTimeInterval: 5.0
+                                             target: self
+                                           selector:@selector(dismissView:)
+                                           userInfo: nil repeats:NO];
+    
+    [self.slider setValue:volumeGlobal];
+}
+-(IBAction)decreaseAction:(id)sender
+{
+    [timer invalidate];
+    timer = nil;
+
+    float volume =  self.slider.value - 0.1;
+    if (volume < 0) {
+        volume = 0;
+    }
+    [self.slider setValue:volume];
+    volumeGlobal = volume;
+    if (_callback) {
+        _callback();
+    }
+}
+-(IBAction)increaseAction:(id)sender
+{
+    [timer invalidate];
+    timer = nil;
+    
+    float volume =  self.slider.value + 0.1;
+    if (volume > 1) {
+        volume = 1;
+    }
+    [self.slider setValue:volume];
+    
+    volumeGlobal = volume;
+    if (_callback) {
+        _callback();
+    }
+}
+
 -(IBAction)dismissView:(id)sender
 {
-    self .hidden = YES;
+    [self removeFromSuperview];
 }
-- (IBAction)volumeSliderChanged:(id)sender
+- (IBAction)volumeSliderEdittingDidBegin:(id)sender
 {
+    [timer invalidate];
+    timer = nil;
+    
     UISlider *slider = (UISlider*)sender;
+    float volume =  slider.value;
+    
+    volumeGlobal = volume;
+    if (_callback) {
+        _callback();
+    }
+
 }
+- (IBAction)volumeSliderEdittingDidEnd:(id)sender
+{
+    [timer invalidate];
+    timer = nil;
+    timer = [NSTimer scheduledTimerWithTimeInterval: 5.0
+                                             target: self
+                                           selector:@selector(dismissView:)
+                                           userInfo: nil repeats:NO];
+}
+
 @end

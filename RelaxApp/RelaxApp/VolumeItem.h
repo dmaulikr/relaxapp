@@ -7,10 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "BaseView.h"
 typedef void (^VolumeItemCallback)(NSDictionary *itemMusic);
 
-@interface VolumeItem : BaseView
+@interface VolumeItem : UIView
 {
     NSMutableDictionary *dicMusic;
     NSTimer *timer;
@@ -20,5 +19,7 @@ typedef void (^VolumeItemCallback)(NSDictionary *itemMusic);
 @property (nonatomic, strong) IBOutlet UILabel *titleSub;
 @property (nonatomic, strong) IBOutlet UIImageView *vBackGround;
 @property (nonatomic,copy) VolumeItemCallback callback;
+-(instancetype)initWithClassName:(NSString*)className;
 -(void)showVolumeWithDicMusic:(NSDictionary*)dic;
+-(void)addContraintSupview:(UIView*)viewSuper;
 @end

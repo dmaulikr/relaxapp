@@ -10,13 +10,13 @@
 #import "Define.h"
 @implementation VolumeItem
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
+-(instancetype)initWithClassName:(NSString*)className
+{
+    self = [[[NSBundle mainBundle] loadNibNamed:className owner:self options:nil] objectAtIndex:0] ;
+    if (self) {
+    }
+    return self;
 }
-*/
 -(void)awakeFromNib
 {
     [super awakeFromNib];
@@ -26,14 +26,39 @@
     [self.vBackGround setBackgroundColor:UIColorFromRGB(COLOR_VOLUME)];
     dicMusic = [NSMutableDictionary new];
 }
+-(void)addContraintSupview:(UIView*)viewSuper
+{
+    UIView *view = self;
+    self.translatesAutoresizingMaskIntoConstraints = NO;
+    view.frame = viewSuper.frame;
+    
+    [viewSuper addSubview:view];
+    [viewSuper addConstraint: [NSLayoutConstraint
+                               constraintWithItem:view attribute:NSLayoutAttributeLeading
+                               relatedBy:NSLayoutRelationEqual
+                               toItem:viewSuper
+                               attribute:NSLayoutAttributeLeading
+                               multiplier:1.0 constant:0] ];
+    
+    
+    [viewSuper addConstraint: [NSLayoutConstraint
+                               constraintWithItem:view attribute:NSLayoutAttributeTrailing
+                               relatedBy:NSLayoutRelationEqual
+                               toItem:viewSuper
+                               attribute:NSLayoutAttributeTrailing
+                               multiplier:1.0 constant:0] ];
+    [viewSuper addConstraint: [NSLayoutConstraint
+                               constraintWithItem:view attribute:NSLayoutAttributeTop
+                               relatedBy:NSLayoutRelationEqual
+                               toItem:viewSuper
+                               attribute:NSLayoutAttributeTop
+                               multiplier:1.0 constant:0] ];
+}
 -(IBAction)dismissView:(id)sender
 {
-    self .hidden = YES;
+    [self removeFromSuperview];
 }
-- (IBAction)volumeSliderChanged:(id)sender
-{
 
-}
 - (IBAction)volumeSliderEdittingDidBegin:(id)sender
 {
     [timer invalidate];
@@ -68,7 +93,6 @@
     dicMusic = [dic mutableCopy];
     self.titleFull.text = dicMusic[@"titleFull"];
     self.titleSub.text = [NSString stringWithFormat:@"%@,%@",dic[@"titleShort"],dic[@"titleOther"]];
-    [self hide:NO];
 }
 
 @end

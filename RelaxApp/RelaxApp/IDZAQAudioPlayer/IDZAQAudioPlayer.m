@@ -122,11 +122,11 @@ static void IDZPropertyListener(void* inUserData,
              */
             pPlayer.currentTime = 0;
         }
-        if(!isRunning)
-        {
-            pPlayer.state = IDZAudioPlayerStateStopped;
-            [pPlayer play];
-        }
+//        if(!isRunning)
+//        {
+//            pPlayer.state = IDZAudioPlayerStateStopped;
+//            [pPlayer play];
+//        }
     }
     
 }
@@ -249,9 +249,11 @@ static void IDZPropertyListener(void* inUserData,
          * but set the immediate flag to false so that playback of
          * currently enqueued buffers completes.
          */
-        self.state = IDZAudioPlayerStateStopping;
-        Boolean immediate = false;
-        AudioQueueStop(mQueue, immediate);
+//        self.state = IDZAudioPlayerStateStopping;
+//        Boolean immediate = false;
+//        AudioQueueStop(mQueue, immediate);
+        self.currentTime = 0;
+
     }
 }
 
@@ -298,14 +300,14 @@ static void IDZPropertyListener(void* inUserData,
 - (void)setCurrentTime:(NSTimeInterval)currentTime
 {
     IDZAudioPlayerState previousState = self.state;
-    switch(self.state)
-    {
-        case IDZAudioPlayerStatePlaying:
-            [self stop:YES];
-            break;
-        default:
-            break;
-    }
+//    switch(self.state)
+//    {
+//        case IDZAudioPlayerStatePlaying:
+//            [self stop:YES];
+//            break;
+//        default:
+//            break;
+//    }
     [self.decoder seekToTime:currentTime error:nil];
     mQueueStartTime = currentTime;
     switch(previousState)

@@ -15,6 +15,7 @@
 #import "VolumeItem.h"
 #import "AFHTTPSessionManager.h"
 #import "IDZAQAudioPlayer.h"
+#import "AddFavoriteView.h"
 @interface HomeVC : UIViewController<AVAudioPlayerDelegate, IDZAudioPlayerDelegate>
 {
     AFURLSessionManager *manager;
@@ -26,6 +27,8 @@
 
 @property (nonatomic, strong) TabVC *vTabbar;
 @property (nonatomic, strong)  FavoriteView *vFavorite;
+@property (nonatomic, strong)  AddFavoriteView *vAddFavorite;
+
 @property (nonatomic, strong)  SettingView *vSetting;
 @property (nonatomic, strong)  TimerView *vTimer;
 @property (nonatomic, strong)  VolumeView *vVolumeTotal;

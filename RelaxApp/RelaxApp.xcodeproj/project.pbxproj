@@ -35,6 +35,14 @@
 		EB11EE6F1D9AF4A300804D34 /* CollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB11EE6D1D9AF4A300804D34 /* CollectionCell.xib */; };
 		EB14BA6D1DA16FCA00385759 /* VolumeItem.m in Sources */ = {isa = PBXBuildFile; fileRef = EB14BA6B1DA16FCA00385759 /* VolumeItem.m */; };
 		EB14BA6E1DA16FCA00385759 /* VolumeItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB14BA6C1DA16FCA00385759 /* VolumeItem.xib */; };
+		EB56B6001DA2B958001AFC87 /* AHTag.m in Sources */ = {isa = PBXBuildFile; fileRef = EB56B5FD1DA2B958001AFC87 /* AHTag.m */; };
+		EB56B6091DA2B964001AFC87 /* AHTagsLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = EB56B6031DA2B964001AFC87 /* AHTagsLabel.m */; };
+		EB56B60A1DA2B964001AFC87 /* AHTagTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EB56B6051DA2B964001AFC87 /* AHTagTableViewCell.m */; };
+		EB56B60B1DA2B964001AFC87 /* AHTagTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB56B6061DA2B964001AFC87 /* AHTagTableViewCell.xib */; };
+		EB56B60C1DA2B964001AFC87 /* AHTagView.m in Sources */ = {isa = PBXBuildFile; fileRef = EB56B6081DA2B964001AFC87 /* AHTagView.m */; };
+		EB56B60F1DA2C497001AFC87 /* FileHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = EB56B60E1DA2C497001AFC87 /* FileHelper.m */; };
+		EB56B6131DA2C697001AFC87 /* AddFavoriteView.m in Sources */ = {isa = PBXBuildFile; fileRef = EB56B6121DA2C697001AFC87 /* AddFavoriteView.m */; };
+		EB56B6151DA2C6A9001AFC87 /* AddFavoriteView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB56B6141DA2C6A9001AFC87 /* AddFavoriteView.xib */; };
 		EBC18F591DA0F508000E00FD /* DownLoadCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = EBC18F581DA0F508000E00FD /* DownLoadCategory.m */; };
 		EBFB07A41D9EA06000AF2569 /* FavoriteView.m in Sources */ = {isa = PBXBuildFile; fileRef = EBFB07A31D9EA06000AF2569 /* FavoriteView.m */; };
 		EBFB07A61D9EA07300AF2569 /* FavoriteView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBFB07A51D9EA07300AF2569 /* FavoriteView.xib */; };
@@ -143,6 +151,20 @@
 		EB14BA6A1DA16FCA00385759 /* VolumeItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VolumeItem.h; sourceTree = "<group>"; };
 		EB14BA6B1DA16FCA00385759 /* VolumeItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VolumeItem.m; sourceTree = "<group>"; };
 		EB14BA6C1DA16FCA00385759 /* VolumeItem.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VolumeItem.xib; sourceTree = "<group>"; };
+		EB56B5FC1DA2B958001AFC87 /* AHTag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AHTag.h; sourceTree = "<group>"; };
+		EB56B5FD1DA2B958001AFC87 /* AHTag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AHTag.m; sourceTree = "<group>"; };
+		EB56B6021DA2B964001AFC87 /* AHTagsLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AHTagsLabel.h; sourceTree = "<group>"; };
+		EB56B6031DA2B964001AFC87 /* AHTagsLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AHTagsLabel.m; sourceTree = "<group>"; };
+		EB56B6041DA2B964001AFC87 /* AHTagTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AHTagTableViewCell.h; sourceTree = "<group>"; };
+		EB56B6051DA2B964001AFC87 /* AHTagTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AHTagTableViewCell.m; sourceTree = "<group>"; };
+		EB56B6061DA2B964001AFC87 /* AHTagTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AHTagTableViewCell.xib; sourceTree = "<group>"; };
+		EB56B6071DA2B964001AFC87 /* AHTagView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AHTagView.h; sourceTree = "<group>"; };
+		EB56B6081DA2B964001AFC87 /* AHTagView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AHTagView.m; sourceTree = "<group>"; };
+		EB56B60D1DA2C497001AFC87 /* FileHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileHelper.h; sourceTree = "<group>"; };
+		EB56B60E1DA2C497001AFC87 /* FileHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileHelper.m; sourceTree = "<group>"; };
+		EB56B6111DA2C697001AFC87 /* AddFavoriteView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddFavoriteView.h; sourceTree = "<group>"; };
+		EB56B6121DA2C697001AFC87 /* AddFavoriteView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddFavoriteView.m; sourceTree = "<group>"; };
+		EB56B6141DA2C6A9001AFC87 /* AddFavoriteView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddFavoriteView.xib; sourceTree = "<group>"; };
 		EBC18F571DA0F508000E00FD /* DownLoadCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DownLoadCategory.h; sourceTree = "<group>"; };
 		EBC18F581DA0F508000E00FD /* DownLoadCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DownLoadCategory.m; sourceTree = "<group>"; };
 		EBFB07A21D9EA06000AF2569 /* FavoriteView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoriteView.h; sourceTree = "<group>"; };
@@ -284,18 +306,7 @@
 		EB11EDC31D9AB24900804D34 /* RelaxApp */ = {
 			isa = PBXGroup;
 			children = (
-				EBFB07BD1D9ECCF300AF2569 /* ic_clearall.png */,
-				EBFB07BB1D9ECCE500AF2569 /* ic_favorist.png */,
-				EBFB07B91D9EC6B400AF2569 /* volume.png */,
-				EB05825A1D9C35A300E29C9B /* 1.splash.png */,
-				EB11EE551D9AD94800804D34 /* 1.mp3 */,
-				EB11EE5E1D9AE0F300804D34 /* 2.mp3 */,
-				EBC18F571DA0F508000E00FD /* DownLoadCategory.h */,
-				EBC18F581DA0F508000E00FD /* DownLoadCategory.m */,
-				EBFF14641DA04C2800CA98F1 /* IDZAQAudioPlayer */,
-				EBFF13FC1DA01E4600CA98F1 /* SSZipArchive */,
-				EBFF13A91DA00E1700CA98F1 /* AFNetworking */,
-				EB11EE631D9AEBCF00804D34 /* Nav */,
+				EB56B6101DA2C4A3001AFC87 /* Common */,
 				EB11EDC71D9AB24900804D34 /* AppDelegate.h */,
 				EB11EDC81D9AB24900804D34 /* AppDelegate.m */,
 				EB11EE641D9AEC5200804D34 /* CollectionVC.h */,
@@ -308,8 +319,8 @@
 				EB0582581D9C0D2200E29C9B /* SpringboardLayout.m */,
 				EBFB07B11D9EA1F000AF2569 /* BaseView.h */,
 				EBFB07B21D9EA1F000AF2569 /* BaseView.m */,
-				EBFB07A31D9EA06000AF2569 /* FavoriteView.m */,
 				EBFB07A21D9EA06000AF2569 /* FavoriteView.h */,
+				EBFB07A31D9EA06000AF2569 /* FavoriteView.m */,
 				EBFB07A51D9EA07300AF2569 /* FavoriteView.xib */,
 				EBFB07A71D9EA08700AF2569 /* TimerView.h */,
 				EBFB07A81D9EA08700AF2569 /* TimerView.m */,
@@ -326,6 +337,9 @@
 				EB11EDFC1D9AB30B00804D34 /* HomeVC.h */,
 				EB11EDFD1D9AB30B00804D34 /* HomeVC.m */,
 				EB11EDFE1D9AB30B00804D34 /* HomeVC.xib */,
+				EB56B6111DA2C697001AFC87 /* AddFavoriteView.h */,
+				EB56B6121DA2C697001AFC87 /* AddFavoriteView.m */,
+				EB56B6141DA2C6A9001AFC87 /* AddFavoriteView.xib */,
 				EB11EDD01D9AB24900804D34 /* Assets.xcassets */,
 				EB11EDD21D9AB24900804D34 /* LaunchScreen.storyboard */,
 				EB11EDD51D9AB24900804D34 /* Info.plist */,
@@ -392,6 +406,45 @@
 				EB11EE0B1D9AB7AF00804D34 /* TabVC.xib */,
 			);
 			name = Nav;
+			sourceTree = "<group>";
+		};
+		EB56B5FB1DA2B958001AFC87 /* Tags */ = {
+			isa = PBXGroup;
+			children = (
+				EB56B5FC1DA2B958001AFC87 /* AHTag.h */,
+				EB56B5FD1DA2B958001AFC87 /* AHTag.m */,
+				EB56B6021DA2B964001AFC87 /* AHTagsLabel.h */,
+				EB56B6031DA2B964001AFC87 /* AHTagsLabel.m */,
+				EB56B6041DA2B964001AFC87 /* AHTagTableViewCell.h */,
+				EB56B6051DA2B964001AFC87 /* AHTagTableViewCell.m */,
+				EB56B6061DA2B964001AFC87 /* AHTagTableViewCell.xib */,
+				EB56B6071DA2B964001AFC87 /* AHTagView.h */,
+				EB56B6081DA2B964001AFC87 /* AHTagView.m */,
+			);
+			name = Tags;
+			path = Models;
+			sourceTree = "<group>";
+		};
+		EB56B6101DA2C4A3001AFC87 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				EB56B5FB1DA2B958001AFC87 /* Tags */,
+				EBFB07BD1D9ECCF300AF2569 /* ic_clearall.png */,
+				EBFB07BB1D9ECCE500AF2569 /* ic_favorist.png */,
+				EBFB07B91D9EC6B400AF2569 /* volume.png */,
+				EB05825A1D9C35A300E29C9B /* 1.splash.png */,
+				EB11EE551D9AD94800804D34 /* 1.mp3 */,
+				EB11EE5E1D9AE0F300804D34 /* 2.mp3 */,
+				EBC18F571DA0F508000E00FD /* DownLoadCategory.h */,
+				EBC18F581DA0F508000E00FD /* DownLoadCategory.m */,
+				EB56B60D1DA2C497001AFC87 /* FileHelper.h */,
+				EB56B60E1DA2C497001AFC87 /* FileHelper.m */,
+				EBFF14641DA04C2800CA98F1 /* IDZAQAudioPlayer */,
+				EBFF13FC1DA01E4600CA98F1 /* SSZipArchive */,
+				EBFF13A91DA00E1700CA98F1 /* AFNetworking */,
+				EB11EE631D9AEBCF00804D34 /* Nav */,
+			);
+			name = Common;
 			sourceTree = "<group>";
 		};
 		EBFF13A91DA00E1700CA98F1 /* AFNetworking */ = {
@@ -598,6 +651,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB56B6151DA2C6A9001AFC87 /* AddFavoriteView.xib in Resources */,
 				EB11EE561D9AD94800804D34 /* 1.mp3 in Resources */,
 				EBFB07B01D9EA0D300AF2569 /* SettingView.xib in Resources */,
 				EBFF14751DA04C2800CA98F1 /* IDZAudioPlayerViewController.xib in Resources */,
@@ -607,6 +661,7 @@
 				EB11EDD11D9AB24900804D34 /* Assets.xcassets in Resources */,
 				EB11EE6F1D9AF4A300804D34 /* CollectionCell.xib in Resources */,
 				EBFB07BA1D9EC6B400AF2569 /* volume.png in Resources */,
+				EB56B60B1DA2B964001AFC87 /* AHTagTableViewCell.xib in Resources */,
 				EB11EE681D9AEC7000804D34 /* CollectionVC.xib in Resources */,
 				EB11EE0D1D9AB7AF00804D34 /* TabVC.xib in Resources */,
 				EBFF142C1DA01E4700CA98F1 /* Info.plist in Resources */,
@@ -644,8 +699,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB56B6131DA2C697001AFC87 /* AddFavoriteView.m in Sources */,
+				EB56B6001DA2B958001AFC87 /* AHTag.m in Sources */,
 				EBC18F591DA0F508000E00FD /* DownLoadCategory.m in Sources */,
 				EBFF14761DA04C2800CA98F1 /* IDZAQAudioPlayer.m in Sources */,
+				EB56B60F1DA2C497001AFC87 /* FileHelper.m in Sources */,
 				EBFF14791DA04C2800CA98F1 /* IDZOggVorbisFileDecoder.mm in Sources */,
 				EBFB07A91D9EA08700AF2569 /* TimerView.m in Sources */,
 				EB11EDC91D9AB24900804D34 /* AppDelegate.m in Sources */,
@@ -663,8 +721,10 @@
 				EBFF13BA1DA00E1700CA98F1 /* AFURLRequestSerialization.m in Sources */,
 				EB11EE191D9AC55300804D34 /* BaseNavigation.m in Sources */,
 				EBFF13B91DA00E1700CA98F1 /* AFSecurityPolicy.m in Sources */,
+				EB56B60C1DA2B964001AFC87 /* AHTagView.m in Sources */,
 				EBFF14291DA01E4700CA98F1 /* prng.c in Sources */,
 				EBFF14251DA01E4700CA98F1 /* aestab.c in Sources */,
+				EB56B6091DA2B964001AFC87 /* AHTagsLabel.m in Sources */,
 				EB11EE031D9AB4BA00804D34 /* MainNavigationController.m in Sources */,
 				EBFF14301DA01E4700CA98F1 /* zip.c in Sources */,
 				EBFF142A1DA01E4700CA98F1 /* pwd2key.c in Sources */,
@@ -676,6 +736,7 @@
 				EBFF14231DA01E4700CA98F1 /* aescrypt.c in Sources */,
 				EB11EDFF1D9AB30B00804D34 /* HomeVC.m in Sources */,
 				EBFF14781DA04C2800CA98F1 /* IDZAudioPlayerViewController.m in Sources */,
+				EB56B60A1DA2B964001AFC87 /* AHTagTableViewCell.m in Sources */,
 				EBFF14271DA01E4700CA98F1 /* fileenc.c in Sources */,
 				EB0582591D9C0D2200E29C9B /* SpringboardLayout.m in Sources */,
 				EBFF142F1DA01E4700CA98F1 /* unzip.c in Sources */,

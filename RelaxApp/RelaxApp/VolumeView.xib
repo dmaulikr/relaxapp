@@ -8,78 +8,63 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="jM3-di-xTg" customClass="VolumeView">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="biW-le-DJq" customClass="VolumeView">
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x8e-44-dDY">
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                <imageView userInteractionEnabled="NO" alpha="0.90000000000000002" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="h2X-TV-CCd">
+                    <color key="backgroundColor" red="0.066666666666666666" green="0.37254901960784315" blue="0.89411764705882346" alpha="1" colorSpace="calibratedRGB"/>
+                </imageView>
+                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="lhm-Tv-Dr3">
                     <connections>
-                        <action selector="dismissView:" destination="jM3-di-xTg" eventType="touchUpInside" id="oJW-1q-nkH"/>
+                        <action selector="volumeSliderEdittingDidBegin:" destination="biW-le-DJq" eventType="touchDragInside" id="Kb8-N1-EKr"/>
+                        <action selector="volumeSliderEdittingDidEnd:" destination="biW-le-DJq" eventType="touchUpOutside" id="EqX-LJ-1gL"/>
+                    </connections>
+                </slider>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dWv-fh-TEr">
+                    <constraints>
+                        <constraint firstAttribute="width" constant="40" id="O5j-jm-xXa"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                    <state key="normal" title="-"/>
+                    <connections>
+                        <action selector="decreaseAction:" destination="biW-le-DJq" eventType="touchUpInside" id="jg9-Dr-DwB"/>
+                        <action selector="volumeSliderEdittingDidEnd:" destination="biW-le-DJq" eventType="touchUpOutside" id="0Qo-1G-15N"/>
                     </connections>
                 </button>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="biW-le-DJq">
-                    <subviews>
-                        <imageView userInteractionEnabled="NO" alpha="0.90000000000000002" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="h2X-TV-CCd">
-                            <color key="backgroundColor" red="0.066666666666666666" green="0.37254901960784315" blue="0.89411764705882346" alpha="1" colorSpace="calibratedRGB"/>
-                        </imageView>
-                        <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="lhm-Tv-Dr3">
-                            <connections>
-                                <action selector="volumeSliderChanged:" destination="jM3-di-xTg" eventType="touchUpInside" id="hU3-dW-7gZ"/>
-                            </connections>
-                        </slider>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dWv-fh-TEr">
-                            <constraints>
-                                <constraint firstAttribute="width" constant="40" id="O5j-jm-xXa"/>
-                            </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                            <state key="normal" title="-"/>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qDb-QE-Sv3">
-                            <constraints>
-                                <constraint firstAttribute="width" constant="40" id="mSQ-nY-stj"/>
-                            </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                            <state key="normal" title="+"/>
-                        </button>
-                    </subviews>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qDb-QE-Sv3">
                     <constraints>
-                        <constraint firstAttribute="trailing" secondItem="qDb-QE-Sv3" secondAttribute="trailing" id="0Rd-th-3vy"/>
-                        <constraint firstAttribute="trailing" secondItem="h2X-TV-CCd" secondAttribute="trailing" id="0gL-S1-5VP"/>
-                        <constraint firstAttribute="height" constant="50" id="C1j-eF-kU8"/>
-                        <constraint firstAttribute="bottom" secondItem="dWv-fh-TEr" secondAttribute="bottom" id="EE0-dz-LLo"/>
-                        <constraint firstItem="qDb-QE-Sv3" firstAttribute="top" secondItem="biW-le-DJq" secondAttribute="top" id="JZA-qD-lEs"/>
-                        <constraint firstItem="lhm-Tv-Dr3" firstAttribute="centerY" secondItem="biW-le-DJq" secondAttribute="centerY" id="UmH-2Y-T0C"/>
-                        <constraint firstAttribute="bottom" secondItem="h2X-TV-CCd" secondAttribute="bottom" id="VxS-EO-vp9"/>
-                        <constraint firstItem="h2X-TV-CCd" firstAttribute="leading" secondItem="biW-le-DJq" secondAttribute="leading" id="eMk-Jk-SlR"/>
-                        <constraint firstAttribute="bottom" secondItem="qDb-QE-Sv3" secondAttribute="bottom" id="oyV-d6-Jik"/>
-                        <constraint firstItem="h2X-TV-CCd" firstAttribute="top" secondItem="biW-le-DJq" secondAttribute="top" id="p99-g3-g6A"/>
-                        <constraint firstItem="dWv-fh-TEr" firstAttribute="top" secondItem="biW-le-DJq" secondAttribute="top" id="pad-BL-9UP"/>
-                        <constraint firstItem="lhm-Tv-Dr3" firstAttribute="leading" secondItem="dWv-fh-TEr" secondAttribute="trailing" constant="5" id="qgt-gu-WCU"/>
-                        <constraint firstItem="dWv-fh-TEr" firstAttribute="leading" secondItem="biW-le-DJq" secondAttribute="leading" id="vqR-e4-y9d"/>
-                        <constraint firstItem="qDb-QE-Sv3" firstAttribute="leading" secondItem="lhm-Tv-Dr3" secondAttribute="trailing" constant="5" id="x8a-3Z-njp"/>
+                        <constraint firstAttribute="width" constant="40" id="mSQ-nY-stj"/>
                     </constraints>
-                </view>
+                    <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                    <state key="normal" title="+"/>
+                    <connections>
+                        <action selector="increaseAction:" destination="biW-le-DJq" eventType="touchUpInside" id="b5Y-TQ-OTE"/>
+                        <action selector="volumeSliderEdittingDidEnd:" destination="biW-le-DJq" eventType="touchUpOutside" id="C2u-N3-EbB"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="x8e-44-dDY" firstAttribute="top" secondItem="jM3-di-xTg" secondAttribute="top" id="0Jx-Vs-QqX"/>
-                <constraint firstItem="x8e-44-dDY" firstAttribute="leading" secondItem="jM3-di-xTg" secondAttribute="leading" id="Id6-ki-uTI"/>
-                <constraint firstAttribute="trailing" secondItem="biW-le-DJq" secondAttribute="trailing" id="P4B-Ep-MIy"/>
-                <constraint firstAttribute="bottom" secondItem="biW-le-DJq" secondAttribute="bottom" id="UIJ-KN-NxQ"/>
-                <constraint firstItem="biW-le-DJq" firstAttribute="top" secondItem="x8e-44-dDY" secondAttribute="bottom" id="e1J-oY-wKm"/>
-                <constraint firstAttribute="trailing" secondItem="x8e-44-dDY" secondAttribute="trailing" id="n6p-WW-cSr"/>
-                <constraint firstItem="biW-le-DJq" firstAttribute="leading" secondItem="jM3-di-xTg" secondAttribute="leading" id="sCM-O0-IEe"/>
+                <constraint firstAttribute="trailing" secondItem="qDb-QE-Sv3" secondAttribute="trailing" id="0Rd-th-3vy"/>
+                <constraint firstAttribute="trailing" secondItem="h2X-TV-CCd" secondAttribute="trailing" id="0gL-S1-5VP"/>
+                <constraint firstAttribute="bottom" secondItem="dWv-fh-TEr" secondAttribute="bottom" id="EE0-dz-LLo"/>
+                <constraint firstItem="qDb-QE-Sv3" firstAttribute="top" secondItem="biW-le-DJq" secondAttribute="top" id="JZA-qD-lEs"/>
+                <constraint firstItem="lhm-Tv-Dr3" firstAttribute="centerY" secondItem="biW-le-DJq" secondAttribute="centerY" constant="1" id="UmH-2Y-T0C"/>
+                <constraint firstAttribute="bottom" secondItem="h2X-TV-CCd" secondAttribute="bottom" id="VxS-EO-vp9"/>
+                <constraint firstItem="h2X-TV-CCd" firstAttribute="leading" secondItem="biW-le-DJq" secondAttribute="leading" id="eMk-Jk-SlR"/>
+                <constraint firstAttribute="bottom" secondItem="qDb-QE-Sv3" secondAttribute="bottom" id="oyV-d6-Jik"/>
+                <constraint firstItem="h2X-TV-CCd" firstAttribute="top" secondItem="biW-le-DJq" secondAttribute="top" id="p99-g3-g6A"/>
+                <constraint firstItem="dWv-fh-TEr" firstAttribute="top" secondItem="biW-le-DJq" secondAttribute="top" id="pad-BL-9UP"/>
+                <constraint firstItem="lhm-Tv-Dr3" firstAttribute="leading" secondItem="dWv-fh-TEr" secondAttribute="trailing" constant="5" id="qgt-gu-WCU"/>
+                <constraint firstItem="dWv-fh-TEr" firstAttribute="leading" secondItem="biW-le-DJq" secondAttribute="leading" id="vqR-e4-y9d"/>
+                <constraint firstItem="qDb-QE-Sv3" firstAttribute="leading" secondItem="lhm-Tv-Dr3" secondAttribute="trailing" constant="5" id="x8a-3Z-njp"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
-                <outlet property="btnDecrease" destination="dWv-fh-TEr" id="glp-DR-m8e"/>
-                <outlet property="btnIncrease" destination="qDb-QE-Sv3" id="yfl-ti-VNu"/>
-                <outlet property="slider" destination="lhm-Tv-Dr3" id="USe-aa-N4o"/>
-                <outlet property="vBackGround" destination="h2X-TV-CCd" id="xDs-Vy-vsC"/>
+                <outlet property="btnDecrease" destination="dWv-fh-TEr" id="y5S-ZF-tMp"/>
+                <outlet property="btnIncrease" destination="qDb-QE-Sv3" id="beS-lK-8Ai"/>
+                <outlet property="slider" destination="lhm-Tv-Dr3" id="k0M-sd-AKl"/>
+                <outlet property="vBackGround" destination="h2X-TV-CCd" id="zu3-np-zs6"/>
             </connections>
-            <point key="canvasLocation" x="-95.5" y="-145.5"/>
         </view>
     </objects>
 </document>

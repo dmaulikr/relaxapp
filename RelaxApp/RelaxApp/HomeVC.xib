@@ -23,10 +23,28 @@
                     <subviews>
                         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7W5-ez-Jk5" customClass="MainNavHome">
                             <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OWv-e2-l9y" userLabel="ViewTitle">
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Explorer Cities" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fPA-vU-78a">
+                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstItem="fPA-vU-78a" firstAttribute="leading" secondItem="OWv-e2-l9y" secondAttribute="leading" id="Wre-b7-3H1"/>
+                                        <constraint firstAttribute="trailing" secondItem="fPA-vU-78a" secondAttribute="trailing" id="YgP-PB-uU5"/>
+                                        <constraint firstItem="fPA-vU-78a" firstAttribute="top" secondItem="OWv-e2-l9y" secondAttribute="top" constant="5" id="vel-2M-I43"/>
+                                    </constraints>
+                                </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gBO-aP-w2J" userLabel="Favorist">
                                     <subviews>
                                         <button opaque="NO" tag="10" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HuF-UO-w2s">
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            <connections>
+                                                <action selector="addFavoriteAction:" destination="-1" eventType="touchUpInside" id="vxf-y7-YsH"/>
+                                            </connections>
                                         </button>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="addtofavorite" translatesAutoresizingMaskIntoConstraints="NO" id="Fcy-Qv-UqT">
                                             <constraints>
@@ -46,25 +64,13 @@
                                         <constraint firstItem="HuF-UO-w2s" firstAttribute="leading" secondItem="gBO-aP-w2J" secondAttribute="leading" id="uk4-kh-Pwk"/>
                                     </constraints>
                                 </view>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OWv-e2-l9y" userLabel="ViewTitle">
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Explorer Cities" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fPA-vU-78a">
-                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
-                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                    <constraints>
-                                        <constraint firstItem="fPA-vU-78a" firstAttribute="leading" secondItem="OWv-e2-l9y" secondAttribute="leading" id="Wre-b7-3H1"/>
-                                        <constraint firstAttribute="trailing" secondItem="fPA-vU-78a" secondAttribute="trailing" id="YgP-PB-uU5"/>
-                                        <constraint firstItem="fPA-vU-78a" firstAttribute="top" secondItem="OWv-e2-l9y" secondAttribute="top" constant="5" id="vel-2M-I43"/>
-                                    </constraints>
-                                </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I9x-fq-QQD" userLabel="Clear">
                                     <subviews>
                                         <button opaque="NO" tag="10" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cR3-fq-yGi">
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            <connections>
+                                                <action selector="clearAll:" destination="-1" eventType="touchUpInside" id="P77-o5-GJP"/>
+                                            </connections>
                                         </button>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CombinedShape" translatesAutoresizingMaskIntoConstraints="NO" id="nfY-kL-bxe">
                                             <constraints>

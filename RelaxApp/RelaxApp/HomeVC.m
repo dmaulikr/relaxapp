@@ -12,6 +12,10 @@
 #import "IDZTrace.h"
 #import "IDZOggVorbisFileDecoder.h"
 #import "DownLoadCategory.h"
+#import "FileHelper.h"
+#import "Define.h"
+extern float volumeGlobal;
+
 @interface HomeVC ()
 {
     NSMutableArray                  *arrCategory;
@@ -33,9 +37,7 @@
     
     [self getCategory];
     // Do any additional setup after loading the view from its nib.
-//    [self setupPlayerWithFullPath:[self getFullPathWithFileName:[NSString stringWithFormat:@"1/%@",@"sound/1.ogg"]]];
-//    [self setupPlayerWithFullPath:[self getFullPathWithFileName:[NSString stringWithFormat:@"1/%@",@"sound/2.ogg"]]];
-//    [self setupPlayerWithFullPath:[self getFullPathWithFileName:[NSString stringWithFormat:@"1/%@",@"sound/3.ogg"]]];
+
 
 }
 -(void)viewDidAppear:(BOOL)animated
@@ -56,18 +58,12 @@
              [dic setObject:@(1) forKey:@"active"];
              [dic setObject:@(0.5) forKey:@"volume"];
              //show music
-             [wself.vVolumeItem showVolumeWithDicMusic:dic];
+             [wself addSubViewVolumeItemWithDicMusic:dic];
              
              
          }
          [wself updateDataMusic:dic];
      }];
-    //ADD VIEW
-    [self addSubViewFavorite];
-    [self addSubViewTimer];
-    [self addSubViewSetting];
-    [self addSubViewVolumeTotal];
-    [self addSubViewVolumeItem];
 }
 -(void)updateDataMusic:(NSDictionary*)dicMusic
 {
@@ -91,23 +87,24 @@
 
 -(IBAction)tabBottomVCAction:(id)sender
 {
-    [self.vFavorite setup];
-    [self.vTimer setup];
-    [self.vSetting setup];
-    [self.vVolumeTotal setup];
-    [self.vVolumeItem setup];
+    [self.vFavorite dismissView];
+    [self.vAddFavorite dismissView];
+    [self.vTimer dismissView];
+    [self.vSetting dismissView];
+    [self.vVolumeTotal removeFromSuperview];
+    [self.vVolumeItem removeFromSuperview];
     UIButton *btn = (UIButton*)sender;
     switch (btn.tag - 10) {
         case 0:
         {
             //setting
-            [self.vVolumeTotal hide:NO];
+            [self addSubViewVolumeTotal];
         }
             break;
         case 1:
         {
             //favorite
-            [self.vFavorite hide:NO];
+            [self addSubViewFavorite];
         }
             break;
         case 2:
@@ -123,14 +120,14 @@
         case 3:
         {
             //timer
-            [self.vTimer hide:NO];
+            [self addSubViewTimer];
 
         }
             break;
         case 4:
         {
             //setting
-            [self.vSetting hide:NO];
+            [self addSubViewSetting];
 
         }
             break;
@@ -141,39 +138,58 @@
 //MARK: view filter
 -(void) addSubViewFavorite
 {
+    __weak HomeVC *wself = self;
     self.vFavorite = [[FavoriteView alloc] initWithClassName:NSStringFromClass([FavoriteView class])];
     [self.vFavorite addContraintSupview:self.vContrainer];
-    [self.vFavorite setup];
+    [self.vFavorite setCallback:^(NSArray *chooseMusic)
+     {
+         [wself fnPlayerFromFavorite:chooseMusic];
+     }];
 }
 -(void) addSubViewTimer
 {
     self.vTimer = [[TimerView alloc] initWithClassName:NSStringFromClass([TimerView class])];
     [self.vTimer addContraintSupview:self.vContrainer];
-    [self.vTimer setup];
 }
 -(void) addSubViewSetting
 {
     self.vSetting = [[SettingView alloc] initWithClassName:NSStringFromClass([SettingView class])];
     [self.vSetting addContraintSupview:self.vContrainer];
-    [self.vSetting setup];
 }
+//MARK: - VOLUME
+
 -(void) addSubViewVolumeTotal
 {
+    __weak HomeVC *wself = self;
+    [self.vVolumeTotal removeFromSuperview];
+
     self.vVolumeTotal = [[VolumeView alloc] initWithClassName:NSStringFromClass([VolumeView class])];
     [self.vVolumeTotal addContraintSupview:self.vContrainer];
-    [self.vVolumeTotal setup];
+    [self.vVolumeTotal setCallback:^()
+     {
+         [wself changeVolumeTotal];
+     }];
+
 }
--(void) addSubViewVolumeItem
+-(void)changeVolumeTotal
+{
+    for (int i = 0; i < arrPlayList.count; i++) {
+        NSDictionary *musicItem = arrPlayList[i];
+            IDZAQAudioPlayer *player  = musicItem[@"player"];
+            [player setVolume:[musicItem[@"music"][@"volume"] floatValue] * volumeGlobal];
+    }
+}
+-(void) addSubViewVolumeItemWithDicMusic:(NSDictionary*)dicMusic
 {
     __weak HomeVC *wself = self;
+    [self.vVolumeItem removeFromSuperview];
     self.vVolumeItem = [[VolumeItem alloc] initWithClassName:NSStringFromClass([VolumeItem class])];
     [self.vVolumeItem addContraintSupview:self.vContrainer];
+    [self.vVolumeItem showVolumeWithDicMusic:dicMusic];
     [self.vVolumeItem setCallback:^(NSDictionary *dicMusic)
      {
          [wself updateDataMusic:dicMusic];
      }];
-
-    [self.vVolumeItem setup];
 
 }
 //MARK: - NETWORK
@@ -200,6 +216,8 @@
         NSLog(@"JSON: %@", responseObject);
         if ([responseObject[@"categories"] isKindOfClass:[NSArray class]]) {
             [arrCategory addObjectsFromArray:responseObject[@"categories"]];
+            [wself getListMusicFromCategory:arrCategory];
+
             DownLoadCategory *download = [DownLoadCategory sharedInstance];
             [download fnListMusicWithCategory:arrCategory];
             [download setCallback:^(NSDictionary *dicItemCategory)
@@ -242,7 +260,7 @@
         IDZOggVorbisFileDecoder* decoder = [[IDZOggVorbisFileDecoder alloc] initWithContentsOfURL:url error:&error];
         NSLog(@"Ogg Vorbis file duration is %g", decoder.duration);
         IDZAQAudioPlayer *player = [[IDZAQAudioPlayer alloc] initWithDecoder:decoder error:nil];
-        [player setVolume:[dicMusic[@"volume"] floatValue]];
+        [player setVolume:[dicMusic[@"volume"] floatValue] * volumeGlobal];
         if(!player)
         {
             NSLog(@"Error creating player: %@", error);
@@ -272,6 +290,68 @@
     NSString  *documentsDirectory = [paths objectAtIndex:0];
     NSString *archivePath = [documentsDirectory stringByAppendingPathComponent:fileName];
     return archivePath;
+}
+//MARK: - CLEAR ALL
+-(IBAction)clearAll:(id)sender
+{
+    for (int i = 0; i< arrMusic.count; i++) {
+        NSMutableDictionary *dic = [arrMusic[i] mutableCopy];
+        [dic setObject:@(0) forKey:@"active"];
+        [arrMusic replaceObjectAtIndex:i withObject:dic];
+        [self setupPlayerWithMusicItem:dic];
+    }
+    [colectionView updateDataMusic:arrMusic];
+}
+//MARK: - ADD FAVORITE
+-(IBAction)addFavoriteAction:(id)sender
+{
+    NSMutableArray *arrChoose = [NSMutableArray new];
+    for (NSDictionary *dic in arrMusic) {
+        if ([dic[@"active"] boolValue] == YES) {
+            [arrChoose addObject:dic];
+        }
+    }
+    //favorite
+    self.vAddFavorite = [[AddFavoriteView alloc] initWithClassName:NSStringFromClass([AddFavoriteView class])];
+    [self.vAddFavorite addContraintSupview:self.view];
+    [self.vAddFavorite fnSetDataMusic:arrChoose];
+}
+//MARK: - CHOOSE FAVORITE
+-(void)fnPlayerFromFavorite:(NSArray*)chooseFavotite
+{
+    //clear befor
+    [self clearAll:nil];
+    //set list choose from favorite
+    for (NSDictionary *dichChoose in chooseFavotite) {
+        for (int i = 0; i< arrMusic.count; i++) {
+            NSDictionary *musicItem = arrMusic[i];
+            if ([musicItem[@"ID"] intValue] == [dichChoose[@"ID"] intValue]) {
+                NSMutableDictionary *dic = [musicItem mutableCopy];
+                    [dic setObject:@(1) forKey:@"active"];
+                    [dic setObject:dichChoose[@"volume"] forKey:@"volume"];
+                    //show music
+                [arrMusic replaceObjectAtIndex:i withObject:dic];
+                [self setupPlayerWithMusicItem:dic];
+                break;
+
+            }
+
+        }
+    }
+    [colectionView updateDataMusic:arrMusic];
+
+
+}
+//MARK: - CHECK HIDE SHOW BUTTON
+-(void)checkStatusButtonFavorite
+{
+    if (arrPlayList.count > 0) {
+        
+    }
+    else
+    {
+    
+    }
 }
 #pragma mark - IDZAudioPlayerDelegate
 - (void)audioPlayerDidFinishPlaying:(id<IDZAudioPlayer>)player successfully:(BOOL)flag

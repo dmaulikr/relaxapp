@@ -12,7 +12,7 @@
 -(instancetype)initWithClassName:(NSString*)className;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *contraintBottom;
 -(void)addContraintSupview:(UIView*)viewSuper;
--(void)hide:(BOOL)hidden;
--(void)setup;
+//-(void)hide:(BOOL)hidden;
+//-(void)setup;
 -(void)dismissView;
 @end

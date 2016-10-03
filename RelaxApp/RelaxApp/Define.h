@@ -14,9 +14,13 @@
 #define COLOR_VOLUME 0x0241A8
 #define COLOR_BACKGROUND_FAVORITE 0x14193D
 #define COLOR_NAVIGATION_FAVORITE 0x0064FF
+#define COLOR_ADDFAVORITE_TAGS 0x9013FE
+
 
 
 #define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
+//
+#define FILE_FAVORITE_SAVE @"FAVORITE.save"
 
 typedef enum
 {

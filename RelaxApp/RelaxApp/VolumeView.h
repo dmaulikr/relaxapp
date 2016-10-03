@@ -7,11 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "BaseView.h"
-@interface VolumeView : BaseView
+typedef void (^VolumeViewCallback)();
+
+@interface VolumeView : UIView
+{
+    NSTimer *timer;
+}
 @property (nonatomic, strong) IBOutlet UISlider *slider;
 @property (nonatomic, strong) IBOutlet UIButton *btnDecrease;
 @property (nonatomic, strong) IBOutlet UIButton *btnIncrease;
 @property (nonatomic, strong) IBOutlet UIImageView *vBackGround;
+-(void)addContraintSupview:(UIView*)viewSuper;
+-(instancetype)initWithClassName:(NSString*)className;
+@property (nonatomic,copy) VolumeViewCallback callback;
 
 @end

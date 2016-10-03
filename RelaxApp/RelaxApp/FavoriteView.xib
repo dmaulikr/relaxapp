@@ -20,6 +20,9 @@
                                     <subviews>
                                         <button opaque="NO" tag="10" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aAg-EV-JyS">
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            <connections>
+                                                <action selector="editingTableViewAction:" destination="6JF-n4-nkE" eventType="touchUpInside" id="vEk-bC-AT8"/>
+                                            </connections>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Edit" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="31k-Y7-Vnz">
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -76,12 +79,23 @@
                                 <constraint firstItem="VWy-Va-pZA" firstAttribute="top" secondItem="oBV-dw-MzJ" secondAttribute="top" id="woO-cb-SNk"/>
                             </constraints>
                         </view>
+                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="W5Y-qK-deu">
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <outlet property="dataSource" destination="6JF-n4-nkE" id="Kxp-KX-6YK"/>
+                                <outlet property="delegate" destination="6JF-n4-nkE" id="cWj-Ae-Zbq"/>
+                            </connections>
+                        </tableView>
                     </subviews>
                     <color key="backgroundColor" red="0.078431372549019607" green="0.098039215686274508" blue="0.23921568627450979" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
+                        <constraint firstAttribute="trailing" secondItem="W5Y-qK-deu" secondAttribute="trailing" id="A9O-Hd-mja"/>
+                        <constraint firstAttribute="bottom" secondItem="W5Y-qK-deu" secondAttribute="bottom" id="ELL-eD-T92"/>
                         <constraint firstItem="oBV-dw-MzJ" firstAttribute="top" secondItem="8ZE-Hx-3SE" secondAttribute="top" id="Eaq-hB-okf"/>
                         <constraint firstItem="oBV-dw-MzJ" firstAttribute="leading" secondItem="8ZE-Hx-3SE" secondAttribute="leading" id="KTi-Bd-9ne"/>
                         <constraint firstAttribute="trailing" secondItem="oBV-dw-MzJ" secondAttribute="trailing" id="Mtv-KG-jca"/>
+                        <constraint firstItem="W5Y-qK-deu" firstAttribute="top" secondItem="oBV-dw-MzJ" secondAttribute="bottom" id="P3d-GW-TwH"/>
+                        <constraint firstItem="W5Y-qK-deu" firstAttribute="leading" secondItem="8ZE-Hx-3SE" secondAttribute="leading" id="SHf-B6-0Rf"/>
                     </constraints>
                 </view>
             </subviews>
@@ -94,6 +108,7 @@
             </constraints>
             <connections>
                 <outlet property="contraintBottom" destination="eTt-lr-Tq3" id="cYN-GW-3MP"/>
+                <outlet property="tableControl" destination="W5Y-qK-deu" id="Ggf-Ek-54Y"/>
                 <outlet property="vContent" destination="8ZE-Hx-3SE" id="0xd-BI-DhK"/>
                 <outlet property="vViewNav" destination="oBV-dw-MzJ" id="ufg-th-KnT"/>
             </connections>
