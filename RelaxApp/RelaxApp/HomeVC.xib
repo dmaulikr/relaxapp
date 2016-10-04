@@ -9,6 +9,10 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeVC">
             <connections>
                 <outlet property="imgBackGround" destination="gs3-0O-fox" id="O7n-Th-69x"/>
+                <outlet property="imgSingle" destination="g9H-GN-7zW" id="L9T-XO-wfR"/>
+                <outlet property="pageControl" destination="XDP-O9-g4r" id="0nP-5W-ypK"/>
+                <outlet property="scroll_View" destination="hKX-rp-Ikx" id="28K-M7-3w1"/>
+                <outlet property="titleCategory" destination="fPA-vU-78a" id="wiN-oW-u9g"/>
                 <outlet property="vContrainer" destination="jmE-MP-vBO" id="Des-GS-4Sy"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -30,11 +34,18 @@
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="multiply" translatesAutoresizingMaskIntoConstraints="NO" id="g9H-GN-7zW">
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="10" id="UhU-yA-hg0"/>
+                                                <constraint firstAttribute="height" constant="10" id="oAh-du-m71"/>
+                                            </constraints>
+                                        </imageView>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <constraints>
-                                        <constraint firstItem="fPA-vU-78a" firstAttribute="leading" secondItem="OWv-e2-l9y" secondAttribute="leading" id="Wre-b7-3H1"/>
-                                        <constraint firstAttribute="trailing" secondItem="fPA-vU-78a" secondAttribute="trailing" id="YgP-PB-uU5"/>
+                                        <constraint firstItem="g9H-GN-7zW" firstAttribute="leading" secondItem="fPA-vU-78a" secondAttribute="trailing" constant="5" id="5YA-Dp-mhs"/>
+                                        <constraint firstItem="g9H-GN-7zW" firstAttribute="centerY" secondItem="fPA-vU-78a" secondAttribute="centerY" id="8zZ-xw-9e4"/>
+                                        <constraint firstItem="fPA-vU-78a" firstAttribute="centerX" secondItem="OWv-e2-l9y" secondAttribute="centerX" id="XPW-lA-7hF"/>
                                         <constraint firstItem="fPA-vU-78a" firstAttribute="top" secondItem="OWv-e2-l9y" secondAttribute="top" constant="5" id="vel-2M-I43"/>
                                     </constraints>
                                 </view>
@@ -106,11 +117,27 @@
                                 <constraint firstAttribute="trailing" secondItem="I9x-fq-QQD" secondAttribute="trailing" id="xFD-J7-17d"/>
                             </constraints>
                         </view>
+                        <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hKX-rp-Ikx">
+                            <connections>
+                                <outlet property="delegate" destination="-1" id="CK2-N2-xXm"/>
+                            </connections>
+                        </scrollView>
+                        <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="XDP-O9-g4r">
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <color key="pageIndicatorTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="currentPageIndicatorTintColor" red="1" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        </pageControl>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstItem="7W5-ez-Jk5" firstAttribute="leading" secondItem="jmE-MP-vBO" secondAttribute="leading" id="6EN-nB-Pus"/>
+                        <constraint firstItem="hKX-rp-Ikx" firstAttribute="leading" secondItem="jmE-MP-vBO" secondAttribute="leading" id="8xh-b2-URZ"/>
+                        <constraint firstItem="hKX-rp-Ikx" firstAttribute="top" secondItem="7W5-ez-Jk5" secondAttribute="bottom" id="IFi-f7-Odg"/>
+                        <constraint firstAttribute="bottom" secondItem="XDP-O9-g4r" secondAttribute="bottom" id="Vd4-h5-A3j"/>
+                        <constraint firstAttribute="bottom" secondItem="hKX-rp-Ikx" secondAttribute="bottom" id="jNr-Hh-8nN"/>
                         <constraint firstAttribute="trailing" secondItem="7W5-ez-Jk5" secondAttribute="trailing" id="jww-7m-2bf"/>
+                        <constraint firstItem="XDP-O9-g4r" firstAttribute="centerX" secondItem="hKX-rp-Ikx" secondAttribute="centerX" id="kOR-UY-VgH"/>
+                        <constraint firstAttribute="trailing" secondItem="hKX-rp-Ikx" secondAttribute="trailing" id="s64-Om-TiI"/>
                         <constraint firstItem="7W5-ez-Jk5" firstAttribute="top" secondItem="jmE-MP-vBO" secondAttribute="top" constant="28" id="zTD-Ql-Bgi"/>
                     </constraints>
                 </view>
@@ -191,7 +218,7 @@
                                         <action selector="tabBottomVCAction:" destination="-1" eventType="touchUpInside" id="3a9-XH-bGN"/>
                                     </connections>
                                 </button>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="play" translatesAutoresizingMaskIntoConstraints="NO" id="IDD-5A-V3f">
+                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="playradom" translatesAutoresizingMaskIntoConstraints="NO" id="IDD-5A-V3f">
                                     <constraints>
                                         <constraint firstAttribute="width" constant="50" id="Iat-YP-BzD"/>
                                         <constraint firstAttribute="height" constant="50" id="jFX-Rb-oXP"/>
@@ -323,7 +350,8 @@
         <image name="Shape" width="19" height="19"/>
         <image name="addtofavorite" width="16" height="15"/>
         <image name="background-color" width="375" height="667"/>
-        <image name="play" width="53" height="47"/>
+        <image name="multiply" width="6" height="6"/>
+        <image name="playradom" width="53" height="47"/>
         <image name="setting" width="18" height="18"/>
         <image name="timer" width="19" height="18"/>
         <image name="volume" width="24" height="18"/>

@@ -8,7 +8,7 @@
 
 #import "DownLoadCategory.h"
 #import "SSZipArchive.h"
-
+#import "Define.h"
 static DownLoadCategory *sharedInstance = nil;
 static bool isFinish;
 
@@ -36,6 +36,10 @@ static bool isFinish;
 {
     _callback = callback;
 }
+-(void)setCallbackProgess:(ProgressCallback)callbackProgess
+{
+    _callbackProgess = callbackProgess;
+}
 -(void) doOperator:(NSArray*)myArrType
 {
     __weak DownLoadCategory *myWeak = self;
@@ -45,10 +49,14 @@ static bool isFinish;
     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
     manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
     
-    NSURL *URL = [NSURL URLWithString:[NSString stringWithFormat:@"http://lavie.dothome.co.kr/data/%@",dic[@"source"]]];
+    NSURL *URL = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@",BASE_URL,dic[@"source"]]];
     NSURLRequest *request = [NSURLRequest requestWithURL:URL];
     
     NSURLSessionDownloadTask *downloadTask = [manager downloadTaskWithRequest:request progress:^(NSProgress * _Nonnull downloadProgress) {
+       float progress = downloadProgress.fractionCompleted;
+        if (_callbackProgess) {
+            _callbackProgess(progress);
+        }
         
     } destination:^NSURL *(NSURL *targetPath, NSURLResponse *response) {
         
@@ -98,14 +106,16 @@ static bool isFinish;
     //
     NSString *unzipPath = documentsDirectory;
     //unzip
-    [SSZipArchive unzipFileAtPath:archivePath toDestination:unzipPath overwrite:YES password:@"" progressHandler:^(NSString * _Nonnull entry, unz_file_info zipInfo, long entryNumber, long total) {
+    [SSZipArchive unzipFileAtPath:archivePath toDestination:unzipPath overwrite:YES password:@"0000" progressHandler:^(NSString * _Nonnull entry, unz_file_info zipInfo, long entryNumber, long total) {
         //PRORESS
     } completionHandler:^(NSString * _Nonnull path, BOOL succeeded, NSError * _Nonnull error) {
         //COMPLETE
         if (_callback) {
             _callback(dicCategory);
         }
-
+        if (_callbackProgess) {
+            _callbackProgess(1);
+        }
     }];
 }
 @end

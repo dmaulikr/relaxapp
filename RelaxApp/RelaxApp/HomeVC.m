@@ -14,14 +14,16 @@
 #import "DownLoadCategory.h"
 #import "FileHelper.h"
 #import "Define.h"
+#import "MBProgressHUD.h"
 extern float volumeGlobal;
 
-@interface HomeVC ()
+@interface HomeVC ()<UIScrollViewDelegate>
 {
     NSMutableArray                  *arrCategory;
-    CollectionVC *colectionView;
     NSMutableArray                  *arrPlayList;
-    NSMutableArray                  *arrMusic;
+    NSMutableArray                  *arrColection;
+    NSMutableArray *arrTotal;
+    int iNumberCollection;
 
 }
 @end
@@ -33,50 +35,36 @@ extern float volumeGlobal;
     self.navigationController.navigationBar.hidden = YES;
     arrCategory  = [NSMutableArray new];
     arrPlayList = [NSMutableArray new];
-    arrMusic = [NSMutableArray new];
-    
+    arrColection = [NSMutableArray new];
+    self.scroll_View.delegate = self;
+    self.imgSingle.hidden = YES;
     [self getCategory];
-    // Do any additional setup after loading the view from its nib.
-
-
 }
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    __weak HomeVC *wself = self;
-    //COLLECTION
-    colectionView = [[CollectionVC alloc] initWithEVC];
-    [colectionView addContraintSupview:self.vContrainer];
-    [colectionView setCallback:^(NSDictionary *dicMusic)
-     {
-         NSMutableDictionary *dic = [dicMusic mutableCopy];
-         if ([dic[@"active"] boolValue]) {
-             [dic setObject:@(0) forKey:@"active"];
-         }
-         else
-         {
-             [dic setObject:@(1) forKey:@"active"];
-             [dic setObject:@(0.5) forKey:@"volume"];
-             //show music
-             [wself addSubViewVolumeItemWithDicMusic:dic];
-             
-             
-         }
-         [wself updateDataMusic:dic];
-     }];
 }
--(void)updateDataMusic:(NSDictionary*)dicMusic
+-(void)updateDataMusic:(NSDictionary*)dicMusic withCategory:(NSDictionary *)category
 {
 
     [self setupPlayerWithMusicItem:dicMusic];
-    for (int i = 0; i < arrMusic.count; i++) {
-        NSDictionary *musicItem = arrMusic[i];
-        if ([musicItem[@"ID"] intValue] == [dicMusic[@"ID"] intValue]) {
-            [arrMusic replaceObjectAtIndex:i withObject:dicMusic];
-            [colectionView updateDataMusic:arrMusic];
-            break;
-        }
+    for (int i = 0; i< arrCategory.count; i++) {
+        
+        NSMutableDictionary *dicCategory = [arrCategory[i] mutableCopy];
+        if ([dicCategory[@"id"] intValue] == [category[@"id"] intValue]) {
+            NSMutableArray *arrSounds = [dicCategory[@"sounds"] mutableCopy];
+            for (int j = 0; j <arrSounds.count; j++) {
+                NSDictionary *dicSound = arrSounds[j];
+                if (dicSound[@"ID"] == dicMusic[@"ID"]) {
+                    [arrSounds replaceObjectAtIndex:j withObject:dicMusic];
+                    [dicCategory setObject:arrSounds forKey:@"sounds"];
+                    [arrCategory replaceObjectAtIndex:i withObject:dicCategory];
+                    [self caculatorSubScrollview];
+                    break;
+                }
+            }
 
+        }
     }
 
 }
@@ -149,6 +137,7 @@ extern float volumeGlobal;
 -(void) addSubViewTimer
 {
     self.vTimer = [[TimerView alloc] initWithClassName:NSStringFromClass([TimerView class])];
+    self.vTimer.parent = self;
     [self.vTimer addContraintSupview:self.vContrainer];
 }
 -(void) addSubViewSetting
@@ -179,7 +168,7 @@ extern float volumeGlobal;
             [player setVolume:[musicItem[@"music"][@"volume"] floatValue] * volumeGlobal];
     }
 }
--(void) addSubViewVolumeItemWithDicMusic:(NSDictionary*)dicMusic
+-(void) addSubViewVolumeItemWithDicMusic:(NSDictionary*)dicMusic withCategory:(NSDictionary *)dicCategory
 {
     __weak HomeVC *wself = self;
     [self.vVolumeItem removeFromSuperview];
@@ -188,57 +177,26 @@ extern float volumeGlobal;
     [self.vVolumeItem showVolumeWithDicMusic:dicMusic];
     [self.vVolumeItem setCallback:^(NSDictionary *dicMusic)
      {
-         [wself updateDataMusic:dicMusic];
+         [wself updateDataMusic:dicMusic withCategory:dicCategory];
      }];
 
 }
 //MARK: - NETWORK
 -(void)getCategory
 {
-    /*
-    {
-    categories: [
-        {
-            id: 1,
-        title: "example sounds",
-        cover: "img/1.png",
-        source: "1.zip",
-        price: false,
-        manyselect: true,
-        md5: "d784fa8b6d98d27699781bd9a7cf19f0"
-        }
-                 ]
-    }
-    */
     __weak HomeVC *wself = self;
     managerCategory = [AFHTTPSessionManager manager];
-    [managerCategory GET:@"http://lavie.dothome.co.kr/data/data-test.json" parameters:nil progress:nil success:^(NSURLSessionTask *task, id responseObject) {
+    [managerCategory GET:[NSString stringWithFormat:@"%@%@",BASE_URL,@"data.json"] parameters:nil progress:nil success:^(NSURLSessionTask *task, id responseObject) {
         NSLog(@"JSON: %@", responseObject);
         if ([responseObject[@"categories"] isKindOfClass:[NSArray class]]) {
             [arrCategory addObjectsFromArray:responseObject[@"categories"]];
-            [wself getListMusicFromCategory:arrCategory];
-
-            DownLoadCategory *download = [DownLoadCategory sharedInstance];
-            [download fnListMusicWithCategory:arrCategory];
-            [download setCallback:^(NSDictionary *dicItemCategory)
-             {
-                 [wself getListMusicFromCategory:arrCategory];
-             }];
+            [wself caculatorSubScrollview];
         }
     } failure:^(NSURLSessionTask *operation, NSError *error) {
         NSLog(@"Error: %@", error);
     }];
 }
--(void)getListMusicFromCategory:(NSArray*)category
-{
-    
-    NSString *myJSON = [[NSString alloc] initWithContentsOfFile:[self getFullPathWithFileName:@"1/example.json"] encoding:NSUTF8StringEncoding error:NULL];
-    NSError *error =  nil;
-    NSDictionary *dicTmp = [NSJSONSerialization JSONObjectWithData:[myJSON dataUsingEncoding:NSUTF8StringEncoding] options:kNilOptions error:&error];
-    arrMusic = [dicTmp[@"Exprorer Cities"] mutableCopy];
-    [colectionView updateDataMusic:arrMusic];
 
-}
 //MARK: - PLAYER
 -(void)setupPlayerWithMusicItem:(NSDictionary*)dicMusic
 {
@@ -253,7 +211,21 @@ extern float volumeGlobal;
         
     }
     if ([dicMusic[@"active"] boolValue]) {
-        NSString *path = [self getFullPathWithFileName:[NSString stringWithFormat:@"1/%@",dicMusic[@"sound"]]];
+        NSString *category_name = @"";
+        for (NSDictionary *dicCategory in arrCategory) {
+            NSArray *arrSounds = dicCategory[@"sounds"];
+            for (NSDictionary *dicSound in arrSounds) {
+                if (dicSound[@"ID"] == dicMusic[@"ID"]) {
+                    category_name = dicCategory[@"path"];
+                    break;
+                }
+            }
+        }
+        if (category_name.length ==0) {
+            return;
+        }
+        
+        NSString *path = [self getFullPathWithFileName:[NSString stringWithFormat:@"%@/sound/%@",category_name,dicMusic[@"sound"]]];
         NSError* error = nil;
         NSURL* url = [NSURL fileURLWithPath:path];
         
@@ -294,21 +266,31 @@ extern float volumeGlobal;
 //MARK: - CLEAR ALL
 -(IBAction)clearAll:(id)sender
 {
-    for (int i = 0; i< arrMusic.count; i++) {
-        NSMutableDictionary *dic = [arrMusic[i] mutableCopy];
-        [dic setObject:@(0) forKey:@"active"];
-        [arrMusic replaceObjectAtIndex:i withObject:dic];
-        [self setupPlayerWithMusicItem:dic];
+    for (int i = 0; i< arrCategory.count; i++) {
+        NSMutableDictionary *dicCategory = [arrCategory[i] mutableCopy];
+        NSMutableArray *arrSounds = [dicCategory[@"sounds"] mutableCopy];
+        for (int j = 0; j <arrSounds.count; j++) {
+            NSMutableDictionary *dicSound = [arrSounds[j] mutableCopy];
+            [dicSound setObject:@(0) forKey:@"active"];
+            [arrSounds replaceObjectAtIndex:j withObject:dicSound];
+            [dicCategory setObject:arrSounds forKey:@"sounds"];
+            [arrCategory replaceObjectAtIndex:i withObject:dicCategory];
+            [self setupPlayerWithMusicItem:dicSound];
+        }
     }
-    [colectionView updateDataMusic:arrMusic];
+    [self caculatorSubScrollview];
 }
 //MARK: - ADD FAVORITE
 -(IBAction)addFavoriteAction:(id)sender
 {
     NSMutableArray *arrChoose = [NSMutableArray new];
-    for (NSDictionary *dic in arrMusic) {
-        if ([dic[@"active"] boolValue] == YES) {
-            [arrChoose addObject:dic];
+    for (int i = 0; i< arrCategory.count; i++) {
+        NSMutableArray *arrSounds = [arrCategory[i][@"sounds"] mutableCopy];
+        for (int j = 0; j <arrSounds.count; j++) {
+            NSMutableDictionary *dicSound = [arrSounds[j] mutableCopy];
+            if ([dicSound[@"active"] boolValue] == YES) {
+                [arrChoose addObject:dicSound];
+            }
         }
     }
     //favorite
@@ -323,23 +305,27 @@ extern float volumeGlobal;
     [self clearAll:nil];
     //set list choose from favorite
     for (NSDictionary *dichChoose in chooseFavotite) {
-        for (int i = 0; i< arrMusic.count; i++) {
-            NSDictionary *musicItem = arrMusic[i];
-            if ([musicItem[@"ID"] intValue] == [dichChoose[@"ID"] intValue]) {
-                NSMutableDictionary *dic = [musicItem mutableCopy];
-                    [dic setObject:@(1) forKey:@"active"];
-                    [dic setObject:dichChoose[@"volume"] forKey:@"volume"];
+        
+        for (int i = 0; i< arrCategory.count; i++) {
+            NSMutableDictionary *dicCategory = [arrCategory[i] mutableCopy];
+            NSMutableArray *arrSounds = [dicCategory[@"sounds"] mutableCopy];
+            for (int j = 0; j <arrSounds.count; j++) {
+                NSMutableDictionary *dicSound = [arrSounds[j] mutableCopy];
+                if ([dicSound[@"ID"] intValue] == [dichChoose[@"ID"] intValue]) {
+                    [dicSound setObject:dichChoose[@"volume"] forKey:@"volume"];
                     //show music
-                [arrMusic replaceObjectAtIndex:i withObject:dic];
-                [self setupPlayerWithMusicItem:dic];
-                break;
-
+                    [arrSounds replaceObjectAtIndex:j withObject:dicSound];
+                    [dicCategory setObject:arrSounds forKey:@"sounds"];
+                    [arrCategory replaceObjectAtIndex:i withObject:dicCategory];
+                    [self setupPlayerWithMusicItem:dicSound];
+                    break;
+                    
+                }
             }
-
         }
     }
-    [colectionView updateDataMusic:arrMusic];
 
+    [self caculatorSubScrollview];
 
 }
 //MARK: - CHECK HIDE SHOW BUTTON
@@ -363,5 +349,142 @@ extern float volumeGlobal;
 {
     NSLog(@"%s error=%@", __PRETTY_FUNCTION__, error);
 }
+//MARK: - SCROLL VIEW
+-(void)caculatorSubScrollview
+{
+    __weak HomeVC *wself = self;
+    iNumberCollection = 0;
 
+    //remove subview scroll news
+    for (UIView *view in self.scroll_View.subviews) {
+        [view removeFromSuperview];
+    }
+    [arrColection removeAllObjects];
+    
+    float delta = CGRectGetWidth(self.scroll_View.frame);
+    //caculator number page
+   arrTotal = [NSMutableArray new];
+    for (int j=0; j < arrCategory.count; j++) {
+        NSArray *arrItem = arrCategory[j][@"sounds"];
+        int deltal = 13;
+        for (int i = 0; i <arrItem.count; i = i + deltal) {
+            NSMutableDictionary *dicCategory = [arrCategory[j] mutableCopy];
+            [dicCategory removeObjectForKey:@"sounds"];
+            
+            if (i + deltal <= arrItem.count - 1) {
+                [dicCategory setObject:[arrItem subarrayWithRange:NSMakeRange(i, deltal)] forKey:@"sounds"];
+                [arrTotal addObject:dicCategory];
+            }
+            else
+            {
+                [dicCategory setObject:[arrItem subarrayWithRange:NSMakeRange(i, arrItem.count - i)] forKey:@"sounds"];
+                [arrTotal addObject:dicCategory];
+            }
+        }
+        if (arrItem.count == 0) {
+            NSMutableDictionary *dicCategory = [arrCategory[j] mutableCopy];
+            [dicCategory removeObjectForKey:@"sounds"];
+            [arrTotal addObject:dicCategory];
+        }
+    }
+    //add scroll view
+    iNumberCollection = iNumberCollection + (int)arrTotal.count;
+    int i = 0;
+    for (NSDictionary *dicCategory in arrTotal) {
+        UIView *v =[UIView new];
+        v.frame = CGRectMake( i*delta, 0 , delta , CGRectGetHeight(self.scroll_View.frame));
+        
+        [self.scroll_View addSubview:v];
+        CollectionVC *collection = [[CollectionVC alloc] initWithEVC];
+        [collection addContraintSupview:v];
+        [collection updateDataMusic:dicCategory];
+        [collection setCallback:^(NSDictionary *dicMusic,NSDictionary *dicCategory)
+         {
+             //neu truoc day chon 1 thang la signle
+             if (![dicCategory[@"manyselect"] boolValue]) {
+                 [wself clearAll:nil];
+             }
+             NSMutableDictionary *dic = [dicMusic mutableCopy];
+             if ([dic[@"active"] boolValue]) {
+                 [dic setObject:@(0) forKey:@"active"];
+             }
+             else
+             {
+                 [dic setObject:@(1) forKey:@"active"];
+                 [dic setObject:@(0.5) forKey:@"volume"];
+                 //show music
+                 [wself addSubViewVolumeItemWithDicMusic:dic withCategory:dicCategory];
+                 
+                 
+             }
+             [wself updateDataMusic:dic withCategory:dicCategory];
+         }];
+        [collection setCallbackCategory:^(NSDictionary *dicCategory)
+         {
+             [self downloadSoundWithCategory:dicCategory];
+
+         }];
+        [arrColection addObject:collection];
+        i++;
+    }
+
+    [self.scroll_View setContentSize:CGSizeMake(iNumberCollection*delta, CGRectGetHeight(self.scroll_View.frame))];
+    [self.scroll_View setPagingEnabled:YES];
+    self.pageControl.numberOfPages = iNumberCollection;
+    //set title
+    CGFloat pageWidth = CGRectGetWidth(self.scroll_View.frame);
+    CGFloat currentPage = floor((self.scroll_View.contentOffset.x-pageWidth/2)/pageWidth)+1;
+    // Change the indicator
+    self.pageControl.currentPage = (int) currentPage;
+    if (currentPage < arrTotal.count) {
+        self.titleCategory.text = arrTotal[(int)currentPage][@"name"];
+        self.imgSingle.hidden = [arrTotal[(int)currentPage][@"manyselect"] boolValue];
+
+    }
+
+
+}
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+{
+    CGFloat pageWidth = CGRectGetWidth(scrollView.frame);
+    CGFloat currentPage = floor((scrollView.contentOffset.x-pageWidth/2)/pageWidth)+1;
+    // Change the indicator
+    self.pageControl.currentPage = (int) currentPage;
+    if (currentPage < arrTotal.count) {
+        self.titleCategory.text = arrTotal[(int)currentPage][@"name"];
+        self.imgSingle.hidden = [arrTotal[(int)currentPage][@"manyselect"] boolValue];
+    }
+
+}
+-(void)downloadSoundWithCategory:(NSDictionary*)dicCategory
+{
+    __weak HomeVC *wself = self;
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    
+    // Set the determinate mode to show task progress.
+    hud.mode = MBProgressHUDModeDeterminate;
+    hud.label.text = @"Downloading...";
+    dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0), ^{
+
+    });
+
+    DownLoadCategory *download = [DownLoadCategory sharedInstance];
+    [download fnListMusicWithCategory:@[dicCategory]];
+    [download setCallback:^(NSDictionary *dicItemCategory)
+     {
+         [wself caculatorSubScrollview];
+         dispatch_async(dispatch_get_main_queue(), ^{
+             [hud hideAnimated:YES];
+         });
+     }];
+    [download setCallbackProgess:^(float progress)
+     {
+         dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0), ^{
+             dispatch_async(dispatch_get_main_queue(), ^{
+                 [MBProgressHUD HUDForView:self.view].progress = progress;
+             });
+         });
+
+     }];
+}
 @end

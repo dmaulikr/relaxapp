@@ -8,8 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "BaseView.h"
-@interface TimerView : BaseView
+@interface TimerView : BaseView<UIActionSheetDelegate>
+{
+    NSMutableArray *_dataSource;
+
+}
 @property (nonatomic, strong) IBOutlet UIView *vViewNav;
 @property (nonatomic, strong) IBOutlet UIView *vContent;
+@property (strong, nonatomic) IBOutlet UITableView *tableControl;
 
 @end

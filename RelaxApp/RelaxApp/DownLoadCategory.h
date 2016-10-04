@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "AFHTTPSessionManager.h"
 typedef void (^DownLoadCategoryCallback)(NSDictionary *itemCategory);
+typedef void (^ProgressCallback)(float progress);
+
 @interface DownLoadCategory : NSObject
 {
     AFURLSessionManager *manager;
@@ -19,12 +21,6 @@ typedef void (^DownLoadCategoryCallback)(NSDictionary *itemCategory);
 @property (nonatomic, strong) NSOperationQueue * operationQueue;
 -(void)fnListMusicWithCategory :(NSArray*) arrCategory;
 @property (nonatomic,copy) DownLoadCategoryCallback callback;
-/*
-DownLoadCategory *download = [DownLoadCategory sharedInstance];
-[download fnListMusicWithCategory:arrCategory];
-[download setCallback:^(NSDictionary *dicItemCategory)
- {
-     
- }];
-*/
+@property (nonatomic,copy) ProgressCallback callbackProgess;
+
 @end

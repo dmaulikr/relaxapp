@@ -17,7 +17,10 @@
     }
     return self;
 }
-
+-(void)setParent:(UIViewController *)parent
+{
+    _parent = parent;
+}
 -(void)instance
 {
 }

@@ -11,6 +11,7 @@
 @interface BaseView : UIView
 -(instancetype)initWithClassName:(NSString*)className;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *contraintBottom;
+@property (weak, nonatomic)  UIViewController *parent;
 -(void)addContraintSupview:(UIView*)viewSuper;
 //-(void)hide:(BOOL)hidden;
 //-(void)setup;

@@ -12,7 +12,14 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="puc-dH-xLE">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8tu-j0-tMG"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kda-Ch-rTb">
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <action selector="downloadAction:" destination="Uwh-Sk-xwS" eventType="touchUpInside" id="amH-Yv-J0D"/>
+                    </connections>
+                </button>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="puc-dH-xLE">
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="aZJ-MW-DmS">
                         <size key="itemSize" width="50" height="50"/>
@@ -25,24 +32,26 @@
                         <outlet property="delegate" destination="Uwh-Sk-xwS" id="PjH-AE-Apa"/>
                     </connections>
                 </collectionView>
-                <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="oAn-gq-AOG">
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                    <color key="pageIndicatorTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <color key="currentPageIndicatorTintColor" red="1" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                </pageControl>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="oAn-gq-AOG" firstAttribute="centerX" secondItem="Uwh-Sk-xwS" secondAttribute="centerX" id="Qux-zW-ByN"/>
+                <constraint firstAttribute="bottom" secondItem="kda-Ch-rTb" secondAttribute="bottom" id="Myg-tM-J9m"/>
+                <constraint firstAttribute="trailing" secondItem="kda-Ch-rTb" secondAttribute="trailing" id="cEQ-k8-HIV"/>
                 <constraint firstItem="puc-dH-xLE" firstAttribute="top" secondItem="Uwh-Sk-xwS" secondAttribute="top" id="eVc-ho-rf7"/>
                 <constraint firstAttribute="trailing" secondItem="puc-dH-xLE" secondAttribute="trailing" id="fRD-Ho-dcQ"/>
+                <constraint firstItem="kda-Ch-rTb" firstAttribute="leading" secondItem="Uwh-Sk-xwS" secondAttribute="leading" id="gOQ-GE-XrK"/>
+                <constraint firstAttribute="trailing" secondItem="8tu-j0-tMG" secondAttribute="trailing" id="hQY-fR-RPr"/>
+                <constraint firstItem="8tu-j0-tMG" firstAttribute="leading" secondItem="Uwh-Sk-xwS" secondAttribute="leading" id="jfS-oY-bIn"/>
                 <constraint firstAttribute="bottom" secondItem="puc-dH-xLE" secondAttribute="bottom" constant="-5" id="lDg-o6-WOP"/>
                 <constraint firstItem="puc-dH-xLE" firstAttribute="leading" secondItem="Uwh-Sk-xwS" secondAttribute="leading" id="p7e-Ed-JCy"/>
-                <constraint firstAttribute="bottom" secondItem="oAn-gq-AOG" secondAttribute="bottom" id="yd6-qH-KHA"/>
+                <constraint firstAttribute="bottom" secondItem="8tu-j0-tMG" secondAttribute="bottom" id="qiq-DE-1EC"/>
+                <constraint firstItem="8tu-j0-tMG" firstAttribute="top" secondItem="Uwh-Sk-xwS" secondAttribute="top" id="xN5-ca-OcS"/>
+                <constraint firstItem="kda-Ch-rTb" firstAttribute="top" secondItem="Uwh-Sk-xwS" secondAttribute="top" id="zyb-9v-rW2"/>
             </constraints>
             <connections>
+                <outlet property="btnDownLoad" destination="kda-Ch-rTb" id="Zn9-21-VwE"/>
                 <outlet property="collectionView" destination="puc-dH-xLE" id="k4F-ea-rty"/>
-                <outlet property="pageControl" destination="oAn-gq-AOG" id="Sp6-AZ-HCi"/>
+                <outlet property="image" destination="8tu-j0-tMG" id="7YY-uX-wcR"/>
             </connections>
             <point key="canvasLocation" x="105.5" y="-19.5"/>
         </view>

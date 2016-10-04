@@ -10,13 +10,14 @@
 #import "CollectionCell.h"
 #import "SpringboardLayout.h"
 #import "Define.h"
-
+#import "UIImageView+WebCache.h"
 @interface CollectionVC ()
 {
     NSMutableArray                  *arrCategory;
     NSMutableArray                  *arrPage;
     NSMutableArray                  *arrMusic;
     NSMutableArray                  *arrPlayList;
+    NSDictionary                    *dicCategory;
 
 }
 @end
@@ -53,7 +54,7 @@
     
     [viewSuper addSubview:view];
     
-    [viewSuper addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(65)-[view]-(0)-|"
+    [viewSuper addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(0)-[view]-(0)-|"
                                                                       options:0
                                                                       metrics:nil
                                                                         views:NSDictionaryOfVariableBindings(view)]];
@@ -77,12 +78,13 @@
     layout.sectionInset = UIEdgeInsetsMake(paddingVertical/2 + 10, paddingHorizontal/2, paddingVertical/2 + 10, paddingHorizontal/2);
     [self.collectionView setShowsHorizontalScrollIndicator:NO];
     [self.collectionView setShowsVerticalScrollIndicator:NO];
-    
+    self.collectionView.hidden = YES;
+    self.image.hidden = YES;
 }
 
 -(void)instance
 {
-    self.pageControl.currentPageIndicatorTintColor = UIColorFromRGB(COLOR_PAGE_ACTIVE);
+//    self.pageControl.currentPageIndicatorTintColor = UIColorFromRGB(COLOR_PAGE_ACTIVE);
     [self.collectionView registerNib:[UINib nibWithNibName:@"CollectionCell" bundle:nil] forCellWithReuseIdentifier:@"collectionID"];
     self.collectionView.allowsSelection = NO;
     arrCategory = [NSMutableArray new];
@@ -90,31 +92,31 @@
     arrPlayList = [NSMutableArray new];
 }
 //MARK: - DATA
--(void)fnSetDataCategory:(NSArray*)category
+-(void)updateDataMusic:(NSDictionary*)dicTmp
 {
-    arrCategory = [category mutableCopy];
+    dicCategory = dicTmp;
     
-    
-    NSString *myJSON = [[NSString alloc] initWithContentsOfFile:[self getFullPathWithFileName:@"1/example.json"] encoding:NSUTF8StringEncoding error:NULL];
-    NSError *error =  nil;
-    NSDictionary *dicTmp = [NSJSONSerialization JSONObjectWithData:[myJSON dataUsingEncoding:NSUTF8StringEncoding] options:kNilOptions error:&error];
-    arrMusic = [dicTmp[@"Exprorer Cities"] mutableCopy];
-  //  [arrMusic addObjectsFromArray:dicTmp[@"Exprorer Cities"]];
- //   [arrMusic addObjectsFromArray:dicTmp[@"Exprorer Cities"]];
- //   [arrMusic addObjectsFromArray:dicTmp[@"Exprorer Cities"]];
+    NSString *path = [self getFullPathWithFileName:dicCategory[@"path"]];
+    NSFileManager *fileManager = [[NSFileManager alloc] init];
+    BOOL isDir;
+    BOOL exists = [fileManager fileExistsAtPath:path isDirectory:&isDir];
+    if (dicCategory[@"sounds"] && exists) {
+        arrMusic = [dicCategory[@"sounds"] mutableCopy];
+        self.collectionView.hidden = NO;
+        self.image.hidden = YES;
+        [self.collectionView reloadData];
+    }
+    else
+    {
+        self.collectionView.hidden = YES;
+        self.image.hidden = NO;
+        
+        NSURL *url =[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",BASE_IMAGE_URL,dicCategory[@"cover"]]];
+        [self.image sd_setImageWithURL:url placeholderImage: nil completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+        }];
 
-    double pages = ceil(arrMusic.count/15);
-    [self.pageControl setNumberOfPages:pages];
 
-    [self.collectionView reloadData];
-}
--(void)updateDataMusic:(NSArray*)arrTmp
-{
-    arrMusic = [arrTmp mutableCopy];
-    double pages = ceil(arrMusic.count/15);
-    [self.pageControl setNumberOfPages:pages];
-    
-    [self.collectionView reloadData];
+    }
 
 }
 -(NSString*)getFullPathWithFileName:(NSString*)fileName
@@ -130,12 +132,23 @@
     NSDictionary *dic = arrMusic[index];
 
         if (_callback) {
-            _callback(dic);
+            _callback(dic,dicCategory);
         }
 }
 -(void)setCallback:(CollectionVCCallback)callback
 {
     _callback = callback;
+}
+-(void)setCallbackCategory:(CategoryCallback)callbackCategory
+{
+    _callbackCategory = callbackCategory;
+}
+//MARK: - ACTION
+-(IBAction)downloadAction:(id)sender
+{
+    if (_callbackCategory) {
+        _callbackCategory(dicCategory);
+    }
 }
 //MARK: - COLLECTION
 // collection view data source methods ////////////////////////////////////
@@ -151,7 +164,7 @@
     CollectionCell *cell = (CollectionCell *)[collectionView dequeueReusableCellWithReuseIdentifier:@"collectionID" forIndexPath:indexPath];
 
     cell.lbTitle.text = dic[@"titleShort"];
-    NSString *fullPath = [self getFullPathWithFileName:[NSString stringWithFormat:@"1/%@",dic[@"img"]]];
+    NSString *fullPath = [self getFullPathWithFileName:[NSString stringWithFormat:@"%@/img/%@",dicCategory[@"path"],dic[@"img"]]];
     cell.imgIcon.image = [UIImage imageWithContentsOfFile:fullPath];
     if ([dic[@"active"] boolValue]) {
         cell.imgCheck.hidden = NO;
@@ -170,21 +183,4 @@
      }];
     return cell;
 }
-/////////////////////////////////////////////////////////////////////////////////
-
-// collection view delegate methods ////////////////////////////////////////
-
-- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
-{
-    NSLog(@"cell #%ld was selected", (long)indexPath.row);
-}
-/////////////////////////////////////////////////////////////////////////////////
-- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
-{
-    CGFloat pageWidth = self.collectionView.frame.size.width; // you need to have a **iVar** with getter for scrollView
-    float fractionalPage = self.collectionView.contentOffset.x / pageWidth;
-    NSInteger page = lround(fractionalPage);
-    self.pageControl.currentPage = page;
-}
-
 @end

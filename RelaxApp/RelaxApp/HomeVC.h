@@ -24,6 +24,10 @@
 }
 @property (nonatomic, strong) IBOutlet UIView *vContrainer;
 @property (nonatomic, strong) IBOutlet UIImageView *imgBackGround;
+@property (nonatomic, strong) IBOutlet UIPageControl *pageControl;
+@property (nonatomic, strong) IBOutlet UIScrollView *scroll_View;
+@property (nonatomic, strong) IBOutlet UILabel *titleCategory;
+@property (nonatomic, strong) IBOutlet UIImageView *imgSingle;
 
 @property (nonatomic, strong) TabVC *vTabbar;
 @property (nonatomic, strong)  FavoriteView *vFavorite;

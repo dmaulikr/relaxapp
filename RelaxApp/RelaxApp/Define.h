@@ -8,6 +8,9 @@
 
 #ifndef Define_h
 #define Define_h
+#define BASE_URL @"https://data.relafapp.com/data-examples/data/"
+#define BASE_IMAGE_URL @"https://data.relafapp.com/data-examples/data-s/"
+
 #define COLOR_SLIDER_THUMB 0x50E3C2
 #define COLOR_NAVIGATION_HOME 0x0241A8
 #define COLOR_PAGE_ACTIVE 0x9013FE
@@ -28,4 +31,10 @@ typedef enum
     GESTURE_LONG,
     
 }GESTURE_TYPE;
+typedef enum
+{
+    TIMER_COUNTDOWN = 1,
+    TIMER_CLOCK,
+    
+}TIMER_TYPE;
 #endif /* Define_h */
