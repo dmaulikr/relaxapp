@@ -57,6 +57,7 @@ static NSString *identifierSection1 = @"MyTableViewCell1";
 -(void)createrTimerWithType:(TIMER_TYPE)type
 {
     CreaterTimer *viewController1 = [[CreaterTimer alloc] initWithNibName:@"CreaterTimer" bundle:nil];
+    viewController1.timerType = type;
     [self.parent presentViewController:viewController1 animated:YES completion:nil];
 
 }

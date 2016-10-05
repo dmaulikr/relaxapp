@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
@@ -8,6 +8,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CreaterTimer">
             <connections>
+                <outlet property="tfTitle" destination="vKg-p9-Jbe" id="x3l-cn-GdM"/>
+                <outlet property="timeToSetOff" destination="5hO-oY-jsh" id="IZO-59-Xtb"/>
                 <outlet property="vContent" destination="4ik-JB-PoB" id="xIV-8b-i1e"/>
                 <outlet property="vViewNav" destination="034-ae-JVr" id="tzR-eJ-8Pp"/>
                 <outlet property="view" destination="Tmx-vs-DOj" id="3w0-qq-l9e"/>
@@ -73,7 +75,7 @@
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mn2-Sd-cMt">
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <connections>
-                                                <action selector="addActionAction:" destination="-1" eventType="touchUpInside" id="HYq-7z-bf9"/>
+                                                <action selector="saveAction:" destination="-1" eventType="touchUpInside" id="P1G-MN-RDt"/>
                                             </connections>
                                         </button>
                                     </subviews>
@@ -121,7 +123,7 @@
                                 <constraint firstAttribute="height" constant="1" id="B3m-aE-Gv1"/>
                             </constraints>
                         </imageView>
-                        <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="countDownTimer" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="5hO-oY-jsh">
+                        <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="countDownTimer" minuteInterval="1" useCurrentDate="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5hO-oY-jsh">
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <date key="date" timeIntervalSinceReferenceDate="497260186.82157701">
                                 <!--2016-10-04 07:49:46 +0000-->

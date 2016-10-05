@@ -15,7 +15,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         [self setup];
-        [self setupGesture];
+//        [self setupGesture];
     }
     return self;
 }
@@ -24,7 +24,7 @@
     [super awakeFromNib];
     
     [self setup];
-    [self setupGesture];
+//    [self setupGesture];
 }
 
 - (void)setup {

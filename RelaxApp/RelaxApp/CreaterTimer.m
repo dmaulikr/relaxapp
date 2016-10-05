@@ -28,6 +28,11 @@
     _arrCategory = arrTmp;
     //test
     dicChooseCategory = _arrCategory[0];
+    
+    _timeToSetOff.backgroundColor = [UIColor whiteColor];
+//    [_timeToSetOff setValue:[UIColor whiteColor] forKey:@"textColor"];
+//    [_timeToSetOff setValue:@(0.8) forKey:@"alpha"];
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -43,8 +48,7 @@
 {
     if (_tfTitle.text.length > 0) {
         NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-        
-        [dateFormatter setDateFormat:@"hh:mm:ss"];
+        [dateFormatter setDateFormat:@"hh:mm"];
         NSString *timer = [dateFormatter stringFromDate:_timeToSetOff.date];
         
         //read in cache
@@ -54,13 +58,16 @@
         int _id = [lastFavorite[@"id"] intValue] + 1;
         NSDictionary *dicSave = @{@"id":@(_id),
                                   @"name": _tfTitle.text,
-                                  @"type": @(TIMER_COUNTDOWN),
+                                  @"type": @(_timerType),
                                   @"active":@(0),
                                   @"description":@"",
                                   @"timer": timer,
                                   @"id_favorite": dicChooseCategory[@"id"]};
         
-        NSMutableArray *arrSave = [arrTmp mutableCopy];
+        NSMutableArray *arrSave = [NSMutableArray new];
+        if (arrTmp) {
+            [arrSave addObjectsFromArray:arrTmp];
+        }
         [arrSave addObject:dicSave];
         //save cache
         [arrSave writeToFile:strPath atomically:YES];
@@ -72,5 +79,19 @@
         [alert show];
     }
 }
-
+-(NSString*)convertDateToString:(NSDate*)date
+{
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"HH:mm:ss"];
+        
+    NSString *stringFromDate = [formatter stringFromDate:date];
+    return stringFromDate;
+}
+-(NSDate*)convertStringToDate:(NSString*)dateString
+{
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"HH:mm:ss"];
+    NSDate *date = [dateFormatter dateFromString:dateString];
+    return date;
+}
 @end
