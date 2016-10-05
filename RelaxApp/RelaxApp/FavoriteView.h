@@ -8,17 +8,18 @@
 
 #import <UIKit/UIKit.h>
 #import "BaseView.h"
-typedef void (^FavoriteViewCallback)(NSArray *chooseMusic);
+#import "AddFavoriteView.h"
+typedef void (^FavoriteViewCallback)(NSDictionary *dicCategory);
 
 @interface FavoriteView : BaseView
 {
-    NSMutableArray *_dataSource;
-    NSArray *_arrMusic;
+    NSMutableArray *_arrMusic;
 
 }
 @property (nonatomic, strong) IBOutlet UIView *vViewNav;
 @property (nonatomic, strong) IBOutlet UIView *vContent;
 @property (strong, nonatomic) IBOutlet UITableView *tableControl;
 @property (nonatomic,copy) FavoriteViewCallback callback;
+@property (nonatomic, strong)  AddFavoriteView *vAddFavorite;
 
 @end

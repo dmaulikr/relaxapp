@@ -9,7 +9,10 @@
 #import "AppDelegate.h"
 #import "HomeVC.h"
 @interface AppDelegate ()
+{
+    NSTimer* timer;
 
+}
 @end
 
 @implementation AppDelegate
@@ -27,6 +30,7 @@
     [self.window setRootViewController:self.navigationController ];
 
     [self.window makeKeyAndVisible];
+    [self timerBackGround];
     return YES;
 }
 
@@ -56,6 +60,39 @@
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
+-(void)setCallback:(AppDelegateCallback)callback
+{
+    _callback = callback;
+}
+-(void)timerBackGround
+{
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
+        //How often to update the clock labels
+        timer = [NSTimer timerWithTimeInterval:1.0 target:self selector:@selector(myTimerAction) userInfo:nil repeats:YES];
+        [[NSRunLoop currentRunLoop] addTimer:timer forMode:NSDefaultRunLoopMode];
+        [[NSRunLoop currentRunLoop] run];
+    });
 
 
+}
+-(void)stopTimerBackGround
+{
+    [timer invalidate];
+    timer = nil;
+}
+-(void)myTimerAction
+{
+    NSDate *date = [NSDate date];
+    
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    
+    [dateFormatter setDateFormat:@"hh:mm:ss"];
+    NSString *hourMinuteSecond = [dateFormatter stringFromDate:date];
+    NSLog(@"alarm %@",hourMinuteSecond);
+    if (_callback) {
+        _callback(date);
+    }
+
+
+}
 @end

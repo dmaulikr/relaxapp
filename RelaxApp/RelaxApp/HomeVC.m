@@ -15,6 +15,7 @@
 #import "FileHelper.h"
 #import "Define.h"
 #import "MBProgressHUD.h"
+#import "AppDelegate.h"
 extern float volumeGlobal;
 
 @interface HomeVC ()<UIScrollViewDelegate>
@@ -24,7 +25,7 @@ extern float volumeGlobal;
     NSMutableArray                  *arrColection;
     NSMutableArray *arrTotal;
     int iNumberCollection;
-
+    BOOL preSignSelect;
 }
 @end
 
@@ -39,6 +40,13 @@ extern float volumeGlobal;
     self.scroll_View.delegate = self;
     self.imgSingle.hidden = YES;
     [self getCategory];
+    [self fnSetButtonNavigation];
+    //timer
+    AppDelegate * myAppDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
+    [myAppDelegate setCallback:^(NSDate *date)
+     {
+     
+     }];
 }
 -(void)viewDidAppear:(BOOL)animated
 {
@@ -55,7 +63,7 @@ extern float volumeGlobal;
             NSMutableArray *arrSounds = [dicCategory[@"sounds"] mutableCopy];
             for (int j = 0; j <arrSounds.count; j++) {
                 NSDictionary *dicSound = arrSounds[j];
-                if (dicSound[@"ID"] == dicMusic[@"ID"]) {
+                if (dicSound[@"id"] == dicMusic[@"id"]) {
                     [arrSounds replaceObjectAtIndex:j withObject:dicMusic];
                     [dicCategory setObject:arrSounds forKey:@"sounds"];
                     [arrCategory replaceObjectAtIndex:i withObject:dicCategory];
@@ -72,6 +80,7 @@ extern float volumeGlobal;
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+//MARK: ACTION
 
 -(IBAction)tabBottomVCAction:(id)sender
 {
@@ -123,14 +132,16 @@ extern float volumeGlobal;
             break;
     }
 }
-//MARK: view filter
+
 -(void) addSubViewFavorite
 {
     __weak HomeVC *wself = self;
     self.vFavorite = [[FavoriteView alloc] initWithClassName:NSStringFromClass([FavoriteView class])];
     [self.vFavorite addContraintSupview:self.vContrainer];
-    [self.vFavorite setCallback:^(NSArray *chooseMusic)
+    [self.vFavorite setCallback:^(NSDictionary *dicCateogry)
      {
+         wself.dicChooseCategory = dicCateogry;
+         NSArray *chooseMusic = wself.dicChooseCategory[@"music"];
          [wself fnPlayerFromFavorite:chooseMusic];
      }];
 }
@@ -202,7 +213,7 @@ extern float volumeGlobal;
 {
     for (int i = 0; i < arrPlayList.count; i++) {
         NSDictionary *musicItem = arrPlayList[i];
-        if ([dicMusic[@"ID"] intValue] == [musicItem[@"music"][@"ID"] intValue]) {
+        if ([dicMusic[@"id"] intValue] == [musicItem[@"music"][@"id"] intValue]) {
             IDZAQAudioPlayer *player  = musicItem[@"player"];
             [player stop];
             [arrPlayList removeObjectAtIndex:i];
@@ -213,9 +224,12 @@ extern float volumeGlobal;
     if ([dicMusic[@"active"] boolValue]) {
         NSString *category_name = @"";
         for (NSDictionary *dicCategory in arrCategory) {
+            if (category_name.length > 0) {
+                break;
+            }
             NSArray *arrSounds = dicCategory[@"sounds"];
             for (NSDictionary *dicSound in arrSounds) {
-                if (dicSound[@"ID"] == dicMusic[@"ID"]) {
+                if (dicSound[@"id"] == dicMusic[@"id"]) {
                     category_name = dicCategory[@"path"];
                     break;
                 }
@@ -266,6 +280,13 @@ extern float volumeGlobal;
 //MARK: - CLEAR ALL
 -(IBAction)clearAll:(id)sender
 {
+    _dicChooseCategory = nil;
+    [self fnClearAllSounds];
+    [self fnSetButtonNavigation];
+}
+-(void)fnClearAllSounds
+{
+    [self fnSetButtonNavigation];
     for (int i = 0; i< arrCategory.count; i++) {
         NSMutableDictionary *dicCategory = [arrCategory[i] mutableCopy];
         NSMutableArray *arrSounds = [dicCategory[@"sounds"] mutableCopy];
@@ -279,30 +300,44 @@ extern float volumeGlobal;
         }
     }
     [self caculatorSubScrollview];
+
 }
-//MARK: - ADD FAVORITE
+//MARK: - FAVORITE
 -(IBAction)addFavoriteAction:(id)sender
 {
-    NSMutableArray *arrChoose = [NSMutableArray new];
-    for (int i = 0; i< arrCategory.count; i++) {
-        NSMutableArray *arrSounds = [arrCategory[i][@"sounds"] mutableCopy];
-        for (int j = 0; j <arrSounds.count; j++) {
-            NSMutableDictionary *dicSound = [arrSounds[j] mutableCopy];
-            if ([dicSound[@"active"] boolValue] == YES) {
-                [arrChoose addObject:dicSound];
+    if (_dicChooseCategory) {
+        // show info Favotite
+        //favorite
+        self.vAddFavorite = [[AddFavoriteView alloc] initWithClassName:NSStringFromClass([AddFavoriteView class])];
+        [self.vAddFavorite addContraintSupview:self.view];
+        self.vAddFavorite.modeType = MODE_INFO;
+        [self.vAddFavorite fnSetInfoFavorite:_dicChooseCategory];
+
+    }
+    else
+    {
+        NSMutableArray *arrChoose = [NSMutableArray new];
+        for (int i = 0; i< arrCategory.count; i++) {
+            NSMutableArray *arrSounds = [arrCategory[i][@"sounds"] mutableCopy];
+            for (int j = 0; j <arrSounds.count; j++) {
+                NSMutableDictionary *dicSound = [arrSounds[j] mutableCopy];
+                if ([dicSound[@"active"] boolValue] == YES) {
+                    [arrChoose addObject:dicSound];
+                }
             }
         }
+        //favorite
+        self.vAddFavorite = [[AddFavoriteView alloc] initWithClassName:NSStringFromClass([AddFavoriteView class])];
+        [self.vAddFavorite addContraintSupview:self.view];
+        self.vAddFavorite.modeType = MODE_CREATE;
+        [self.vAddFavorite fnSetDataMusic:arrChoose];
+
     }
-    //favorite
-    self.vAddFavorite = [[AddFavoriteView alloc] initWithClassName:NSStringFromClass([AddFavoriteView class])];
-    [self.vAddFavorite addContraintSupview:self.view];
-    [self.vAddFavorite fnSetDataMusic:arrChoose];
 }
-//MARK: - CHOOSE FAVORITE
 -(void)fnPlayerFromFavorite:(NSArray*)chooseFavotite
 {
     //clear befor
-    [self clearAll:nil];
+    [self fnClearAllSounds];
     //set list choose from favorite
     for (NSDictionary *dichChoose in chooseFavotite) {
         
@@ -311,8 +346,10 @@ extern float volumeGlobal;
             NSMutableArray *arrSounds = [dicCategory[@"sounds"] mutableCopy];
             for (int j = 0; j <arrSounds.count; j++) {
                 NSMutableDictionary *dicSound = [arrSounds[j] mutableCopy];
-                if ([dicSound[@"ID"] intValue] == [dichChoose[@"ID"] intValue]) {
+                if ([dicSound[@"id"] intValue] == [dichChoose[@"id"] intValue]) {
                     [dicSound setObject:dichChoose[@"volume"] forKey:@"volume"];
+                    [dicSound setObject:dichChoose[@"active"] forKey:@"active"];
+
                     //show music
                     [arrSounds replaceObjectAtIndex:j withObject:dicSound];
                     [dicCategory setObject:arrSounds forKey:@"sounds"];
@@ -326,18 +363,8 @@ extern float volumeGlobal;
     }
 
     [self caculatorSubScrollview];
+    [self fnSetButtonNavigation];
 
-}
-//MARK: - CHECK HIDE SHOW BUTTON
--(void)checkStatusButtonFavorite
-{
-    if (arrPlayList.count > 0) {
-        
-    }
-    else
-    {
-    
-    }
 }
 #pragma mark - IDZAudioPlayerDelegate
 - (void)audioPlayerDidFinishPlaying:(id<IDZAudioPlayer>)player successfully:(BOOL)flag
@@ -400,9 +427,15 @@ extern float volumeGlobal;
         [collection updateDataMusic:dicCategory];
         [collection setCallback:^(NSDictionary *dicMusic,NSDictionary *dicCategory)
          {
+             _dicChooseCategory = nil;
              //neu truoc day chon 1 thang la signle
+             if (preSignSelect) {
+                 preSignSelect = !preSignSelect;
+                 [wself fnClearAllSounds];
+             }
              if (![dicCategory[@"manyselect"] boolValue]) {
-                 [wself clearAll:nil];
+                 preSignSelect = YES;
+                 [wself fnClearAllSounds];
              }
              NSMutableDictionary *dic = [dicMusic mutableCopy];
              if ([dic[@"active"] boolValue]) {
@@ -418,6 +451,7 @@ extern float volumeGlobal;
                  
              }
              [wself updateDataMusic:dic withCategory:dicCategory];
+             [wself fnSetButtonNavigation];
          }];
         [collection setCallbackCategory:^(NSDictionary *dicCategory)
          {
@@ -486,5 +520,31 @@ extern float volumeGlobal;
          });
 
      }];
+}
+//MARK: - STATUS BUTTON
+-(void)fnSetButtonNavigation
+{
+    if (arrPlayList.count == 0) {
+        _btnAddfavorite.hidden = YES;
+        _imgAddfavorite.hidden = YES;
+        //
+        _btnclearAll.hidden = YES;
+        _imgclearAll.hidden = YES;
+    }
+    else
+    {
+        if (_dicChooseCategory) {
+            _imgAddfavorite.image = [UIImage imageNamed:@"infofavorite"];
+        }
+        else
+        {
+            _imgAddfavorite.image = [UIImage imageNamed:@"addtofavorite"];
+        }
+        _btnAddfavorite.hidden = NO;
+        _imgAddfavorite.hidden = NO;
+        _btnclearAll.hidden = NO;
+        _imgclearAll.hidden = NO;
+
+    }
 }
 @end

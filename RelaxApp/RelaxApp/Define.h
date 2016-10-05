@@ -24,6 +24,7 @@
 #define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 //
 #define FILE_FAVORITE_SAVE @"FAVORITE.save"
+#define FILE_TIMER_SAVE @"TIMER.save"
 
 typedef enum
 {
@@ -37,4 +38,19 @@ typedef enum
     TIMER_CLOCK,
     
 }TIMER_TYPE;
+typedef enum
+{
+    MODE_CREATE = 1,
+    MODE_EDIT,
+    MODE_INFO
+    
+}MODE_TYPE;
+typedef enum
+{
+    HOME_RANDOM = 1,
+    HOME_PLAYING,
+    HOME_PAUSE,
+    HOME_BACK_HOME
+    
+}HOME_BUTTON_TYPE;
 #endif /* Define_h */

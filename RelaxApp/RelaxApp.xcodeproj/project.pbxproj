@@ -12,7 +12,6 @@
 		EB11EDC61D9AB24900804D34 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EB11EDC51D9AB24900804D34 /* main.m */; };
 		EB11EDC91D9AB24900804D34 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EB11EDC81D9AB24900804D34 /* AppDelegate.m */; };
 		EB11EDD11D9AB24900804D34 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB11EDD01D9AB24900804D34 /* Assets.xcassets */; };
-		EB11EDD41D9AB24900804D34 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB11EDD21D9AB24900804D34 /* LaunchScreen.storyboard */; };
 		EB11EDDF1D9AB24900804D34 /* RelaxAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EB11EDDE1D9AB24900804D34 /* RelaxAppTests.m */; };
 		EB11EDEA1D9AB24900804D34 /* RelaxAppUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = EB11EDE91D9AB24900804D34 /* RelaxAppUITests.m */; };
 		EB11EDFF1D9AB30B00804D34 /* HomeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EB11EDFD1D9AB30B00804D34 /* HomeVC.m */; };
@@ -135,7 +134,6 @@
 		EB11EDC71D9AB24900804D34 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		EB11EDC81D9AB24900804D34 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		EB11EDD01D9AB24900804D34 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		EB11EDD31D9AB24900804D34 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EB11EDD51D9AB24900804D34 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EB11EDDA1D9AB24900804D34 /* RelaxAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RelaxAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB11EDDE1D9AB24900804D34 /* RelaxAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RelaxAppTests.m; sourceTree = "<group>"; };
@@ -369,45 +367,14 @@
 				EB56B6101DA2C4A3001AFC87 /* Common */,
 				EB11EDC71D9AB24900804D34 /* AppDelegate.h */,
 				EB11EDC81D9AB24900804D34 /* AppDelegate.m */,
-				EB11EE641D9AEC5200804D34 /* CollectionVC.h */,
-				EB11EE651D9AEC5200804D34 /* CollectionVC.m */,
-				EB11EE671D9AEC7000804D34 /* CollectionVC.xib */,
-				EB11EE6B1D9AF4A300804D34 /* CollectionCell.h */,
-				EB11EE6C1D9AF4A300804D34 /* CollectionCell.m */,
-				EB11EE6D1D9AF4A300804D34 /* CollectionCell.xib */,
-				EB0582571D9C0D2200E29C9B /* SpringboardLayout.h */,
-				EB0582581D9C0D2200E29C9B /* SpringboardLayout.m */,
 				EBFB07B11D9EA1F000AF2569 /* BaseView.h */,
 				EBFB07B21D9EA1F000AF2569 /* BaseView.m */,
-				EBFB07A21D9EA06000AF2569 /* FavoriteView.h */,
-				EBFB07A31D9EA06000AF2569 /* FavoriteView.m */,
-				EBFB07A51D9EA07300AF2569 /* FavoriteView.xib */,
-				EBFB07A71D9EA08700AF2569 /* TimerView.h */,
-				EBFB07A81D9EA08700AF2569 /* TimerView.m */,
-				EBFB07AA1D9EA0A100AF2569 /* TimerView.xib */,
-				EB4C7FD51DA3F3BF003CD3D6 /* TimerCell.h */,
-				EB4C7FD61DA3F3BF003CD3D6 /* TimerCell.m */,
-				EB4C7FD71DA3F3BF003CD3D6 /* TimerCell.xib */,
-				EB4C7FD81DA3F3BF003CD3D6 /* CreaterTimer.h */,
-				EB4C7FD91DA3F3BF003CD3D6 /* CreaterTimer.m */,
-				EB4C7FDA1DA3F3BF003CD3D6 /* CreaterTimer.xib */,
-				EBFB07AC1D9EA0C100AF2569 /* SettingView.h */,
-				EBFB07AD1D9EA0C100AF2569 /* SettingView.m */,
-				EBFB07AF1D9EA0D300AF2569 /* SettingView.xib */,
-				EBFB07B41D9EAD7200AF2569 /* VolumeView.h */,
-				EBFB07B51D9EAD7200AF2569 /* VolumeView.m */,
-				EBFB07B71D9EAD8500AF2569 /* VolumeView.xib */,
-				EB14BA6A1DA16FCA00385759 /* VolumeItem.h */,
-				EB14BA6B1DA16FCA00385759 /* VolumeItem.m */,
-				EB14BA6C1DA16FCA00385759 /* VolumeItem.xib */,
-				EB11EDFC1D9AB30B00804D34 /* HomeVC.h */,
-				EB11EDFD1D9AB30B00804D34 /* HomeVC.m */,
-				EB11EDFE1D9AB30B00804D34 /* HomeVC.xib */,
-				EB56B6111DA2C697001AFC87 /* AddFavoriteView.h */,
-				EB56B6121DA2C697001AFC87 /* AddFavoriteView.m */,
-				EB56B6141DA2C6A9001AFC87 /* AddFavoriteView.xib */,
+				EBF9B5541DA54CF700F07655 /* VOLUME */,
+				EBF9B5511DA54CC200F07655 /* FAVORITE */,
+				EBF9B5521DA54CD200F07655 /* HOME */,
+				EBF9B5531DA54CE800F07655 /* TIMER */,
+				EBF9B5551DA54D0500F07655 /* SETTING */,
 				EB11EDD01D9AB24900804D34 /* Assets.xcassets */,
-				EB11EDD21D9AB24900804D34 /* LaunchScreen.storyboard */,
 				EB11EDD51D9AB24900804D34 /* Info.plist */,
 				EB11EDC41D9AB24900804D34 /* Supporting Files */,
 				EBFB07BF1D9EE03100AF2569 /* Define.h */,
@@ -560,6 +527,76 @@
 				EB11EE631D9AEBCF00804D34 /* Nav */,
 			);
 			name = Common;
+			sourceTree = "<group>";
+		};
+		EBF9B5511DA54CC200F07655 /* FAVORITE */ = {
+			isa = PBXGroup;
+			children = (
+				EBFB07A21D9EA06000AF2569 /* FavoriteView.h */,
+				EBFB07A31D9EA06000AF2569 /* FavoriteView.m */,
+				EBFB07A51D9EA07300AF2569 /* FavoriteView.xib */,
+				EB56B6111DA2C697001AFC87 /* AddFavoriteView.h */,
+				EB56B6121DA2C697001AFC87 /* AddFavoriteView.m */,
+				EB56B6141DA2C6A9001AFC87 /* AddFavoriteView.xib */,
+			);
+			name = FAVORITE;
+			sourceTree = "<group>";
+		};
+		EBF9B5521DA54CD200F07655 /* HOME */ = {
+			isa = PBXGroup;
+			children = (
+				EB11EDFC1D9AB30B00804D34 /* HomeVC.h */,
+				EB11EDFD1D9AB30B00804D34 /* HomeVC.m */,
+				EB11EDFE1D9AB30B00804D34 /* HomeVC.xib */,
+				EB11EE641D9AEC5200804D34 /* CollectionVC.h */,
+				EB11EE651D9AEC5200804D34 /* CollectionVC.m */,
+				EB11EE671D9AEC7000804D34 /* CollectionVC.xib */,
+				EB11EE6B1D9AF4A300804D34 /* CollectionCell.h */,
+				EB11EE6C1D9AF4A300804D34 /* CollectionCell.m */,
+				EB11EE6D1D9AF4A300804D34 /* CollectionCell.xib */,
+				EB0582571D9C0D2200E29C9B /* SpringboardLayout.h */,
+				EB0582581D9C0D2200E29C9B /* SpringboardLayout.m */,
+			);
+			name = HOME;
+			sourceTree = "<group>";
+		};
+		EBF9B5531DA54CE800F07655 /* TIMER */ = {
+			isa = PBXGroup;
+			children = (
+				EBFB07A71D9EA08700AF2569 /* TimerView.h */,
+				EBFB07A81D9EA08700AF2569 /* TimerView.m */,
+				EBFB07AA1D9EA0A100AF2569 /* TimerView.xib */,
+				EB4C7FD51DA3F3BF003CD3D6 /* TimerCell.h */,
+				EB4C7FD61DA3F3BF003CD3D6 /* TimerCell.m */,
+				EB4C7FD71DA3F3BF003CD3D6 /* TimerCell.xib */,
+				EB4C7FD81DA3F3BF003CD3D6 /* CreaterTimer.h */,
+				EB4C7FD91DA3F3BF003CD3D6 /* CreaterTimer.m */,
+				EB4C7FDA1DA3F3BF003CD3D6 /* CreaterTimer.xib */,
+			);
+			name = TIMER;
+			sourceTree = "<group>";
+		};
+		EBF9B5541DA54CF700F07655 /* VOLUME */ = {
+			isa = PBXGroup;
+			children = (
+				EBFB07B41D9EAD7200AF2569 /* VolumeView.h */,
+				EBFB07B51D9EAD7200AF2569 /* VolumeView.m */,
+				EBFB07B71D9EAD8500AF2569 /* VolumeView.xib */,
+				EB14BA6A1DA16FCA00385759 /* VolumeItem.h */,
+				EB14BA6B1DA16FCA00385759 /* VolumeItem.m */,
+				EB14BA6C1DA16FCA00385759 /* VolumeItem.xib */,
+			);
+			name = VOLUME;
+			sourceTree = "<group>";
+		};
+		EBF9B5551DA54D0500F07655 /* SETTING */ = {
+			isa = PBXGroup;
+			children = (
+				EBFB07AC1D9EA0C100AF2569 /* SettingView.h */,
+				EBFB07AD1D9EA0C100AF2569 /* SettingView.m */,
+				EBFB07AF1D9EA0D300AF2569 /* SettingView.xib */,
+			);
+			name = SETTING;
 			sourceTree = "<group>";
 		};
 		EBFF13A91DA00E1700CA98F1 /* AFNetworking */ = {
@@ -773,7 +810,6 @@
 				EBFB07BC1D9ECCE500AF2569 /* ic_favorist.png in Resources */,
 				EB14BA6E1DA16FCA00385759 /* VolumeItem.xib in Resources */,
 				EB4C7FDC1DA3F3BF003CD3D6 /* TimerCell.xib in Resources */,
-				EB11EDD41D9AB24900804D34 /* LaunchScreen.storyboard in Resources */,
 				EB11EDD11D9AB24900804D34 /* Assets.xcassets in Resources */,
 				EB11EE6F1D9AF4A300804D34 /* CollectionCell.xib in Resources */,
 				EBFB07BA1D9EC6B400AF2569 /* volume.png in Resources */,
@@ -918,14 +954,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		EB11EDD21D9AB24900804D34 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				EB11EDD31D9AB24900804D34 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
 		EBFF14651DA04C2800CA98F1 /* IDZAQAudioPlayerViewController.xib */ = {
 			isa = PBXVariantGroup;
 			children = (

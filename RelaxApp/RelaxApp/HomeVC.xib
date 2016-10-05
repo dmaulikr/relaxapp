@@ -8,8 +8,12 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeVC">
             <connections>
+                <outlet property="btnAddfavorite" destination="HuF-UO-w2s" id="PTn-Lz-XxI"/>
+                <outlet property="btnclearAll" destination="cR3-fq-yGi" id="OVC-EU-Cda"/>
+                <outlet property="imgAddfavorite" destination="Fcy-Qv-UqT" id="nFD-hK-kef"/>
                 <outlet property="imgBackGround" destination="gs3-0O-fox" id="O7n-Th-69x"/>
                 <outlet property="imgSingle" destination="g9H-GN-7zW" id="L9T-XO-wfR"/>
+                <outlet property="imgclearAll" destination="nfY-kL-bxe" id="H81-bE-xo8"/>
                 <outlet property="pageControl" destination="XDP-O9-g4r" id="0nP-5W-ypK"/>
                 <outlet property="scroll_View" destination="hKX-rp-Ikx" id="28K-M7-3w1"/>
                 <outlet property="titleCategory" destination="fPA-vU-78a" id="wiN-oW-u9g"/>

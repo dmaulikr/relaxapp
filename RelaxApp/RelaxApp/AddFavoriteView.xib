@@ -144,6 +144,7 @@
             <connections>
                 <outlet property="btnSave" destination="ZLi-W1-4tP" id="wv6-O1-1j6"/>
                 <outlet property="label" destination="tZt-96-Oe2" id="Go4-AW-Bvy"/>
+                <outlet property="lbTitle" destination="zn7-gC-1es" id="tOU-Gn-gxS"/>
                 <outlet property="tfTitle" destination="LCJ-Gp-qYa" id="TnC-pC-dpS"/>
                 <outlet property="vContent" destination="IQC-GF-yKy" id="Rhu-87-cVv"/>
                 <outlet property="vViewNav" destination="y7I-jt-Sq9" id="6Bs-tj-EG1"/>

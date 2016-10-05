@@ -8,10 +8,14 @@
 
 #import "BaseView.h"
 #import "AHTagsLabel.h"
+#import "Define.h"
+typedef void (^AddFavoriteViewCallback)(NSDictionary *dicCategory);
+
 @interface AddFavoriteView : BaseView
 {
     NSMutableArray *_dataSource;
     NSArray *_dataMusic;
+    NSDictionary *_dicFavorite;
 
 }
 @property (nonatomic, weak) IBOutlet AHTagsLabel *label;
@@ -19,5 +23,9 @@
 @property (nonatomic, strong) IBOutlet UIView *vContent;
 @property (nonatomic, strong) IBOutlet UIButton *btnSave;
 @property (nonatomic, strong) IBOutlet UITextField *tfTitle;
+@property (nonatomic, strong) IBOutlet UILabel *lbTitle;
+@property (nonatomic,copy) AddFavoriteViewCallback callback;
 -(void)fnSetDataMusic:(NSArray*)arr;
+-(void)fnSetInfoFavorite:(NSDictionary*)dicFavorite;
+@property (assign)  MODE_TYPE  modeType;
 @end
