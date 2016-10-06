@@ -20,6 +20,15 @@
     self.btnSave.layer.cornerRadius= 5.0;
 
     _dataSource = [NSMutableArray new];
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
+                                   initWithTarget:self
+                                   action:@selector(dismissKeyboard)];
+    
+    [self addGestureRecognizer:tap];
+
+}
+-(void)dismissKeyboard {
+    [self endEditing:YES];
 }
 -(void)fnSetInfoFavorite:(NSDictionary*)dicFavorite
 {
