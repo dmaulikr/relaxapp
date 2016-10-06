@@ -62,5 +62,6 @@
 @property (nonatomic, strong)  TimerView *vTimer;
 @property (nonatomic, strong)  VolumeView *vVolumeTotal;
 @property (nonatomic, strong)  VolumeItem *vVolumeItem;
+@property(nonatomic,assign) HOME_BUTTON_TYPE buttonType;
 
 @end

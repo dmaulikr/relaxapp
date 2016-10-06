@@ -48,10 +48,14 @@ typedef enum
 }MODE_TYPE;
 typedef enum
 {
-    HOME_RANDOM = 1,
-    HOME_PLAYING,
-    HOME_PAUSE,
-    HOME_BACK_HOME
+    BUTTON_RANDOM = 1,
+    BUTTON_PLAYING,
+    BUTTON_PAUSE,
+    BUTTON_BACK_HOME,
+    BUTTON_VOLUME,
+    BUTTON_FAVORITE,
+    BUTTON_TIMER,
+    BUTTON_SETTING
     
 }HOME_BUTTON_TYPE;
 #endif /* Define_h */

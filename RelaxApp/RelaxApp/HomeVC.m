@@ -43,6 +43,9 @@ extern float volumeGlobal;
     [self getCategory];
     [self fnSetButtonNavigation];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(timerNotification:) name: NOTIFCATION_TIMER object:nil];
+    //default button type
+    self.buttonType = BUTTON_RANDOM;
+    [self fnSetButtonBottom];
 }
 -(void)viewDidAppear:(BOOL)animated
 {
@@ -123,16 +126,29 @@ extern float volumeGlobal;
         {
             //setting
             [self addSubViewVolumeTotal];
+            _buttonType = BUTTON_VOLUME;
+
         }
             break;
         case 1:
         {
             //favorite
             [self addSubViewFavorite];
+            _buttonType = BUTTON_FAVORITE;
+
         }
             break;
         case 2:
         {
+            if (arrPlayList.count > 0) {
+                NSDictionary *musicItem = arrPlayList[0];
+                IDZAQAudioPlayer *player  = musicItem[@"player"];
+                
+            }
+            else
+            {
+                _buttonType = BUTTON_RANDOM;
+            }
             //home
             for (NSDictionary *dicMusic in arrPlayList) {
                 IDZAQAudioPlayer *player  = dicMusic[@"player"];
@@ -145,6 +161,8 @@ extern float volumeGlobal;
         {
             //timer
             [self addSubViewTimer];
+            _buttonType = BUTTON_TIMER;
+
 
         }
             break;
@@ -152,12 +170,15 @@ extern float volumeGlobal;
         {
             //setting
             [self addSubViewSetting];
+            _buttonType = BUTTON_SETTING;
+
 
         }
             break;
         default:
             break;
     }
+    [self fnSetButtonBottom];
 }
 
 -(void) addSubViewFavorite
@@ -420,7 +441,7 @@ extern float volumeGlobal;
    arrTotal = [NSMutableArray new];
     for (int j=0; j < arrCategory.count; j++) {
         NSArray *arrItem = arrCategory[j][@"sounds"];
-        int deltal = 13;
+        int deltal = 15;
         for (int i = 0; i <arrItem.count; i = i + deltal) {
             NSMutableDictionary *dicCategory = [arrCategory[j] mutableCopy];
             [dicCategory removeObjectForKey:@"sounds"];
@@ -572,6 +593,72 @@ extern float volumeGlobal;
         _btnclearAll.hidden = NO;
         _imgclearAll.hidden = NO;
 
+    }
+}
+-(void)fnSetButtonBottom
+{
+    //volume
+    self.lbVolume.textColor = [UIColor whiteColor];
+    self.imgVolume.image = [UIImage imageNamed:@"volume"];
+    //favorite
+    self.lbFavorite.textColor = [UIColor whiteColor];
+    self.imgFavorite.image = [UIImage imageNamed:@"favorite"];
+    //home
+    self.imgHome.image = [UIImage imageNamed:@"backtohome"];
+    //timer
+    self.lbTimer.textColor = [UIColor whiteColor];
+    self.imgTimer.image = [UIImage imageNamed:@"timer"];
+    //setting
+    self.lbSetting.textColor = [UIColor whiteColor];
+    self.imgSetting.image = [UIImage imageNamed:@"setting"];
+    
+    if (_buttonType == BUTTON_VOLUME) {
+    }
+    switch (_buttonType) {
+        case BUTTON_VOLUME:
+        {
+            self.lbVolume.textColor = UIColorFromRGB(COLOR_PAGE_ACTIVE);
+            self.imgVolume.image = [UIImage imageNamed:@"volumeActive"];
+        }
+            break;
+        case BUTTON_FAVORITE:
+        {
+            self.lbFavorite.textColor = UIColorFromRGB(COLOR_PAGE_ACTIVE);
+            self.imgFavorite.image = [UIImage imageNamed:@"favoriteActive"];
+        }
+            break;
+        case BUTTON_RANDOM:
+        {
+            self.imgHome.image = [UIImage imageNamed:@"playradom"];
+        }
+            break;
+        case BUTTON_BACK_HOME:
+        {
+            self.imgHome.image = [UIImage imageNamed:@"backtohome"];
+        }
+            break;
+        case BUTTON_PAUSE:
+        {
+            self.imgHome.image = [UIImage imageNamed:@"pause"];
+        }
+            break;
+        case BUTTON_PLAYING:
+        {
+            self.imgHome.image = [UIImage imageNamed:@"playing"];
+        }
+            break;
+        case BUTTON_TIMER:
+        {
+            self.lbTimer.textColor = UIColorFromRGB(COLOR_PAGE_ACTIVE);
+            self.imgTimer.image = [UIImage imageNamed:@"settingActive"];
+        }
+            break;
+        case BUTTON_SETTING:
+        {
+            self.lbSetting.textColor = UIColorFromRGB(COLOR_PAGE_ACTIVE);
+            self.imgSetting.image = [UIImage imageNamed:@"settingActive"];
+        }
+            break;
     }
 }
 @end

@@ -12,8 +12,17 @@
                 <outlet property="btnclearAll" destination="cR3-fq-yGi" id="OVC-EU-Cda"/>
                 <outlet property="imgAddfavorite" destination="Fcy-Qv-UqT" id="nFD-hK-kef"/>
                 <outlet property="imgBackGround" destination="gs3-0O-fox" id="O7n-Th-69x"/>
+                <outlet property="imgFavorite" destination="SDP-Wj-Imn" id="tuf-aa-U88"/>
+                <outlet property="imgHome" destination="IDD-5A-V3f" id="So0-zw-zQf"/>
+                <outlet property="imgSetting" destination="P5t-BB-5cZ" id="9Nv-ue-ROU"/>
                 <outlet property="imgSingle" destination="g9H-GN-7zW" id="L9T-XO-wfR"/>
+                <outlet property="imgTimer" destination="4BD-1i-obD" id="pCc-fm-uR8"/>
+                <outlet property="imgVolume" destination="IsQ-yq-LTr" id="BcH-tU-kf4"/>
                 <outlet property="imgclearAll" destination="nfY-kL-bxe" id="H81-bE-xo8"/>
+                <outlet property="lbFavorite" destination="tFi-eV-tM5" id="t2f-g7-2de"/>
+                <outlet property="lbSetting" destination="sNj-4K-1xd" id="OqW-Z7-RD1"/>
+                <outlet property="lbTimer" destination="wMO-4b-MuS" id="TBa-se-Piy"/>
+                <outlet property="lbVolume" destination="qhr-hi-SM2" id="kbO-5F-pK2"/>
                 <outlet property="pageControl" destination="XDP-O9-g4r" id="0nP-5W-ypK"/>
                 <outlet property="scroll_View" destination="hKX-rp-Ikx" id="28K-M7-3w1"/>
                 <outlet property="titleCategory" destination="fPA-vU-78a" id="wiN-oW-u9g"/>
@@ -194,7 +203,7 @@
                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Shape" translatesAutoresizingMaskIntoConstraints="NO" id="SDP-Wj-Imn">
+                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="favorite" translatesAutoresizingMaskIntoConstraints="NO" id="SDP-Wj-Imn">
                                     <constraints>
                                         <constraint firstAttribute="height" constant="26" id="XEg-ly-DkL"/>
                                         <constraint firstAttribute="width" constant="26" id="iMs-mQ-fly"/>
@@ -351,9 +360,9 @@
     </objects>
     <resources>
         <image name="CombinedShape" width="10" height="10"/>
-        <image name="Shape" width="19" height="19"/>
         <image name="addtofavorite" width="16" height="15"/>
         <image name="background-color" width="375" height="667"/>
+        <image name="favorite" width="19" height="19"/>
         <image name="multiply" width="6" height="6"/>
         <image name="playradom" width="53" height="47"/>
         <image name="setting" width="18" height="18"/>
