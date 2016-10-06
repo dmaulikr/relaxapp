@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-#define APP_DIRECTORY       @"Naturapass"
+#define APP_DIRECTORY       @"RELAX"
 
 @interface FileHelper : NSObject
 

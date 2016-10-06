@@ -34,6 +34,7 @@
 		EB11EE6F1D9AF4A300804D34 /* CollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB11EE6D1D9AF4A300804D34 /* CollectionCell.xib */; };
 		EB14BA6D1DA16FCA00385759 /* VolumeItem.m in Sources */ = {isa = PBXBuildFile; fileRef = EB14BA6B1DA16FCA00385759 /* VolumeItem.m */; };
 		EB14BA6E1DA16FCA00385759 /* VolumeItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB14BA6C1DA16FCA00385759 /* VolumeItem.xib */; };
+		EB2552E01DA6ABD900FD4BC4 /* MDTimerBackGround.m in Sources */ = {isa = PBXBuildFile; fileRef = EB2552DF1DA6ABD900FD4BC4 /* MDTimerBackGround.m */; };
 		EB4C7FDB1DA3F3BF003CD3D6 /* TimerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EB4C7FD61DA3F3BF003CD3D6 /* TimerCell.m */; };
 		EB4C7FDC1DA3F3BF003CD3D6 /* TimerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB4C7FD71DA3F3BF003CD3D6 /* TimerCell.xib */; };
 		EB4C7FDD1DA3F3BF003CD3D6 /* CreaterTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = EB4C7FD91DA3F3BF003CD3D6 /* CreaterTimer.m */; };
@@ -170,6 +171,8 @@
 		EB14BA6A1DA16FCA00385759 /* VolumeItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VolumeItem.h; sourceTree = "<group>"; };
 		EB14BA6B1DA16FCA00385759 /* VolumeItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VolumeItem.m; sourceTree = "<group>"; };
 		EB14BA6C1DA16FCA00385759 /* VolumeItem.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VolumeItem.xib; sourceTree = "<group>"; };
+		EB2552DE1DA6ABD900FD4BC4 /* MDTimerBackGround.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDTimerBackGround.h; sourceTree = "<group>"; };
+		EB2552DF1DA6ABD900FD4BC4 /* MDTimerBackGround.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDTimerBackGround.m; sourceTree = "<group>"; };
 		EB4C7FD51DA3F3BF003CD3D6 /* TimerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimerCell.h; sourceTree = "<group>"; };
 		EB4C7FD61DA3F3BF003CD3D6 /* TimerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimerCell.m; sourceTree = "<group>"; };
 		EB4C7FD71DA3F3BF003CD3D6 /* TimerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TimerCell.xib; sourceTree = "<group>"; };
@@ -521,6 +524,8 @@
 				EBC18F581DA0F508000E00FD /* DownLoadCategory.m */,
 				EB56B60D1DA2C497001AFC87 /* FileHelper.h */,
 				EB56B60E1DA2C497001AFC87 /* FileHelper.m */,
+				EB2552DE1DA6ABD900FD4BC4 /* MDTimerBackGround.h */,
+				EB2552DF1DA6ABD900FD4BC4 /* MDTimerBackGround.m */,
 				EBFF14641DA04C2800CA98F1 /* IDZAQAudioPlayer */,
 				EBFF13FC1DA01E4600CA98F1 /* SSZipArchive */,
 				EBFF13A91DA00E1700CA98F1 /* AFNetworking */,
@@ -903,6 +908,7 @@
 				EB11EDFF1D9AB30B00804D34 /* HomeVC.m in Sources */,
 				EB4C80061DA3FE69003CD3D6 /* SDWebImageDownloader.m in Sources */,
 				EBFF14781DA04C2800CA98F1 /* IDZAudioPlayerViewController.m in Sources */,
+				EB2552E01DA6ABD900FD4BC4 /* MDTimerBackGround.m in Sources */,
 				EB4C80031DA3FE69003CD3D6 /* SDImageCache.m in Sources */,
 				EB56B60A1DA2B964001AFC87 /* AHTagTableViewCell.m in Sources */,
 				EBFF14271DA01E4700CA98F1 /* fileenc.c in Sources */,

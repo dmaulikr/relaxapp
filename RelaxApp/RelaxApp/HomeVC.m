@@ -26,6 +26,7 @@ extern float volumeGlobal;
     NSMutableArray *arrTotal;
     int iNumberCollection;
     BOOL preSignSelect;
+    ;
 }
 @end
 
@@ -41,16 +42,42 @@ extern float volumeGlobal;
     self.imgSingle.hidden = YES;
     [self getCategory];
     [self fnSetButtonNavigation];
-    //timer
-    AppDelegate * myAppDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
-    [myAppDelegate setCallback:^(NSDate *date)
-     {
-     
-     }];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(timerNotification:) name: NOTIFCATION_TIMER object:nil];
 }
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
+}
+- (void)timerNotification:(NSNotification *)notification
+{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        // code here
+        NSDictionary *dicTimer = (NSDictionary*)[notification object];
+        if ([dicTimer[@"isplay"] boolValue]) {
+            NSString *strPath = [FileHelper pathForApplicationDataFile:FILE_FAVORITE_SAVE];
+            NSArray *arrTmp = [NSArray arrayWithContentsOfFile:strPath];
+            NSString *strFavoriteID = dicTimer[@"id_favorite"];
+            if ([strFavoriteID intValue] > 0) {
+                for (NSDictionary *dicFavorite in arrTmp) {
+                    if ([dicFavorite[@"id"] intValue] == [strFavoriteID intValue]) {
+                        //playing
+                        self.dicChooseCategory = dicFavorite;
+                        NSArray *chooseMusic = self.dicChooseCategory[@"music"];
+                        [self fnPlayerFromFavorite:chooseMusic];
+                        break;
+                    }
+                    
+                }
+            }
+
+        }
+        else
+        {
+            //pause
+            [self clearAll:nil];
+        }
+
+    });
 }
 -(void)updateDataMusic:(NSDictionary*)dicMusic withCategory:(NSDictionary *)category
 {

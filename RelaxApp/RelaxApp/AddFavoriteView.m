@@ -76,7 +76,7 @@
                     [arrSave replaceObjectAtIndex:i withObject:dicSave];
                     [arrSave writeToFile:strPath atomically:YES];
                     [self removeFromSuperview];
-                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Relax App"
+                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NAME_APP
                                                                     message:@"Success"
                                                                    delegate:self
                                                           cancelButtonTitle:@"OK"
@@ -106,7 +106,7 @@
             //save cache
             [arrSave writeToFile:strPath atomically:YES];
             [self removeFromSuperview];
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Relax App"
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NAME_APP
                                                             message:@"Success"
                                                            delegate:self
                                                   cancelButtonTitle:@"OK"
@@ -114,6 +114,16 @@
             [alert show];
 
         }
+    }
+    else
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NAME_APP
+                                                        message:@"Enter Name"
+                                                       delegate:self
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
+        
     }
 }
 -(IBAction)cancelAction:(id)sender

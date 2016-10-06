@@ -8,14 +8,15 @@
 
 #import <UIKit/UIKit.h>
 #import "MainNavigationController.h"
-typedef void (^AppDelegateCallback)(NSDate *date);
+typedef void (^AppDelegateCallback)(NSDictionary *dicTimer);
+typedef void (^TimerTickCallback)();
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 @property (strong, nonatomic) UINavigationController *navigationController;
 @property (nonatomic,copy) AppDelegateCallback callback;
-
+@property (nonatomic,copy) TimerTickCallback  callbackTimerTick;
 
 @end
 

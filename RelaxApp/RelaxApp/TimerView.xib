@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
@@ -24,7 +24,7 @@
                                                 <action selector="editingTableViewAction:" destination="e1j-Hd-CiV" eventType="touchUpInside" id="VFg-4M-d8t"/>
                                             </connections>
                                         </button>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Edit" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eK1-So-ERx">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Edit" textAlignment="natural" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eK1-So-ERx">
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
@@ -36,7 +36,7 @@
                                         <constraint firstItem="eK1-So-ERx" firstAttribute="top" secondItem="x2Z-J9-1gr" secondAttribute="top" constant="28" id="9bQ-gy-uh2"/>
                                         <constraint firstItem="eK1-So-ERx" firstAttribute="leading" secondItem="x2Z-J9-1gr" secondAttribute="leading" constant="30" id="G8y-kC-X8I"/>
                                         <constraint firstAttribute="bottom" secondItem="XiG-7R-8TW" secondAttribute="bottom" id="Pae-1A-9Pl"/>
-                                        <constraint firstAttribute="width" constant="70" id="SwS-xY-ebe"/>
+                                        <constraint firstAttribute="width" constant="80" id="SwS-xY-ebe"/>
                                         <constraint firstItem="XiG-7R-8TW" firstAttribute="leading" secondItem="x2Z-J9-1gr" secondAttribute="leading" id="TJO-lt-re0"/>
                                         <constraint firstItem="XiG-7R-8TW" firstAttribute="top" secondItem="x2Z-J9-1gr" secondAttribute="top" id="Uym-wm-6d3"/>
                                         <constraint firstAttribute="trailing" secondItem="eK1-So-ERx" secondAttribute="trailing" constant="5" id="v0r-Xb-V25"/>
@@ -93,7 +93,7 @@
                                 <constraint firstItem="gvp-s2-udK" firstAttribute="leading" secondItem="x2Z-J9-1gr" secondAttribute="trailing" id="GLs-aP-u2C"/>
                                 <constraint firstItem="gvp-s2-udK" firstAttribute="top" secondItem="6ap-eu-Y0G" secondAttribute="top" id="HeZ-dz-AGn"/>
                                 <constraint firstAttribute="bottom" secondItem="gvp-s2-udK" secondAttribute="bottom" constant="-8" id="O5A-nb-KGf"/>
-                                <constraint firstItem="rci-NY-WKD" firstAttribute="leading" secondItem="gvp-s2-udK" secondAttribute="trailing" id="bsP-mC-Fya"/>
+                                <constraint firstItem="rci-NY-WKD" firstAttribute="leading" secondItem="gvp-s2-udK" secondAttribute="trailing" constant="10" id="bsP-mC-Fya"/>
                                 <constraint firstItem="x2Z-J9-1gr" firstAttribute="top" secondItem="6ap-eu-Y0G" secondAttribute="top" id="fow-Td-omZ"/>
                                 <constraint firstAttribute="bottom" secondItem="rci-NY-WKD" secondAttribute="bottom" constant="-8" id="gme-5t-Bcg"/>
                                 <constraint firstAttribute="trailing" secondItem="rci-NY-WKD" secondAttribute="trailing" id="n2d-Sf-fSm"/>
@@ -128,6 +128,7 @@
             </constraints>
             <connections>
                 <outlet property="contraintBottom" destination="m4n-9l-teT" id="jsD-nH-oac"/>
+                <outlet property="lbEdit" destination="eK1-So-ERx" id="ohj-Nk-xfW"/>
                 <outlet property="tableControl" destination="axs-JV-LNd" id="9Pc-WV-K5f"/>
                 <outlet property="vContent" destination="494-Fb-M0H" id="nUB-vj-7PV"/>
                 <outlet property="vViewNav" destination="6ap-eu-Y0G" id="5Q6-RC-lOT"/>

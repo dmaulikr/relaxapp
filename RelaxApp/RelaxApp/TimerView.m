@@ -10,6 +10,9 @@
 #import "Define.h"
 #import "TimerCell.h"
 #import "CreaterTimer.h"
+#import "FileHelper.h"
+#import "AppDelegate.h"
+#import "MDTimerBackGround.h"
 static NSString *identifierSection1 = @"MyTableViewCell1";
 
 @implementation TimerView
@@ -22,15 +25,35 @@ static NSString *identifierSection1 = @"MyTableViewCell1";
     [self.tableControl registerNib:[UINib nibWithNibName:@"TimerCell" bundle:nil] forCellReuseIdentifier:identifierSection1];
     self.tableControl.estimatedRowHeight = 60;
     self.tableControl.allowsSelectionDuringEditing = YES;
+    [self loadCache];
+    __weak TimerView *wself = self;
+    //timer
+    MDTimerBackGround *timerBackGround = [MDTimerBackGround sharedInstance];
+    [timerBackGround setCallback:^(NSDictionary *dicTimer)
+     {
+         
+     }];
+    [timerBackGround setCallbackTimerTick:^(NSDate *date)
+     {
+         dispatch_async(dispatch_get_main_queue(), ^{
+             [wself loadCache];
+         });
+     }];
+}
+-(void)loadCache
+{
+    //read in cache
+    NSString *strPath = [FileHelper pathForApplicationDataFile:FILE_TIMER_SAVE];
+    NSArray *arrTmp = [NSArray arrayWithContentsOfFile:strPath];
     _dataSource = [NSMutableArray new];
-    NSDictionary *dic = @{@"name": @"I think i'm sleeping",@"description": @"Countdown",@"timer": @"00 : 30"};
-    NSDictionary *dic2 = @{@"name": @"Turn off phone and wake around",@"description": @"Timer",@"timer": @"19 : 30"};
-    NSDictionary *dic3 = @{@"name": @"Now is baby's time",@"description": @"Timer/For my baby sleep",@"timer": @"20 : 30"};
-    [_dataSource addObject:dic];
-    [_dataSource addObject:dic2];
-    [_dataSource addObject:dic3];
-
-
+    if (arrTmp) {
+        [_dataSource addObjectsFromArray:arrTmp];
+    }
+    
+    for (UITableViewCell *cell in [self.tableControl visibleCells]) {
+        NSIndexPath *indexPath = [self.tableControl indexPathForCell:cell];
+        [self configureCell:cell forRowAtIndexPath:indexPath];
+    }
 }
 -(IBAction)addTimerAction:(id)sender
 {
@@ -56,14 +79,29 @@ static NSString *identifierSection1 = @"MyTableViewCell1";
 }
 -(void)createrTimerWithType:(TIMER_TYPE)type
 {
+    __weak TimerView *wself =self;
     CreaterTimer *viewController1 = [[CreaterTimer alloc] initWithNibName:@"CreaterTimer" bundle:nil];
     viewController1.timerType = type;
-    [self.parent presentViewController:viewController1 animated:YES completion:nil];
+    viewController1.typeMode = MODE_CREATE;
+    [viewController1 setCallback:^()
+     {
+         [wself loadCache];
+         [wself.tableControl reloadData];
+     }];
+    [self.parent presentViewController:viewController1 animated:YES completion:^{
+    }];
 
 }
 -(IBAction)editingTableViewAction:(id)sender
 {
     [self.tableControl setEditing: !self.tableControl.editing animated: YES];
+    if (self.tableControl.editing) {
+        self.lbEdit.text = @"Done";
+    }
+    else
+    {
+        self.lbEdit.text = @"Edit";
+    }
 }
 //section Mes...Mes_groupes
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -79,24 +117,36 @@ static NSString *identifierSection1 = @"MyTableViewCell1";
     return UITableViewAutomaticDimension;
     
 }
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    TimerCell *cell = nil;
-    
-    cell = (TimerCell *)[self.tableControl dequeueReusableCellWithIdentifier:identifierSection1 forIndexPath:indexPath];
-    
+- (void)configureCell:(UITableViewCell *)cellTmp forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if ([cellTmp isKindOfClass:[TimerCell class]])
+    {
+        TimerCell *cell = (TimerCell *)cellTmp;
     NSDictionary *dic = _dataSource[indexPath.row];
     cell.lbNameTimer.text = dic[@"name"];
-    cell.lbValueTimer.text = dic[@"timer"];
+    int countdown = [dic[@"countdown"] intValue];
+    if (countdown >0) {
+        NSDate *date = [self setCountDownTime:countdown];
+        cell.lbValueTimer.text = [self convertDateToString:date withType:[dic[@"type"] intValue]];
+    }
+    else
+    {
+        cell.lbValueTimer.text = [self convertDateToString:dic[@"timer"] withType:[dic[@"type"] intValue]];
+    }
     cell.lbDescription.text = dic[@"description"];
-//
-//    [cell fnSetDataWithDicMusic:dicMusic];
-//    cell.btnSelect.tag=indexPath.row;
-//    [cell.btnSelect addTarget:self action:@selector(selectCell:) forControlEvents:UIControlEventTouchUpInside];
+    
+    [cell.swOnOff setOn:[dic[@"enabled"] boolValue]];
+    [cell.swOnOff addTarget:self action:@selector(switchValueChanged:) forControlEvents:UIControlEventValueChanged];
+    cell.swOnOff.tag = indexPath.row + 100;
     
     cell.backgroundColor=[UIColor clearColor];
     cell.tintColor = [UIColor blueColor];
     [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
-    
+    }
+
+}
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    TimerCell *cell = (TimerCell *)[self.tableControl dequeueReusableCellWithIdentifier:identifierSection1 forIndexPath:indexPath];
+    [self configureCell:cell forRowAtIndexPath:indexPath];
     return cell;
 }
 
@@ -123,7 +173,71 @@ static NSString *identifierSection1 = @"MyTableViewCell1";
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         //add code here for when you hit delete
         [_dataSource removeObjectAtIndex:indexPath.row];
+        NSString *strPath = [FileHelper pathForApplicationDataFile:FILE_TIMER_SAVE];
+        [_dataSource writeToFile:strPath atomically:YES];
         [self.tableControl reloadData];
     }
+}
+-(NSString*)convertDateToString:(NSDate*)date withType:(TIMER_TYPE)type
+{
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    if (type == TIMER_COUNTDOWN) {
+        [formatter setDateFormat:@"HH:mm:ss"];
+    }
+    else
+    {
+        [formatter setDateFormat:@"HH:mm a"];
+    }
+    
+    NSString *stringFromDate = [formatter stringFromDate:date];
+    return stringFromDate;
+}
+-(NSDate*)convertStringToDate:(NSString*)dateString
+{
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"HH:mm:ss"];
+    NSDate *date = [dateFormatter dateFromString:dateString];
+    return date;
+}
+//MARK: -ACTION
+- (void)switchValueChanged:(id)sender
+{
+    NSString *strPath = [FileHelper pathForApplicationDataFile:FILE_TIMER_SAVE];
+
+    UISwitch *sv = (UISwitch*)sender;
+    int index = (int)sv.tag - 100;
+    NSMutableDictionary *dic = [_dataSource[index]mutableCopy];
+    [dic setObject:@(![dic[@"enabled"] boolValue]) forKey:@"enabled"];
+    if ([dic[@"enabled"] boolValue]) {
+        int countdown = [self convertSecondsFromString:[self convertDateToString:dic[@"timer"] withType:[dic[@"type"] intValue]]];
+        [dic setObject:@(countdown) forKey:@"countdown"];
+    }
+    [_dataSource replaceObjectAtIndex:index withObject:dic];
+    [_dataSource writeToFile:strPath atomically:YES];
+    [self.tableControl reloadData];
+
+}
+-(int)convertSecondsFromString:(NSString*)strTimer
+{
+    NSArray *arrTimer = [strTimer componentsSeparatedByString:@":"];
+    if (arrTimer.count >2) {
+        int hours = [arrTimer[0] intValue];
+        int minutes = [arrTimer[1] intValue];
+        int seconds = [arrTimer[2] intValue];
+        return (hours*60*60 + minutes*60 + seconds);
+    }
+    else
+    {
+        return 0;
+    }
+}
+- (NSDate*)setCountDownTime:(NSTimeInterval)time{
+    
+    NSInteger ti = (NSInteger)time;
+    NSInteger seconds = ti % 60;
+    NSInteger minutes = (ti / 60) % 60;
+    NSInteger hours = (ti / 3600);
+    NSString *strDate = [NSString stringWithFormat:@"%02ld:%02ld:%02ld", (long)hours, (long)minutes, (long)seconds];
+   return [self convertStringToDate: strDate];
 }
 @end

@@ -25,7 +25,8 @@
 //
 #define FILE_FAVORITE_SAVE @"FAVORITE.save"
 #define FILE_TIMER_SAVE @"TIMER.save"
-
+#define NOTIFCATION_TIMER @"NOTIFICATION_TIMER"
+#define NAME_APP @"Relax App"
 typedef enum
 {
     GESTURE_TAP = 1,

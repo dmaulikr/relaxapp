@@ -8,11 +8,17 @@
 
 #import <UIKit/UIKit.h>
 #import "Define.h"
+typedef void (^CreaterTimerCallback)();
 @interface CreaterTimer : UIViewController
 @property (nonatomic, strong) IBOutlet UIView *vViewNav;
 @property (nonatomic, strong) IBOutlet UIView *vContent;
 @property (nonatomic, strong) IBOutlet UITextField *tfTitle;
 @property (nonatomic, strong) IBOutlet UIDatePicker *timeToSetOff;
-@property(nonatomic,assign) BOOL editMode;
+@property (nonatomic, strong) IBOutlet UIPickerView *pickerFavorite;
+@property (nonatomic, strong) IBOutlet UIImageView *imgCheckPause;
+@property (nonatomic, strong) IBOutlet UIImageView *imgCheckPlaying;
+@property (nonatomic,copy) CreaterTimerCallback callback;
+
+@property(nonatomic,assign) MODE_TYPE typeMode;
 @property(assign) TIMER_TYPE timerType;
 @end

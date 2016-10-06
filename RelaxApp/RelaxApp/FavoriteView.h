@@ -21,5 +21,6 @@ typedef void (^FavoriteViewCallback)(NSDictionary *dicCategory);
 @property (strong, nonatomic) IBOutlet UITableView *tableControl;
 @property (nonatomic,copy) FavoriteViewCallback callback;
 @property (nonatomic, strong)  AddFavoriteView *vAddFavorite;
+@property (strong, nonatomic) IBOutlet UILabel *lbEdit;
 
 @end

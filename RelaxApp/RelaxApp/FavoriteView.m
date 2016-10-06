@@ -36,6 +36,13 @@ static NSString *identifierSection1 = @"MyTableViewCell1";
 -(IBAction)editingTableViewAction:(id)sender
 {
     [self.tableControl setEditing: !self.tableControl.editing animated: YES];
+    if (self.tableControl.editing) {
+        self.lbEdit.text = @"Done";
+    }
+    else
+    {
+        self.lbEdit.text = @"Edit";
+    }
 }
 //section Mes...Mes_groupes
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -70,10 +77,11 @@ static NSString *identifierSection1 = @"MyTableViewCell1";
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    __weak FavoriteView *wself = self;
+    //__weak FavoriteView *wself = self;
     NSDictionary *dicMusic = _arrMusic[indexPath.row];
     if (tableView.editing) {
         //favorite
+        /*
         self.vAddFavorite = [[AddFavoriteView alloc] initWithClassName:NSStringFromClass([AddFavoriteView class])];
         [self.vAddFavorite addContraintSupview:self];
         self.vAddFavorite.modeType = MODE_EDIT;
@@ -83,6 +91,7 @@ static NSString *identifierSection1 = @"MyTableViewCell1";
          }];
 
         [self.vAddFavorite fnSetInfoFavorite:dicMusic];
+         */
         
 
     }
