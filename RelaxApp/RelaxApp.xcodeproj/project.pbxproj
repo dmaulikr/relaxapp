@@ -32,6 +32,13 @@
 		EB14BA6D1DA16FCA00385759 /* VolumeItem.m in Sources */ = {isa = PBXBuildFile; fileRef = EB14BA6B1DA16FCA00385759 /* VolumeItem.m */; };
 		EB14BA6E1DA16FCA00385759 /* VolumeItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB14BA6C1DA16FCA00385759 /* VolumeItem.xib */; };
 		EB2552E01DA6ABD900FD4BC4 /* MDTimerBackGround.m in Sources */ = {isa = PBXBuildFile; fileRef = EB2552DF1DA6ABD900FD4BC4 /* MDTimerBackGround.m */; };
+		EB4BE3D41DA817D3006E6803 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB4BE3D31DA817D3006E6803 /* Social.framework */; };
+		EB4BE3D61DA8193F006E6803 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB4BE3D51DA8193F006E6803 /* MessageUI.framework */; };
+		EB4BE3D91DA81A93006E6803 /* SettingAbout.m in Sources */ = {isa = PBXBuildFile; fileRef = EB4BE3D81DA81A93006E6803 /* SettingAbout.m */; };
+		EB4BE3DB1DA81A9B006E6803 /* SettingAbout.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB4BE3DA1DA81A9B006E6803 /* SettingAbout.xib */; };
+		EB4BE3E41DA81E37006E6803 /* SettingUpdate.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB4BE3E31DA81E37006E6803 /* SettingUpdate.xib */; };
+		EB4BE3E71DA81E42006E6803 /* SettingUpdate.m in Sources */ = {isa = PBXBuildFile; fileRef = EB4BE3E61DA81E42006E6803 /* SettingUpdate.m */; };
+		EB4BE3EA1DA8280B006E6803 /* NSDate+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = EB4BE3E91DA8280B006E6803 /* NSDate+Extensions.m */; };
 		EB4C7FDB1DA3F3BF003CD3D6 /* TimerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EB4C7FD61DA3F3BF003CD3D6 /* TimerCell.m */; };
 		EB4C7FDC1DA3F3BF003CD3D6 /* TimerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB4C7FD71DA3F3BF003CD3D6 /* TimerCell.xib */; };
 		EB4C7FDD1DA3F3BF003CD3D6 /* CreaterTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = EB4C7FD91DA3F3BF003CD3D6 /* CreaterTimer.m */; };
@@ -164,6 +171,16 @@
 		EB14BA6C1DA16FCA00385759 /* VolumeItem.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VolumeItem.xib; sourceTree = "<group>"; };
 		EB2552DE1DA6ABD900FD4BC4 /* MDTimerBackGround.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDTimerBackGround.h; sourceTree = "<group>"; };
 		EB2552DF1DA6ABD900FD4BC4 /* MDTimerBackGround.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDTimerBackGround.m; sourceTree = "<group>"; };
+		EB4BE3D31DA817D3006E6803 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		EB4BE3D51DA8193F006E6803 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		EB4BE3D71DA81A93006E6803 /* SettingAbout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingAbout.h; sourceTree = "<group>"; };
+		EB4BE3D81DA81A93006E6803 /* SettingAbout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingAbout.m; sourceTree = "<group>"; };
+		EB4BE3DA1DA81A9B006E6803 /* SettingAbout.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingAbout.xib; sourceTree = "<group>"; };
+		EB4BE3E31DA81E37006E6803 /* SettingUpdate.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingUpdate.xib; sourceTree = "<group>"; };
+		EB4BE3E51DA81E42006E6803 /* SettingUpdate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingUpdate.h; sourceTree = "<group>"; };
+		EB4BE3E61DA81E42006E6803 /* SettingUpdate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingUpdate.m; sourceTree = "<group>"; };
+		EB4BE3E81DA8280B006E6803 /* NSDate+Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Extensions.h"; sourceTree = "<group>"; };
+		EB4BE3E91DA8280B006E6803 /* NSDate+Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Extensions.m"; sourceTree = "<group>"; };
 		EB4C7FD51DA3F3BF003CD3D6 /* TimerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimerCell.h; sourceTree = "<group>"; };
 		EB4C7FD61DA3F3BF003CD3D6 /* TimerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimerCell.m; sourceTree = "<group>"; };
 		EB4C7FD71DA3F3BF003CD3D6 /* TimerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TimerCell.xib; sourceTree = "<group>"; };
@@ -306,6 +323,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB4BE3D61DA8193F006E6803 /* MessageUI.framework in Frameworks */,
+				EB4BE3D41DA817D3006E6803 /* Social.framework in Frameworks */,
 				EBFF14621DA04B7E00CA98F1 /* Ogg.framework in Frameworks */,
 				EBFF14631DA04B7E00CA98F1 /* Vorbis.framework in Frameworks */,
 				EBFF13F81DA01D7500CA98F1 /* libz.tbd in Frameworks */,
@@ -402,6 +421,8 @@
 		EB11EE571D9ADAFF00804D34 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EB4BE3D51DA8193F006E6803 /* MessageUI.framework */,
+				EB4BE3D31DA817D3006E6803 /* Social.framework */,
 				EBFF14601DA04B7E00CA98F1 /* Ogg.framework */,
 				EBFF14611DA04B7E00CA98F1 /* Vorbis.framework */,
 				EBFF13F61DA01D1100CA98F1 /* libz.1.tbd */,
@@ -430,6 +451,15 @@
 				EB11EE0B1D9AB7AF00804D34 /* TabVC.xib */,
 			);
 			name = Nav;
+			sourceTree = "<group>";
+		};
+		EB4BE3D21DA80044006E6803 /* MBProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				EB4C80111DA4094F003CD3D6 /* MBProgressHUD.h */,
+				EB4C80121DA4094F003CD3D6 /* MBProgressHUD.m */,
+			);
+			name = MBProgressHUD;
 			sourceTree = "<group>";
 		};
 		EB4C7FDF1DA3FE69003CD3D6 /* SDWebImage */ = {
@@ -498,8 +528,9 @@
 		EB56B6101DA2C4A3001AFC87 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				EB4C80111DA4094F003CD3D6 /* MBProgressHUD.h */,
-				EB4C80121DA4094F003CD3D6 /* MBProgressHUD.m */,
+				EB4BE3E81DA8280B006E6803 /* NSDate+Extensions.h */,
+				EB4BE3E91DA8280B006E6803 /* NSDate+Extensions.m */,
+				EB4BE3D21DA80044006E6803 /* MBProgressHUD */,
 				EB4C7FDF1DA3FE69003CD3D6 /* SDWebImage */,
 				EB56B5FB1DA2B958001AFC87 /* Tags */,
 				EBC18F571DA0F508000E00FD /* DownLoadCategory.h */,
@@ -582,6 +613,12 @@
 				EBFB07AC1D9EA0C100AF2569 /* SettingView.h */,
 				EBFB07AD1D9EA0C100AF2569 /* SettingView.m */,
 				EBFB07AF1D9EA0D300AF2569 /* SettingView.xib */,
+				EB4BE3D71DA81A93006E6803 /* SettingAbout.h */,
+				EB4BE3D81DA81A93006E6803 /* SettingAbout.m */,
+				EB4BE3DA1DA81A9B006E6803 /* SettingAbout.xib */,
+				EB4BE3E51DA81E42006E6803 /* SettingUpdate.h */,
+				EB4BE3E61DA81E42006E6803 /* SettingUpdate.m */,
+				EB4BE3E31DA81E37006E6803 /* SettingUpdate.xib */,
 			);
 			name = SETTING;
 			sourceTree = "<group>";
@@ -751,7 +788,8 @@
 				TargetAttributes = {
 					EB11EDC01D9AB24800804D34 = {
 						CreatedOnToolsVersion = 8.0;
-						ProvisioningStyle = Automatic;
+						DevelopmentTeam = ZJEP3BQJME;
+						ProvisioningStyle = Manual;
 					};
 					EB11EDD91D9AB24900804D34 = {
 						CreatedOnToolsVersion = 8.0;
@@ -791,7 +829,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				EB56B6151DA2C6A9001AFC87 /* AddFavoriteView.xib in Resources */,
+				EB4BE3E41DA81E37006E6803 /* SettingUpdate.xib in Resources */,
 				EBFB07B01D9EA0D300AF2569 /* SettingView.xib in Resources */,
+				EB4BE3DB1DA81A9B006E6803 /* SettingAbout.xib in Resources */,
 				EBFF14751DA04C2800CA98F1 /* IDZAudioPlayerViewController.xib in Resources */,
 				EB14BA6E1DA16FCA00385759 /* VolumeItem.xib in Resources */,
 				EB4C7FDC1DA3F3BF003CD3D6 /* TimerCell.xib in Resources */,
@@ -847,6 +887,7 @@
 				EBFB07B31D9EA1F000AF2569 /* BaseView.m in Sources */,
 				EBFF14771DA04C2800CA98F1 /* IDZAQAudioPlayerAppDelegate.m in Sources */,
 				EBFF14241DA01E4700CA98F1 /* aeskey.c in Sources */,
+				EB4BE3E71DA81E42006E6803 /* SettingUpdate.m in Sources */,
 				EB11EE0C1D9AB7AF00804D34 /* TabVC.m in Sources */,
 				EBFF142E1DA01E4700CA98F1 /* mztools.c in Sources */,
 				EB4C7FDD1DA3F3BF003CD3D6 /* CreaterTimer.m in Sources */,
@@ -856,6 +897,7 @@
 				EBFF14281DA01E4700CA98F1 /* hmac.c in Sources */,
 				EBFB07A41D9EA06000AF2569 /* FavoriteView.m in Sources */,
 				EB4C80081DA3FE69003CD3D6 /* SDWebImageManager.m in Sources */,
+				EB4BE3D91DA81A93006E6803 /* SettingAbout.m in Sources */,
 				EBFF142D1DA01E4700CA98F1 /* ioapi.c in Sources */,
 				EBFF13BA1DA00E1700CA98F1 /* AFURLRequestSerialization.m in Sources */,
 				EB4C800C1DA3FE69003CD3D6 /* UIImage+MultiFormat.m in Sources */,
@@ -866,6 +908,7 @@
 				EB56B60C1DA2B964001AFC87 /* AHTagView.m in Sources */,
 				EBFF14291DA01E4700CA98F1 /* prng.c in Sources */,
 				EBFF14251DA01E4700CA98F1 /* aestab.c in Sources */,
+				EB4BE3EA1DA8280B006E6803 /* NSDate+Extensions.m in Sources */,
 				EB4C80051DA3FE69003CD3D6 /* SDWebImageDecoder.m in Sources */,
 				EB56B6091DA2B964001AFC87 /* AHTagsLabel.m in Sources */,
 				EB11EE031D9AB4BA00804D34 /* MainNavigationController.m in Sources */,
@@ -1050,7 +1093,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = ZJEP3BQJME;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks",
@@ -1059,6 +1102,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = manh.jojo.RelaxApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "0b74954a-ae6b-47c3-81ff-69883fc26cee";
+				PROVISIONING_PROFILE_SPECIFIER = DEV_ALL;
 			};
 			name = Debug;
 		};

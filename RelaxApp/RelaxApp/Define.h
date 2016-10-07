@@ -25,7 +25,11 @@
 //
 #define FILE_FAVORITE_SAVE @"FAVORITE.save"
 #define FILE_TIMER_SAVE @"TIMER.save"
+#define FILE_CATEGORY_SAVE @"CATEGORY.save"
+
 #define NOTIFCATION_TIMER @"NOTIFICATION_TIMER"
+#define NOTIFCATION_CATEGORY @"NOTIFCATION_CATEGORY"
+
 #define NAME_APP @"Relax App"
 typedef enum
 {

@@ -1,16 +1,15 @@
 //
-//  SettingView.h
+//  CreaterTimer.h
 //  RelaxApp
 //
-//  Created by JoJo on 9/30/16.
+//  Created by Manh on 10/4/16.
 //  Copyright © 2016 JoJo. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
-#import "BaseView.h"
-@interface SettingView : BaseView
+#import "Define.h"
+@interface SettingAbout : UIViewController
 @property (nonatomic, strong) IBOutlet UIView *vViewNav;
 @property (nonatomic, strong) IBOutlet UIView *vContent;
-@property (nonatomic, strong) IBOutlet UILabel *timeAgo;
 
 @end

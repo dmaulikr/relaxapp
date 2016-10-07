@@ -40,9 +40,10 @@ extern float volumeGlobal;
     arrColection = [NSMutableArray new];
     self.scroll_View.delegate = self;
     self.imgSingle.hidden = YES;
-    [self getCategory];
     [self fnSetButtonNavigation];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(timerNotification:) name: NOTIFCATION_TIMER object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loadCache) name: NOTIFCATION_CATEGORY object:nil];
+
     //default button type
     self.buttonType = BUTTON_RANDOM;
     [self fnSetButtonBottom];
@@ -50,6 +51,21 @@ extern float volumeGlobal;
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
+    [self loadCache];
+}
+-(void)loadCache
+{
+    NSString *strPath = [FileHelper pathForApplicationDataFile:FILE_CATEGORY_SAVE];
+    NSDictionary *dicTmp = [NSDictionary dictionaryWithContentsOfFile:strPath];
+    if (dicTmp) {
+        arrCategory = [dicTmp[@"category"] mutableCopy];
+        [self caculatorSubScrollview];
+    }
+    else
+    {
+        [self getCategory];
+    }
+
 }
 - (void)timerNotification:(NSNotification *)notification
 {
@@ -261,6 +277,7 @@ extern float volumeGlobal;
 -(void) addSubViewSetting
 {
     self.vSetting = [[SettingView alloc] initWithClassName:NSStringFromClass([SettingView class])];
+    self.vSetting.parent = self;
     [self.vSetting addContraintSupview:self.vContrainer];
 }
 //MARK: - VOLUME
@@ -318,6 +335,13 @@ extern float volumeGlobal;
         if ([responseObject[@"categories"] isKindOfClass:[NSArray class]]) {
             [arrCategory addObjectsFromArray:responseObject[@"categories"]];
             [wself caculatorSubScrollview];
+            NSString *strPath = [FileHelper pathForApplicationDataFile:FILE_CATEGORY_SAVE];
+            if (arrCategory.count > 0) {
+                NSDate *date = [NSDate date];
+                NSDictionary *dicTmp = @{@"category": arrCategory,@"date":date};
+                [dicTmp writeToFile:strPath atomically:YES];
+            }
+
         }
     } failure:^(NSURLSessionTask *operation, NSError *error) {
         NSLog(@"Error: %@", error);
