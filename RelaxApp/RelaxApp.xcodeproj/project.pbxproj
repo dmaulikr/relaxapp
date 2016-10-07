@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		EB0582591D9C0D2200E29C9B /* SpringboardLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = EB0582581D9C0D2200E29C9B /* SpringboardLayout.m */; };
-		EB05825B1D9C35A300E29C9B /* 1.splash.png in Resources */ = {isa = PBXBuildFile; fileRef = EB05825A1D9C35A300E29C9B /* 1.splash.png */; };
 		EB11EDC61D9AB24900804D34 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EB11EDC51D9AB24900804D34 /* main.m */; };
 		EB11EDC91D9AB24900804D34 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EB11EDC81D9AB24900804D34 /* AppDelegate.m */; };
 		EB11EDD11D9AB24900804D34 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB11EDD01D9AB24900804D34 /* Assets.xcassets */; };
@@ -124,7 +123,6 @@
 /* Begin PBXFileReference section */
 		EB0582571D9C0D2200E29C9B /* SpringboardLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpringboardLayout.h; sourceTree = "<group>"; };
 		EB0582581D9C0D2200E29C9B /* SpringboardLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpringboardLayout.m; sourceTree = "<group>"; };
-		EB05825A1D9C35A300E29C9B /* 1.splash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1.splash.png; sourceTree = "<group>"; };
 		EB11EDC11D9AB24900804D34 /* RelaxApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RelaxApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB11EDC51D9AB24900804D34 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		EB11EDC71D9AB24900804D34 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -504,7 +502,6 @@
 				EB4C80121DA4094F003CD3D6 /* MBProgressHUD.m */,
 				EB4C7FDF1DA3FE69003CD3D6 /* SDWebImage */,
 				EB56B5FB1DA2B958001AFC87 /* Tags */,
-				EB05825A1D9C35A300E29C9B /* 1.splash.png */,
 				EBC18F571DA0F508000E00FD /* DownLoadCategory.h */,
 				EBC18F581DA0F508000E00FD /* DownLoadCategory.m */,
 				EB56B60D1DA2C497001AFC87 /* FileHelper.h */,
@@ -813,7 +810,6 @@
 				EB4C7FDE1DA3F3BF003CD3D6 /* CreaterTimer.xib in Resources */,
 				EB11EE1A1D9AC55300804D34 /* BaseNavigation.xib in Resources */,
 				EBFF14741DA04C2800CA98F1 /* IDZAQAudioPlayerViewController.xib in Resources */,
-				EB05825B1D9C35A300E29C9B /* 1.splash.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
