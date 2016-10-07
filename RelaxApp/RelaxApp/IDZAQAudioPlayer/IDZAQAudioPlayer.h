@@ -32,6 +32,15 @@
  * the IDZAudioDecoder protocol, for example, the IDZOggVorbisFileDecoder
  * class can be used to play Ogg Vorbis files.
  */
+typedef enum IDZAudioPlayStateTag
+{
+    IDZAudioPlayerStateStopped,
+    IDZAudioPlayerStatePrepared,
+    IDZAudioPlayerStatePlaying,
+    IDZAudioPlayerStatePaused,
+    IDZAudioPlayerStateStopping
+    
+} IDZAudioPlayerState;
 @interface IDZAQAudioPlayer : NSObject<IDZAudioPlayer>
 /**
  * @brief Initialized the receiver to play audio from a specified decoder.
@@ -45,6 +54,11 @@
  * @brief Delegate notified when playback ends.
  */
 @property(assign) id<IDZAudioPlayerDelegate> delegate;
+/**
+ * @brief The current player state.
+ */
+@property (nonatomic, assign) IDZAudioPlayerState state;
+
 /**
  * @brief The current audio device time.
  */

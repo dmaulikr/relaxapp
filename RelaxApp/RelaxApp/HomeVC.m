@@ -71,13 +71,26 @@ extern float volumeGlobal;
                     }
                     
                 }
+                if (arrPlayList.count > 0) {
+                    _buttonType = BUTTON_PLAYING;
+                }
+                [self fnSetButtonBottom];
             }
 
         }
         else
         {
             //pause
-            [self clearAll:nil];
+            if (arrPlayList.count > 0) {
+                _buttonType = BUTTON_PAUSE;
+                for (int i = 0; i < arrPlayList.count; i ++) {
+                    NSDictionary *musicItem = arrPlayList[i];
+                    IDZAQAudioPlayer *player  = musicItem[@"player"];
+                    [player pause];
+                }
+
+            }
+            [self fnSetButtonBottom];
         }
 
     });
@@ -140,21 +153,65 @@ extern float volumeGlobal;
             break;
         case 2:
         {
-            if (arrPlayList.count > 0) {
-                NSDictionary *musicItem = arrPlayList[0];
-                IDZAQAudioPlayer *player  = musicItem[@"player"];
-                
+
+            if (_buttonType == BUTTON_VOLUME || _buttonType == BUTTON_FAVORITE || _buttonType == BUTTON_TIMER || _buttonType == BUTTON_SETTING) {
+                //get state befor
+                if (arrPlayList.count > 0) {
+                    NSDictionary *musicItem = arrPlayList[0];
+                    IDZAQAudioPlayer *player  = musicItem[@"player"];
+                    if (player.state == IDZAudioPlayerStatePlaying) {
+                        _buttonType = BUTTON_PLAYING;
+                    }
+                    else
+                    {
+                        _buttonType = BUTTON_PAUSE;
+                    }
+                }
+                else
+                {
+                    _buttonType = BUTTON_RANDOM;
+                }
+
             }
             else
             {
-                _buttonType = BUTTON_RANDOM;
-            }
-            //home
-            for (NSDictionary *dicMusic in arrPlayList) {
-                IDZAQAudioPlayer *player  = dicMusic[@"player"];
-                [player play];
-            }
+                if (_buttonType == BUTTON_PLAYING) {
+                    if (arrPlayList.count > 0) {
+                        _buttonType = BUTTON_PAUSE;
+                        for (int i = 0; i < arrPlayList.count; i ++) {
+                            NSDictionary *musicItem = arrPlayList[i];
+                            IDZAQAudioPlayer *player  = musicItem[@"player"];
+                            [player pause];
+                        }
+                    }
+                    else
+                    {
+                        _buttonType = BUTTON_RANDOM;
 
+                    }
+                }
+                else if (_buttonType == BUTTON_PAUSE)
+                {
+                    if (arrPlayList.count > 0) {
+                        _buttonType = BUTTON_PLAYING;
+                        for (int i = 0; i < arrPlayList.count; i ++) {
+                            NSDictionary *musicItem = arrPlayList[i];
+                            IDZAQAudioPlayer *player  = musicItem[@"player"];
+                            [player play];
+                        }
+                    }
+                    else
+                    {
+                        _buttonType = BUTTON_RANDOM;
+                        
+                    }
+                }
+                else if (_buttonType == BUTTON_RANDOM)
+                {
+                    [self randomPlayList];
+                }
+            }
+            
         }
             break;
         case 3:
@@ -191,6 +248,8 @@ extern float volumeGlobal;
          wself.dicChooseCategory = dicCateogry;
          NSArray *chooseMusic = wself.dicChooseCategory[@"music"];
          [wself fnPlayerFromFavorite:chooseMusic];
+         _buttonType = BUTTON_PLAYING;
+         [wself fnSetButtonBottom];
      }];
 }
 -(void) addSubViewTimer
@@ -216,6 +275,15 @@ extern float volumeGlobal;
     [self.vVolumeTotal setCallback:^()
      {
          [wself changeVolumeTotal];
+         
+     }];
+    [self.vVolumeTotal setCallbackDismiss:^()
+     {
+         UIButton *btn = [UIButton new];
+         btn.tag = 12;
+         _buttonType = BUTTON_VOLUME;
+         [wself tabBottomVCAction:btn];
+
      }];
 
 }
@@ -331,6 +399,8 @@ extern float volumeGlobal;
     _dicChooseCategory = nil;
     [self fnClearAllSounds];
     [self fnSetButtonNavigation];
+    _buttonType = BUTTON_RANDOM;
+    [self fnSetButtonBottom];
 }
 -(void)fnClearAllSounds
 {
@@ -500,6 +570,17 @@ extern float volumeGlobal;
              }
              [wself updateDataMusic:dic withCategory:dicCategory];
              [wself fnSetButtonNavigation];
+             if (arrPlayList.count > 0) {
+                 _buttonType = BUTTON_PLAYING;
+             }
+             else
+             {
+                 _buttonType = BUTTON_RANDOM;
+                 
+             }
+             [self fnSetButtonBottom];
+
+             
          }];
         [collection setCallbackCategory:^(NSDictionary *dicCategory)
          {
@@ -660,5 +741,20 @@ extern float volumeGlobal;
         }
             break;
     }
+}
+-(void)randomPlayList
+{
+    NSString *strPath = [FileHelper pathForApplicationDataFile:FILE_FAVORITE_SAVE];
+    NSArray *arrTmp = [NSArray arrayWithContentsOfFile:strPath];
+    if (arrTmp.count > 0) {
+      int random = arc4random() % (arrTmp.count);
+        NSDictionary *dicFavorite = arrTmp[random];
+        self.dicChooseCategory = dicFavorite;
+        NSArray *chooseMusic = self.dicChooseCategory[@"music"];
+        [self fnPlayerFromFavorite:chooseMusic];
+        _buttonType = BUTTON_PLAYING;
+        [self fnSetButtonBottom];
+    }
+
 }
 @end

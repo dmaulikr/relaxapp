@@ -55,6 +55,10 @@ extern float volumeGlobal;
     
     [self.slider setValue:volumeGlobal];
 }
+-(void)setCallbackDismiss:(DismissCallback)callbackDismiss
+{
+    _callbackDismiss = callbackDismiss;
+}
 -(IBAction)decreaseAction:(id)sender
 {
     [timer invalidate];
@@ -89,6 +93,9 @@ extern float volumeGlobal;
 
 -(IBAction)dismissView:(id)sender
 {
+    if (_callbackDismiss) {
+        _callbackDismiss();
+    }
     [self removeFromSuperview];
 }
 - (IBAction)volumeSliderEdittingDidBegin:(id)sender

@@ -35,15 +35,7 @@
 #define IDZ_BUFFER_COUNT 3
 
 
-typedef enum IDZAudioPlayStateTag
-{
-    IDZAudioPlayerStateStopped,
-    IDZAudioPlayerStatePrepared,
-    IDZAudioPlayerStatePlaying,
-    IDZAudioPlayerStatePaused,
-    IDZAudioPlayerStateStopping
-    
-} IDZAudioPlayerState;
+
 
 /**
  * @brief IDZAudioPlayer private internals.
@@ -78,10 +70,6 @@ typedef enum IDZAudioPlayStateTag
  * @brief The decoder associated with this player.
  */
 @property (readonly, strong) id<IDZAudioDecoder> decoder;
-/**
- * @brief The current player state.
- */
-@property (nonatomic, assign) IDZAudioPlayerState state;
 @end
 
 

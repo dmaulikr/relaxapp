@@ -63,5 +63,6 @@
 @property (nonatomic, strong)  VolumeView *vVolumeTotal;
 @property (nonatomic, strong)  VolumeItem *vVolumeItem;
 @property(nonatomic,assign) HOME_BUTTON_TYPE buttonType;
+@property(nonatomic,assign) HOME_BUTTON_TYPE buttonBefor;
 
 @end

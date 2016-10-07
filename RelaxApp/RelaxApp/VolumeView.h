@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 typedef void (^VolumeViewCallback)();
+typedef void (^DismissCallback)();
 
 @interface VolumeView : UIView
 {
@@ -20,5 +21,6 @@ typedef void (^VolumeViewCallback)();
 -(void)addContraintSupview:(UIView*)viewSuper;
 -(instancetype)initWithClassName:(NSString*)className;
 @property (nonatomic,copy) VolumeViewCallback callback;
+@property (nonatomic,copy) DismissCallback callbackDismiss;
 
 @end
