@@ -59,7 +59,7 @@
                                 <constraint firstItem="iim-x4-j5c" firstAttribute="top" secondItem="HqM-zg-CLO" secondAttribute="top" id="zQy-pH-xoh"/>
                             </constraints>
                         </view>
-                        <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" alwaysBounceHorizontal="YES" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GvT-Ku-9Df">
+                        <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceVertical="YES" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GvT-Ku-9Df">
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4a4-ug-Dhm">
                                     <subviews>
@@ -441,11 +441,11 @@ Help us share on social</string>
                                 </view>
                             </subviews>
                             <constraints>
-                                <constraint firstItem="4a4-ug-Dhm" firstAttribute="width" secondItem="GvT-Ku-9Df" secondAttribute="width" id="Ij2-Yz-j1K"/>
                                 <constraint firstAttribute="bottom" secondItem="4a4-ug-Dhm" secondAttribute="bottom" id="J9V-7m-wJ8"/>
                                 <constraint firstItem="4a4-ug-Dhm" firstAttribute="centerX" secondItem="GvT-Ku-9Df" secondAttribute="centerX" id="UmP-Bb-L45"/>
                                 <constraint firstItem="4a4-ug-Dhm" firstAttribute="top" secondItem="GvT-Ku-9Df" secondAttribute="top" id="cOQ-1A-aVg"/>
-                                <constraint firstAttribute="trailing" secondItem="4a4-ug-Dhm" secondAttribute="trailing" constant="1" id="mvG-eo-4aR"/>
+                                <constraint firstAttribute="trailing" secondItem="4a4-ug-Dhm" secondAttribute="trailing" id="mvG-eo-4aR"/>
+                                <constraint firstItem="4a4-ug-Dhm" firstAttribute="leading" secondItem="GvT-Ku-9Df" secondAttribute="leading" id="uNh-iY-zeM"/>
                             </constraints>
                         </scrollView>
                     </subviews>
