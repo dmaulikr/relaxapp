@@ -40,18 +40,25 @@
 //VOLUME
 @property (nonatomic, strong) IBOutlet UILabel *lbVolume;
 @property (nonatomic, strong) IBOutlet UIImageView *imgVolume;
+@property (nonatomic, strong) IBOutlet UIImageView *imgVolumeActive;
+
 //FAVORITE
 @property (nonatomic, strong) IBOutlet UILabel *lbFavorite;
 @property (nonatomic, strong) IBOutlet UIImageView *imgFavorite;
+@property (nonatomic, strong) IBOutlet UIImageView *imgFavoriteActive;
+
 //HOME
 @property (nonatomic, strong) IBOutlet UILabel *lbHome;
 @property (nonatomic, strong) IBOutlet UIImageView *imgHome;
 //TIMER
 @property (nonatomic, strong) IBOutlet UILabel *lbTimer;
 @property (nonatomic, strong) IBOutlet UIImageView *imgTimer;
+@property (nonatomic, strong) IBOutlet UIImageView *imgTimerActive;
+
 //SETTING
 @property (nonatomic, strong) IBOutlet UILabel *lbSetting;
 @property (nonatomic, strong) IBOutlet UIImageView *imgSetting;
+@property (nonatomic, strong) IBOutlet UIImageView *imgSettingActive;
 
 
 @property (nonatomic, strong) TabVC *vTabbar;

@@ -185,6 +185,7 @@ static void IDZPropertyListener(void* inUserData,
             [self prepareToPlay];
     }
     OSStatus osStatus = AudioQueueStart(mQueue, NULL);
+    CFRunLoopRun();
     NSAssert(osStatus == noErr, @"AudioQueueStart failed");
     self.state = IDZAudioPlayerStatePlaying;
     self.playing = YES;
@@ -193,10 +194,11 @@ static void IDZPropertyListener(void* inUserData,
 }
 - (BOOL)pause
 {
-    if(self.state != IDZAudioPlayerStatePlaying) return NO;
+//    if(self.state != IDZAudioPlayerStatePlaying) return NO;
     OSStatus osStatus = AudioQueuePause(mQueue);
     NSAssert(osStatus == noErr, @"AudioQueuePause failed");
     self.state = IDZAudioPlayerStatePaused;
+    CFRunLoopStop(CFRunLoopGetCurrent());
     return (osStatus == noErr);
     
     

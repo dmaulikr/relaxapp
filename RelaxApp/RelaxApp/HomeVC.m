@@ -18,7 +18,7 @@
 #import "AppDelegate.h"
 extern float volumeGlobal;
 
-@interface HomeVC ()<UIScrollViewDelegate>
+@interface HomeVC ()<UIScrollViewDelegate,AVAudioSessionDelegate>
 {
     NSMutableArray                  *arrCategory;
     NSMutableArray                  *arrPlayList;
@@ -43,15 +43,24 @@ extern float volumeGlobal;
     [self fnSetButtonNavigation];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(timerNotification:) name: NOTIFCATION_TIMER object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loadCache) name: NOTIFCATION_CATEGORY object:nil];
+    [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback
+                                           error:nil];
+    [[AVAudioSession sharedInstance] setActive:YES
+                                         error:nil];
+    [[AVAudioSession sharedInstance] setDelegate:self];
+
+    [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
 
     //default button type
     self.buttonType = BUTTON_RANDOM;
     [self fnSetButtonBottom];
+    
 }
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
     [self loadCache];
+
 }
 -(void)loadCache
 {
@@ -298,8 +307,10 @@ extern float volumeGlobal;
      {
          UIButton *btn = [UIButton new];
          btn.tag = 12;
-         _buttonType = BUTTON_VOLUME;
-         [wself tabBottomVCAction:btn];
+         if (_buttonType == BUTTON_VOLUME) {
+             [wself tabBottomVCAction:btn];
+
+         }
 
      }];
 
@@ -704,32 +715,41 @@ extern float volumeGlobal;
 {
     //volume
     self.lbVolume.textColor = [UIColor whiteColor];
-    self.imgVolume.image = [UIImage imageNamed:@"volume"];
+    self.imgVolume.hidden = NO;
+    self.imgVolumeActive.hidden = YES;
     //favorite
     self.lbFavorite.textColor = [UIColor whiteColor];
-    self.imgFavorite.image = [UIImage imageNamed:@"favorite"];
+    self.imgFavorite.hidden = NO;
+    self.imgFavoriteActive.hidden = YES;
+
     //home
     self.imgHome.image = [UIImage imageNamed:@"backtohome"];
+    
     //timer
     self.lbTimer.textColor = [UIColor whiteColor];
-    self.imgTimer.image = [UIImage imageNamed:@"timer"];
+    self.imgTimer.hidden = NO;
+    self.imgTimerActive.hidden = YES;
+
     //setting
     self.lbSetting.textColor = [UIColor whiteColor];
-    self.imgSetting.image = [UIImage imageNamed:@"setting"];
-    
+    self.imgSetting.hidden = NO;
+    self.imgSettingActive.hidden = YES;
+
     if (_buttonType == BUTTON_VOLUME) {
     }
     switch (_buttonType) {
         case BUTTON_VOLUME:
         {
             self.lbVolume.textColor = UIColorFromRGB(COLOR_PAGE_ACTIVE);
-            self.imgVolume.image = [UIImage imageNamed:@"volumeActive"];
+            self.imgVolume.hidden = YES;
+            self.imgVolumeActive.hidden = NO;
         }
             break;
         case BUTTON_FAVORITE:
         {
             self.lbFavorite.textColor = UIColorFromRGB(COLOR_PAGE_ACTIVE);
-            self.imgFavorite.image = [UIImage imageNamed:@"favoriteActive"];
+            self.imgFavorite.hidden = YES;
+            self.imgFavoriteActive.hidden = NO;
         }
             break;
         case BUTTON_RANDOM:
@@ -755,13 +775,15 @@ extern float volumeGlobal;
         case BUTTON_TIMER:
         {
             self.lbTimer.textColor = UIColorFromRGB(COLOR_PAGE_ACTIVE);
-            self.imgTimer.image = [UIImage imageNamed:@"settingActive"];
+            self.imgTimer.hidden = YES;
+            self.imgTimerActive.hidden = NO;
         }
             break;
         case BUTTON_SETTING:
         {
             self.lbSetting.textColor = UIColorFromRGB(COLOR_PAGE_ACTIVE);
-            self.imgSetting.image = [UIImage imageNamed:@"settingActive"];
+            self.imgSetting.hidden = YES;
+            self.imgSettingActive.hidden = NO;
         }
             break;
     }
@@ -781,4 +803,24 @@ extern float volumeGlobal;
     }
 
 }
+//MARK: - AVSection delegate
+- (void)beginInterruption /* something has caused your audio session to be interrupted */
+{
+
+}
+/* the interruption is over */
+- (void)endInterruptionWithFlags:(NSUInteger)flags  /* Currently the only flag is AVAudioSessionInterruptionFlags_ShouldResume. */
+{
+
+}
+- (void)endInterruption /* endInterruptionWithFlags: will be called instead if implemented. */
+{
+
+}
+/* notification for input become available or unavailable */
+- (void)inputIsAvailableChanged:(BOOL)isInputAvailable
+{
+
+}
+
 @end
