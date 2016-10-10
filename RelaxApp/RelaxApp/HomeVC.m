@@ -55,6 +55,7 @@ extern float volumeGlobal;
     [[AVAudioSession sharedInstance] setDelegate:self];
 
     [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
+    [self becomeFirstResponder];
 
     //default button type
     self.buttonType = BUTTON_RANDOM;
@@ -827,5 +828,43 @@ extern float volumeGlobal;
 {
 
 }
+- (BOOL)canBecomeFirstResponder
+{
+    return YES;
+}
+- (void) remoteControlReceivedWithEvent: (UIEvent *) receivedEvent {
+    
+    if (receivedEvent.type == UIEventTypeRemoteControl) {
+        
+        switch (receivedEvent.subtype) {
+            case UIEventSubtypeRemoteControlPlay:
+            {
+                    UIButton *btn = [UIButton new];
+                    btn.tag = 12;
+                    _buttonType = BUTTON_PAUSE;
+                    [self tabBottomVCAction:btn];
+            }
+                break;
 
+            case UIEventSubtypeRemoteControlPause:
+            {
+                UIButton *btn = [UIButton new];
+                btn.tag = 12;
+                _buttonType = BUTTON_PLAYING;
+                [self tabBottomVCAction:btn];
+
+            }
+                break;
+                
+            case UIEventSubtypeRemoteControlPreviousTrack:
+                break;
+                
+            case UIEventSubtypeRemoteControlNextTrack:
+                break;
+                
+            default:
+                break;
+        }
+    }
+}
 @end
