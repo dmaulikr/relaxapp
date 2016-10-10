@@ -8,6 +8,8 @@
 
 #import "VolumeItem.h"
 #import "Define.h"
+extern float volumeItem;
+
 @implementation VolumeItem
 
 -(instancetype)initWithClassName:(NSString*)className
@@ -68,6 +70,7 @@
 
     UISlider *slider = (UISlider*)sender;
     float volume =  slider.value;
+    volumeItem = volume;
     if (dicMusic) {
         [dicMusic setObject:@(volume) forKey:@"volume"];
         if (_callback) {
@@ -95,6 +98,8 @@
     dicMusic = [dic mutableCopy];
     self.titleFull.text = dicMusic[@"titleFull"];
     self.titleSub.text = [NSString stringWithFormat:@"%@,%@",dic[@"titleShort"],dic[@"titleOther"]];
+    [self.slider setValue:[dic[@"volume"] floatValue]];
+
 }
 
 @end

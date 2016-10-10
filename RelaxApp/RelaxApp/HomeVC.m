@@ -17,7 +17,7 @@
 #import "MBProgressHUD.h"
 #import "AppDelegate.h"
 #import "RBVolumeButtons.h"
-
+extern float volumeItem;
 extern float volumeGlobal;
 
 @interface HomeVC ()<UIScrollViewDelegate,AVAudioSessionDelegate>
@@ -643,7 +643,7 @@ extern float volumeGlobal;
              else
              {
                  [dic setObject:@(1) forKey:@"active"];
-                 [dic setObject:@(0.5) forKey:@"volume"];
+                 [dic setObject:@(volumeItem) forKey:@"volume"];
                  //show music
                  [wself addSubViewVolumeItemWithDicMusic:dic withCategory:dicCategory];
                  
