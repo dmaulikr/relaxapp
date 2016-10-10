@@ -22,5 +22,7 @@ typedef void (^DismissCallback)();
 -(instancetype)initWithClassName:(NSString*)className;
 @property (nonatomic,copy) VolumeViewCallback callback;
 @property (nonatomic,copy) DismissCallback callbackDismiss;
-
+-(IBAction)decreaseAction:(id)sender;
+-(IBAction)increaseAction:(id)sender;
+-(void)showVolume:(BOOL)show;
 @end

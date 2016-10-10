@@ -36,7 +36,7 @@ extern float volumeGlobal;
     
     [viewSuper addSubview:view];
     
-    [viewSuper addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[view(50)]-(0)-|"
+    [viewSuper addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[view(50)]-(85)-|"
                                                                       options:0
                                                                       metrics:nil
                                                                         views:NSDictionaryOfVariableBindings(view)]];
@@ -46,14 +46,19 @@ extern float volumeGlobal;
                                                                       metrics:nil
                                                                         views:NSDictionaryOfVariableBindings(view)]];
     
+    
+    [self.slider setValue:volumeGlobal];
+}
+-(void)showVolume:(BOOL)show
+{
+    self.hidden = !show;
     [timer invalidate];
     timer = nil;
     timer = [NSTimer scheduledTimerWithTimeInterval: 5.0
                                              target: self
                                            selector:@selector(dismissView:)
                                            userInfo: nil repeats:NO];
-    
-    [self.slider setValue:volumeGlobal];
+
 }
 -(void)setCallbackDismiss:(DismissCallback)callbackDismiss
 {
@@ -78,7 +83,11 @@ extern float volumeGlobal;
 {
     [timer invalidate];
     timer = nil;
-    
+    timer = [NSTimer scheduledTimerWithTimeInterval: 5.0
+                                             target: self
+                                           selector:@selector(dismissView:)
+                                           userInfo: nil repeats:NO];
+
     float volume =  self.slider.value + 0.1;
     if (volume > 1) {
         volume = 1;
@@ -93,16 +102,20 @@ extern float volumeGlobal;
 
 -(IBAction)dismissView:(id)sender
 {
+    self.hidden = YES;
     if (_callbackDismiss) {
         _callbackDismiss();
     }
-    [self removeFromSuperview];
 }
 - (IBAction)volumeSliderEdittingDidBegin:(id)sender
 {
     [timer invalidate];
     timer = nil;
-    
+    timer = [NSTimer scheduledTimerWithTimeInterval: 5.0
+                                             target: self
+                                           selector:@selector(dismissView:)
+                                           userInfo: nil repeats:NO];
+
     UISlider *slider = (UISlider*)sender;
     float volume =  slider.value;
     

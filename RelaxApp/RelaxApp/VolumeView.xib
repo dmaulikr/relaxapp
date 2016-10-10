@@ -15,8 +15,8 @@
                 </imageView>
                 <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="lhm-Tv-Dr3">
                     <connections>
-                        <action selector="volumeSliderEdittingDidBegin:" destination="biW-le-DJq" eventType="touchDragInside" id="Kb8-N1-EKr"/>
-                        <action selector="volumeSliderEdittingDidEnd:" destination="biW-le-DJq" eventType="touchUpOutside" id="EqX-LJ-1gL"/>
+                        <action selector="volumeSliderEdittingDidBegin:" destination="biW-le-DJq" eventType="touchUpInside" id="7P8-7p-l7f"/>
+                        <action selector="volumeSliderEdittingDidEnd:" destination="biW-le-DJq" eventType="touchUpOutside" id="Vua-6v-o1Y"/>
                     </connections>
                 </slider>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dWv-fh-TEr">
@@ -27,7 +27,6 @@
                     <state key="normal" title="-"/>
                     <connections>
                         <action selector="decreaseAction:" destination="biW-le-DJq" eventType="touchUpInside" id="jg9-Dr-DwB"/>
-                        <action selector="volumeSliderEdittingDidEnd:" destination="biW-le-DJq" eventType="touchUpOutside" id="0Qo-1G-15N"/>
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qDb-QE-Sv3">
@@ -38,7 +37,6 @@
                     <state key="normal" title="+"/>
                     <connections>
                         <action selector="increaseAction:" destination="biW-le-DJq" eventType="touchUpInside" id="b5Y-TQ-OTE"/>
-                        <action selector="volumeSliderEdittingDidEnd:" destination="biW-le-DJq" eventType="touchUpOutside" id="C2u-N3-EbB"/>
                     </connections>
                 </button>
             </subviews>

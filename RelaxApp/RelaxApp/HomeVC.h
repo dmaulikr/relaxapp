@@ -16,6 +16,8 @@
 #import "AFHTTPSessionManager.h"
 #import "IDZAQAudioPlayer.h"
 #import "AddFavoriteView.h"
+@class RBVolumeButtons;
+
 @interface HomeVC : UIViewController<AVAudioPlayerDelegate, IDZAudioPlayerDelegate>
 {
     AFURLSessionManager *manager;
@@ -60,6 +62,7 @@
 @property (nonatomic, strong) IBOutlet UIImageView *imgSetting;
 @property (nonatomic, strong) IBOutlet UIImageView *imgSettingActive;
 
+@property (nonatomic, retain) RBVolumeButtons *buttonStealer;
 
 @property (nonatomic, strong) TabVC *vTabbar;
 @property (nonatomic, strong)  FavoriteView *vFavorite;

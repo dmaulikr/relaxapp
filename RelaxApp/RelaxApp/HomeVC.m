@@ -16,6 +16,8 @@
 #import "Define.h"
 #import "MBProgressHUD.h"
 #import "AppDelegate.h"
+#import "RBVolumeButtons.h"
+
 extern float volumeGlobal;
 
 @interface HomeVC ()<UIScrollViewDelegate,AVAudioSessionDelegate>
@@ -61,6 +63,21 @@ extern float volumeGlobal;
     self.buttonType = BUTTON_RANDOM;
     [self fnSetButtonBottom];
     
+    //volume
+    [self addSubViewVolumeTotal];
+    __weak HomeVC *wself = self;
+    self.buttonStealer = [[RBVolumeButtons alloc] init];
+    self.buttonStealer.upBlock = ^{
+        [wself.vVolumeTotal showVolume:YES];
+        [wself.vVolumeTotal increaseAction:nil];
+    };
+    self.buttonStealer.downBlock = ^{
+        [wself.vVolumeTotal showVolume:YES];
+        [wself.vVolumeTotal decreaseAction:nil];
+    };
+    [self.buttonStealer startStealingVolumeButtonEvents];
+
+
 }
 -(void)viewDidAppear:(BOOL)animated
 {
@@ -162,18 +179,18 @@ extern float volumeGlobal;
     [self.vAddFavorite dismissView];
     [self.vTimer dismissView];
     [self.vSetting dismissView];
-    [self.vVolumeTotal removeFromSuperview];
+    [self.vVolumeTotal showVolume:NO];
     [self.vVolumeItem removeFromSuperview];
     UIButton *btn = (UIButton*)sender;
     switch (btn.tag - 10) {
-        case 0:
-        {
-            //setting
-            [self addSubViewVolumeTotal];
-            _buttonType = BUTTON_VOLUME;
-
-        }
-            break;
+//        case 0:
+//        {
+//            //setting
+////            [self addSubViewVolumeTotal];
+//            _buttonType = BUTTON_VOLUME;
+//
+//        }
+//            break;
         case 1:
         {
             //favorite
@@ -296,6 +313,23 @@ extern float volumeGlobal;
     [self.vSetting addContraintSupview:self.vContrainer];
 }
 //MARK: - VOLUME
+-(IBAction)volumeAction:(id)sender
+{
+    [self.vVolumeTotal showVolume:self.vVolumeTotal.hidden];
+    if (!self.vVolumeTotal.hidden) {
+        self.lbVolume.textColor = UIColorFromRGB(COLOR_PAGE_ACTIVE);
+        self.imgVolume.hidden = YES;
+        self.imgVolumeActive.hidden = NO;
+
+    }
+    else
+    {
+        self.lbVolume.textColor = [UIColor whiteColor];
+        self.imgVolume.hidden = NO;
+        self.imgVolumeActive.hidden = YES;
+
+    }
+}
 
 -(void) addSubViewVolumeTotal
 {
@@ -303,7 +337,7 @@ extern float volumeGlobal;
     [self.vVolumeTotal removeFromSuperview];
 
     self.vVolumeTotal = [[VolumeView alloc] initWithClassName:NSStringFromClass([VolumeView class])];
-    [self.vVolumeTotal addContraintSupview:self.vContrainer];
+    [self.vVolumeTotal addContraintSupview:self.view];
     [self.vVolumeTotal setCallback:^()
      {
          [wself changeVolumeTotal];
@@ -311,15 +345,21 @@ extern float volumeGlobal;
      }];
     [self.vVolumeTotal setCallbackDismiss:^()
      {
-         UIButton *btn = [UIButton new];
-         btn.tag = 12;
-         if (_buttonType == BUTTON_VOLUME) {
-             [wself tabBottomVCAction:btn];
-
+         if (!wself.vVolumeTotal.hidden) {
+             wself.lbVolume.textColor = UIColorFromRGB(COLOR_PAGE_ACTIVE);
+             wself.imgVolume.hidden = YES;
+             wself.imgVolumeActive.hidden = NO;
+             
          }
-
+         else
+         {
+             wself.lbVolume.textColor = [UIColor whiteColor];
+             wself.imgVolume.hidden = NO;
+             wself.imgVolumeActive.hidden = YES;
+             
+         }
      }];
-
+    self.vVolumeTotal.hidden = YES;
 }
 -(void)changeVolumeTotal
 {

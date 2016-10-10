@@ -177,8 +177,7 @@
                                 <button opaque="NO" tag="10" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C0v-3U-eS9">
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <connections>
-                                        <action selector="fnSubNavClick:" destination="4vg-kI-ZKL" eventType="touchUpInside" id="STT-cw-Tqb"/>
-                                        <action selector="tabBottomVCAction:" destination="-1" eventType="touchUpInside" id="opg-PM-i8Z"/>
+                                        <action selector="volumeAction:" destination="-1" eventType="touchUpInside" id="AYD-nx-CC4"/>
                                     </connections>
                                 </button>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="VOLUME" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qhr-hi-SM2">
