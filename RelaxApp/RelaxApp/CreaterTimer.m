@@ -21,6 +21,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.lbAdd.font = [UIFont fontWithName:@"Roboto-Medium" size:16];
+    self.lbTitle.font = [UIFont fontWithName:@"Roboto-Medium" size:16];
+    self.lbDescription.font = [UIFont fontWithName:@"Roboto-Medium" size:10];
+    self.tfTitle.font = [UIFont fontWithName:@"Roboto-Regular" size:18];
+    self.lbPlay.font = [UIFont fontWithName:@"Roboto-Regular" size:17];
+    self.lbPause.font = [UIFont fontWithName:@"Roboto-Regular" size:17];
+    self.lbChooseTimer.font = [UIFont fontWithName:@"Roboto-Regular" size:13];
+    self.lbPlayFavorite.font = [UIFont fontWithName:@"Roboto-Regular" size:13];
+
     self.vContent.backgroundColor = UIColorFromRGB(COLOR_BACKGROUND_FAVORITE);
     self.vViewNav.backgroundColor = UIColorFromRGB(COLOR_NAVIGATION_FAVORITE);
     // read cache favorite
@@ -30,10 +39,13 @@
     _timeToSetOff.backgroundColor = [UIColor whiteColor];
     if (_timerType == TIMER_COUNTDOWN) {
         _timeToSetOff.datePickerMode =UIDatePickerModeCountDownTimer;
+        self.lbDescription.text = @"Countdown";
     }
     else
     {
         _timeToSetOff.datePickerMode =UIDatePickerModeTime;
+        self.lbDescription.text = @"Clock";
+        
     }
 //    [_timeToSetOff setValue:[UIColor whiteColor] forKey:@"textColor"];
 //    [_timeToSetOff setValue:@(0.8) forKey:@"alpha"];
@@ -102,7 +114,7 @@
             NSDictionary *dic = @{@"id": @(_id),
                                   @"name": _tfTitle.text,
                                   @"enabled": @(0),
-                                  @"description":_timerType == TIMER_COUNTDOWN? @"Countdown":@"Timer",
+                                  @"description":_timerType == TIMER_COUNTDOWN? @"Countdown":@"Clock",
                                   @"timer": _timeToSetOff.date,
                                   @"type": @(_timerType),
                                   @"id_favorite":dicChooseCategory[@"id"]?dicChooseCategory[@"id"]:@"",

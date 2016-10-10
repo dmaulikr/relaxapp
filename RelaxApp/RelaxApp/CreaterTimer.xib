@@ -10,6 +10,13 @@
             <connections>
                 <outlet property="imgCheckPause" destination="Seh-bG-Tob" id="qhM-dI-oIZ"/>
                 <outlet property="imgCheckPlaying" destination="Lh0-18-Wp3" id="fwv-6b-QX0"/>
+                <outlet property="lbAdd" destination="Xxs-N5-7nm" id="Sa6-r0-Eha"/>
+                <outlet property="lbChooseTimer" destination="5ZP-Fw-xU9" id="wta-b8-hqq"/>
+                <outlet property="lbDescription" destination="jx6-9a-Inr" id="ewp-ev-jSK"/>
+                <outlet property="lbPause" destination="09y-Oo-KF4" id="2Rh-he-iJw"/>
+                <outlet property="lbPlay" destination="QQg-37-aHZ" id="Am2-Zf-AZ6"/>
+                <outlet property="lbPlayFavorite" destination="mBW-xU-2Yi" id="m9Z-ic-SLe"/>
+                <outlet property="lbTitle" destination="7MJ-JK-GCd" id="BxC-Fj-dRB"/>
                 <outlet property="pickerFavorite" destination="W2P-Yx-0o0" id="20O-nx-U2u"/>
                 <outlet property="tfTitle" destination="vKg-p9-Jbe" id="x3l-cn-GdM"/>
                 <outlet property="timeToSetOff" destination="5hO-oY-jsh" id="IZO-59-Xtb"/>
@@ -110,8 +117,8 @@
                             </constraints>
                         </view>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Countdown" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jx6-9a-Inr">
-                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <color key="textColor" white="1" alpha="0.5" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="No Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vKg-p9-Jbe">
@@ -209,9 +216,19 @@
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZRy-NZ-23p">
-                            <color key="backgroundColor" red="0.59215686274509804" green="0.59215686274509804" blue="0.59215686274509804" alpha="1" colorSpace="calibratedRGB"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CHOOSE TIMER" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5ZP-Fw-xU9">
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <color key="textColor" red="0.42745098039215684" green="0.42745098039215684" blue="0.44705882352941173" alpha="0.5" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.93725490196078431" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="30" id="8aP-s0-8lh"/>
+                                <constraint firstAttribute="trailing" secondItem="5ZP-Fw-xU9" secondAttribute="trailing" constant="8" id="QFJ-2Y-0Ad"/>
+                                <constraint firstItem="5ZP-Fw-xU9" firstAttribute="centerY" secondItem="ZRy-NZ-23p" secondAttribute="centerY" id="bgb-dv-qus"/>
+                                <constraint firstItem="5ZP-Fw-xU9" firstAttribute="leading" secondItem="ZRy-NZ-23p" secondAttribute="leading" constant="45" id="qpF-sJ-oLS"/>
                             </constraints>
                         </view>
                         <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="countDownTimer" minuteInterval="1" useCurrentDate="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5hO-oY-jsh">
@@ -234,9 +251,19 @@
                             </connections>
                         </pickerView>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Yv-To-Xhy">
-                            <color key="backgroundColor" red="0.59215686274509804" green="0.59215686274509804" blue="0.59215686274509804" alpha="1" colorSpace="calibratedRGB"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PLAY WITH FAVORITE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mBW-xU-2Yi">
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <color key="textColor" red="0.42745098040000001" green="0.42745098040000001" blue="0.44705882349999998" alpha="0.5" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.93725490199999995" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
+                                <constraint firstItem="mBW-xU-2Yi" firstAttribute="leading" secondItem="9Yv-To-Xhy" secondAttribute="leading" constant="45" id="PdP-Tz-VI8"/>
+                                <constraint firstItem="mBW-xU-2Yi" firstAttribute="centerY" secondItem="9Yv-To-Xhy" secondAttribute="centerY" id="Phe-rh-mA3"/>
                                 <constraint firstAttribute="height" constant="30" id="drV-Fo-5jp"/>
+                                <constraint firstAttribute="trailing" secondItem="mBW-xU-2Yi" secondAttribute="trailing" constant="27" id="pcZ-EG-hER"/>
                             </constraints>
                         </view>
                     </subviews>

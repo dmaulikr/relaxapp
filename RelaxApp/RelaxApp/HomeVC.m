@@ -35,6 +35,11 @@ extern float volumeGlobal;
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationController.navigationBar.hidden = YES;
+    self.titleCategory.font = [UIFont fontWithName:@"Roboto-Medium" size:16];
+    self.lbVolume.font = [UIFont fontWithName:@"Roboto-Regular" size:8];
+    self.lbFavorite.font = [UIFont fontWithName:@"Roboto-Regular" size:8];
+    self.lbTimer.font = [UIFont fontWithName:@"Roboto-Regular" size:8];
+    self.lbSetting.font = [UIFont fontWithName:@"Roboto-Regular" size:8];
     arrCategory  = [NSMutableArray new];
     arrPlayList = [NSMutableArray new];
     arrColection = [NSMutableArray new];

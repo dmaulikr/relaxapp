@@ -13,6 +13,7 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
+   self.lbTitle.font = [UIFont fontWithName:@"Roboto-Medium" size:10];
     [self.imgIcon.layer setMasksToBounds:YES];
     self.imgIcon.layer.cornerRadius= 10.0;
     /**Adds a gesture recognizer for a long press.*/

@@ -35,11 +35,13 @@
 */
 
 - (void)setupViews {
+    
     _label = [UILabel new];
     _label.textColor = [UIColor blackColor];
     _label.translatesAutoresizingMaskIntoConstraints = NO;
     _label.layer.cornerRadius = 8;
     _label.layer.masksToBounds = YES;
+    _label.font = [UIFont fontWithName:@"Roboto-Medium" size:11];
     [self addSubview:_label];
     [self setupConstraints];
 }

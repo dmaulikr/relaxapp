@@ -17,6 +17,14 @@ typedef void (^CreaterTimerCallback)();
 @property (nonatomic, strong) IBOutlet UIPickerView *pickerFavorite;
 @property (nonatomic, strong) IBOutlet UIImageView *imgCheckPause;
 @property (nonatomic, strong) IBOutlet UIImageView *imgCheckPlaying;
+@property (strong, nonatomic) IBOutlet UILabel *lbAdd;
+@property (strong, nonatomic) IBOutlet UILabel *lbTitle;
+@property (strong, nonatomic) IBOutlet UILabel *lbDescription;
+@property (strong, nonatomic) IBOutlet UILabel *lbPlay;
+@property (strong, nonatomic) IBOutlet UILabel *lbPause;
+@property (strong, nonatomic) IBOutlet UILabel *lbChooseTimer;
+@property (strong, nonatomic) IBOutlet UILabel *lbPlayFavorite;
+
 @property (nonatomic,copy) CreaterTimerCallback callback;
 
 @property(nonatomic,assign) MODE_TYPE typeMode;

@@ -12,6 +12,7 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
+    self.title.font = [UIFont fontWithName:@"Roboto-Medium" size:13];
     // Initialization code
     _dataSource = [NSMutableArray new];
 }

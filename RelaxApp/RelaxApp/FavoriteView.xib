@@ -109,6 +109,7 @@
             <connections>
                 <outlet property="contraintBottom" destination="eTt-lr-Tq3" id="cYN-GW-3MP"/>
                 <outlet property="lbEdit" destination="31k-Y7-Vnz" id="PhL-LK-Oas"/>
+                <outlet property="lbTitle" destination="6ay-KV-PwV" id="ubJ-Du-lGT"/>
                 <outlet property="tableControl" destination="W5Y-qK-deu" id="Ggf-Ek-54Y"/>
                 <outlet property="vContent" destination="8ZE-Hx-3SE" id="0xd-BI-DhK"/>
                 <outlet property="vViewNav" destination="oBV-dw-MzJ" id="ufg-th-KnT"/>

@@ -24,6 +24,8 @@ typedef void (^AddFavoriteViewCallback)(NSDictionary *dicCategory);
 @property (nonatomic, strong) IBOutlet UIButton *btnSave;
 @property (nonatomic, strong) IBOutlet UITextField *tfTitle;
 @property (nonatomic, strong) IBOutlet UILabel *lbTitle;
+@property (nonatomic, strong) IBOutlet UILabel *lbCancel;
+
 @property (nonatomic,copy) AddFavoriteViewCallback callback;
 -(void)fnSetDataMusic:(NSArray*)arr;
 -(void)fnSetInfoFavorite:(NSDictionary*)dicFavorite;

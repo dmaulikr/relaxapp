@@ -20,6 +20,8 @@
 -(void)awakeFromNib
 {
     [super awakeFromNib];
+    self.titleFull.font = [UIFont fontWithName:@"Roboto-Medium" size:14];
+    self.titleSub.font = [UIFont fontWithName:@"Roboto-Medium" size:11];
     [self.slider setMinimumTrackTintColor:UIColorFromRGB(COLOR_SLIDER_THUMB)];
     [self.slider setMaximumTrackTintColor:[UIColor whiteColor]];
     [self.slider setThumbImage:[UIImage imageNamed:@"Oval"] forState:UIControlStateNormal];

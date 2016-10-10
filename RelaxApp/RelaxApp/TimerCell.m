@@ -13,6 +13,10 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
+    self.lbNameTimer.font = [UIFont fontWithName:@"Roboto-Medium" size:13];
+    self.lbValueTimer.font = [UIFont fontWithName:@"Roboto-Medium" size:24];
+    self.lbDescription.font = [UIFont fontWithName:@"Roboto-Medium" size:10];
+
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
