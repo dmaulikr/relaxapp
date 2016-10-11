@@ -17,6 +17,7 @@
 #import "MBProgressHUD.h"
 #import "AppDelegate.h"
 #import "RBVolumeButtons.h"
+#import "UIDeviceHardware.h"
 extern float volumeItem;
 extern float volumeGlobal;
 
@@ -42,6 +43,7 @@ extern float volumeGlobal;
     self.lbFavorite.font = [UIFont fontWithName:@"Roboto-Regular" size:8];
     self.lbTimer.font = [UIFont fontWithName:@"Roboto-Regular" size:8];
     self.lbSetting.font = [UIFont fontWithName:@"Roboto-Regular" size:8];
+
     arrCategory  = [NSMutableArray new];
     arrPlayList = [NSMutableArray new];
     arrColection = [NSMutableArray new];
@@ -77,7 +79,7 @@ extern float volumeGlobal;
     };
     [self.buttonStealer startStealingVolumeButtonEvents];
 
-
+    
 }
 -(void)viewDidAppear:(BOOL)animated
 {
@@ -578,6 +580,25 @@ extern float volumeGlobal;
 //MARK: - SCROLL VIEW
 -(void)caculatorSubScrollview
 {
+    int deltal = 9;
+
+    if( UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone ){
+        
+        CGFloat screenHeight = [UIScreen mainScreen].bounds.size.height;
+        CGFloat screenWidth = [UIScreen mainScreen].bounds.size.width;
+        if( screenHeight < screenWidth ){
+            screenHeight = screenWidth;
+        }
+        
+       if ( screenHeight >= 667){
+           deltal = 12;
+            NSLog(@"iPhone 6");
+        }else {
+            deltal = 9;
+            NSLog(@"iPhone 4/4s");
+        }
+    }
+    
     __weak HomeVC *wself = self;
     iNumberCollection = 0;
 
@@ -592,7 +613,6 @@ extern float volumeGlobal;
    arrTotal = [NSMutableArray new];
     for (int j=0; j < arrCategory.count; j++) {
         NSArray *arrItem = arrCategory[j][@"sounds"];
-        int deltal = 15;
         for (int i = 0; i <arrItem.count; i = i + deltal) {
             NSMutableDictionary *dicCategory = [arrCategory[j] mutableCopy];
             [dicCategory removeObjectForKey:@"sounds"];

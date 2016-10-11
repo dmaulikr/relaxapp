@@ -51,6 +51,9 @@
 		EB3072031DABE2B6009D90DD /* RobotoCondensed-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EB3071F11DABE2B6009D90DD /* RobotoCondensed-LightItalic.ttf */; };
 		EB3072041DABE2B6009D90DD /* RobotoCondensed-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EB3071F21DABE2B6009D90DD /* RobotoCondensed-Regular.ttf */; };
 		EB30720B1DAC0637009D90DD /* RBVolumeButtons.m in Sources */ = {isa = PBXBuildFile; fileRef = EB30720A1DAC0637009D90DD /* RBVolumeButtons.m */; };
+		EB420B0E1DAD4A2100F47C8B /* UIDeviceHardware.m in Sources */ = {isa = PBXBuildFile; fileRef = EB420B0D1DAD4A2100F47C8B /* UIDeviceHardware.m */; };
+		EB420B111DAD609500F47C8B /* UIImage+TBTint.m in Sources */ = {isa = PBXBuildFile; fileRef = EB420B101DAD609500F47C8B /* UIImage+TBTint.m */; };
+		EB420B131DAD630600F47C8B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB420B121DAD630600F47C8B /* CoreGraphics.framework */; };
 		EB4BE3D41DA817D3006E6803 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB4BE3D31DA817D3006E6803 /* Social.framework */; };
 		EB4BE3D61DA8193F006E6803 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB4BE3D51DA8193F006E6803 /* MessageUI.framework */; };
 		EB4BE3D91DA81A93006E6803 /* SettingAbout.m in Sources */ = {isa = PBXBuildFile; fileRef = EB4BE3D81DA81A93006E6803 /* SettingAbout.m */; };
@@ -211,6 +214,11 @@
 		EB3071F21DABE2B6009D90DD /* RobotoCondensed-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoCondensed-Regular.ttf"; sourceTree = "<group>"; };
 		EB3072091DAC0637009D90DD /* RBVolumeButtons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBVolumeButtons.h; sourceTree = "<group>"; };
 		EB30720A1DAC0637009D90DD /* RBVolumeButtons.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBVolumeButtons.m; sourceTree = "<group>"; };
+		EB420B0C1DAD4A2100F47C8B /* UIDeviceHardware.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIDeviceHardware.h; sourceTree = "<group>"; };
+		EB420B0D1DAD4A2100F47C8B /* UIDeviceHardware.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIDeviceHardware.m; sourceTree = "<group>"; };
+		EB420B0F1DAD609500F47C8B /* UIImage+TBTint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+TBTint.h"; sourceTree = "<group>"; };
+		EB420B101DAD609500F47C8B /* UIImage+TBTint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+TBTint.m"; sourceTree = "<group>"; };
+		EB420B121DAD630600F47C8B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		EB4BE3D31DA817D3006E6803 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		EB4BE3D51DA8193F006E6803 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		EB4BE3D71DA81A93006E6803 /* SettingAbout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingAbout.h; sourceTree = "<group>"; };
@@ -363,6 +371,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB420B131DAD630600F47C8B /* CoreGraphics.framework in Frameworks */,
 				EB4BE3D61DA8193F006E6803 /* MessageUI.framework in Frameworks */,
 				EB4BE3D41DA817D3006E6803 /* Social.framework in Frameworks */,
 				EBFF14621DA04B7E00CA98F1 /* Ogg.framework in Frameworks */,
@@ -462,6 +471,7 @@
 		EB11EE571D9ADAFF00804D34 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EB420B121DAD630600F47C8B /* CoreGraphics.framework */,
 				EB4BE3D51DA8193F006E6803 /* MessageUI.framework */,
 				EB4BE3D31DA817D3006E6803 /* Social.framework */,
 				EBFF14601DA04B7E00CA98F1 /* Ogg.framework */,
@@ -603,6 +613,10 @@
 		EB56B6101DA2C4A3001AFC87 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				EB420B0F1DAD609500F47C8B /* UIImage+TBTint.h */,
+				EB420B101DAD609500F47C8B /* UIImage+TBTint.m */,
+				EB420B0C1DAD4A2100F47C8B /* UIDeviceHardware.h */,
+				EB420B0D1DAD4A2100F47C8B /* UIDeviceHardware.m */,
 				EB30720C1DAC0647009D90DD /* VolumeSnap */,
 				EB4BE3E81DA8280B006E6803 /* NSDate+Extensions.h */,
 				EB4BE3E91DA8280B006E6803 /* NSDate+Extensions.m */,
@@ -995,6 +1009,7 @@
 				EBFF142E1DA01E4700CA98F1 /* mztools.c in Sources */,
 				EB4C7FDD1DA3F3BF003CD3D6 /* CreaterTimer.m in Sources */,
 				EBFF14261DA01E4700CA98F1 /* entropy.c in Sources */,
+				EB420B111DAD609500F47C8B /* UIImage+TBTint.m in Sources */,
 				EB11EE6E1D9AF4A300804D34 /* CollectionCell.m in Sources */,
 				EB11EE111D9AC16100804D34 /* MainNavHome.m in Sources */,
 				EBFF14281DA01E4700CA98F1 /* hmac.c in Sources */,
@@ -1034,6 +1049,7 @@
 				EB2552E01DA6ABD900FD4BC4 /* MDTimerBackGround.m in Sources */,
 				EB4C80031DA3FE69003CD3D6 /* SDImageCache.m in Sources */,
 				EB56B60A1DA2B964001AFC87 /* AHTagTableViewCell.m in Sources */,
+				EB420B0E1DAD4A2100F47C8B /* UIDeviceHardware.m in Sources */,
 				EBFF14271DA01E4700CA98F1 /* fileenc.c in Sources */,
 				EB0582591D9C0D2200E29C9B /* SpringboardLayout.m in Sources */,
 				EB4C80021DA3FE69003CD3D6 /* NSData+ImageContentType.m in Sources */,

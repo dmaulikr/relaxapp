@@ -149,8 +149,8 @@
                     <constraints>
                         <constraint firstItem="7W5-ez-Jk5" firstAttribute="leading" secondItem="jmE-MP-vBO" secondAttribute="leading" id="6EN-nB-Pus"/>
                         <constraint firstItem="hKX-rp-Ikx" firstAttribute="leading" secondItem="jmE-MP-vBO" secondAttribute="leading" id="8xh-b2-URZ"/>
+                        <constraint firstAttribute="bottom" secondItem="XDP-O9-g4r" secondAttribute="bottom" constant="-5" id="FF4-yN-a3v"/>
                         <constraint firstItem="hKX-rp-Ikx" firstAttribute="top" secondItem="7W5-ez-Jk5" secondAttribute="bottom" id="IFi-f7-Odg"/>
-                        <constraint firstAttribute="bottom" secondItem="XDP-O9-g4r" secondAttribute="bottom" id="Vd4-h5-A3j"/>
                         <constraint firstAttribute="bottom" secondItem="hKX-rp-Ikx" secondAttribute="bottom" id="jNr-Hh-8nN"/>
                         <constraint firstAttribute="trailing" secondItem="7W5-ez-Jk5" secondAttribute="trailing" id="jww-7m-2bf"/>
                         <constraint firstItem="XDP-O9-g4r" firstAttribute="centerX" secondItem="hKX-rp-Ikx" secondAttribute="centerX" id="kOR-UY-VgH"/>
@@ -375,18 +375,27 @@
                         <constraint firstAttribute="bottom" secondItem="6mp-bY-JVg" secondAttribute="bottom" id="yGK-yO-M4U"/>
                     </constraints>
                 </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tay-SS-vcA">
+                    <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="6OT-Zj-D6S"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" red="0.070588235294117646" green="0.40392156862745099" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="jmE-MP-vBO" secondAttribute="trailing" id="1Xz-Re-MLQ"/>
-                <constraint firstAttribute="bottom" secondItem="4vg-kI-ZKL" secondAttribute="bottom" id="DyH-fc-zdq"/>
+                <constraint firstItem="Tay-SS-vcA" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="6gM-le-Epv"/>
+                <constraint firstItem="Tay-SS-vcA" firstAttribute="top" secondItem="4vg-kI-ZKL" secondAttribute="bottom" id="Mao-m3-mCT"/>
                 <constraint firstItem="gs3-0O-fox" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="N4u-xQ-E2k"/>
                 <constraint firstAttribute="bottom" secondItem="gs3-0O-fox" secondAttribute="bottom" id="OE7-TA-Lgt"/>
                 <constraint firstItem="gs3-0O-fox" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="PQT-aO-Gfy"/>
                 <constraint firstItem="4vg-kI-ZKL" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="TqG-LW-xGQ"/>
+                <constraint firstAttribute="trailing" secondItem="Tay-SS-vcA" secondAttribute="trailing" id="W5d-Rp-rm7"/>
                 <constraint firstAttribute="trailing" secondItem="4vg-kI-ZKL" secondAttribute="trailing" id="fUV-5a-USh"/>
                 <constraint firstItem="4vg-kI-ZKL" firstAttribute="top" secondItem="jmE-MP-vBO" secondAttribute="bottom" id="gKs-5K-PHg"/>
                 <constraint firstItem="jmE-MP-vBO" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="hy7-bd-fZr"/>
+                <constraint firstAttribute="bottom" secondItem="Tay-SS-vcA" secondAttribute="bottom" id="mQL-Hh-jsg"/>
                 <constraint firstItem="jmE-MP-vBO" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="uLG-gg-JTA"/>
                 <constraint firstAttribute="trailing" secondItem="gs3-0O-fox" secondAttribute="trailing" id="xDg-va-eBo"/>
             </constraints>

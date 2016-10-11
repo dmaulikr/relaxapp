@@ -63,17 +63,37 @@
                                                                       options:0
                                                                       metrics:nil
                                                                         views:NSDictionaryOfVariableBindings(view)]];
-    int item_width = 90;
-    int item_height = 90;
+    int numberHozi = 3;
+    int numberVertical =3;
+    int item_width = 70;
+    int item_height = 70;
+
+    if( UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone ){
+        
+        CGFloat screenHeight = [UIScreen mainScreen].bounds.size.height;
+        CGFloat screenWidth = [UIScreen mainScreen].bounds.size.width;
+        if( screenHeight < screenWidth ){
+            screenHeight = screenWidth;
+        }
+        
+        if ( screenHeight >= 667){
+            numberHozi = 3;
+            numberVertical = 4;
+            item_width = 90;
+            item_height = 90;
+        }else {
+            numberHozi = 3;
+            numberVertical = 3;
+            item_width = 70;
+            item_height = 70;
+        }
+    }
+    
 
     CGRect rect = self.frame;
-    //Iphone 5
-    if (rect.size.width <= 320) {
-        item_width = 70;
-        item_height = 70;
-    }
-    int paddingHorizontal = (rect.size.width - 3*item_width)/3;
-    int paddingVertical = (rect.size.height  - 5*item_height)/6;
+
+    int paddingHorizontal = (rect.size.width - numberHozi*item_width)/numberHozi;
+    int paddingVertical = (rect.size.height - 20   - numberVertical*item_height)/(numberVertical + 1);
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
     // setting cell attributes globally via layout properties ///////////////
     [self.collectionView setCollectionViewLayout:layout];

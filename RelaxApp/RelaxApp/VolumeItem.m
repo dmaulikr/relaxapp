@@ -57,6 +57,7 @@ extern float volumeItem;
                                toItem:viewSuper
                                attribute:NSLayoutAttributeTop
                                multiplier:1.0 constant:0] ];
+    [self someMethod];
 }
 -(IBAction)dismissView:(id)sender
 {
@@ -101,5 +102,28 @@ extern float volumeItem;
     [self.slider setValue:[dic[@"volume"] floatValue]];
 
 }
+//MARK: - PAN
+-(void) someMethod {
+    UIPanGestureRecognizer *panRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePan:)];
+    [panRecognizer setMinimumNumberOfTouches:1];
+    [panRecognizer setMaximumNumberOfTouches:1];
+    [self addGestureRecognizer:panRecognizer];
+}
 
+- (void)handlePan:(UIPanGestureRecognizer *)recognizer
+{
+    
+    CGPoint translation = [recognizer translationInView:self];
+    BOOL isVerticalPan = fabs(translation.y) > fabs(translation.x); // BOOL property
+    if (isVerticalPan) {
+        recognizer.view.center = CGPointMake(recognizer.view.center.x + translation.x,
+                                             recognizer.view.center.y + translation.y);
+        [recognizer setTranslation:CGPointMake(0, 0) inView:self];
+        
+    }
+    if (recognizer.state == UIGestureRecognizerStateEnded) {
+            self.hidden = YES;
+    }
+
+}
 @end
