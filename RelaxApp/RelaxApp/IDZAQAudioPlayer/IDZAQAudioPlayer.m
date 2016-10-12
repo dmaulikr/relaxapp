@@ -94,33 +94,35 @@ static void IDZPropertyListener(void* inUserData,
                                 AudioQueueRef inAQ,
                                 AudioQueuePropertyID inID)
 {
-    IDZAQAudioPlayer* pPlayer = (__bridge IDZAQAudioPlayer*)inUserData;
-    if(inID == kAudioQueueProperty_IsRunning)
+    if(inUserData)
     {
-        UInt32 isRunning = [pPlayer queryIsRunning];
-        NSLog(@"isRunning = %u", (unsigned int)isRunning);
-        BOOL bDidFinish = (pPlayer.playing && !isRunning);
-        pPlayer.playing = isRunning ? YES : NO;
-        if(bDidFinish)
+        IDZAQAudioPlayer* pPlayer = (__bridge IDZAQAudioPlayer*)inUserData;
+        if(inID == kAudioQueueProperty_IsRunning)
         {
-            [pPlayer.delegate audioPlayerDidFinishPlaying:pPlayer
-                                              successfully:YES];
-            /*
-             * To match AVPlayer's behavior we need to reset the file.
-             */
-
-        }
-        if(!isRunning)
-        {
-            
-            [pPlayer runLoop];
+            UInt32 isRunning = [pPlayer queryIsRunning];
+            NSLog(@"isRunning = %u", (unsigned int)isRunning);
+            BOOL bDidFinish = (pPlayer.playing && !isRunning);
+            pPlayer.playing = isRunning ? YES : NO;
+            if(bDidFinish)
+            {
+                [pPlayer.delegate audioPlayerDidFinishPlaying:pPlayer
+                                                 successfully:YES];
+                /*
+                 * To match AVPlayer's behavior we need to reset the file.
+                 */
+                
+            }
+            if(!isRunning)
+            {
+                
+                [pPlayer runLoop];
+            }
         }
     }
-    
 }
 
 
-- (id)initWithDecoder:(id<IDZAudioDecoder>)decoder error:(NSError *__autoreleasing *)error  
+- (id)initWithDecoder:(id<IDZAudioDecoder>)decoder error:(NSError *__autoreleasing *)error
 {
     NSParameterAssert(decoder);
     if(self = [super init])
@@ -159,10 +161,7 @@ static void IDZPropertyListener(void* inUserData,
     mQueueStartTime = 0.0;
     return self;
 }
-- (void)setVolume:(float)Level
-{
-    AudioQueueSetParameter(mQueue, kAudioQueueParam_Volume, Level);
-}
+
 - (BOOL)prepareToPlay
 {
     for(int i = 0; i < IDZ_BUFFER_COUNT; ++i)
@@ -177,8 +176,7 @@ static void IDZPropertyListener(void* inUserData,
     switch(self.state)
     {
         case IDZAudioPlayerStatePlaying:
-//            return NO;
-            break;
+            return NO;
         case IDZAudioPlayerStatePaused:
         case IDZAudioPlayerStatePrepared:
             break;
@@ -194,11 +192,10 @@ static void IDZPropertyListener(void* inUserData,
 }
 - (BOOL)pause
 {
-//    if(self.state != IDZAudioPlayerStatePlaying) return NO;
+    if(self.state != IDZAudioPlayerStatePlaying) return NO;
     OSStatus osStatus = AudioQueuePause(mQueue);
     NSAssert(osStatus == noErr, @"AudioQueuePause failed");
     self.state = IDZAudioPlayerStatePaused;
-//    CFRunLoopStop(CFRunLoopGetCurrent());
     return (osStatus == noErr);
     
     
@@ -213,9 +210,9 @@ static void IDZPropertyListener(void* inUserData,
 {
     self.state = IDZAudioPlayerStateStopping;
     OSStatus osStatus = AudioQueueStop(mQueue, immediate);
-
+    
     NSAssert(osStatus == noErr, @"AudioQueueStop failed");
-    return (osStatus == noErr);    
+    return (osStatus == noErr);
 }
 
 - (void)readBuffer:(AudioQueueBufferRef)buffer
@@ -226,6 +223,7 @@ static void IDZPropertyListener(void* inUserData,
     NSAssert(self.decoder, @"self.decoder is valid.");
     if([self.decoder readBuffer:buffer])
     {
+        
         OSStatus status = AudioQueueEnqueueBuffer(mQueue, buffer, 0, 0);
         if(status != noErr)
         {
@@ -243,7 +241,6 @@ static void IDZPropertyListener(void* inUserData,
         Boolean immediate = false;
         AudioQueueStop(mQueue, immediate);
         
-
     }
 }
 
@@ -290,14 +287,14 @@ static void IDZPropertyListener(void* inUserData,
 - (void)setCurrentTime:(NSTimeInterval)currentTime
 {
     IDZAudioPlayerState previousState = self.state;
-//    switch(self.state)
-//    {
-//        case IDZAudioPlayerStatePlaying:
-//            [self stop:YES];
-//            break;
-//        default:
-//            break;
-//    }
+    switch(self.state)
+    {
+        case IDZAudioPlayerStatePlaying:
+            [self stop:YES];
+            break;
+        default:
+            break;
+    }
     [self.decoder seekToTime:currentTime error:nil];
     mQueueStartTime = currentTime;
     switch(previousState)
@@ -346,5 +343,10 @@ static void IDZPropertyListener(void* inUserData,
     self.currentTime = 0.0;
     self.state = IDZAudioPlayerStateStopped;
     [self play];
+}
+- (void)setVolume:(float)Level
+{
+    
+    AudioQueueSetParameter(mQueue, kAudioQueueParam_Volume, Level);
 }
 @end
