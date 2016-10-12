@@ -392,7 +392,15 @@ extern float volumeGlobal;
     [managerCategory GET:[NSString stringWithFormat:@"%@%@",BASE_URL,@"data.json"] parameters:nil progress:nil success:^(NSURLSessionTask *task, id responseObject) {
         NSLog(@"JSON: %@", responseObject);
         if ([responseObject[@"categories"] isKindOfClass:[NSArray class]]) {
-            [arrCategory addObjectsFromArray:responseObject[@"categories"]];
+            //free
+            NSMutableArray *arrTmp = [NSMutableArray new];
+            for (NSDictionary *dic in responseObject[@"categories"]) {
+                if (![dic[@"price"] boolValue]) {
+                    [arrTmp addObject:dic];
+                }
+                
+            }
+            [arrCategory addObjectsFromArray:arrTmp];
             [wself caculatorSubScrollview];
             NSString *strPath = [FileHelper pathForApplicationDataFile:FILE_CATEGORY_SAVE];
             if (arrCategory.count > 0) {

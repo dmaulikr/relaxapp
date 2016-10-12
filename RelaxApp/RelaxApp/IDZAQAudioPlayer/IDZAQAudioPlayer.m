@@ -108,15 +108,13 @@ static void IDZPropertyListener(void* inUserData,
             /*
              * To match AVPlayer's behavior we need to reset the file.
              */
-            pPlayer.state = IDZAudioPlayerStatePrepared;
-            pPlayer.currentTime = 0;
 
         }
-//        if(!isRunning)
-//        {
-//            pPlayer.state = IDZAudioPlayerStateStopped;
-//            [pPlayer play];
-//        }
+        if(!isRunning)
+        {
+            
+            [pPlayer runLoop];
+        }
     }
     
 }
@@ -241,10 +239,9 @@ static void IDZPropertyListener(void* inUserData,
          * but set the immediate flag to false so that playback of
          * currently enqueued buffers completes.
          */
-        self.state = IDZAudioPlayerStatePrepared;
-//        Boolean immediate = false;
-//        AudioQueueStop(mQueue, immediate);
-        self.currentTime = 0;
+        self.state = IDZAudioPlayerStateStopping;
+        Boolean immediate = false;
+        AudioQueueStop(mQueue, immediate);
         
 
     }
@@ -343,5 +340,11 @@ static void IDZPropertyListener(void* inUserData,
             break;
     }
     mState = state;
+}
+-(void)runLoop
+{
+    self.currentTime = 0.0;
+    self.state = IDZAudioPlayerStateStopped;
+    [self play];
 }
 @end
