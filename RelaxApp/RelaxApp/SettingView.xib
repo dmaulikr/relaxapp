@@ -64,6 +64,7 @@
                                 <constraint firstItem="iim-x4-j5c" firstAttribute="top" secondItem="HqM-zg-CLO" secondAttribute="top" id="zQy-pH-xoh"/>
                             </constraints>
                         </view>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="atI-1s-q46"/>
                         <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceVertical="YES" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GvT-Ku-9Df">
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4a4-ug-Dhm">
@@ -458,10 +459,14 @@ Help us share on social</string>
                     <constraints>
                         <constraint firstItem="GvT-Ku-9Df" firstAttribute="leading" secondItem="gBn-Wv-Lpj" secondAttribute="leading" id="0g0-VL-zHi"/>
                         <constraint firstItem="GvT-Ku-9Df" firstAttribute="top" secondItem="HqM-zg-CLO" secondAttribute="bottom" id="0k7-Ta-gPy"/>
+                        <constraint firstAttribute="bottom" secondItem="atI-1s-q46" secondAttribute="bottom" id="Caw-Ng-BGa"/>
                         <constraint firstAttribute="trailing" secondItem="HqM-zg-CLO" secondAttribute="trailing" id="CwU-8z-Q0O"/>
+                        <constraint firstItem="atI-1s-q46" firstAttribute="leading" secondItem="gBn-Wv-Lpj" secondAttribute="leading" id="SMi-hj-0wR"/>
                         <constraint firstAttribute="bottom" secondItem="GvT-Ku-9Df" secondAttribute="bottom" id="XdP-Xd-O9Y"/>
+                        <constraint firstAttribute="trailing" secondItem="atI-1s-q46" secondAttribute="trailing" id="b1o-Cc-R76"/>
                         <constraint firstItem="HqM-zg-CLO" firstAttribute="top" secondItem="gBn-Wv-Lpj" secondAttribute="top" id="gZX-2E-8ke"/>
                         <constraint firstItem="HqM-zg-CLO" firstAttribute="leading" secondItem="gBn-Wv-Lpj" secondAttribute="leading" id="m94-hx-9h2"/>
+                        <constraint firstItem="atI-1s-q46" firstAttribute="top" secondItem="HqM-zg-CLO" secondAttribute="bottom" id="y59-08-YOd"/>
                         <constraint firstAttribute="trailing" secondItem="GvT-Ku-9Df" secondAttribute="trailing" id="z3c-Za-piq"/>
                     </constraints>
                 </view>
@@ -476,6 +481,7 @@ Help us share on social</string>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="contraintBottom" destination="6Fi-N5-Uno" id="wP0-Xe-iYq"/>
+                <outlet property="imgBackGround" destination="atI-1s-q46" id="8HT-uu-sYN"/>
                 <outlet property="lbShare" destination="TG8-Mu-gUw" id="dQF-Pg-oWd"/>
                 <outlet property="lbTitle" destination="NG0-iT-9FB" id="TRE-iG-H1d"/>
                 <outlet property="lbTitleAbout" destination="jJe-JU-hiE" id="WhF-Bo-VWe"/>

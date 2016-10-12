@@ -90,6 +90,13 @@ extern float volumeItem;
 }
 -(void)showVolumeWithDicMusic:(NSDictionary*)dic
 {
+    NSString * language = [[NSLocale preferredLanguages] objectAtIndex:0];
+    NSString *userLanguage = @"en";
+    if (language.length >=2) {
+        userLanguage = [language substringToIndex:2];
+    }
+    userLanguage = [language substringToIndex:2];
+
     [timer invalidate];
     timer = nil;
     timer = [NSTimer scheduledTimerWithTimeInterval: 5.0
@@ -97,8 +104,57 @@ extern float volumeItem;
                                                 selector:@selector(dismissView:)
                                                 userInfo: nil repeats:NO];
     dicMusic = [dic mutableCopy];
-    self.titleFull.text = dicMusic[@"titleFull"];
-    self.titleSub.text = [NSString stringWithFormat:@"%@,%@",dic[@"titleShort"],dic[@"titleOther"]];
+    NSString *strFullName;
+    if ([dicMusic[@"titleFull"] isKindOfClass:[NSDictionary class]]) {
+        
+        if (dicMusic[@"titleFull"][userLanguage]) {
+            strFullName = dicMusic[@"titleFull"][userLanguage];
+        }
+        else
+        {
+            strFullName = dicMusic[@"titleFull"][@"en"];
+
+        }
+    }
+    else
+    {
+        strFullName = dicMusic[@"titleFull"];
+    }
+    self.titleFull.text = strFullName;
+    
+    NSString *strTitleShort;
+    if ([dicMusic[@"titleShort"] isKindOfClass:[NSDictionary class]]) {
+        
+        if (dicMusic[@"titleShort"][userLanguage]) {
+            strTitleShort = dicMusic[@"titleShort"][userLanguage];
+        }
+        else
+        {
+            strTitleShort = dicMusic[@"titleShort"][@"en"];
+            
+        }
+    }
+    else
+    {
+        strTitleShort = dicMusic[@"titleShort"];
+    }
+    NSString *strTitleOther;
+    if ([dicMusic[@"titleOther"] isKindOfClass:[NSDictionary class]]) {
+        
+        if (dicMusic[@"titleOther"][userLanguage]) {
+            strTitleOther = dicMusic[@"titleOther"][userLanguage];
+        }
+        else
+        {
+            strTitleOther = dicMusic[@"titleOther"][@"en"];
+            
+        }
+    }
+    else
+    {
+        strTitleOther = dicMusic[@"titleOther"];
+    }
+    self.titleSub.text = [NSString stringWithFormat:@"%@,%@",strTitleShort,strTitleOther];
     [self.slider setValue:[dic[@"volume"] floatValue]];
 
 }

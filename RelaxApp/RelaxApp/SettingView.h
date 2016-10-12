@@ -18,5 +18,6 @@
 @property (strong, nonatomic) IBOutlet UILabel *lbTitleLestTalk;
 @property (strong, nonatomic) IBOutlet UILabel *lbTitleConnectWithUs;
 @property (strong, nonatomic) IBOutlet UILabel *lbTitleAbout;
+@property (strong, nonatomic) IBOutlet UIImageView *imgBackGround;
 
 @end

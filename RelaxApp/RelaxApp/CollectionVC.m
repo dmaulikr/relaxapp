@@ -186,10 +186,34 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
+    NSString * language = [[NSLocale preferredLanguages] objectAtIndex:0];
+    NSString *userLanguage = @"en";
+    if (language.length >=2) {
+        userLanguage = [language substringToIndex:2];
+    }
+    userLanguage = [language substringToIndex:2];
+
+    
     NSDictionary *dic = arrMusic[indexPath.row];
     CollectionCell *cell = (CollectionCell *)[collectionView dequeueReusableCellWithReuseIdentifier:@"collectionID" forIndexPath:indexPath];
+    NSString *strTitleShort;
+    if ([dic[@"titleShort"] isKindOfClass:[NSDictionary class]]) {
+        
+        if (dic[@"titleShort"][userLanguage]) {
+            strTitleShort = dic[@"titleShort"][userLanguage];
+        }
+        else
+        {
+            strTitleShort = dic[@"titleShort"][@"en"];
+            
+        }
+    }
+    else
+    {
+        strTitleShort = dic[@"titleShort"];
+    }
 
-    cell.lbTitle.text = dic[@"titleShort"];
+    cell.lbTitle.text = strTitleShort;
     NSString *fullPath = [self getFullPathWithFileName:[NSString stringWithFormat:@"%@/img/%@",dicCategory[@"path"],dic[@"img"]]];
     cell.imgIcon.image = [UIImage imageWithContentsOfFile:fullPath];
     if ([dic[@"active"] boolValue]) {

@@ -30,7 +30,7 @@
     self.lbTitleLestTalk.font= [UIFont fontWithName:@"Roboto-Regular" size:13];
     self.lbTitleConnectWithUs.font= [UIFont fontWithName:@"Roboto-Regular" size:13];
     self.lbTitleAbout.font= [UIFont fontWithName:@"Roboto-Regular" size:13];
-    self.vContent.backgroundColor = UIColorFromRGB(COLOR_BACKGROUND_FAVORITE);
+    self.imgBackGround.backgroundColor = UIColorFromRGB(COLOR_BACKGROUND_FAVORITE);
     self.vViewNav.backgroundColor = UIColorFromRGB(COLOR_NAVIGATION_FAVORITE);
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(caculatorTimeAgo) name: NOTIFCATION_CATEGORY object:nil];
     [self caculatorTimeAgo];

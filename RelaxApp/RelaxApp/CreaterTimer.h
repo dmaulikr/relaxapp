@@ -24,6 +24,7 @@ typedef void (^CreaterTimerCallback)();
 @property (strong, nonatomic) IBOutlet UILabel *lbPause;
 @property (strong, nonatomic) IBOutlet UILabel *lbChooseTimer;
 @property (strong, nonatomic) IBOutlet UILabel *lbPlayFavorite;
+@property (strong, nonatomic) IBOutlet UIImageView *imgBackGround;
 
 @property (nonatomic,copy) CreaterTimerCallback callback;
 

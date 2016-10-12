@@ -24,13 +24,38 @@
 }
 -(void)fnSetDataWithDicMusic:(NSDictionary*)dicMusic
 {
+    NSString * language = [[NSLocale preferredLanguages] objectAtIndex:0];
+    NSString *userLanguage = @"en";
+    if (language.length >=2) {
+        userLanguage = [language substringToIndex:2];
+    }
+    userLanguage = [language substringToIndex:2];
+
     self.title.text = dicMusic[@"name"];
     _dataSource = [NSMutableArray new];
 
     NSArray *arrMusic = dicMusic[@"music"];
     for (NSDictionary *dicMusic in arrMusic) {
         AHTag *tag = [AHTag new];
-        tag.title =dicMusic[@"titleShort"];
+        NSString *strTitleShort;
+        if ([dicMusic[@"titleShort"] isKindOfClass:[NSDictionary class]]) {
+            
+            if (dicMusic[@"titleShort"][userLanguage]) {
+                strTitleShort = dicMusic[@"titleShort"][userLanguage];
+            }
+            else
+            {
+                strTitleShort = dicMusic[@"titleShort"][@"en"];
+                
+            }
+        }
+        else
+        {
+            strTitleShort = dicMusic[@"titleShort"];
+        }
+        
+
+        tag.title =strTitleShort;
         [_dataSource addObject:tag];
     }
     [self.label fnSetTags:_dataSource withScreen:1];

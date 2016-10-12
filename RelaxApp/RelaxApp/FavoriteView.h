@@ -24,5 +24,6 @@ typedef void (^FavoriteViewCallback)(NSDictionary *dicCategory);
 @property (strong, nonatomic) IBOutlet UILabel *lbEdit;
 @property (strong, nonatomic) IBOutlet UILabel *lbTitle;
 @property (strong, nonatomic) IBOutlet UIImageView *imgBelingMode;
+@property (strong, nonatomic) IBOutlet UIImageView *imgBackGround;
 
 @end

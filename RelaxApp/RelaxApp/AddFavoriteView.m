@@ -36,6 +36,13 @@
 }
 -(void)fnSetInfoFavorite:(NSDictionary*)dicFavorite
 {
+    NSString * language = [[NSLocale preferredLanguages] objectAtIndex:0];
+    NSString *userLanguage = @"en";
+    if (language.length >=2) {
+        userLanguage = [language substringToIndex:2];
+    }
+    userLanguage = [language substringToIndex:2];
+
     _dicFavorite = dicFavorite;
     if (_modeType == MODE_INFO) {
         _tfTitle.enabled = NO;
@@ -53,7 +60,24 @@
     _dataMusic = dicFavorite[@"music"];
     for (NSDictionary *dicMusic in _dataMusic) {
         AHTag *tag = [AHTag new];
-        tag.title =dicMusic[@"titleShort"];
+        NSString *strTitleShort;
+        if ([dicMusic[@"titleShort"] isKindOfClass:[NSDictionary class]]) {
+            
+            if (dicMusic[@"titleShort"][userLanguage]) {
+                strTitleShort = dicMusic[@"titleShort"][userLanguage];
+            }
+            else
+            {
+                strTitleShort = dicMusic[@"titleShort"][@"en"];
+                
+            }
+        }
+        else
+        {
+            strTitleShort = dicMusic[@"titleShort"];
+        }
+
+        tag.title =strTitleShort;
         [_dataSource addObject:tag];
     }
     [self.label fnSetTags:_dataSource withScreen:0] ;
@@ -61,13 +85,38 @@
 }
 -(void)fnSetDataMusic:(NSArray*)arr
 {
+    NSString * language = [[NSLocale preferredLanguages] objectAtIndex:0];
+    NSString *userLanguage = @"en";
+    if (language.length >=2) {
+        userLanguage = [language substringToIndex:2];
+    }
+    userLanguage = [language substringToIndex:2];
+
     _lbTitle.text = @"Add to favorites";
     _dataSource = [NSMutableArray new];
 
     _dataMusic = arr;
     for (NSDictionary *dicMusic in arr) {
         AHTag *tag = [AHTag new];
-        tag.title =dicMusic[@"titleShort"];
+        NSString *strTitleShort;
+        if ([dicMusic[@"titleShort"] isKindOfClass:[NSDictionary class]]) {
+            
+            if (dicMusic[@"titleShort"][userLanguage]) {
+                strTitleShort = dicMusic[@"titleShort"][userLanguage];
+            }
+            else
+            {
+                strTitleShort = dicMusic[@"titleShort"][@"en"];
+                
+            }
+        }
+        else
+        {
+            strTitleShort = dicMusic[@"titleShort"];
+        }
+        
+
+        tag.title =strTitleShort;
         [_dataSource addObject:tag];
     }
     [self.label fnSetTags:_dataSource withScreen:0] ;

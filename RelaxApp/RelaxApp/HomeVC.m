@@ -588,6 +588,13 @@ extern float volumeGlobal;
 //MARK: - SCROLL VIEW
 -(void)caculatorSubScrollview
 {
+    NSString * language = [[NSLocale preferredLanguages] objectAtIndex:0];
+    NSString *userLanguage = @"en";
+    if (language.length >=2) {
+        userLanguage = [language substringToIndex:2];
+    }
+    userLanguage = [language substringToIndex:2];
+
     int deltal = 9;
 
     if( UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone ){

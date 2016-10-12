@@ -102,6 +102,7 @@
                                 <constraint firstAttribute="height" constant="70" id="sG6-cT-HSU"/>
                             </constraints>
                         </view>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="a5a-89-HoJ"/>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="© 2016 by Relafapp" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uhE-Wz-YQs">
                             <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                             <color key="textColor" red="0.61960784310000006" green="0.61960784310000006" blue="0.61960784310000006" alpha="1" colorSpace="calibratedRGB"/>
@@ -111,9 +112,13 @@
                     <color key="backgroundColor" red="0.078431372550000003" green="0.098039215690000001" blue="0.23921568630000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="034-ae-JVr" secondAttribute="trailing" id="5us-ND-TrE"/>
+                        <constraint firstItem="a5a-89-HoJ" firstAttribute="top" secondItem="034-ae-JVr" secondAttribute="bottom" id="6TS-Dz-i5U"/>
+                        <constraint firstAttribute="bottom" secondItem="a5a-89-HoJ" secondAttribute="bottom" id="NfL-WM-a47"/>
                         <constraint firstItem="uhE-Wz-YQs" firstAttribute="centerX" secondItem="4ik-JB-PoB" secondAttribute="centerX" id="Q8H-1c-cIO"/>
                         <constraint firstItem="uhE-Wz-YQs" firstAttribute="centerY" secondItem="4ik-JB-PoB" secondAttribute="centerY" id="cgN-ce-7qg"/>
                         <constraint firstItem="034-ae-JVr" firstAttribute="leading" secondItem="4ik-JB-PoB" secondAttribute="leading" id="dMa-FK-ikB"/>
+                        <constraint firstAttribute="trailing" secondItem="a5a-89-HoJ" secondAttribute="trailing" id="gpm-5z-O6Z"/>
+                        <constraint firstItem="a5a-89-HoJ" firstAttribute="leading" secondItem="4ik-JB-PoB" secondAttribute="leading" id="pJh-ZE-BwZ"/>
                         <constraint firstItem="034-ae-JVr" firstAttribute="top" secondItem="4ik-JB-PoB" secondAttribute="top" id="rgc-73-Onx"/>
                     </constraints>
                 </view>
