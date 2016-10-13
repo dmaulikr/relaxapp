@@ -31,6 +31,7 @@
 		EB11EE6F1D9AF4A300804D34 /* CollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB11EE6D1D9AF4A300804D34 /* CollectionCell.xib */; };
 		EB14BA6D1DA16FCA00385759 /* VolumeItem.m in Sources */ = {isa = PBXBuildFile; fileRef = EB14BA6B1DA16FCA00385759 /* VolumeItem.m */; };
 		EB14BA6E1DA16FCA00385759 /* VolumeItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB14BA6C1DA16FCA00385759 /* VolumeItem.xib */; };
+		EB19F4711DB003B700A84DE6 /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = EB19F4701DB003B700A84DE6 /* UIImage+ImageEffects.m */; };
 		EB2552E01DA6ABD900FD4BC4 /* MDTimerBackGround.m in Sources */ = {isa = PBXBuildFile; fileRef = EB2552DF1DA6ABD900FD4BC4 /* MDTimerBackGround.m */; };
 		EB3071F31DABE2B6009D90DD /* Roboto-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EB3071E11DABE2B6009D90DD /* Roboto-Black.ttf */; };
 		EB3071F41DABE2B6009D90DD /* Roboto-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EB3071E21DABE2B6009D90DD /* Roboto-BlackItalic.ttf */; };
@@ -192,6 +193,8 @@
 		EB14BA6A1DA16FCA00385759 /* VolumeItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VolumeItem.h; sourceTree = "<group>"; };
 		EB14BA6B1DA16FCA00385759 /* VolumeItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VolumeItem.m; sourceTree = "<group>"; };
 		EB14BA6C1DA16FCA00385759 /* VolumeItem.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VolumeItem.xib; sourceTree = "<group>"; };
+		EB19F46F1DB003B700A84DE6 /* UIImage+ImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageEffects.h"; sourceTree = "<group>"; };
+		EB19F4701DB003B700A84DE6 /* UIImage+ImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageEffects.m"; sourceTree = "<group>"; };
 		EB2552DE1DA6ABD900FD4BC4 /* MDTimerBackGround.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDTimerBackGround.h; sourceTree = "<group>"; };
 		EB2552DF1DA6ABD900FD4BC4 /* MDTimerBackGround.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDTimerBackGround.m; sourceTree = "<group>"; };
 		EB3071E11DABE2B6009D90DD /* Roboto-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Black.ttf"; sourceTree = "<group>"; };
@@ -613,6 +616,8 @@
 		EB56B6101DA2C4A3001AFC87 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				EB19F46F1DB003B700A84DE6 /* UIImage+ImageEffects.h */,
+				EB19F4701DB003B700A84DE6 /* UIImage+ImageEffects.m */,
 				EB420B0F1DAD609500F47C8B /* UIImage+TBTint.h */,
 				EB420B101DAD609500F47C8B /* UIImage+TBTint.m */,
 				EB420B0C1DAD4A2100F47C8B /* UIDeviceHardware.h */,
@@ -1013,6 +1018,7 @@
 				EB11EE6E1D9AF4A300804D34 /* CollectionCell.m in Sources */,
 				EB11EE111D9AC16100804D34 /* MainNavHome.m in Sources */,
 				EBFF14281DA01E4700CA98F1 /* hmac.c in Sources */,
+				EB19F4711DB003B700A84DE6 /* UIImage+ImageEffects.m in Sources */,
 				EBFB07A41D9EA06000AF2569 /* FavoriteView.m in Sources */,
 				EB4C80081DA3FE69003CD3D6 /* SDWebImageManager.m in Sources */,
 				EB4BE3D91DA81A93006E6803 /* SettingAbout.m in Sources */,

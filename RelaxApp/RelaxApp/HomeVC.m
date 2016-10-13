@@ -183,6 +183,7 @@ extern float volumeGlobal;
     [self.vSetting dismissView];
     [self.vVolumeTotal showVolume:NO];
     [self.vVolumeItem removeFromSuperview];
+    self.vNavHome.hidden = NO;
     UIButton *btn = (UIButton*)sender;
     switch (btn.tag - 10) {
 //        case 0:
@@ -198,6 +199,7 @@ extern float volumeGlobal;
             //favorite
             [self addSubViewFavorite];
             _buttonType = BUTTON_FAVORITE;
+            self.vNavHome.hidden = YES;
 
         }
             break;
@@ -269,6 +271,7 @@ extern float volumeGlobal;
             //timer
             [self addSubViewTimer];
             _buttonType = BUTTON_TIMER;
+            self.vNavHome.hidden = YES;
 
 
         }
@@ -278,6 +281,7 @@ extern float volumeGlobal;
             //setting
             [self addSubViewSetting];
             _buttonType = BUTTON_SETTING;
+            self.vNavHome.hidden = YES;
 
 
         }
@@ -716,7 +720,24 @@ extern float volumeGlobal;
     // Change the indicator
     self.pageControl.currentPage = (int) currentPage;
     if (currentPage < arrTotal.count) {
-        self.titleCategory.text = arrTotal[(int)currentPage][@"name"];
+        NSString *strName;
+        if ([arrTotal[(int)currentPage][@"name"] isKindOfClass:[NSDictionary class]]) {
+            
+            if (arrTotal[(int)currentPage][@"name"][userLanguage]) {
+                strName = arrTotal[(int)currentPage][@"name"][userLanguage];
+            }
+            else
+            {
+                strName = arrTotal[(int)currentPage][@"name"][@"en"];
+                
+            }
+        }
+        else
+        {
+            strName = arrTotal[(int)currentPage][@"name"];
+        }
+
+        self.titleCategory.text = strName;
         self.imgSingle.hidden = [arrTotal[(int)currentPage][@"manyselect"] boolValue];
 
     }
@@ -725,12 +746,36 @@ extern float volumeGlobal;
 }
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
+    NSString * language = [[NSLocale preferredLanguages] objectAtIndex:0];
+    NSString *userLanguage = @"en";
+    if (language.length >=2) {
+        userLanguage = [language substringToIndex:2];
+    }
+    userLanguage = [language substringToIndex:2];
+
     CGFloat pageWidth = CGRectGetWidth(scrollView.frame);
     CGFloat currentPage = floor((scrollView.contentOffset.x-pageWidth/2)/pageWidth)+1;
     // Change the indicator
     self.pageControl.currentPage = (int) currentPage;
     if (currentPage < arrTotal.count) {
-        self.titleCategory.text = arrTotal[(int)currentPage][@"name"];
+        NSString *strName;
+        if ([arrTotal[(int)currentPage][@"name"] isKindOfClass:[NSDictionary class]]) {
+            
+            if (arrTotal[(int)currentPage][@"name"][userLanguage]) {
+                strName = arrTotal[(int)currentPage][@"name"][userLanguage];
+            }
+            else
+            {
+                strName = arrTotal[(int)currentPage][@"name"][@"en"];
+                
+            }
+        }
+        else
+        {
+            strName = arrTotal[(int)currentPage][@"name"];
+        }
+        
+        self.titleCategory.text = strName;
         self.imgSingle.hidden = [arrTotal[(int)currentPage][@"manyselect"] boolValue];
     }
 

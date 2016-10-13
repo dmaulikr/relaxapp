@@ -36,7 +36,7 @@ extern float volumeGlobal;
     
     [viewSuper addSubview:view];
     
-    [viewSuper addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[view(50)]-(135)-|"
+    [viewSuper addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[view(50)]-(85)-|"
                                                                       options:0
                                                                       metrics:nil
                                                                         views:NSDictionaryOfVariableBindings(view)]];

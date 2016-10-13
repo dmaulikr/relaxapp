@@ -21,6 +21,7 @@
                     <subviews>
                         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HqM-zg-CLO" customClass="MainNavHome">
                             <subviews>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="v59-MF-gSx"/>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bt5-w6-90X" userLabel="Favorist">
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <constraints>
@@ -51,6 +52,7 @@
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <constraints>
+                                <constraint firstItem="v59-MF-gSx" firstAttribute="top" secondItem="HqM-zg-CLO" secondAttribute="top" id="0Vc-vx-RiS"/>
                                 <constraint firstItem="arl-wV-AoC" firstAttribute="leading" secondItem="Bt5-w6-90X" secondAttribute="trailing" id="1IY-fS-ug2"/>
                                 <constraint firstAttribute="height" constant="70" id="8WV-7m-9eY"/>
                                 <constraint firstAttribute="trailing" secondItem="iim-x4-j5c" secondAttribute="trailing" id="8ch-kW-z7O"/>
@@ -60,11 +62,14 @@
                                 <constraint firstAttribute="bottom" secondItem="iim-x4-j5c" secondAttribute="bottom" constant="-8" id="cyP-XQ-GnX"/>
                                 <constraint firstItem="iim-x4-j5c" firstAttribute="leading" secondItem="arl-wV-AoC" secondAttribute="trailing" id="dpy-xl-gx6"/>
                                 <constraint firstItem="Bt5-w6-90X" firstAttribute="leading" secondItem="HqM-zg-CLO" secondAttribute="leading" id="gll-Cs-ggP"/>
+                                <constraint firstAttribute="bottom" secondItem="v59-MF-gSx" secondAttribute="bottom" id="jqa-Vk-rVe"/>
+                                <constraint firstAttribute="trailing" secondItem="v59-MF-gSx" secondAttribute="trailing" id="sDN-bl-il3"/>
                                 <constraint firstItem="Bt5-w6-90X" firstAttribute="top" secondItem="HqM-zg-CLO" secondAttribute="top" id="vhj-MS-4gj"/>
+                                <constraint firstItem="v59-MF-gSx" firstAttribute="leading" secondItem="HqM-zg-CLO" secondAttribute="leading" id="z6f-QC-yyH"/>
                                 <constraint firstItem="iim-x4-j5c" firstAttribute="top" secondItem="HqM-zg-CLO" secondAttribute="top" id="zQy-pH-xoh"/>
                             </constraints>
                         </view>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="atI-1s-q46"/>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backgroundBlur" translatesAutoresizingMaskIntoConstraints="NO" id="atI-1s-q46"/>
                         <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceVertical="YES" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GvT-Ku-9Df">
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4a4-ug-Dhm">
@@ -455,7 +460,7 @@ Help us share on social</string>
                             </constraints>
                         </scrollView>
                     </subviews>
-                    <color key="backgroundColor" red="0.078431372550000003" green="0.098039215690000001" blue="0.23921568630000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstItem="GvT-Ku-9Df" firstAttribute="leading" secondItem="gBn-Wv-Lpj" secondAttribute="leading" id="0g0-VL-zHi"/>
                         <constraint firstItem="GvT-Ku-9Df" firstAttribute="top" secondItem="HqM-zg-CLO" secondAttribute="bottom" id="0k7-Ta-gPy"/>
@@ -481,7 +486,8 @@ Help us share on social</string>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="contraintBottom" destination="6Fi-N5-Uno" id="wP0-Xe-iYq"/>
-                <outlet property="imgBackGround" destination="atI-1s-q46" id="8HT-uu-sYN"/>
+                <outlet property="imgBackGround" destination="atI-1s-q46" id="X2z-qv-V3z"/>
+                <outlet property="imgHeader" destination="v59-MF-gSx" id="ejh-2r-g3D"/>
                 <outlet property="lbShare" destination="TG8-Mu-gUw" id="dQF-Pg-oWd"/>
                 <outlet property="lbTitle" destination="NG0-iT-9FB" id="TRE-iG-H1d"/>
                 <outlet property="lbTitleAbout" destination="jJe-JU-hiE" id="WhF-Bo-VWe"/>
@@ -498,6 +504,7 @@ Help us share on social</string>
     <resources>
         <image name="Group" width="84" height="84"/>
         <image name="arrow" width="8" height="13"/>
+        <image name="backgroundBlur" width="375" height="667"/>
         <image name="fb" width="7" height="15"/>
         <image name="twitter" width="18" height="15"/>
     </resources>

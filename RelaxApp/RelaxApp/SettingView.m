@@ -15,6 +15,8 @@
 #import "NSDate+Extensions.h"
 #import "FileHelper.h"
 #import "Define.h"
+#import "UIImage+ImageEffects.h"
+
 @interface SettingView () <MFMailComposeViewControllerDelegate>
 
 @end
@@ -30,8 +32,6 @@
     self.lbTitleLestTalk.font= [UIFont fontWithName:@"Roboto-Regular" size:13];
     self.lbTitleConnectWithUs.font= [UIFont fontWithName:@"Roboto-Regular" size:13];
     self.lbTitleAbout.font= [UIFont fontWithName:@"Roboto-Regular" size:13];
-    self.imgBackGround.backgroundColor = UIColorFromRGB(COLOR_BACKGROUND_FAVORITE);
-    self.vViewNav.backgroundColor = UIColorFromRGB(COLOR_NAVIGATION_FAVORITE);
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(caculatorTimeAgo) name: NOTIFCATION_CATEGORY object:nil];
     [self caculatorTimeAgo];
 }
@@ -88,6 +88,7 @@
     }
 
 }
+
 - (IBAction)shareTwitterAction:(id)sender {
     // Twitter
     if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter])
@@ -145,11 +146,27 @@
 }
 -(IBAction)updateAction:(id)sender
 {
-    SettingUpdate *viewController1 = [[SettingUpdate alloc] initWithNibName:@"SettingUpdate" bundle:nil];
-    [self.parent presentViewController:viewController1 animated:YES completion:^{
-    }];
     
+    SettingUpdate *viewController1 = [[SettingUpdate alloc] initWithClassName:NSStringFromClass([SettingUpdate class])];
+    [viewController1 addContraintSupview:self.parent.view];
+    viewController1.blurredBgImage.image = [self blurWithImageEffects:[self takeSnapshotOfView:self.parent.view]];
+
 }
+- (UIImage *)takeSnapshotOfView:(UIView *)view
+{
+    CGFloat reductionFactor = 1;
+    UIGraphicsBeginImageContext(CGSizeMake(view.frame.size.width/reductionFactor, view.frame.size.height/reductionFactor));
+    [view drawViewHierarchyInRect:CGRectMake(0, 0, view.frame.size.width/reductionFactor, view.frame.size.height/reductionFactor) afterScreenUpdates:YES];
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return image;
+}
+- (UIImage *)blurWithImageEffects:(UIImage *)image
+{
+    return [image applyBlurWithRadius:30 tintColor:[UIColor colorWithWhite:0 alpha:0.2] saturationDeltaFactor:1.5 maskImage:nil];
+}
+
 - (void) mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error
 {
     switch (result)

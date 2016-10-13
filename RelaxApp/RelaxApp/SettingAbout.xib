@@ -16,6 +16,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SettingAbout">
             <connections>
+                <outlet property="imgBackGround" destination="a5a-89-HoJ" id="ilS-sQ-t7U"/>
                 <outlet property="vContent" destination="4ik-JB-PoB" id="RnJ-Sg-Y3X"/>
                 <outlet property="vViewNav" destination="034-ae-JVr" id="Wd8-ic-gjn"/>
                 <outlet property="view" destination="Tmx-vs-DOj" id="cFZ-SW-cMY"/>
@@ -30,6 +31,9 @@
                     <subviews>
                         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="034-ae-JVr" customClass="MainNavHome">
                             <subviews>
+                                <imageView userInteractionEnabled="NO" alpha="0.40000000000000002" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZgW-bg-vTO">
+                                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </imageView>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LBd-3H-hGx" userLabel="Favorist">
                                     <subviews>
                                         <button opaque="NO" tag="10" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="soc-y7-cIQ">
@@ -89,9 +93,13 @@
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <constraints>
+                                <constraint firstItem="ZgW-bg-vTO" firstAttribute="top" secondItem="034-ae-JVr" secondAttribute="top" id="5TY-iw-4vW"/>
                                 <constraint firstItem="BI3-Yi-H8J" firstAttribute="leading" secondItem="d7t-Hk-ttF" secondAttribute="trailing" id="5y6-DF-VDw"/>
+                                <constraint firstAttribute="bottom" secondItem="ZgW-bg-vTO" secondAttribute="bottom" id="CNQ-ox-YvO"/>
+                                <constraint firstAttribute="trailing" secondItem="ZgW-bg-vTO" secondAttribute="trailing" id="JTx-Cy-00c"/>
                                 <constraint firstAttribute="bottom" secondItem="LBd-3H-hGx" secondAttribute="bottom" constant="-8" id="KAw-hD-6mM"/>
                                 <constraint firstItem="BI3-Yi-H8J" firstAttribute="top" secondItem="034-ae-JVr" secondAttribute="top" id="VU9-jA-N2d"/>
+                                <constraint firstItem="ZgW-bg-vTO" firstAttribute="leading" secondItem="034-ae-JVr" secondAttribute="leading" id="VlR-Sa-1xC"/>
                                 <constraint firstItem="d7t-Hk-ttF" firstAttribute="top" secondItem="034-ae-JVr" secondAttribute="top" id="WlG-Ed-mNa"/>
                                 <constraint firstItem="LBd-3H-hGx" firstAttribute="top" secondItem="034-ae-JVr" secondAttribute="top" id="XYM-np-LKd"/>
                                 <constraint firstAttribute="trailing" secondItem="BI3-Yi-H8J" secondAttribute="trailing" id="eXj-uI-1S8"/>
@@ -109,7 +117,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
-                    <color key="backgroundColor" red="0.078431372550000003" green="0.098039215690000001" blue="0.23921568630000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="034-ae-JVr" secondAttribute="trailing" id="5us-ND-TrE"/>
                         <constraint firstItem="a5a-89-HoJ" firstAttribute="top" secondItem="034-ae-JVr" secondAttribute="bottom" id="6TS-Dz-i5U"/>

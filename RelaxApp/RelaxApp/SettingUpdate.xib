@@ -5,59 +5,44 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Roboto-Medium.ttf">
+            <string>Roboto-Medium</string>
+        </array>
+    </customFonts>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SettingUpdate">
-            <connections>
-                <outlet property="btnUpdate" destination="jGG-Bq-AUm" id="N6I-s2-H9Z"/>
-                <outlet property="view" destination="Tmx-vs-DOj" id="b5y-P1-doF"/>
-            </connections>
-        </placeholder>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="Tmx-vs-DOj">
+        <view contentMode="scaleToFill" id="Tmx-vs-DOj" customClass="SettingUpdate">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4ik-JB-PoB">
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Do you want update page name ?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gvK-Z9-RQx">
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jGG-Bq-AUm">
-                            <color key="backgroundColor" red="0.97254901960784312" green="0.90588235294117647" blue="0.11764705882352941" alpha="1" colorSpace="calibratedRGB"/>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9h3-If-OtD"/>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9d3-dz-Tu1">
+                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="30" id="LVX-GB-chk"/>
-                                <constraint firstAttribute="width" constant="90" id="bRU-Kb-Mhk"/>
+                                <constraint firstAttribute="height" constant="45" id="TU5-Ju-DSA"/>
+                                <constraint firstAttribute="width" constant="155" id="UKq-pl-ThF"/>
                             </constraints>
-                            <state key="normal" title="Update">
-                                <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                            <connections>
-                                <action selector="updateAction:" destination="-1" eventType="touchUpInside" id="Gzk-gJ-9Dk"/>
-                            </connections>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4eO-3x-3tY">
-                            <constraints>
-                                <constraint firstAttribute="height" constant="30" id="caE-pv-p43"/>
-                                <constraint firstAttribute="width" constant="91" id="ltN-lT-AI5"/>
-                            </constraints>
+                            <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="16"/>
                             <state key="normal" title="Cancel">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                             <connections>
-                                <action selector="closeAction:" destination="-1" eventType="touchUpInside" id="Iua-d4-b4o"/>
+                                <action selector="closeAction:" destination="Tmx-vs-DOj" eventType="touchUpInside" id="gVh-UW-3aA"/>
                             </connections>
                         </button>
                     </subviews>
-                    <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstItem="4eO-3x-3tY" firstAttribute="top" secondItem="jGG-Bq-AUm" secondAttribute="bottom" constant="21.5" id="2wl-hH-SOg"/>
-                        <constraint firstItem="gvK-Z9-RQx" firstAttribute="centerX" secondItem="jGG-Bq-AUm" secondAttribute="centerX" id="M2G-7j-i7q"/>
-                        <constraint firstItem="jGG-Bq-AUm" firstAttribute="top" secondItem="gvK-Z9-RQx" secondAttribute="bottom" constant="40" id="h9l-HD-mBS"/>
-                        <constraint firstItem="4eO-3x-3tY" firstAttribute="centerX" secondItem="jGG-Bq-AUm" secondAttribute="centerX" id="oG9-Wm-unG"/>
-                        <constraint firstItem="jGG-Bq-AUm" firstAttribute="centerX" secondItem="4ik-JB-PoB" secondAttribute="centerX" id="rZl-jy-QzE"/>
-                        <constraint firstItem="jGG-Bq-AUm" firstAttribute="centerY" secondItem="4ik-JB-PoB" secondAttribute="centerY" id="yu0-GY-3dc"/>
+                        <constraint firstAttribute="bottom" secondItem="9h3-If-OtD" secondAttribute="bottom" id="5DQ-rE-caL"/>
+                        <constraint firstAttribute="trailing" secondItem="9h3-If-OtD" secondAttribute="trailing" id="Brj-nf-9qr"/>
+                        <constraint firstItem="9d3-dz-Tu1" firstAttribute="centerX" secondItem="4ik-JB-PoB" secondAttribute="centerX" id="LMr-AM-8H8"/>
+                        <constraint firstAttribute="bottom" secondItem="9d3-dz-Tu1" secondAttribute="bottom" constant="70" id="Waf-e8-zUu"/>
+                        <constraint firstItem="9h3-If-OtD" firstAttribute="top" secondItem="4ik-JB-PoB" secondAttribute="top" id="i2V-Un-CTx"/>
+                        <constraint firstItem="9h3-If-OtD" firstAttribute="leading" secondItem="4ik-JB-PoB" secondAttribute="leading" id="sFF-bO-IsT"/>
                     </constraints>
                 </view>
             </subviews>
@@ -68,6 +53,10 @@
                 <constraint firstItem="4ik-JB-PoB" firstAttribute="top" secondItem="Tmx-vs-DOj" secondAttribute="top" id="OVb-Kl-aaU"/>
                 <constraint firstAttribute="trailing" secondItem="4ik-JB-PoB" secondAttribute="trailing" id="Wlu-L9-wJe"/>
             </constraints>
+            <connections>
+                <outlet property="blurredBgImage" destination="9h3-If-OtD" id="bpz-VE-3rH"/>
+                <outlet property="btnCancel" destination="9d3-dz-Tu1" id="PcQ-uo-Rgx"/>
+            </connections>
             <point key="canvasLocation" x="-126.5" y="2.5"/>
         </view>
     </objects>

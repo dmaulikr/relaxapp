@@ -25,6 +25,8 @@
 
 }
 @property (nonatomic, strong) NSDictionary *dicChooseCategory;
+@property (nonatomic, strong) IBOutlet UIView *vNavHome;
+@property (nonatomic, strong) IBOutlet UIView *vTabVC;
 
 @property (nonatomic, strong) IBOutlet UIView *vContrainer;
 @property (nonatomic, strong) IBOutlet UIImageView *imgBackGround;

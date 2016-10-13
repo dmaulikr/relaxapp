@@ -17,11 +17,10 @@ static NSString *identifierSection1 = @"MyTableViewCell1";
 -(void)awakeFromNib
 {
     [super awakeFromNib];
+    
     self.lbEdit.font = [UIFont fontWithName:@"Roboto-Medium" size:16];
     self.lbTitle.font = [UIFont fontWithName:@"Roboto-Medium" size:16];
-
-    self.imgBackGround.backgroundColor = UIColorFromRGB(COLOR_BACKGROUND_FAVORITE);
-    self.vViewNav.backgroundColor = UIColorFromRGB(COLOR_NAVIGATION_FAVORITE);
+    
     [self.tableControl registerNib:[UINib nibWithNibName:@"AHTagTableViewCell" bundle:nil] forCellReuseIdentifier:identifierSection1];
     self.tableControl.estimatedRowHeight = 60;
     self.tableControl.allowsSelectionDuringEditing = YES;

@@ -32,6 +32,7 @@
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4ik-JB-PoB">
                     <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backgroundTimer" translatesAutoresizingMaskIntoConstraints="NO" id="mXt-ae-FDg"/>
                         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="034-ae-JVr" customClass="MainNavHome">
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LBd-3H-hGx" userLabel="Favorist">
@@ -267,7 +268,7 @@
                             </constraints>
                         </view>
                     </subviews>
-                    <color key="backgroundColor" red="0.078431372550000003" green="0.098039215690000001" blue="0.23921568630000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstItem="E6t-Ec-yBY" firstAttribute="leading" secondItem="4ik-JB-PoB" secondAttribute="leading" id="18x-7m-we2"/>
                         <constraint firstItem="W2P-Yx-0o0" firstAttribute="leading" secondItem="4ik-JB-PoB" secondAttribute="leading" id="2LL-dH-Wbp"/>
@@ -276,6 +277,7 @@
                         <constraint firstAttribute="trailing" secondItem="9Yv-To-Xhy" secondAttribute="trailing" id="5Ug-UB-QWY"/>
                         <constraint firstAttribute="trailing" secondItem="034-ae-JVr" secondAttribute="trailing" id="5us-ND-TrE"/>
                         <constraint firstItem="VGf-SY-VIz" firstAttribute="top" secondItem="vKg-p9-Jbe" secondAttribute="bottom" id="8tE-L3-XN7"/>
+                        <constraint firstAttribute="trailing" secondItem="mXt-ae-FDg" secondAttribute="trailing" id="AOb-fk-Dgm"/>
                         <constraint firstAttribute="trailing" secondItem="E6t-Ec-yBY" secondAttribute="trailing" id="AVn-2S-RS5"/>
                         <constraint firstAttribute="trailing" secondItem="i2N-Zj-63b" secondAttribute="trailing" id="DgC-xy-SLP"/>
                         <constraint firstAttribute="trailing" secondItem="5hO-oY-jsh" secondAttribute="trailing" id="F7Y-V6-rC3"/>
@@ -285,6 +287,8 @@
                         <constraint firstItem="jx6-9a-Inr" firstAttribute="top" secondItem="034-ae-JVr" secondAttribute="bottom" constant="10" id="KYc-BK-YC1"/>
                         <constraint firstItem="E6t-Ec-yBY" firstAttribute="top" secondItem="i2N-Zj-63b" secondAttribute="bottom" constant="10" id="Kgn-eA-cDk"/>
                         <constraint firstItem="vKg-p9-Jbe" firstAttribute="top" secondItem="jx6-9a-Inr" secondAttribute="bottom" constant="10" id="Lar-wM-CJI"/>
+                        <constraint firstItem="mXt-ae-FDg" firstAttribute="top" secondItem="4ik-JB-PoB" secondAttribute="top" id="Snr-hW-f1E"/>
+                        <constraint firstItem="mXt-ae-FDg" firstAttribute="leading" secondItem="4ik-JB-PoB" secondAttribute="leading" id="b8C-65-ieJ"/>
                         <constraint firstAttribute="trailing" secondItem="W2P-Yx-0o0" secondAttribute="trailing" id="bA1-ej-YsO"/>
                         <constraint firstItem="034-ae-JVr" firstAttribute="leading" secondItem="4ik-JB-PoB" secondAttribute="leading" id="dMa-FK-ikB"/>
                         <constraint firstAttribute="trailing" secondItem="vKg-p9-Jbe" secondAttribute="trailing" constant="50" id="dVn-hO-LOz"/>
@@ -294,6 +298,7 @@
                         <constraint firstAttribute="bottom" secondItem="W2P-Yx-0o0" secondAttribute="bottom" id="kgv-wJ-rFL"/>
                         <constraint firstItem="5hO-oY-jsh" firstAttribute="leading" secondItem="4ik-JB-PoB" secondAttribute="leading" id="lKd-qm-7Ye"/>
                         <constraint firstItem="5hO-oY-jsh" firstAttribute="top" secondItem="ZRy-NZ-23p" secondAttribute="bottom" id="nPJ-ca-fLV"/>
+                        <constraint firstAttribute="bottom" secondItem="mXt-ae-FDg" secondAttribute="bottom" id="pRH-h1-hca"/>
                         <constraint firstItem="034-ae-JVr" firstAttribute="top" secondItem="4ik-JB-PoB" secondAttribute="top" id="rgc-73-Onx"/>
                         <constraint firstItem="9Yv-To-Xhy" firstAttribute="top" secondItem="5hO-oY-jsh" secondAttribute="bottom" id="rw2-Bg-Ynr"/>
                         <constraint firstItem="vKg-p9-Jbe" firstAttribute="leading" secondItem="4ik-JB-PoB" secondAttribute="leading" constant="50" id="uBM-hp-Tar"/>
@@ -314,6 +319,7 @@
     <resources>
         <image name="Checkmark" width="13" height="11"/>
         <image name="CombinedShape" width="10" height="10"/>
+        <image name="backgroundTimer" width="1125" height="2001"/>
         <image name="ic_exit" width="22" height="22"/>
         <image name="ic_open" width="22" height="22"/>
     </resources>

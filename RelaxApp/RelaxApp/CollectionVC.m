@@ -136,8 +136,16 @@
     {
         self.collectionView.hidden = YES;
         self.image.hidden = NO;
-        
-        NSURL *url =[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",BASE_IMAGE_URL,dicCategory[@"cover"]]];
+        NSString *strCover = @"";
+        if ([dicCategory[@"price"] intValue] > 0) {
+            strCover = dicCategory[@"cover"][0][@"i4"];
+        }
+        else
+        {
+            strCover = dicCategory[@"cover"][1][@"i4"];
+
+        }
+        NSURL *url =[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",BASE_IMAGE_URL,strCover]];
         [self.image sd_setImageWithURL:url placeholderImage: nil completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
         }];
 

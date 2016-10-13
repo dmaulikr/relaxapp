@@ -7,7 +7,7 @@
 //
 
 #import "BaseView.h"
-
+#import "Define.h"
 @implementation BaseView
 -(instancetype)initWithClassName:(NSString*)className
 {
@@ -23,6 +23,14 @@
 }
 -(void)instance
 {
+    if (self.imgHeader) {
+        self.imgHeader.backgroundColor = UIColorFromAlpha(COLOR_NAVIGATION_FAVORITE, 0.4);
+    }
+    if(self.imgBackGround)
+    {
+        self.imgBackGround.backgroundColor = UIColorFromRGB(COLOR_BACKGROUND_FAVORITE);
+
+    }
 }
 -(void)addContraintSupview:(UIView*)viewSuper
 {

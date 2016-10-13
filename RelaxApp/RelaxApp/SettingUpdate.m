@@ -21,28 +21,49 @@
 
 @implementation SettingUpdate
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    [self.btnUpdate.layer setMasksToBounds:YES];
-    self.btnUpdate.layer.cornerRadius= 4.0;
+-(void)awakeFromNib
+{
+    [super awakeFromNib];
+    [self.btnCancel.layer setMasksToBounds:YES];
+    self.btnCancel.layer.cornerRadius= 23.0;
+    self.btnCancel.hidden = YES;
+    // Blurred with UIImage+ImageEffects
 
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Do you want update something new?"
+                                                    message:@"By Clicking OK you permit the app download and use free storage on your phone"
+                                                   delegate:self
+                                          cancelButtonTitle:@"Cancel"
+                                          otherButtonTitles: @"OK", nil];
+    [alert show];
+    
+}
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    switch(buttonIndex){
+        case 0:
+            //Cancel button handler
+            [self closeAction:nil];
+            break;
+        case 1:
+            //OK button handler
+            self.btnCancel.hidden = NO;
+            [self updateAction:nil];
+            break;
+        default:
+            break;
+    }
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 -(void)dismissKeyboard {
-    [self.view endEditing:YES];
+    [self endEditing:YES];
 }
 
 -(IBAction)closeAction:(id)sender
 {
-    [self dismissViewControllerAnimated:YES completion:^{}];
+    [self removeFromSuperview];
 }
 -(IBAction)updateAction:(id)sender
 {
-    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self animated:YES];
     
     // Set the determinate mode to show task progress.
     hud.mode = MBProgressHUDModeDeterminate;
@@ -101,11 +122,15 @@
     if (arrUpdate.count) {
         [self downloadSoundWithCategory:arrUpdate];
     }
+    else
+    {
+        [self closeAction:nil];
+    }
 
 }
 -(void)downloadSoundWithCategory:(NSArray*)arrCategory
 {
-    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self animated:YES];
     
     // Set the determinate mode to show task progress.
     hud.mode = MBProgressHUDModeDeterminate;
@@ -117,6 +142,7 @@
      {
          dispatch_async(dispatch_get_main_queue(), ^{
              [hud hideAnimated:YES];
+             [self closeAction:nil];
              [[NSNotificationCenter defaultCenter]postNotificationName:NOTIFCATION_CATEGORY object:nil];
              
              UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NAME_APP
@@ -132,7 +158,7 @@
      {
          dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0), ^{
              dispatch_async(dispatch_get_main_queue(), ^{
-                 [MBProgressHUD HUDForView:self.view].progress = progress;
+                 [MBProgressHUD HUDForView:self].progress = progress;
              });
          });
          

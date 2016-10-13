@@ -15,9 +15,7 @@
     [super awakeFromNib];
     self.lbCancel.font = [UIFont fontWithName:@"Roboto-Medium" size:16];
     self.lbTitle.font = [UIFont fontWithName:@"Roboto-Medium" size:16];
-    self.tfTitle.font = [UIFont fontWithName:@"Roboto-Medium" size:16];
-    self.btnSave.titleLabel.font = [UIFont fontWithName:@"Roboto-Medium" size:16];
-    self.backgroundColor = UIColorFromRGB(COLOR_NAVIGATION_FAVORITE);
+    self.btnSave.titleLabel.font = [UIFont fontWithName:@"Roboto-Medium" size:20];
     [self.vContent.layer setMasksToBounds:YES];
     self.vContent.layer.cornerRadius= 5.0;
     [self.btnSave.layer setMasksToBounds:YES];

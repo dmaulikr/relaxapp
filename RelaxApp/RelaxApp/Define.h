@@ -9,20 +9,23 @@
 #ifndef Define_h
 #define Define_h
 #define BASE_URL @"https://data.relafapp.com/data-examples/data/"
-#define BASE_IMAGE_URL @"https://data.relafapp.com/data-examples/data-s/"
+#define BASE_IMAGE_URL @"https://data.relafapp.com/data-examples/data/img/"
 
 #define COLOR_SLIDER_THUMB 0x50E3C2
 #define COLOR_NAVIGATION_HOME 0x0241A8
 #define COLOR_PAGE_ACTIVE 0x9013FE
 #define COLOR_VOLUME 0x0241A8
 #define COLOR_BACKGROUND_FAVORITE 0x14193D
-#define COLOR_NAVIGATION_FAVORITE 0x0064FF
+#define COLOR_NAVIGATION_FAVORITE 0x000000
 #define COLOR_ADDFAVORITE_TAGS 0x9013FE
 
 #define COLOR_BELING_MODE 0x000000
 
 
 #define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
+
+#define UIColorFromAlpha(rgbValue , a) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:((float)(a))]
+
 //
 #define FILE_FAVORITE_SAVE @"FAVORITE.save"
 #define FILE_TIMER_SAVE @"TIMER.save"

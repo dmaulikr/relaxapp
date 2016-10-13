@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "Define.h"
-@interface SettingUpdate : UIViewController
-@property (nonatomic, strong) IBOutlet UIButton *btnUpdate;
+#import "BaseView.h"
+@interface SettingUpdate : BaseView
+@property (nonatomic, strong) IBOutlet UIButton *btnCancel;
+@property (nonatomic, strong) IBOutlet UIImageView *blurredBgImage;
 
 @end

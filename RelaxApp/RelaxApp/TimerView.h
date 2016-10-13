@@ -18,6 +18,5 @@
 @property (strong, nonatomic) IBOutlet UITableView *tableControl;
 @property (strong, nonatomic) IBOutlet UILabel *lbEdit;
 @property (strong, nonatomic) IBOutlet UILabel *lbTitle;
-@property (strong, nonatomic) IBOutlet UIImageView *imgBackGround;
 
 @end

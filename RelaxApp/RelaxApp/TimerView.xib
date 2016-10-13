@@ -16,6 +16,9 @@
                     <subviews>
                         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6ap-eu-Y0G" customClass="MainNavHome">
                             <subviews>
+                                <imageView userInteractionEnabled="NO" alpha="0.5" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ydR-ve-xzI">
+                                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </imageView>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x2Z-J9-1gr" userLabel="Favorist">
                                     <subviews>
                                         <button opaque="NO" tag="10" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XiG-7R-8TW">
@@ -92,13 +95,18 @@
                                 <constraint firstAttribute="height" constant="70" id="Dic-Aa-ljS"/>
                                 <constraint firstItem="gvp-s2-udK" firstAttribute="leading" secondItem="x2Z-J9-1gr" secondAttribute="trailing" id="GLs-aP-u2C"/>
                                 <constraint firstItem="gvp-s2-udK" firstAttribute="top" secondItem="6ap-eu-Y0G" secondAttribute="top" id="HeZ-dz-AGn"/>
+                                <constraint firstAttribute="trailing" secondItem="ydR-ve-xzI" secondAttribute="trailing" id="IXa-fv-ulD"/>
                                 <constraint firstAttribute="bottom" secondItem="gvp-s2-udK" secondAttribute="bottom" constant="-8" id="O5A-nb-KGf"/>
                                 <constraint firstItem="rci-NY-WKD" firstAttribute="leading" secondItem="gvp-s2-udK" secondAttribute="trailing" constant="10" id="bsP-mC-Fya"/>
+                                <constraint firstItem="ydR-ve-xzI" firstAttribute="leading" secondItem="6ap-eu-Y0G" secondAttribute="leading" id="eBe-jB-hWv"/>
                                 <constraint firstItem="x2Z-J9-1gr" firstAttribute="top" secondItem="6ap-eu-Y0G" secondAttribute="top" id="fow-Td-omZ"/>
+                                <constraint firstAttribute="bottom" secondItem="ydR-ve-xzI" secondAttribute="bottom" id="gde-SZ-lJc"/>
                                 <constraint firstAttribute="bottom" secondItem="rci-NY-WKD" secondAttribute="bottom" constant="-8" id="gme-5t-Bcg"/>
                                 <constraint firstAttribute="trailing" secondItem="rci-NY-WKD" secondAttribute="trailing" id="n2d-Sf-fSm"/>
+                                <constraint firstItem="ydR-ve-xzI" firstAttribute="top" secondItem="6ap-eu-Y0G" secondAttribute="top" id="pSU-oV-OeX"/>
                             </constraints>
                         </view>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7YO-7z-gEM"/>
                         <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="axs-JV-LNd">
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <connections>
@@ -107,14 +115,18 @@
                             </connections>
                         </tableView>
                     </subviews>
-                    <color key="backgroundColor" red="0.078431372550000003" green="0.098039215690000001" blue="0.23921568630000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstItem="6ap-eu-Y0G" firstAttribute="leading" secondItem="494-Fb-M0H" secondAttribute="leading" id="3KL-IT-V1F"/>
                         <constraint firstAttribute="bottom" secondItem="axs-JV-LNd" secondAttribute="bottom" id="7nn-7v-tDS"/>
                         <constraint firstAttribute="trailing" secondItem="axs-JV-LNd" secondAttribute="trailing" id="86K-Wk-wGz"/>
                         <constraint firstItem="axs-JV-LNd" firstAttribute="top" secondItem="6ap-eu-Y0G" secondAttribute="bottom" id="96Y-BS-wUO"/>
                         <constraint firstAttribute="trailing" secondItem="6ap-eu-Y0G" secondAttribute="trailing" id="EJz-3p-7tn"/>
+                        <constraint firstItem="7YO-7z-gEM" firstAttribute="leading" secondItem="494-Fb-M0H" secondAttribute="leading" id="Rgz-b9-mI8"/>
+                        <constraint firstAttribute="bottom" secondItem="7YO-7z-gEM" secondAttribute="bottom" id="S1V-lK-gk0"/>
                         <constraint firstItem="axs-JV-LNd" firstAttribute="leading" secondItem="494-Fb-M0H" secondAttribute="leading" id="gB4-vN-6eS"/>
+                        <constraint firstAttribute="trailing" secondItem="7YO-7z-gEM" secondAttribute="trailing" id="kd7-fQ-o8z"/>
+                        <constraint firstItem="7YO-7z-gEM" firstAttribute="top" secondItem="6ap-eu-Y0G" secondAttribute="bottom" id="knu-mW-dla"/>
                         <constraint firstItem="6ap-eu-Y0G" firstAttribute="top" secondItem="494-Fb-M0H" secondAttribute="top" id="ye7-DV-UAj"/>
                     </constraints>
                 </view>
@@ -128,6 +140,8 @@
             </constraints>
             <connections>
                 <outlet property="contraintBottom" destination="m4n-9l-teT" id="jsD-nH-oac"/>
+                <outlet property="imgBackGround" destination="7YO-7z-gEM" id="Via-1F-4fd"/>
+                <outlet property="imgHeader" destination="ydR-ve-xzI" id="Rgk-cE-fRT"/>
                 <outlet property="lbEdit" destination="eK1-So-ERx" id="ohj-Nk-xfW"/>
                 <outlet property="lbTitle" destination="sHU-sY-TGV" id="bUG-Ac-f8d"/>
                 <outlet property="tableControl" destination="axs-JV-LNd" id="9Pc-WV-K5f"/>

@@ -12,6 +12,9 @@
 -(instancetype)initWithClassName:(NSString*)className;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *contraintBottom;
 @property (weak, nonatomic)  UIViewController *parent;
+@property (strong, nonatomic) IBOutlet UIImageView *imgHeader;
+@property (strong, nonatomic) IBOutlet UIImageView *imgBackGround;
+
 -(void)addContraintSupview:(UIView*)viewSuper;
 //-(void)hide:(BOOL)hidden;
 //-(void)setup;

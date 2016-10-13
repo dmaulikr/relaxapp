@@ -16,6 +16,9 @@
                     <subviews>
                         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oBV-dw-MzJ" customClass="MainNavHome">
                             <subviews>
+                                <imageView userInteractionEnabled="NO" alpha="0.5" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MYj-zg-CUd">
+                                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </imageView>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VWy-Va-pZA" userLabel="Favorist">
                                     <subviews>
                                         <button opaque="NO" tag="10" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aAg-EV-JyS">
@@ -71,11 +74,15 @@
                                 <constraint firstItem="hnl-dj-t30" firstAttribute="leading" secondItem="VWy-Va-pZA" secondAttribute="trailing" id="678-E4-l5V"/>
                                 <constraint firstItem="9xR-X7-ewe" firstAttribute="top" secondItem="oBV-dw-MzJ" secondAttribute="top" id="Iow-UB-rhW"/>
                                 <constraint firstAttribute="bottom" secondItem="hnl-dj-t30" secondAttribute="bottom" constant="-8" id="K73-Xo-NaP"/>
+                                <constraint firstItem="MYj-zg-CUd" firstAttribute="top" secondItem="oBV-dw-MzJ" secondAttribute="top" id="LH0-lE-4D7"/>
+                                <constraint firstAttribute="bottom" secondItem="MYj-zg-CUd" secondAttribute="bottom" id="VOg-ul-k20"/>
                                 <constraint firstAttribute="bottom" secondItem="9xR-X7-ewe" secondAttribute="bottom" constant="-8" id="biI-01-FSZ"/>
                                 <constraint firstAttribute="trailing" secondItem="9xR-X7-ewe" secondAttribute="trailing" id="bnT-X9-7hg"/>
                                 <constraint firstItem="VWy-Va-pZA" firstAttribute="leading" secondItem="oBV-dw-MzJ" secondAttribute="leading" id="dfM-xi-HEe"/>
                                 <constraint firstAttribute="bottom" secondItem="VWy-Va-pZA" secondAttribute="bottom" constant="-8" id="f0R-fY-LfV"/>
+                                <constraint firstItem="MYj-zg-CUd" firstAttribute="leading" secondItem="oBV-dw-MzJ" secondAttribute="leading" id="fCA-K4-W6s"/>
                                 <constraint firstItem="hnl-dj-t30" firstAttribute="top" secondItem="oBV-dw-MzJ" secondAttribute="top" id="jrd-rB-t03"/>
+                                <constraint firstAttribute="trailing" secondItem="MYj-zg-CUd" secondAttribute="trailing" id="plS-pf-KuW"/>
                                 <constraint firstItem="VWy-Va-pZA" firstAttribute="top" secondItem="oBV-dw-MzJ" secondAttribute="top" id="woO-cb-SNk"/>
                             </constraints>
                         </view>
@@ -88,7 +95,7 @@
                             </connections>
                         </tableView>
                     </subviews>
-                    <color key="backgroundColor" red="0.078431372549019607" green="0.098039215686274508" blue="0.23921568627450979" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="W5Y-qK-deu" secondAttribute="trailing" id="A9O-Hd-mja"/>
                         <constraint firstAttribute="bottom" secondItem="1G6-2z-ZaX" secondAttribute="bottom" id="Bt3-5G-EVg"/>
@@ -113,7 +120,8 @@
             </constraints>
             <connections>
                 <outlet property="contraintBottom" destination="eTt-lr-Tq3" id="cYN-GW-3MP"/>
-                <outlet property="imgBackGround" destination="1G6-2z-ZaX" id="ieC-FC-JPj"/>
+                <outlet property="imgBackGround" destination="1G6-2z-ZaX" id="kev-za-9vu"/>
+                <outlet property="imgHeader" destination="MYj-zg-CUd" id="BAo-uV-V3Q"/>
                 <outlet property="lbEdit" destination="31k-Y7-Vnz" id="PhL-LK-Oas"/>
                 <outlet property="lbTitle" destination="6ay-KV-PwV" id="ubJ-Du-lGT"/>
                 <outlet property="tableControl" destination="W5Y-qK-deu" id="Ggf-Ek-54Y"/>
