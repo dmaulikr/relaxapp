@@ -38,6 +38,7 @@ extern float volumeGlobal;
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationController.navigationBar.hidden = YES;
+    self.vNavHome.hidden = NO;
     self.titleCategory.font = [UIFont fontWithName:@"Roboto-Medium" size:16];
     self.lbVolume.font = [UIFont fontWithName:@"Roboto-Regular" size:8];
     self.lbFavorite.font = [UIFont fontWithName:@"Roboto-Regular" size:8];

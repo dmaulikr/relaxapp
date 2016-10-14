@@ -36,6 +36,9 @@
 		EB17B9841DB12B6D007DBFDF /* MCPercentageDoughnutView.m in Sources */ = {isa = PBXBuildFile; fileRef = EB17B97D1DB12B6D007DBFDF /* MCPercentageDoughnutView.m */; };
 		EB17B9851DB12B6D007DBFDF /* MCSliceLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = EB17B97F1DB12B6D007DBFDF /* MCSliceLayer.m */; };
 		EB17B9861DB12B6D007DBFDF /* MCUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = EB17B9811DB12B6D007DBFDF /* MCUtil.m */; };
+		EB17B98B1DB16B27007DBFDF /* SettingCredit.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB17B9881DB16B27007DBFDF /* SettingCredit.xib */; };
+		EB17B98C1DB16B27007DBFDF /* SettingCredit.m in Sources */ = {isa = PBXBuildFile; fileRef = EB17B98A1DB16B27007DBFDF /* SettingCredit.m */; };
+		EB17B98E1DB16ED2007DBFDF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EB17B98D1DB16ED2007DBFDF /* GoogleService-Info.plist */; };
 		EB19F4711DB003B700A84DE6 /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = EB19F4701DB003B700A84DE6 /* UIImage+ImageEffects.m */; };
 		EB2552E01DA6ABD900FD4BC4 /* MDTimerBackGround.m in Sources */ = {isa = PBXBuildFile; fileRef = EB2552DF1DA6ABD900FD4BC4 /* MDTimerBackGround.m */; };
 		EB3071F31DABE2B6009D90DD /* Roboto-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EB3071E11DABE2B6009D90DD /* Roboto-Black.ttf */; };
@@ -210,6 +213,10 @@
 		EB17B97F1DB12B6D007DBFDF /* MCSliceLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCSliceLayer.m; sourceTree = "<group>"; };
 		EB17B9801DB12B6D007DBFDF /* MCUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCUtil.h; sourceTree = "<group>"; };
 		EB17B9811DB12B6D007DBFDF /* MCUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCUtil.m; sourceTree = "<group>"; };
+		EB17B9881DB16B27007DBFDF /* SettingCredit.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingCredit.xib; sourceTree = "<group>"; };
+		EB17B9891DB16B27007DBFDF /* SettingCredit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingCredit.h; sourceTree = "<group>"; };
+		EB17B98A1DB16B27007DBFDF /* SettingCredit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingCredit.m; sourceTree = "<group>"; };
+		EB17B98D1DB16ED2007DBFDF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		EB19F46F1DB003B700A84DE6 /* UIImage+ImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageEffects.h"; sourceTree = "<group>"; };
 		EB19F4701DB003B700A84DE6 /* UIImage+ImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageEffects.m"; sourceTree = "<group>"; };
 		EB2552DE1DA6ABD900FD4BC4 /* MDTimerBackGround.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDTimerBackGround.h; sourceTree = "<group>"; };
@@ -456,6 +463,7 @@
 				EBF9B5551DA54D0500F07655 /* SETTING */,
 				EB11EDD01D9AB24900804D34 /* Assets.xcassets */,
 				EB11EDD51D9AB24900804D34 /* Info.plist */,
+				EB17B98D1DB16ED2007DBFDF /* GoogleService-Info.plist */,
 				EB11EDC41D9AB24900804D34 /* Supporting Files */,
 				EBFB07BF1D9EE03100AF2569 /* Define.h */,
 			);
@@ -749,6 +757,9 @@
 				EB4BE3D71DA81A93006E6803 /* SettingAbout.h */,
 				EB4BE3D81DA81A93006E6803 /* SettingAbout.m */,
 				EB4BE3DA1DA81A9B006E6803 /* SettingAbout.xib */,
+				EB17B9891DB16B27007DBFDF /* SettingCredit.h */,
+				EB17B98A1DB16B27007DBFDF /* SettingCredit.m */,
+				EB17B9881DB16B27007DBFDF /* SettingCredit.xib */,
 				EB4BE3E51DA81E42006E6803 /* SettingUpdate.h */,
 				EB4BE3E61DA81E42006E6803 /* SettingUpdate.m */,
 				EB4BE3E31DA81E37006E6803 /* SettingUpdate.xib */,
@@ -999,6 +1010,7 @@
 				EB3071FA1DABE2B6009D90DD /* Roboto-Medium.ttf in Resources */,
 				EB3071F51DABE2B6009D90DD /* Roboto-Bold.ttf in Resources */,
 				EB11EE121D9AC16100804D34 /* MainNavHome.xib in Resources */,
+				EB17B98B1DB16B27007DBFDF /* SettingCredit.xib in Resources */,
 				EB3072031DABE2B6009D90DD /* RobotoCondensed-LightItalic.ttf in Resources */,
 				EBFB07B81D9EAD8500AF2569 /* VolumeView.xib in Resources */,
 				EB3071FD1DABE2B6009D90DD /* Roboto-Thin.ttf in Resources */,
@@ -1009,6 +1021,7 @@
 				EB3071F91DABE2B6009D90DD /* Roboto-LightItalic.ttf in Resources */,
 				EB3072041DABE2B6009D90DD /* RobotoCondensed-Regular.ttf in Resources */,
 				EBFF14741DA04C2800CA98F1 /* IDZAQAudioPlayerViewController.xib in Resources */,
+				EB17B98E1DB16ED2007DBFDF /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1084,6 +1097,7 @@
 				EB11EDC61D9AB24900804D34 /* main.m in Sources */,
 				EB4C800A1DA3FE69003CD3D6 /* UIButton+WebCache.m in Sources */,
 				EBFF13B81DA00E1700CA98F1 /* AFNetworkReachabilityManager.m in Sources */,
+				EB17B98C1DB16B27007DBFDF /* SettingCredit.m in Sources */,
 				EBFB07B61D9EAD7200AF2569 /* VolumeView.m in Sources */,
 				EBFB07AE1D9EA0C100AF2569 /* SettingView.m in Sources */,
 				EB4C800E1DA3FE69003CD3D6 /* UIImageView+WebCache.m in Sources */,

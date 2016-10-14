@@ -6,16 +6,16 @@
 //  Copyright © 2016 JoJo. All rights reserved.
 //
 
-#import "SettingAbout.h"
+#import "SettingCredit.h"
 #import "Define.h"
 #import "FileHelper.h"
-@interface SettingAbout ()
+@interface SettingCredit ()
 {
 
 }
 @end
 
-@implementation SettingAbout
+@implementation SettingCredit
 
 -(void)awakeFromNib
 {
@@ -23,7 +23,7 @@
     self.imgBackGround.backgroundColor = UIColorFromRGB(COLOR_BACKGROUND_FAVORITE);
 
 }
--(void)setCallback:(SettingAboutCallback)callback
+-(void)setCallback:(SettingCreditCallback)callback
 {
     _callback = callback;
 }

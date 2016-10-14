@@ -9,11 +9,11 @@
 #import <UIKit/UIKit.h>
 #import "Define.h"
 #import "BaseView.h"
-typedef void (^SettingAboutCallback)();
+typedef void (^SettingCreditCallback)();
 
-@interface SettingAbout : BaseView
+@interface SettingCredit : BaseView
 @property (nonatomic, strong) IBOutlet UIView *vViewNav;
 @property (nonatomic, strong) IBOutlet UIView *vContent;
-@property (nonatomic,copy) SettingAboutCallback callback;
+@property (nonatomic,copy) SettingCreditCallback callback;
 
 @end

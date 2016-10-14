@@ -16,6 +16,7 @@
 #import "FileHelper.h"
 #import "Define.h"
 #import "UIImage+ImageEffects.h"
+#import "SettingCredit.h"
 @interface SettingView () <MFMailComposeViewControllerDelegate>
 
 @end
@@ -31,6 +32,9 @@
     self.lbTitleLestTalk.font= [UIFont fontWithName:@"Roboto-Regular" size:13];
     self.lbTitleConnectWithUs.font= [UIFont fontWithName:@"Roboto-Regular" size:13];
     self.lbTitleAbout.font= [UIFont fontWithName:@"Roboto-Regular" size:13];
+    self.lbCredit.font= [UIFont fontWithName:@"Roboto-Regular" size:13];
+    self.lbPrivacy.font= [UIFont fontWithName:@"Roboto-Regular" size:13];
+
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(caculatorTimeAgo) name: NOTIFCATION_CATEGORY object:nil];
     [self caculatorTimeAgo];
 }
@@ -57,74 +61,138 @@
     [self.parent presentViewController:avc animated:YES completion:nil];
     
 }
+//MARK: -FACEBOOK
 - (IBAction)shareFacebookAction:(id)sender {
+    
     // Facebook
-    if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeFacebook])
-    {
-        SLComposeViewController *tweet = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
-        [tweet setInitialText:@"Initial tweet text."];
-        [tweet setCompletionHandler:^(SLComposeViewControllerResult result)
-         {
-             if (result == SLComposeViewControllerResultCancelled)
-             {
-                 NSLog(@"The user cancelled.");
-             }
-             else if (result == SLComposeViewControllerResultDone)
-             {
-                 NSLog(@"The user sent the post.");
-             }
-         }];
-        [self.parent presentViewController:tweet animated:YES completion:nil];
-    }
-    else
-    {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Twitter"
-                                                        message:@"Facebook integration is not available.  Make sure you have setup your Facebook account on your device."
-                                                       delegate:self
-                                              cancelButtonTitle:@"OK"
-                                              otherButtonTitles: nil];
-        [alert show];
-    }
+    [self openUrl:@"http://fb.com/relafapp"];
+//    if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeFacebook])
+//    {
+//        SLComposeViewController *tweet = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
+//        [tweet setInitialText:@"Initial tweet text."];
+//        [tweet setCompletionHandler:^(SLComposeViewControllerResult result)
+//         {
+//             if (result == SLComposeViewControllerResultCancelled)
+//             {
+//                 NSLog(@"The user cancelled.");
+//             }
+//             else if (result == SLComposeViewControllerResultDone)
+//             {
+//                 NSLog(@"The user sent the post.");
+//             }
+//         }];
+//        [self.parent presentViewController:tweet animated:YES completion:nil];
+//    }
+//    else
+//    {
+//        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Twitter"
+//                                                        message:@"Facebook integration is not available.  Make sure you have setup your Facebook account on your device."
+//                                                       delegate:self
+//                                              cancelButtonTitle:@"OK"
+//                                              otherButtonTitles: nil];
+//        [alert show];
+//    }
 
+}
+-(void) openUrlInBrowser:(NSString *) url
+{
+    if (url.length > 0) {
+        NSURL *linkUrl = [NSURL URLWithString:url];
+        [[UIApplication sharedApplication] openURL:linkUrl];
+    }
+}
+-(void) openUrl:(NSString *) urlString
+{
+    
+    //check if facebook app exists
+    if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"fb://"]]) {
+        
+        // Facebook app installed
+        NSArray *tokens = [urlString componentsSeparatedByString:@"/"];
+        NSString *profileName = [tokens lastObject];
+        
+        //call graph api
+        NSURL *apiUrl = [NSURL URLWithString:[NSString stringWithFormat:@"https://graph.facebook.com/%@",profileName]];
+        NSData *apiResponse = [NSData dataWithContentsOfURL:apiUrl];
+        if(!apiResponse)
+        {
+            [self openUrlInBrowser:urlString];
+            return;
+        }
+        NSError *error = nil;
+        NSDictionary *jsonDict = [NSJSONSerialization JSONObjectWithData:apiResponse options:NSJSONReadingMutableContainers error:&error];
+        
+        //check for parse error
+        if (error == nil) {
+            
+            NSString *profileId = [jsonDict objectForKey:@"id"];
+            
+            if (profileId.length > 0) {//make sure id key is actually available
+                NSURL *fbUrl = [NSURL URLWithString:[NSString stringWithFormat:@"fb://profile/%@",profileId]];
+                [[UIApplication sharedApplication] openURL:fbUrl];
+            }
+            else{
+                                [self openUrlInBrowser:urlString];
+            }
+            
+        }
+        else{//parse error occured
+                        [self openUrlInBrowser:urlString];
+        }
+        
+    }
+    else{//facebook app not installed
+                [self openUrlInBrowser:urlString];
+    }
+    
 }
 
 - (IBAction)shareTwitterAction:(id)sender {
-    // Twitter
-    if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter])
+    //twitter
+    NSString *urlString = @"https://twitter.com/relafapp";
+    if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"twitter://"]])
     {
-        SLComposeViewController *tweet = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
-        [tweet setInitialText:@"This is my first tweet!"];
-        [tweet setCompletionHandler:^(SLComposeViewControllerResult result)
-         {
-             if (result == SLComposeViewControllerResultCancelled)
-             {
-                 NSLog(@"The user cancelled.");
-             }
-             else if (result == SLComposeViewControllerResultDone)
-             {
-                 NSLog(@"The user sent the tweet");
-             }
-         }];
-        [self.parent presentViewController:tweet animated:YES completion:nil];
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:urlString]];
     }
     else
     {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Twitter"
-                                                        message:@"Twitter integration is not available.  A Twitter account must be set up on your device."
-                                                       delegate:self
-                                              cancelButtonTitle:@"OK"
-                                              otherButtonTitles:nil];
-        [alert show];
+        [self openUrlInBrowser:urlString];
     }
+//    if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter])
+//    {
+//        SLComposeViewController *tweet = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
+//        [tweet setInitialText:@"http://twitter.com/relafapp"];
+//        [tweet setCompletionHandler:^(SLComposeViewControllerResult result)
+//         {
+//             if (result == SLComposeViewControllerResultCancelled)
+//             {
+//                 NSLog(@"The user cancelled.");
+//             }
+//             else if (result == SLComposeViewControllerResultDone)
+//             {
+//                 NSLog(@"The user sent the tweet");
+//             }
+//         }];
+//        [self.parent presentViewController:tweet animated:YES completion:nil];
+//    }
+//    else
+//    {
+//        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Twitter"
+//                                                        message:@"Twitter integration is not available.  A Twitter account must be set up on your device."
+//                                                       delegate:self
+//                                              cancelButtonTitle:@"OK"
+//                                              otherButtonTitles:nil];
+//        [alert show];
+//    }
 
 }
 - (IBAction)showEmail:(id)sender {
     // Email Subject
-    NSString *emailTitle = @"Test Email";
+    NSString *emailTitle = @"";
     // Email Content
-    NSString *messageBody = @"iOS programming is so fun!";
+    NSString *messageBody = @"";
     // To address
-    NSArray *toRecipents = [NSArray arrayWithObject:@"support@relaxapp.com"];
+    NSArray *toRecipents = [NSArray arrayWithObject:@"relafapp@gmail.com"];
     
     MFMailComposeViewController *mc = [[MFMailComposeViewController alloc] init];
     mc.mailComposeDelegate = self;
@@ -133,15 +201,18 @@
     [mc setToRecipients:toRecipents];
     
     // Present mail view controller on screen
-    [self.parent presentViewController:mc animated:YES completion:NULL];
+    if(mc)
+    {
+        [self.parent presentViewController:mc animated:YES completion:NULL];
+    }
     
 }
 -(IBAction)aboutAction:(id)sender
 {
-    SettingAbout *viewController1 = [[SettingAbout alloc] initWithNibName:@"SettingAbout" bundle:nil];
-    [self.parent presentViewController:viewController1 animated:YES completion:^{
-    }];
-
+    self.hidden = YES;
+    SettingAbout *viewController1 = [[SettingAbout alloc] initWithClassName:NSStringFromClass([SettingAbout class])];
+    [viewController1 addContraintSupview:self.parent.view];
+    [viewController1 setCallback:^(){self.hidden = NO;}];
 }
 -(IBAction)updateAction:(id)sender
 {
@@ -149,6 +220,19 @@
     SettingUpdate *viewController1 = [[SettingUpdate alloc] initWithClassName:NSStringFromClass([SettingUpdate class])];
     [viewController1 addContraintSupview:self.parent.view];
     viewController1.blurredBgImage.image = [self blurWithImageEffects:[self takeSnapshotOfView:self.parent.view]];
+
+}
+-(IBAction)creditAction:(id)sender
+{
+    
+    self.hidden = YES;
+    SettingCredit *viewController1 = [[SettingCredit alloc] initWithClassName:NSStringFromClass([SettingCredit class])];
+    [viewController1 addContraintSupview:self.parent.view];
+    [viewController1 setCallback:^(){self.hidden = NO;}];
+}
+-(IBAction)privacyAction:(id)sender
+{
+    [self openUrlInBrowser:@"https://www.relafapp.com/privacy.html"];
 
 }
 - (UIImage *)takeSnapshotOfView:(UIView *)view

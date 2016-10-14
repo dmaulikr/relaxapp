@@ -176,13 +176,20 @@
             //its iPad
             strDevice = @"i6plus";
         }
-        
-        if ([dicCategory[@"price"] intValue] > 0) {
-            strCover = dicCategory[@"cover"][0][strDevice];
+        if ([dicCategory[@"cover"] isKindOfClass:[NSDictionary class]]) {
+            
+            if ([dicCategory[@"price"] intValue] > 0) {
+                strCover = dicCategory[@"cover"][0][strDevice];
+            }
+            else
+            {
+                strCover = dicCategory[@"cover"][1][strDevice];
+                
+            }
         }
         else
         {
-            strCover = dicCategory[@"cover"][1][strDevice];
+            strCover = dicCategory[@"cover"];
 
         }
         NSURL *url =[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",BASE_IMAGE_URL,strCover]];

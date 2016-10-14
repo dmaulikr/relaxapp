@@ -44,7 +44,7 @@
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background-color" translatesAutoresizingMaskIntoConstraints="NO" id="gs3-0O-fox"/>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jmE-MP-vBO">
                     <subviews>
-                        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7W5-ez-Jk5" customClass="MainNavHome">
+                        <view hidden="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7W5-ez-Jk5" customClass="MainNavHome">
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OWv-e2-l9y" userLabel="ViewTitle">
                                     <subviews>
