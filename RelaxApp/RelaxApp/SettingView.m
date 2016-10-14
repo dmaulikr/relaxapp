@@ -32,8 +32,8 @@
     self.lbTitleLestTalk.font= [UIFont fontWithName:@"Roboto-Regular" size:13];
     self.lbTitleConnectWithUs.font= [UIFont fontWithName:@"Roboto-Regular" size:13];
     self.lbTitleAbout.font= [UIFont fontWithName:@"Roboto-Regular" size:13];
-    self.lbCredit.font= [UIFont fontWithName:@"Roboto-Regular" size:13];
-    self.lbPrivacy.font= [UIFont fontWithName:@"Roboto-Regular" size:13];
+//    self.lbCredit.font= [UIFont fontWithName:@"Roboto-Regular" size:13];
+//    self.lbPrivacy.font= [UIFont fontWithName:@"Roboto-Regular" size:13];
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(caculatorTimeAgo) name: NOTIFCATION_CATEGORY object:nil];
     [self caculatorTimeAgo];

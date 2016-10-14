@@ -9,15 +9,12 @@
         <array key="Roboto-Medium.ttf">
             <string>Roboto-Medium</string>
         </array>
-        <array key="Roboto-Regular.ttf">
-            <string>Roboto-Regular</string>
-        </array>
     </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SettingAbout"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="Tmx-vs-DOj" customClass="SettingAbout">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <rect key="frame" x="0.0" y="0.0" width="375" height="1016"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4ik-JB-PoB">
@@ -104,19 +101,58 @@
                             </constraints>
                         </view>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="a5a-89-HoJ"/>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="© 2016 by Relafapp" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uhE-Wz-YQs">
-                            <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
-                            <color key="textColor" red="0.61960784310000006" green="0.61960784310000006" blue="0.61960784310000006" alpha="1" colorSpace="calibratedRGB"/>
-                            <nil key="highlightedColor"/>
-                        </label>
+                        <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceVertical="YES" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tsX-kS-0wp">
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EI0-aa-v0d">
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k2B-dc-n9l">
+                                            <mutableString key="text">Modern life to follow it is the tension stress. It makes life of our ordinary becomes difficult, and no one wants to be pursued by stress.
+
+According to a new paper published in the Wall Street Journal, stress is the cause of a decrease in labor productivity, on both obesity and physical inactivity. Moreover, it also makes the relationship between people, or stress worsen.
+
+A work of Catalyst report indicated that most employees feel stress because of four main reasons: The volume of work, personal relationships, working conditions, working interest and issues personal.
+
+According to Huffingtonpost, resulting a 45-year long study on the effects of stress on middle-aged women showed that stressful events in life can leave serious consequences and long term both physical and spirit, increase the risk of memory decline.
+
+Chronic stress can cause a series of serious disease, especially cardiovascular disease. Everyone knows that diet plays an important role in health, but have you ever wondered stress affects your life like? In a recent study on the relationship between chronic stress and heart disease published on Health, the researchers recommend that people should not allow ourselves to fall into a state of chronic stress if you want a healthy life and longevity.
+
+Stress can also increase the body's levels of cortisol, chronic as it is dangerous. Cortisol is the hormone plays an important role in the metabolism of proteins, fats and carbohydrates. It affects blood sugar levels, helps maintain blood pressure, and helps regulate the immune system. Cortisol plays an important role in helping us cope in stressful situations, but its presence can often be harmful to the body.
+
+Childhood Stress also causes heart disease in adulthood. The scientists found that if a person is under stress or psychological trauma in childhood, prone to heart disease later. The cause was interpreted as the tension increases the sensitivity of a hormone that works to increase blood pressure, which increases the risk of cardiovascular disease later.
+
+Aware of the dangers of stress in your life and it's important that no one can renounce life stress. Relaf born, we are a team of research about stress and how to relieve stress in modern life. Through years of research and find out the methods we realize the music is an indispensable catalyst for human development can prevent stress induced uncontrollable consequences in life.</mutableString>
+                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                            <color key="textColor" red="0.61960784310000006" green="0.61960784310000006" blue="0.61960784310000006" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="k2B-dc-n9l" secondAttribute="trailing" constant="15" id="E78-KF-uit"/>
+                                        <constraint firstItem="k2B-dc-n9l" firstAttribute="top" secondItem="EI0-aa-v0d" secondAttribute="top" constant="20" id="QrR-uy-miw"/>
+                                        <constraint firstItem="k2B-dc-n9l" firstAttribute="leading" secondItem="EI0-aa-v0d" secondAttribute="leading" constant="15" id="W5C-Li-Bcl"/>
+                                        <constraint firstAttribute="bottom" secondItem="k2B-dc-n9l" secondAttribute="bottom" constant="57" id="p3z-9U-0yU"/>
+                                    </constraints>
+                                </view>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="EI0-aa-v0d" firstAttribute="leading" secondItem="tsX-kS-0wp" secondAttribute="leading" id="2sh-lj-7Da"/>
+                                <constraint firstAttribute="bottom" secondItem="EI0-aa-v0d" secondAttribute="bottom" id="7IE-5g-RbS"/>
+                                <constraint firstAttribute="trailing" secondItem="EI0-aa-v0d" secondAttribute="trailing" id="9dt-Fy-HhU"/>
+                                <constraint firstItem="EI0-aa-v0d" firstAttribute="centerX" secondItem="tsX-kS-0wp" secondAttribute="centerX" id="pAR-ff-cDc"/>
+                                <constraint firstItem="EI0-aa-v0d" firstAttribute="top" secondItem="tsX-kS-0wp" secondAttribute="top" id="qmI-Dh-xen"/>
+                            </constraints>
+                        </scrollView>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
+                        <constraint firstItem="tsX-kS-0wp" firstAttribute="top" secondItem="034-ae-JVr" secondAttribute="bottom" id="1JN-q7-2DY"/>
                         <constraint firstAttribute="trailing" secondItem="034-ae-JVr" secondAttribute="trailing" id="5us-ND-TrE"/>
                         <constraint firstItem="a5a-89-HoJ" firstAttribute="top" secondItem="034-ae-JVr" secondAttribute="bottom" id="6TS-Dz-i5U"/>
+                        <constraint firstItem="tsX-kS-0wp" firstAttribute="leading" secondItem="4ik-JB-PoB" secondAttribute="leading" id="B7K-fO-y9l"/>
+                        <constraint firstAttribute="trailing" secondItem="tsX-kS-0wp" secondAttribute="trailing" id="Jo0-FU-dlh"/>
                         <constraint firstAttribute="bottom" secondItem="a5a-89-HoJ" secondAttribute="bottom" id="NfL-WM-a47"/>
-                        <constraint firstItem="uhE-Wz-YQs" firstAttribute="centerX" secondItem="4ik-JB-PoB" secondAttribute="centerX" id="Q8H-1c-cIO"/>
-                        <constraint firstItem="uhE-Wz-YQs" firstAttribute="centerY" secondItem="4ik-JB-PoB" secondAttribute="centerY" id="cgN-ce-7qg"/>
+                        <constraint firstAttribute="bottom" secondItem="tsX-kS-0wp" secondAttribute="bottom" id="XDq-nd-Whp"/>
                         <constraint firstItem="034-ae-JVr" firstAttribute="leading" secondItem="4ik-JB-PoB" secondAttribute="leading" id="dMa-FK-ikB"/>
                         <constraint firstAttribute="trailing" secondItem="a5a-89-HoJ" secondAttribute="trailing" id="gpm-5z-O6Z"/>
                         <constraint firstItem="a5a-89-HoJ" firstAttribute="leading" secondItem="4ik-JB-PoB" secondAttribute="leading" id="pJh-ZE-BwZ"/>
@@ -131,13 +167,14 @@
                 <constraint firstItem="4ik-JB-PoB" firstAttribute="top" secondItem="Tmx-vs-DOj" secondAttribute="top" id="OVb-Kl-aaU"/>
                 <constraint firstAttribute="trailing" secondItem="4ik-JB-PoB" secondAttribute="trailing" id="Wlu-L9-wJe"/>
             </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="imgBackGround" destination="a5a-89-HoJ" id="3mR-bM-1Kx"/>
                 <outlet property="imgHeader" destination="ZgW-bg-vTO" id="qWW-Ak-Fza"/>
                 <outlet property="vContent" destination="4ik-JB-PoB" id="NxH-LS-cHF"/>
                 <outlet property="vViewNav" destination="034-ae-JVr" id="QBp-kl-hSj"/>
             </connections>
-            <point key="canvasLocation" x="-126.5" y="2.5"/>
+            <point key="canvasLocation" x="-126.5" y="177"/>
         </view>
     </objects>
     <resources>

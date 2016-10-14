@@ -425,7 +425,6 @@ Help us share on social</string>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CaF-5M-I2A">
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <connections>
-                                                        <action selector="aboutAction:" destination="0oF-rG-BLo" eventType="touchUpInside" id="iO6-pl-6tc"/>
                                                         <action selector="creditAction:" destination="0oF-rG-BLo" eventType="touchUpInside" id="Ze3-HG-GT3"/>
                                                     </connections>
                                                 </button>
@@ -468,7 +467,6 @@ Help us share on social</string>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kmB-sD-Z4b">
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <connections>
-                                                        <action selector="aboutAction:" destination="0oF-rG-BLo" eventType="touchUpInside" id="FMZ-Mb-yOL"/>
                                                         <action selector="privacyAction:" destination="0oF-rG-BLo" eventType="touchUpInside" id="Y3Q-FL-arZ"/>
                                                     </connections>
                                                 </button>
