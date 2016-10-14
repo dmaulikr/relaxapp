@@ -92,7 +92,17 @@ extern float volumeGlobal;
     NSString *strPath = [FileHelper pathForApplicationDataFile:FILE_CATEGORY_SAVE];
     NSDictionary *dicTmp = [NSDictionary dictionaryWithContentsOfFile:strPath];
     if (dicTmp) {
-        arrCategory = [dicTmp[@"category"] mutableCopy];
+        [arrCategory removeAllObjects];
+        //check exist in blacklist
+        NSString *strPathBlackList = [FileHelper pathForApplicationDataFile:FILE_BLACKLIST_CATEGORY_SAVE];
+        NSArray *arrBlackList = [NSArray arrayWithContentsOfFile:strPathBlackList];
+
+        NSArray *arrTmp = dicTmp[@"category"];
+        for (NSDictionary *dic in arrTmp) {
+            if (![arrBlackList containsObject:dic[@"id"]]) {
+                [arrCategory addObject:dic];
+            }
+        }
         [self caculatorSubScrollview];
     }
     else
@@ -397,9 +407,14 @@ extern float volumeGlobal;
         NSLog(@"JSON: %@", responseObject);
         if ([responseObject[@"categories"] isKindOfClass:[NSArray class]]) {
             //free
+            [arrCategory removeAllObjects];
+            //check exist in blacklist
+            NSString *strPathBlackList = [FileHelper pathForApplicationDataFile:FILE_BLACKLIST_CATEGORY_SAVE];
+            NSArray *arrBlackList = [NSArray arrayWithContentsOfFile:strPathBlackList];
+
             NSMutableArray *arrTmp = [NSMutableArray new];
             for (NSDictionary *dic in responseObject[@"categories"]) {
-                if (![dic[@"price"] boolValue]) {
+                if (![dic[@"price"] boolValue] && ![arrBlackList containsObject:dic[@"id"]]) {
                     [arrTmp addObject:dic];
                 }
                 
@@ -600,9 +615,7 @@ extern float volumeGlobal;
     userLanguage = [language substringToIndex:2];
 
     int deltal = 9;
-
-    if( UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone ){
-        
+    
         CGFloat screenHeight = [UIScreen mainScreen].bounds.size.height;
         CGFloat screenWidth = [UIScreen mainScreen].bounds.size.width;
         if( screenHeight < screenWidth ){
@@ -611,12 +624,9 @@ extern float volumeGlobal;
         
        if ( screenHeight >= 667){
            deltal = 12;
-            NSLog(@"iPhone 6");
         }else {
             deltal = 9;
-            NSLog(@"iPhone 4/4s");
         }
-    }
     
     __weak HomeVC *wself = self;
     iNumberCollection = 0;
@@ -702,9 +712,22 @@ extern float volumeGlobal;
 
              
          }];
-        [collection setCallbackCategory:^(NSDictionary *dicCategory)
+        [collection setCallbackCategory:^(NSDictionary *dicCategory, BOOL isDownLoad)
          {
-             [self downloadSoundWithCategory:dicCategory];
+             if (!isDownLoad) {
+                 for (int i = 0; i < arrCategory.count; i++) {
+                     NSMutableDictionary *dicTmp = [NSMutableDictionary dictionaryWithDictionary:arrCategory[i]];
+                     if ([dicTmp[@"id"] intValue] == [dicCategory[@"id"] intValue]) {
+                         //
+                         [arrCategory removeObjectAtIndex:i];
+                         [wself caculatorSubScrollview];
+                     }
+                 }
+             }
+             else
+             {
+                 [wself downloadSoundWithCategory:dicCategory];
+             }
 
          }];
         [arrColection addObject:collection];

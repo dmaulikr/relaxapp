@@ -19,7 +19,9 @@
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4ik-JB-PoB">
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9h3-If-OtD"/>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9h3-If-OtD">
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        </imageView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9d3-dz-Tu1">
                             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
@@ -34,12 +36,45 @@
                                 <action selector="closeAction:" destination="Tmx-vs-DOj" eventType="touchUpInside" id="gVh-UW-3aA"/>
                             </connections>
                         </button>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q3L-yg-Xlv">
+                            <subviews>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Ovalblack" translatesAutoresizingMaskIntoConstraints="NO" id="8P5-PJ-5pB">
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="120" id="82s-VU-4cZ"/>
+                                        <constraint firstAttribute="height" constant="120" id="LfJ-5Y-JfU"/>
+                                    </constraints>
+                                </imageView>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uMr-Tb-EsC" customClass="MCPercentageDoughnutView">
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Downloading..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dm8-4C-a5X">
+                                    <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="12"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstItem="uMr-Tb-EsC" firstAttribute="width" secondItem="8P5-PJ-5pB" secondAttribute="width" id="0EH-fv-31b"/>
+                                <constraint firstItem="8P5-PJ-5pB" firstAttribute="centerY" secondItem="Q3L-yg-Xlv" secondAttribute="centerY" id="0h3-4L-KN8"/>
+                                <constraint firstAttribute="width" constant="160" id="Gi5-ev-7jf"/>
+                                <constraint firstAttribute="height" constant="160" id="H0b-Is-w3P"/>
+                                <constraint firstItem="8P5-PJ-5pB" firstAttribute="centerX" secondItem="Q3L-yg-Xlv" secondAttribute="centerX" id="Tev-q1-OGH"/>
+                                <constraint firstItem="dm8-4C-a5X" firstAttribute="top" secondItem="8P5-PJ-5pB" secondAttribute="top" constant="45" id="UiS-Mc-pgO"/>
+                                <constraint firstItem="dm8-4C-a5X" firstAttribute="centerX" secondItem="8P5-PJ-5pB" secondAttribute="centerX" id="fcm-nx-e75"/>
+                                <constraint firstItem="uMr-Tb-EsC" firstAttribute="height" secondItem="8P5-PJ-5pB" secondAttribute="height" id="gxW-uS-eOb"/>
+                                <constraint firstItem="uMr-Tb-EsC" firstAttribute="centerX" secondItem="8P5-PJ-5pB" secondAttribute="centerX" id="pxw-hB-Jf8"/>
+                                <constraint firstItem="uMr-Tb-EsC" firstAttribute="centerY" secondItem="8P5-PJ-5pB" secondAttribute="centerY" id="t8a-Lj-4U8"/>
+                            </constraints>
+                        </view>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="bottom" secondItem="9h3-If-OtD" secondAttribute="bottom" id="5DQ-rE-caL"/>
                         <constraint firstAttribute="trailing" secondItem="9h3-If-OtD" secondAttribute="trailing" id="Brj-nf-9qr"/>
+                        <constraint firstItem="Q3L-yg-Xlv" firstAttribute="centerX" secondItem="4ik-JB-PoB" secondAttribute="centerX" id="F0W-uj-MOc"/>
                         <constraint firstItem="9d3-dz-Tu1" firstAttribute="centerX" secondItem="4ik-JB-PoB" secondAttribute="centerX" id="LMr-AM-8H8"/>
+                        <constraint firstItem="Q3L-yg-Xlv" firstAttribute="centerY" secondItem="4ik-JB-PoB" secondAttribute="centerY" id="Vy0-29-p9J"/>
                         <constraint firstAttribute="bottom" secondItem="9d3-dz-Tu1" secondAttribute="bottom" constant="70" id="Waf-e8-zUu"/>
                         <constraint firstItem="9h3-If-OtD" firstAttribute="top" secondItem="4ik-JB-PoB" secondAttribute="top" id="i2V-Un-CTx"/>
                         <constraint firstItem="9h3-If-OtD" firstAttribute="leading" secondItem="4ik-JB-PoB" secondAttribute="leading" id="sFF-bO-IsT"/>
@@ -56,8 +91,13 @@
             <connections>
                 <outlet property="blurredBgImage" destination="9h3-If-OtD" id="bpz-VE-3rH"/>
                 <outlet property="btnCancel" destination="9d3-dz-Tu1" id="PcQ-uo-Rgx"/>
+                <outlet property="percentageDoughnut" destination="uMr-Tb-EsC" id="R1o-vx-R7n"/>
+                <outlet property="viewProgress" destination="Q3L-yg-Xlv" id="RxF-O6-OHr"/>
             </connections>
             <point key="canvasLocation" x="-126.5" y="2.5"/>
         </view>
     </objects>
+    <resources>
+        <image name="Ovalblack" width="360" height="360"/>
+    </resources>
 </document>

@@ -36,6 +36,20 @@
                                           otherButtonTitles: @"OK", nil];
     [alert show];
     
+    self.percentageDoughnut.dataSource              = self;
+    self.percentageDoughnut.percentage              = 0;
+    self.percentageDoughnut.linePercentage          = 0.15;
+    self.percentageDoughnut.animationDuration       = 2;
+    self.percentageDoughnut.decimalPlaces           = 1;
+    self.percentageDoughnut.showTextLabel           = YES;
+    self.percentageDoughnut.animatesBegining        = NO;
+    self.percentageDoughnut.fillColor               = UIColorFromRGB(COLOR_PROGRESS);
+    self.percentageDoughnut.unfillColor             = [UIColor clearColor];
+    self.percentageDoughnut.textLabel.textColor     = [UIColor whiteColor];
+    self.percentageDoughnut.textLabel.font          =  [UIFont fontWithName:@"Roboto-Medium" size:12];
+    self.percentageDoughnut.gradientColor1          = [UIColor clearColor];
+    self.percentageDoughnut.gradientColor2          = [UIColor clearColor];
+
 }
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     switch(buttonIndex){
@@ -59,16 +73,14 @@
 
 -(IBAction)closeAction:(id)sender
 {
+    self.viewProgress.hidden = YES;
+    [[DownLoadCategory sharedInstance] resetParam];
     [self removeFromSuperview];
 }
 -(IBAction)updateAction:(id)sender
 {
-    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self animated:YES];
-    
-    // Set the determinate mode to show task progress.
-    hud.mode = MBProgressHUDModeDeterminate;
-    hud.label.text = @"Updating...";
-
+    self.viewProgress.hidden = NO;
+    self.percentageDoughnut.percentage              = 0;
     managerCategory = [AFHTTPSessionManager manager];
     [managerCategory GET:[NSString stringWithFormat:@"%@%@",BASE_URL,@"data.json"] parameters:nil progress:nil success:^(NSURLSessionTask *task, id responseObject) {
         NSLog(@"JSON: %@", responseObject);
@@ -84,14 +96,28 @@
             [self fnGetListCategory: arrTmp];
 
         }
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [hud hideAnimated:YES];
-        });
+        else
+        {
+            [self closeAction:nil];
+            [[NSNotificationCenter defaultCenter]postNotificationName:NOTIFCATION_CATEGORY object:nil];
+            
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NAME_APP
+                                                            message:@"Bad network"
+                                                           delegate:self
+                                                  cancelButtonTitle:@"OK"
+                                                  otherButtonTitles:nil];
+            [alert show];
+        }
     } failure:^(NSURLSessionTask *operation, NSError *error) {
-        NSLog(@"Error: %@", error);
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [hud hideAnimated:YES];
-        });
+        [self closeAction:nil];
+        [[NSNotificationCenter defaultCenter]postNotificationName:NOTIFCATION_CATEGORY object:nil];
+        
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NAME_APP
+                                                        message:@"Bad network"
+                                                       delegate:self
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
     }];
 
 }
@@ -100,15 +126,19 @@
     NSString *strPath = [FileHelper pathForApplicationDataFile:FILE_CATEGORY_SAVE];
     NSDictionary *dicCache = [NSDictionary dictionaryWithContentsOfFile:strPath];
     NSArray *arrCache = dicCache[@"category"];
+    //check exist in blacklist
+    NSString *strPathBlackList = [FileHelper pathForApplicationDataFile:FILE_BLACKLIST_CATEGORY_SAVE];
+    NSArray *arrBlackList = [NSArray arrayWithContentsOfFile:strPathBlackList];
 
     NSMutableArray *arrUpdate = [NSMutableArray new];
-    
     for (NSDictionary *dic in arrCategory) {
         for (NSDictionary *dicTmp in arrCache) {
             if (([dic[@"id"] intValue] == [dicTmp[@"id"] intValue])
                 && ([dic[@"md5"] intValue] > [dicTmp[@"md5"] intValue])
                 //free
-                &&(![dic[@"price"] boolValue])) {
+                &&(![dic[@"price"] boolValue])
+                && !([arrBlackList containsObject:dic[@"id"]])
+                ) {
                 [arrUpdate addObject:dic];
             }
         }
@@ -125,23 +155,27 @@
     else
     {
         [self closeAction:nil];
+        [[NSNotificationCenter defaultCenter]postNotificationName:NOTIFCATION_CATEGORY object:nil];
+        
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NAME_APP
+                                                        message:@"Success"
+                                                       delegate:self
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
+
     }
 
 }
 -(void)downloadSoundWithCategory:(NSArray*)arrCategory
 {
-    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self animated:YES];
-    
-    // Set the determinate mode to show task progress.
-    hud.mode = MBProgressHUDModeDeterminate;
-    hud.label.text = @"Downloading...";
-    
+    self.percentageDoughnut.percentage              = 0;
     DownLoadCategory *download = [DownLoadCategory sharedInstance];
     [download fnListMusicWithCategory:arrCategory];
     [download setCallback:^(NSDictionary *dicItemCategory)
      {
          dispatch_async(dispatch_get_main_queue(), ^{
-             [hud hideAnimated:YES];
+             self.viewProgress.hidden = YES;
              [self closeAction:nil];
              [[NSNotificationCenter defaultCenter]postNotificationName:NOTIFCATION_CATEGORY object:nil];
              
@@ -158,7 +192,7 @@
      {
          dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0), ^{
              dispatch_async(dispatch_get_main_queue(), ^{
-                 [MBProgressHUD HUDForView:self].progress = progress;
+                 self.percentageDoughnut.percentage   = progress;
              });
          });
          

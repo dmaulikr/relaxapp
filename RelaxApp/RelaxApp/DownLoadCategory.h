@@ -22,5 +22,5 @@ typedef void (^ProgressCallback)(float progress);
 -(void)fnListMusicWithCategory :(NSArray*) arrCategory;
 @property (nonatomic,copy) DownLoadCategoryCallback callback;
 @property (nonatomic,copy) ProgressCallback callbackProgess;
-
+-(void) resetParam;
 @end

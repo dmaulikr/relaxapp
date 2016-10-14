@@ -20,6 +20,8 @@
 #define COLOR_ADDFAVORITE_TAGS 0x9013FE
 
 #define COLOR_BELING_MODE 0x000000
+#define COLOR_PROGRESS 0x3023AE
+
 
 
 #define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
@@ -30,11 +32,18 @@
 #define FILE_FAVORITE_SAVE @"FAVORITE.save"
 #define FILE_TIMER_SAVE @"TIMER.save"
 #define FILE_CATEGORY_SAVE @"CATEGORY.save"
+#define FILE_BLACKLIST_CATEGORY_SAVE @"BACLIST_CATEGORY.save"
 
 #define NOTIFCATION_TIMER @"NOTIFICATION_TIMER"
 #define NOTIFCATION_CATEGORY @"NOTIFCATION_CATEGORY"
 
 #define NAME_APP @"Relax App"
+
+#define IS_IPHONE_4 (fabs((double)[[UIScreen mainScreen]bounds].size.height - (double)480) < DBL_EPSILON)
+#define IS_IPHONE_5 (fabs((double)[[UIScreen mainScreen]bounds].size.height - (double)568) < DBL_EPSILON)
+#define IS_IPHONE_6 (fabs((double)[[UIScreen mainScreen]bounds].size.height - (double)667) < DBL_EPSILON)
+#define IS_IPHONE_6_PLUS (fabs((double)[[UIScreen mainScreen]bounds].size.height - (double)736) < DBL_EPSILON)
+
 typedef enum
 {
     GESTURE_TAP = 1,

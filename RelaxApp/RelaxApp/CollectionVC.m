@@ -11,6 +11,7 @@
 #import "SpringboardLayout.h"
 #import "Define.h"
 #import "UIImageView+WebCache.h"
+#import "FileHelper.h"
 @interface CollectionVC ()
 {
     NSMutableArray                  *arrCategory;
@@ -67,8 +68,6 @@
     int numberVertical =3;
     int item_width = 70;
     int item_height = 70;
-
-    if( UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone ){
         
         CGFloat screenHeight = [UIScreen mainScreen].bounds.size.height;
         CGFloat screenWidth = [UIScreen mainScreen].bounds.size.width;
@@ -87,8 +86,6 @@
             item_width = 70;
             item_height = 70;
         }
-    }
-    
 
     CGRect rect = self.frame;
 
@@ -105,7 +102,7 @@
     [self.collectionView setShowsHorizontalScrollIndicator:NO];
     [self.collectionView setShowsVerticalScrollIndicator:NO];
     self.collectionView.hidden = YES;
-    self.image.hidden = YES;
+    self.vDownLoad.hidden = YES;
 }
 
 -(void)instance
@@ -129,20 +126,63 @@
     if (dicCategory[@"sounds"] && exists) {
         arrMusic = [dicCategory[@"sounds"] mutableCopy];
         self.collectionView.hidden = NO;
-        self.image.hidden = YES;
+        self.vDownLoad.hidden = YES;
         [self.collectionView reloadData];
     }
     else
     {
         self.collectionView.hidden = YES;
-        self.image.hidden = NO;
+        self.vDownLoad.hidden = NO;
         NSString *strCover = @"";
-        if ([dicCategory[@"price"] intValue] > 0) {
-            strCover = dicCategory[@"cover"][0][@"i4"];
+        //check device
+        NSString *strDevice = @"i4";
+        //its iPhone. Find out which one?
+        
+        CGFloat screenHeight = [UIScreen mainScreen].bounds.size.height;
+        CGFloat screenWidth = [UIScreen mainScreen].bounds.size.width;
+        if( screenHeight < screenWidth ){
+            screenHeight = screenWidth;
+        }
+        
+        if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
+        {
+            //its iPhone. Find out which one?
+            
+            if(screenHeight <= 480)
+            {
+                // iPhone Classic
+                strDevice = @"i4";
+            }
+            else if(screenHeight == 568)
+            {
+                // iPhone 5
+                strDevice = @"i5";
+
+            }
+            else if(screenHeight == 667)
+            {
+                // iPhone 6
+                strDevice = @"i6";
+            }
+            else if(screenHeight >= 736)
+            {
+                // iPhone 6 Plus
+                strDevice = @"i6plus";
+            }
+
         }
         else
         {
-            strCover = dicCategory[@"cover"][1][@"i4"];
+            //its iPad
+            strDevice = @"i6plus";
+        }
+        
+        if ([dicCategory[@"price"] intValue] > 0) {
+            strCover = dicCategory[@"cover"][0][strDevice];
+        }
+        else
+        {
+            strCover = dicCategory[@"cover"][1][strDevice];
 
         }
         NSURL *url =[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",BASE_IMAGE_URL,strCover]];
@@ -181,8 +221,20 @@
 -(IBAction)downloadAction:(id)sender
 {
     if (_callbackCategory) {
-        _callbackCategory(dicCategory);
+        _callbackCategory(dicCategory, YES);
     }
+}
+-(IBAction)closeAction:(id)sender
+{
+    NSString *strPath = [FileHelper pathForApplicationDataFile:FILE_BLACKLIST_CATEGORY_SAVE];
+    NSArray *blackList = [ NSArray arrayWithContentsOfFile:strPath];
+    NSMutableArray *arrTmp = [NSMutableArray arrayWithArray:blackList];
+    [arrTmp addObject:dicCategory[@"id"]];
+    [arrTmp writeToFile:strPath atomically:YES];
+    if (_callbackCategory) {
+        _callbackCategory(dicCategory, NO);
+    }
+
 }
 //MARK: - COLLECTION
 // collection view data source methods ////////////////////////////////////
