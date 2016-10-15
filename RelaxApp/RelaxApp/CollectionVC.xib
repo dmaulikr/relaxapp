@@ -57,7 +57,7 @@
                             </connections>
                         </button>
                     </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="Zjh-hs-I0y" secondAttribute="trailing" constant="25" id="8gp-zG-VNe"/>
                         <constraint firstAttribute="bottom" secondItem="8tu-j0-tMG" secondAttribute="bottom" id="Ah0-Mu-2qC"/>
@@ -86,6 +86,7 @@
                 <outlet property="btnDownLoad" destination="kda-Ch-rTb" id="Zn9-21-VwE"/>
                 <outlet property="collectionView" destination="puc-dH-xLE" id="k4F-ea-rty"/>
                 <outlet property="image" destination="8tu-j0-tMG" id="7YY-uX-wcR"/>
+                <outlet property="vDownLoad" destination="6F3-iS-Su2" id="Meh-by-cXT"/>
             </connections>
             <point key="canvasLocation" x="105.5" y="-19.5"/>
         </view>

@@ -176,7 +176,7 @@
             //its iPad
             strDevice = @"i6plus";
         }
-        if ([dicCategory[@"cover"] isKindOfClass:[NSDictionary class]]) {
+        if ([dicCategory[@"cover"] isKindOfClass:[NSArray class]]) {
             
             if ([dicCategory[@"price"] intValue] > 0) {
                 strCover = dicCategory[@"cover"][0][strDevice];
