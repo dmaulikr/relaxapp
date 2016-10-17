@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-typedef void (^CollectionVCCallback)(NSDictionary *itemMusic,NSDictionary *dicCategory);
+typedef void (^CollectionVCCallback)(NSDictionary *itemMusic,NSDictionary *dicCategory,BOOL isLongTap);
 typedef void (^CategoryCallback)(NSDictionary *dicCategory, BOOL isDownload);
 
 @interface CollectionVC : UIView<UIScrollViewDelegate>

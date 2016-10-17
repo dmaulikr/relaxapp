@@ -81,12 +81,6 @@ static void volumeListenerCallback (
 
     self.isStealingVolumeButtons = YES;
 
-    AudioSessionInitialize(NULL, NULL, NULL, NULL);
-
-    const UInt32 sessionCategory = kAudioSessionCategory_AmbientSound;
-    AudioSessionSetProperty(kAudioSessionProperty_AudioCategory, sizeof(sessionCategory), &sessionCategory);
-
-    AudioSessionSetActive(YES);
 
     self.launchVolume = [[MPMusicPlayerController applicationMusicPlayer] volume];
     self.hadToLowerVolume = self.launchVolume == 1.0;
@@ -181,7 +175,6 @@ static void volumeListenerCallback (
     [self.volumeView removeFromSuperview];
     self.volumeView = nil;
 
-    AudioSessionSetActive(NO);
 
     self.isStealingVolumeButtons = NO;
 }

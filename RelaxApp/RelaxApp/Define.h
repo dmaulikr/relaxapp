@@ -21,6 +21,7 @@
 
 #define COLOR_BELING_MODE 0x000000
 #define COLOR_PROGRESS 0x3023AE
+#define COLOR_PROGRESS_HOZI 0xC86DD7
 
 
 
@@ -37,7 +38,7 @@
 #define NOTIFCATION_TIMER @"NOTIFICATION_TIMER"
 #define NOTIFCATION_CATEGORY @"NOTIFCATION_CATEGORY"
 
-#define NAME_APP @"Relax App"
+#define NAME_APP @"Relaf"
 
 #define IS_IPHONE_4 (fabs((double)[[UIScreen mainScreen]bounds].size.height - (double)480) < DBL_EPSILON)
 #define IS_IPHONE_5 (fabs((double)[[UIScreen mainScreen]bounds].size.height - (double)568) < DBL_EPSILON)

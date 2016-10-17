@@ -38,6 +38,11 @@ extern float volumeGlobal;
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationController.navigationBar.hidden = YES;
+
+    [[UIApplication sharedApplication] setStatusBarHidden:NO];
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+    self.progressView1.popUpViewAnimatedColors = @[UIColorFromRGB(COLOR_PROGRESS_HOZI), UIColorFromRGB(COLOR_PROGRESS_HOZI), UIColorFromRGB(COLOR_PROGRESS_HOZI)];
+    self.progressView1.hidden = YES;
     self.vNavHome.hidden = NO;
     self.titleCategory.font = [UIFont fontWithName:@"Roboto-Medium" size:16];
     self.lbVolume.font = [UIFont fontWithName:@"Roboto-Regular" size:8];
@@ -53,14 +58,6 @@ extern float volumeGlobal;
     [self fnSetButtonNavigation];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(timerNotification:) name: NOTIFCATION_TIMER object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loadCache) name: NOTIFCATION_CATEGORY object:nil];
-    [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback
-                                           error:nil];
-    [[AVAudioSession sharedInstance] setActive:YES
-                                         error:nil];
-    [[AVAudioSession sharedInstance] setDelegate:self];
-
-    [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
-    [self becomeFirstResponder];
 
     //default button type
     self.buttonType = BUTTON_RANDOM;
@@ -68,6 +65,14 @@ extern float volumeGlobal;
     
     //volume
     [self addSubViewVolumeTotal];
+    [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback
+                                           error:nil];
+    [[AVAudioSession sharedInstance] setActive:YES
+                                         error:nil];
+    
+    [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
+    [self becomeFirstResponder];
+
     __weak HomeVC *wself = self;
     self.buttonStealer = [[RBVolumeButtons alloc] init];
     self.buttonStealer.upBlock = ^{
@@ -87,6 +92,13 @@ extern float volumeGlobal;
     [super viewDidAppear:animated];
     [self loadCache];
 
+}
+-(void)viewWillDisappear:(BOOL)animated {
+    [[UIApplication sharedApplication] endReceivingRemoteControlEvents];
+    [self resignFirstResponder]; [super viewWillDisappear:animated];
+}
+- (BOOL)prefersStatusBarHidden {
+    return NO;
 }
 -(void)loadCache
 {
@@ -674,42 +686,51 @@ extern float volumeGlobal;
         CollectionVC *collection = [[CollectionVC alloc] initWithEVC];
         [collection addContraintSupview:v];
         [collection updateDataMusic:dicCategory];
-        [collection setCallback:^(NSDictionary *dicMusic,NSDictionary *dicCategory)
+        [collection setCallback:^(NSDictionary *dicMusic,NSDictionary *dicCategory, BOOL isLongTap)
          {
-             _dicChooseCategory = nil;
-             //neu truoc day chon 1 thang la signle
-             if (preSignSelect) {
-                 preSignSelect = !preSignSelect;
-                 [wself fnClearAllSounds];
-             }
-             if (![dicCategory[@"manyselect"] boolValue]) {
-                 preSignSelect = YES;
-                 [wself fnClearAllSounds];
-             }
-             NSMutableDictionary *dic = [dicMusic mutableCopy];
-             if ([dic[@"active"] boolValue]) {
-                 [dic setObject:@(0) forKey:@"active"];
+             if (isLongTap) {
+                 if ([dicMusic[@"active"] boolValue]) {
+                     //show music
+                     [wself addSubViewVolumeItemWithDicMusic:dicMusic withCategory:dicCategory];
+                 }
              }
              else
              {
-                 [dic setObject:@(1) forKey:@"active"];
-                 [dic setObject:@(volumeItem) forKey:@"volume"];
-                 //show music
-                 [wself addSubViewVolumeItemWithDicMusic:dic withCategory:dicCategory];
-                 
-                 
+                 _dicChooseCategory = nil;
+                 //neu truoc day chon 1 thang la signle
+                 if (preSignSelect) {
+                     preSignSelect = !preSignSelect;
+                     [wself fnClearAllSounds];
+                 }
+                 if (![dicCategory[@"manyselect"] boolValue]) {
+                     preSignSelect = YES;
+                     [wself fnClearAllSounds];
+                 }
+                 NSMutableDictionary *dic = [dicMusic mutableCopy];
+                 if ([dic[@"active"] boolValue]) {
+                     [dic setObject:@(0) forKey:@"active"];
+                 }
+                 else
+                 {
+                     [dic setObject:@(1) forKey:@"active"];
+                     [dic setObject:@(volumeItem) forKey:@"volume"];
+                     //show music
+                     [wself addSubViewVolumeItemWithDicMusic:dic withCategory:dicCategory];
+                     
+                     
+                 }
+                 [wself updateDataMusic:dic withCategory:dicCategory];
+                 [wself fnSetButtonNavigation];
+                 if (arrPlayList.count > 0) {
+                     _buttonType = BUTTON_PLAYING;
+                 }
+                 else
+                 {
+                     _buttonType = BUTTON_RANDOM;
+                     
+                 }
+                 [self fnSetButtonBottom];
              }
-             [wself updateDataMusic:dic withCategory:dicCategory];
-             [wself fnSetButtonNavigation];
-             if (arrPlayList.count > 0) {
-                 _buttonType = BUTTON_PLAYING;
-             }
-             else
-             {
-                 _buttonType = BUTTON_RANDOM;
-                 
-             }
-             [self fnSetButtonBottom];
 
              
          }];
@@ -727,6 +748,15 @@ extern float volumeGlobal;
              }
              else
              {
+                 if (self.progressView1.hidden == NO) {
+                     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NAME_APP
+                                                                     message:@"Another updating, please wait!"
+                                                                    delegate:self
+                                                           cancelButtonTitle:@"OK"
+                                                           otherButtonTitles:nil];
+                     [alert show];
+                     return;
+                 }
                  [wself downloadSoundWithCategory:dicCategory];
              }
 
@@ -806,30 +836,36 @@ extern float volumeGlobal;
 }
 -(void)downloadSoundWithCategory:(NSDictionary*)dicCategory
 {
+
     __weak HomeVC *wself = self;
-    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+//    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.vProgress animated:YES];
     
     // Set the determinate mode to show task progress.
-    hud.mode = MBProgressHUDModeDeterminate;
-    hud.label.text = @"Downloading...";
-    dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0), ^{
-
-    });
-
+//    hud.mode = MBProgressHUDModeDeterminate;
+//    hud.label.text = @"Downloading...";
+//    dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0), ^{
+//
+//    });
+    self.progressView1.hidden = NO;
+    [self.progressView1 setProgress:0 animated:YES];
     DownLoadCategory *download = [DownLoadCategory sharedInstance];
     [download fnListMusicWithCategory:@[dicCategory]];
     [download setCallback:^(NSDictionary *dicItemCategory)
      {
          [wself caculatorSubScrollview];
          dispatch_async(dispatch_get_main_queue(), ^{
-             [hud hideAnimated:YES];
+//             [hud hideAnimated:YES];
+             [self.progressView1 setProgress:0 animated:YES];
+             self.progressView1.hidden = YES;
          });
      }];
     [download setCallbackProgess:^(float progress)
      {
          dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0), ^{
              dispatch_async(dispatch_get_main_queue(), ^{
-                 [MBProgressHUD HUDForView:self.view].progress = progress;
+//                 [MBProgressHUD HUDForView:self.vProgress].progress = progress;
+                 [self.progressView1 setProgress:progress animated:YES];
+
              });
          });
 

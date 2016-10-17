@@ -126,19 +126,20 @@
     NSString *strPath = [FileHelper pathForApplicationDataFile:FILE_CATEGORY_SAVE];
     NSDictionary *dicCache = [NSDictionary dictionaryWithContentsOfFile:strPath];
     NSArray *arrCache = dicCache[@"category"];
-    //check exist in blacklist
+    //remove blacklist
     NSString *strPathBlackList = [FileHelper pathForApplicationDataFile:FILE_BLACKLIST_CATEGORY_SAVE];
-    NSArray *arrBlackList = [NSArray arrayWithContentsOfFile:strPathBlackList];
-
+    NSArray *arrBlackList =@[];
+    [arrBlackList writeToFile:strPathBlackList atomically:YES];
+    
     NSMutableArray *arrUpdate = [NSMutableArray new];
     for (NSDictionary *dic in arrCategory) {
         for (NSDictionary *dicTmp in arrCache) {
-            if (([dic[@"id"] intValue] == [dicTmp[@"id"] intValue])
-                && ([dic[@"md5"] intValue] > [dicTmp[@"md5"] intValue])
-                //free
-                &&(![dic[@"price"] boolValue])
-                && !([arrBlackList containsObject:dic[@"id"]])
-                ) {
+            int  _id = [dic[@"id"] intValue];
+            int  _id_Tmp = [dicTmp[@"id"] intValue];
+            int _md5 = [dic[@"md5"] intValue];
+            int _md5_Tmp = [dicTmp[@"md5"] intValue];
+            BOOL price = [dic[@"price"] boolValue];
+            if ((_id == _id_Tmp) && (_md5 > _md5_Tmp) &&(!price)){
                 [arrUpdate addObject:dic];
             }
         }

@@ -29,6 +29,8 @@
 		EB11EE6A1D9AF45000804D34 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB11EE691D9AF45000804D34 /* QuartzCore.framework */; };
 		EB11EE6E1D9AF4A300804D34 /* CollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EB11EE6C1D9AF4A300804D34 /* CollectionCell.m */; };
 		EB11EE6F1D9AF4A300804D34 /* CollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB11EE6D1D9AF4A300804D34 /* CollectionCell.xib */; };
+		EB140DB51DB54830006E6FD9 /* ASPopUpView.m in Sources */ = {isa = PBXBuildFile; fileRef = EB140DB11DB54830006E6FD9 /* ASPopUpView.m */; };
+		EB140DB61DB54830006E6FD9 /* ASProgressPopUpView.m in Sources */ = {isa = PBXBuildFile; fileRef = EB140DB21DB54830006E6FD9 /* ASProgressPopUpView.m */; };
 		EB14BA6D1DA16FCA00385759 /* VolumeItem.m in Sources */ = {isa = PBXBuildFile; fileRef = EB14BA6B1DA16FCA00385759 /* VolumeItem.m */; };
 		EB14BA6E1DA16FCA00385759 /* VolumeItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB14BA6C1DA16FCA00385759 /* VolumeItem.xib */; };
 		EB17B9821DB12B6D007DBFDF /* MCNewCustomLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = EB17B9781DB12B6D007DBFDF /* MCNewCustomLayer.m */; };
@@ -198,6 +200,10 @@
 		EB11EE6B1D9AF4A300804D34 /* CollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionCell.h; sourceTree = "<group>"; };
 		EB11EE6C1D9AF4A300804D34 /* CollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionCell.m; sourceTree = "<group>"; };
 		EB11EE6D1D9AF4A300804D34 /* CollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollectionCell.xib; sourceTree = "<group>"; };
+		EB140DB11DB54830006E6FD9 /* ASPopUpView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASPopUpView.m; sourceTree = "<group>"; };
+		EB140DB21DB54830006E6FD9 /* ASProgressPopUpView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASProgressPopUpView.m; sourceTree = "<group>"; };
+		EB140DB31DB54830006E6FD9 /* ASPopUpView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASPopUpView.h; sourceTree = "<group>"; };
+		EB140DB41DB54830006E6FD9 /* ASProgressPopUpView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASProgressPopUpView.h; sourceTree = "<group>"; };
 		EB14BA6A1DA16FCA00385759 /* VolumeItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VolumeItem.h; sourceTree = "<group>"; };
 		EB14BA6B1DA16FCA00385759 /* VolumeItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VolumeItem.m; sourceTree = "<group>"; };
 		EB14BA6C1DA16FCA00385759 /* VolumeItem.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VolumeItem.xib; sourceTree = "<group>"; };
@@ -532,6 +538,17 @@
 			name = Nav;
 			sourceTree = "<group>";
 		};
+		EB140DB71DB54834006E6FD9 /* ASProgressPopUpView */ = {
+			isa = PBXGroup;
+			children = (
+				EB140DB11DB54830006E6FD9 /* ASPopUpView.m */,
+				EB140DB21DB54830006E6FD9 /* ASProgressPopUpView.m */,
+				EB140DB31DB54830006E6FD9 /* ASPopUpView.h */,
+				EB140DB41DB54830006E6FD9 /* ASProgressPopUpView.h */,
+			);
+			name = ASProgressPopUpView;
+			sourceTree = "<group>";
+		};
 		EB17B9871DB12B7D007DBFDF /* PercentageDoughnutView */ = {
 			isa = PBXGroup;
 			children = (
@@ -660,6 +677,7 @@
 		EB56B6101DA2C4A3001AFC87 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				EB140DB71DB54834006E6FD9 /* ASProgressPopUpView */,
 				EB17B9871DB12B7D007DBFDF /* PercentageDoughnutView */,
 				EB19F46F1DB003B700A84DE6 /* UIImage+ImageEffects.h */,
 				EB19F4701DB003B700A84DE6 /* UIImage+ImageEffects.m */,
@@ -932,8 +950,8 @@
 				TargetAttributes = {
 					EB11EDC01D9AB24800804D34 = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = ZJEP3BQJME;
-						ProvisioningStyle = Manual;
+						DevelopmentTeam = LZ8SEY56U7;
+						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -1053,6 +1071,7 @@
 				EBFF14761DA04C2800CA98F1 /* IDZAQAudioPlayer.m in Sources */,
 				EB56B60F1DA2C497001AFC87 /* FileHelper.m in Sources */,
 				EB4C7FDB1DA3F3BF003CD3D6 /* TimerCell.m in Sources */,
+				EB140DB51DB54830006E6FD9 /* ASPopUpView.m in Sources */,
 				EBFF14791DA04C2800CA98F1 /* IDZOggVorbisFileDecoder.mm in Sources */,
 				EBFB07A91D9EA08700AF2569 /* TimerView.m in Sources */,
 				EB11EDC91D9AB24900804D34 /* AppDelegate.m in Sources */,
@@ -1101,6 +1120,7 @@
 				EBFB07B61D9EAD7200AF2569 /* VolumeView.m in Sources */,
 				EBFB07AE1D9EA0C100AF2569 /* SettingView.m in Sources */,
 				EB4C800E1DA3FE69003CD3D6 /* UIImageView+WebCache.m in Sources */,
+				EB140DB61DB54830006E6FD9 /* ASProgressPopUpView.m in Sources */,
 				EBFF13BC1DA00E1700CA98F1 /* AFURLSessionManager.m in Sources */,
 				EBFF14231DA01E4700CA98F1 /* aescrypt.c in Sources */,
 				EB11EDFF1D9AB30B00804D34 /* HomeVC.m in Sources */,
@@ -1201,8 +1221,8 @@
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Giang Tran (LN924Q4FPS)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Giang Tran (LN924Q4FPS)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Do Thi Binh (QQZ53QXRHM)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Do Thi Binh (QQZ53QXRHM)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -1250,8 +1270,8 @@
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Giang Tran (LN924Q4FPS)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Giang Tran (LN924Q4FPS)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Do Thi Binh (QQZ53QXRHM)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Do Thi Binh (QQZ53QXRHM)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -1277,7 +1297,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				DEVELOPMENT_TEAM = ZJEP3BQJME;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Do Thi Binh (QQZ53QXRHM)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = LZ8SEY56U7;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks",
@@ -1285,10 +1307,10 @@
 				INFOPLIST_FILE = RelaxApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = manh.jojo.RelaxApp;
+				PRODUCT_BUNDLE_IDENTIFIER = LZ8SEY56U7.com.Relaf.Relaf;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "ef4f92b9-beae-4cac-866f-a60c752fae34";
-				PROVISIONING_PROFILE_SPECIFIER = DEV_ALL;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Debug;
 		};
@@ -1297,7 +1319,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				DEVELOPMENT_TEAM = ZJEP3BQJME;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Do Thi Binh (QQZ53QXRHM)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = LZ8SEY56U7;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks",
@@ -1305,10 +1329,10 @@
 				INFOPLIST_FILE = RelaxApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = manh.jojo.RelaxApp;
+				PRODUCT_BUNDLE_IDENTIFIER = LZ8SEY56U7.com.Relaf.Relaf;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "ef4f92b9-beae-4cac-866f-a60c752fae34";
-				PROVISIONING_PROFILE_SPECIFIER = DEV_ALL;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Release;
 		};

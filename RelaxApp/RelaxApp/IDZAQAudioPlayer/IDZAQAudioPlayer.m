@@ -112,7 +112,7 @@ static void IDZPropertyListener(void* inUserData,
                  */
                 
             }
-            if(!isRunning)
+            if(!isRunning && pPlayer.state != IDZAudioPlayerStateStopping)
             {
                 
                 [pPlayer runLoop];
@@ -237,7 +237,6 @@ static void IDZPropertyListener(void* inUserData,
          * but set the immediate flag to false so that playback of
          * currently enqueued buffers completes.
          */
-        self.state = IDZAudioPlayerStateStopping;
         Boolean immediate = false;
         AudioQueueStop(mQueue, immediate);
         

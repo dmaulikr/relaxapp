@@ -84,7 +84,7 @@ static bool isFinish;
     isFinish = YES;
     
     [self.operationQueue cancelAllOperations];
-//    [manager invalidateSessionCancelingTasks: YES];
+    [manager invalidateSessionCancelingTasks: YES];
 }
 
 -(void)fnListMusicWithCategory :(NSArray*) arrCategory

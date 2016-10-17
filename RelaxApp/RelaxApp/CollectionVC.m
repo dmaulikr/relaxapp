@@ -208,12 +208,12 @@
     return archivePath;
 }
 //MARK: -
--(void)selectItem:(NSInteger)index
+-(void)selectItem:(NSInteger)index withIsLongTap:(BOOL)isLongTap
 {
     NSDictionary *dic = arrMusic[index];
 
         if (_callback) {
-            _callback(dic,dicCategory);
+            _callback(dic,dicCategory,isLongTap);
         }
 }
 -(void)setCallback:(CollectionVCCallback)callback
@@ -295,7 +295,11 @@
     [cell setCallback:^(GESTURE_TYPE type, NSInteger index)
      {
          if (type == GESTURE_TAP) {
-             [myWeak selectItem:index];
+             [myWeak selectItem:index withIsLongTap:NO];
+         }
+         else if(type == GESTURE_LONG)
+         {
+             [myWeak selectItem:index withIsLongTap:YES];
          }
      }];
     return cell;

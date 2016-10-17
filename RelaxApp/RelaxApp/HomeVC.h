@@ -16,6 +16,7 @@
 #import "AFHTTPSessionManager.h"
 #import "IDZAQAudioPlayer.h"
 #import "AddFavoriteView.h"
+#import "ASProgressPopUpView.h"
 @class RBVolumeButtons;
 
 @interface HomeVC : UIViewController<AVAudioPlayerDelegate, IDZAudioPlayerDelegate>
@@ -63,6 +64,7 @@
 @property (nonatomic, strong) IBOutlet UILabel *lbSetting;
 @property (nonatomic, strong) IBOutlet UIImageView *imgSetting;
 @property (nonatomic, strong) IBOutlet UIImageView *imgSettingActive;
+@property (weak, nonatomic) IBOutlet ASProgressPopUpView *progressView1;
 
 @property (nonatomic, retain) RBVolumeButtons *buttonStealer;
 
