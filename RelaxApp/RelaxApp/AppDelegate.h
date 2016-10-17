@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import "MainNavigationController.h"
-#import <Firebase/FirebaseApp.h>
 typedef void (^AppDelegateCallback)(NSDictionary *dicTimer);
 typedef void (^TimerTickCallback)();
 
