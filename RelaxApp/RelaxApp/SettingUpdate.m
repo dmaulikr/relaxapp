@@ -10,7 +10,6 @@
 #import "Define.h"
 #import "FileHelper.h"
 #import "AFHTTPSessionManager.h"
-#import "MBProgressHUD.h"
 #import "DownLoadCategory.h"
 @interface SettingUpdate ()
 {

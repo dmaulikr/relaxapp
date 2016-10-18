@@ -14,9 +14,7 @@
 #import "DownLoadCategory.h"
 #import "FileHelper.h"
 #import "Define.h"
-#import "MBProgressHUD.h"
 #import "AppDelegate.h"
-#import "UIDeviceHardware.h"
 #import <MediaPlayer/MediaPlayer.h>
 
 @interface HomeVC ()<UIScrollViewDelegate,AVAudioSessionDelegate>

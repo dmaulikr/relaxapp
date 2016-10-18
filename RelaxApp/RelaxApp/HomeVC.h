@@ -7,7 +7,6 @@
 //
 
 #import <AVFoundation/AVFoundation.h>
-#import "TabVC.h"
 #import "FavoriteView.h"
 #import "TimerView.h"
 #import "SettingView.h"
@@ -17,6 +16,7 @@
 #import "IDZAQAudioPlayer.h"
 #import "AddFavoriteView.h"
 #import "ASProgressPopUpView.h"
+#import "TabVC.h"
 @class RBVolumeButtons;
 
 @interface HomeVC : UIViewController<AVAudioPlayerDelegate, IDZAudioPlayerDelegate>
@@ -28,7 +28,7 @@
 @property (nonatomic, strong) NSDictionary *dicChooseCategory;
 @property (nonatomic, strong) IBOutlet UIView *vNavHome;
 @property (nonatomic, strong) IBOutlet UIView *vTabVC;
-
+@property (nonatomic, strong) TabVC *vTabbar;
 @property (nonatomic, strong) IBOutlet UIView *vContrainer;
 @property (nonatomic, strong) IBOutlet UIImageView *imgBackGround;
 @property (nonatomic, strong) IBOutlet UIPageControl *pageControl;
@@ -69,7 +69,6 @@
 @property (weak, nonatomic) IBOutlet ASProgressPopUpView *progressView1;
 
 
-@property (nonatomic, strong) TabVC *vTabbar;
 @property (nonatomic, strong)  FavoriteView *vFavorite;
 @property (nonatomic, strong)  AddFavoriteView *vAddFavorite;
 

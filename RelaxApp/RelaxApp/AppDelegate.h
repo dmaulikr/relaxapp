@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "MainNavigationController.h"
 typedef void (^AppDelegateCallback)(NSDictionary *dicTimer);
 typedef void (^TimerTickCallback)();
 
