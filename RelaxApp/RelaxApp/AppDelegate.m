@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "HomeVC.h"
 #import "FileHelper.h"
+@import FirebaseCore;
 @interface AppDelegate ()
 {
     NSTimer* timer;
@@ -20,6 +21,9 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    // [START configure]
+    [FIRApp configure];
+    // [END configure]
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     [self.window setBackgroundColor:[UIColor whiteColor]];
 

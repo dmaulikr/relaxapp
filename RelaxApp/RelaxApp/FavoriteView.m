@@ -11,6 +11,7 @@
 #import "AHTagTableViewCell.h"
 #import "FileHelper.h"
 static NSString *identifierSection1 = @"MyTableViewCell1";
+@import FirebaseAnalytics;
 
 @implementation FavoriteView
 
@@ -23,6 +24,7 @@ static NSString *identifierSection1 = @"MyTableViewCell1";
     self.tableControl.estimatedRowHeight = 60;
     self.tableControl.allowsSelectionDuringEditing = YES;
     self.vViewEdit.hidden = YES;
+    
     [self loadCahe];
 }
 -(void)loadCahe
@@ -105,6 +107,11 @@ static NSString *identifierSection1 = @"MyTableViewCell1";
     }
     else
     {
+        // [START custom_event_objc]
+        [FIRAnalytics logEventWithName:@"selected_favoriste"
+                            parameters:dicMusic];
+        // [END custom_event_objc]
+
         if (_callback) {
             _callback(dicMusic);
             [self removeFromSuperview];
