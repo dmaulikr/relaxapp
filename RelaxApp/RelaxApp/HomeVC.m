@@ -28,8 +28,6 @@ extern float volumeGlobal;
     NSMutableArray                  *arrColection;
     NSMutableArray *arrTotal;
     int iNumberCollection;
-    BOOL preSignSelect;
-    ;
 }
 @end
 
@@ -171,25 +169,33 @@ extern float volumeGlobal;
 -(void)updateDataMusic:(NSDictionary*)dicMusic withCategory:(NSDictionary *)category
 {
 
-    [self setupPlayerWithMusicItem:dicMusic];
     for (int i = 0; i< arrCategory.count; i++) {
         
         NSMutableDictionary *dicCategory = [arrCategory[i] mutableCopy];
         if ([dicCategory[@"id"] intValue] == [category[@"id"] intValue]) {
             NSMutableArray *arrSounds = [dicCategory[@"sounds"] mutableCopy];
             for (int j = 0; j <arrSounds.count; j++) {
-                NSDictionary *dicSound = arrSounds[j];
+                NSMutableDictionary *dicSound = [NSMutableDictionary dictionaryWithDictionary:arrSounds[j]];
                 if (dicSound[@"id"] == dicMusic[@"id"]) {
                     [arrSounds replaceObjectAtIndex:j withObject:dicMusic];
                     [dicCategory setObject:arrSounds forKey:@"sounds"];
                     [arrCategory replaceObjectAtIndex:i withObject:dicCategory];
-                    [self caculatorSubScrollview];
-                    break;
+                }
+                else
+                {
+                    if (![dicCategory[@"manyselect"] boolValue]) {
+                        [dicSound setObject:@(0) forKey:@"active"];
+                        [arrSounds replaceObjectAtIndex:j withObject:dicSound];
+                        [dicCategory setObject:arrSounds forKey:@"sounds"];
+                        [arrCategory replaceObjectAtIndex:i withObject:dicCategory];
+                    }
                 }
             }
 
         }
     }
+    [self setupPlayerWithMusicItem:dicMusic];
+    [self caculatorSubScrollview];
 
 }
 - (void)didReceiveMemoryWarning {
@@ -618,6 +624,7 @@ extern float volumeGlobal;
                 if ([dicSound[@"id"] intValue] == [dichChoose[@"id"] intValue]) {
                     [dicSound setObject:dichChoose[@"volume"] forKey:@"volume"];
                     [dicSound setObject:dichChoose[@"active"] forKey:@"active"];
+                    [dicSound setObject:dicCategory[@"id"] forKey:@"category_id"];
 
                     //show music
                     [arrSounds replaceObjectAtIndex:j withObject:dicSound];
@@ -725,15 +732,6 @@ extern float volumeGlobal;
              else
              {
                  _dicChooseCategory = nil;
-                 //neu truoc day chon 1 thang la signle
-                 if (preSignSelect) {
-                     preSignSelect = !preSignSelect;
-                     [wself fnClearAllSounds];
-                 }
-                 if (![dicCategory[@"manyselect"] boolValue]) {
-                     preSignSelect = YES;
-                     [wself fnClearAllSounds];
-                 }
                  NSMutableDictionary *dic = [dicMusic mutableCopy];
                  if ([dic[@"active"] boolValue]) {
                      [dic setObject:@(0) forKey:@"active"];
@@ -741,6 +739,7 @@ extern float volumeGlobal;
                  else
                  {
                      [dic setObject:@(1) forKey:@"active"];
+                     [dic setObject:dicCategory[@"id"] forKey:@"category_id"];
                      //save volume
                      NSString *strPathVolume = [FileHelper pathForApplicationDataFile:FILE_HISTORY_VOLUME_SAVE];
                      NSArray *arrVolume = [NSArray arrayWithContentsOfFile:strPathVolume];
