@@ -18,12 +18,11 @@ static NSString *identifierSection1 = @"MyTableViewCell1";
 {
     [super awakeFromNib];
     
-    self.lbEdit.font = [UIFont fontWithName:@"Roboto-Medium" size:16];
-    self.lbTitle.font = [UIFont fontWithName:@"Roboto-Medium" size:16];
-    
+    self.lbEdit.font = [UIFont fontWithName:@"Roboto-Regular" size:17];
     [self.tableControl registerNib:[UINib nibWithNibName:@"AHTagTableViewCell" bundle:nil] forCellReuseIdentifier:identifierSection1];
     self.tableControl.estimatedRowHeight = 60;
     self.tableControl.allowsSelectionDuringEditing = YES;
+    self.vViewEdit.hidden = YES;
     [self loadCahe];
 }
 -(void)loadCahe
@@ -32,6 +31,13 @@ static NSString *identifierSection1 = @"MyTableViewCell1";
     NSString *strPath = [FileHelper pathForApplicationDataFile:FILE_FAVORITE_SAVE];
     NSArray *arrTmp = [NSArray arrayWithContentsOfFile:strPath];
     _arrMusic = [arrTmp mutableCopy];
+    if (_arrMusic.count >0) {
+        self.vViewEdit.hidden = NO;
+    }
+    else
+    {
+        self.vViewEdit.hidden = YES;
+    }
     [self.tableControl reloadData];
 
 }
@@ -126,7 +132,10 @@ static NSString *identifierSection1 = @"MyTableViewCell1";
         //add code here for when you hit delete
         NSString *strPath = [FileHelper pathForApplicationDataFile:FILE_FAVORITE_SAVE];
         [_arrMusic writeToFile:strPath atomically:YES];
-        [self.tableControl reloadData];
+        if (_arrMusic.count==0) {
+            [self editingTableViewAction:nil];
+        }
+        [self loadCahe];
     }
 }
 

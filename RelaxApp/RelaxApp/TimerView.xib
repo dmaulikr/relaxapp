@@ -143,9 +143,10 @@
                 <outlet property="imgBackGround" destination="7YO-7z-gEM" id="Via-1F-4fd"/>
                 <outlet property="imgHeader" destination="ydR-ve-xzI" id="Rgk-cE-fRT"/>
                 <outlet property="lbEdit" destination="eK1-So-ERx" id="ohj-Nk-xfW"/>
-                <outlet property="lbTitle" destination="sHU-sY-TGV" id="bUG-Ac-f8d"/>
+                <outlet property="lbTitle" destination="sHU-sY-TGV" id="qUv-vk-D0v"/>
                 <outlet property="tableControl" destination="axs-JV-LNd" id="9Pc-WV-K5f"/>
                 <outlet property="vContent" destination="494-Fb-M0H" id="nUB-vj-7PV"/>
+                <outlet property="vViewEdit" destination="x2Z-J9-1gr" id="TAp-O7-cM4"/>
                 <outlet property="vViewNav" destination="6ap-eu-Y0G" id="5Q6-RC-lOT"/>
             </connections>
             <point key="canvasLocation" x="-126.5" y="2.5"/>

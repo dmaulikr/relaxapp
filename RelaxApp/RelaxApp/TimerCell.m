@@ -13,9 +13,9 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
-    self.lbNameTimer.font = [UIFont fontWithName:@"Roboto-Medium" size:13];
-    self.lbValueTimer.font = [UIFont fontWithName:@"Roboto-Medium" size:24];
-    self.lbDescription.font = [UIFont fontWithName:@"Roboto-Medium" size:10];
+    self.lbNameTimer.font = [UIFont fontWithName:@"Roboto-Regular" size:13];
+    self.lbValueTimer.font = [UIFont fontWithName:@"Roboto-Regular" size:24];
+    self.lbDescription.font = [UIFont fontWithName:@"Roboto-Regular" size:10];
 
 }
 

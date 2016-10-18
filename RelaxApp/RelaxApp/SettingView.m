@@ -25,7 +25,6 @@
 -(void)awakeFromNib
 {
     [super awakeFromNib];
-    self.lbTitle.font = [UIFont fontWithName:@"Roboto-Medium" size:16];
     self.lbShare.font = [UIFont fontWithName:@"Roboto-Light" size:20];
     
     self.lbTitleCheckUpdate.font= [UIFont fontWithName:@"Roboto-Regular" size:13];

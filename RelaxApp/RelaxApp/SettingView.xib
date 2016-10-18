@@ -581,7 +581,7 @@ Help us share on social</string>
                 <outlet property="lbCredit" destination="7hQ-HI-n8E" id="okc-Fp-vww"/>
                 <outlet property="lbPrivacy" destination="QAJ-kP-5zy" id="Q6W-l9-2gZ"/>
                 <outlet property="lbShare" destination="TG8-Mu-gUw" id="dQF-Pg-oWd"/>
-                <outlet property="lbTitle" destination="NG0-iT-9FB" id="TRE-iG-H1d"/>
+                <outlet property="lbTitle" destination="NG0-iT-9FB" id="vXn-Y7-S3X"/>
                 <outlet property="lbTitleAbout" destination="jJe-JU-hiE" id="WhF-Bo-VWe"/>
                 <outlet property="lbTitleCheckUpdate" destination="B11-FP-Apd" id="gRy-6X-Fce"/>
                 <outlet property="lbTitleConnectWithUs" destination="2Lc-7v-haR" id="PyH-2I-E7v"/>

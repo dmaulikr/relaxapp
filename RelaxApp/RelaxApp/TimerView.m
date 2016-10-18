@@ -20,12 +20,12 @@ static NSString *identifierSection1 = @"MyTableViewCell1";
 -(void)awakeFromNib
 {
     [super awakeFromNib];
-    self.lbEdit.font = [UIFont fontWithName:@"Roboto-Medium" size:16];
-    self.lbTitle.font = [UIFont fontWithName:@"Roboto-Medium" size:16];
+    self.lbEdit.font = [UIFont fontWithName:@"Roboto-Regular" size:17];
 
     [self.tableControl registerNib:[UINib nibWithNibName:@"TimerCell" bundle:nil] forCellReuseIdentifier:identifierSection1];
     self.tableControl.estimatedRowHeight = 60;
     self.tableControl.allowsSelectionDuringEditing = YES;
+    self.vViewEdit.hidden = YES;
     [self loadCache];
     __weak TimerView *wself = self;
     //timer
@@ -37,7 +37,9 @@ static NSString *identifierSection1 = @"MyTableViewCell1";
     [timerBackGround setCallbackTimerTick:^(NSDate *date)
      {
          dispatch_async(dispatch_get_main_queue(), ^{
-             [wself loadCache];
+             if (!self.tableControl.editing) {
+                 [wself loadCache];
+             }
          });
      }];
 }
@@ -47,13 +49,21 @@ static NSString *identifierSection1 = @"MyTableViewCell1";
     NSString *strPath = [FileHelper pathForApplicationDataFile:FILE_TIMER_SAVE];
     NSArray *arrTmp = [NSArray arrayWithContentsOfFile:strPath];
     _dataSource = [NSMutableArray new];
-    if (arrTmp) {
+    if (arrTmp.count > 0) {
         [_dataSource addObjectsFromArray:arrTmp];
+        self.vViewEdit.hidden = NO;
     }
-    
+    else
+    {
+        self.vViewEdit.hidden = YES;
+    }
+
     for (UITableViewCell *cell in [self.tableControl visibleCells]) {
         NSIndexPath *indexPath = [self.tableControl indexPathForCell:cell];
-        [self configureCell:cell forRowAtIndexPath:indexPath];
+        if(_dataSource.count > indexPath.row)
+        {
+            [self configureCell:cell forRowAtIndexPath:indexPath];
+        }
     }
 }
 -(IBAction)addTimerAction:(id)sender
@@ -87,7 +97,7 @@ static NSString *identifierSection1 = @"MyTableViewCell1";
     [viewController1 setCallback:^()
      {
          [wself loadCache];
-         [wself.tableControl reloadData];
+         [self.tableControl reloadData];
      }];
     [self.parent presentViewController:viewController1 animated:YES completion:^{
     }];
@@ -176,6 +186,10 @@ static NSString *identifierSection1 = @"MyTableViewCell1";
         [_dataSource removeObjectAtIndex:indexPath.row];
         NSString *strPath = [FileHelper pathForApplicationDataFile:FILE_TIMER_SAVE];
         [_dataSource writeToFile:strPath atomically:YES];
+        if (_dataSource.count == 0) {
+            [self editingTableViewAction:nil];
+        }
+        [self loadCache];
         [self.tableControl reloadData];
     }
 }

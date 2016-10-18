@@ -14,6 +14,7 @@
 @property (weak, nonatomic)  UIViewController *parent;
 @property (strong, nonatomic) IBOutlet UIImageView *imgHeader;
 @property (strong, nonatomic) IBOutlet UIImageView *imgBackGround;
+@property (strong, nonatomic) IBOutlet UILabel *lbTitle;
 
 -(void)addContraintSupview:(UIView*)viewSuper;
 //-(void)hide:(BOOL)hidden;

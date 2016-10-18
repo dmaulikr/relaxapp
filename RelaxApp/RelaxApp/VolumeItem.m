@@ -154,7 +154,10 @@ extern float volumeItem;
     {
         strTitleOther = dicMusic[@"titleOther"];
     }
-    self.titleSub.text = [NSString stringWithFormat:@"%@,%@",strTitleShort,strTitleOther];
+    if (strTitleOther.length > 0) {
+        strTitleOther = [NSString stringWithFormat:@", %@",strTitleOther];
+    }
+    self.titleSub.text = [NSString stringWithFormat:@"%@ %@",strTitleShort,strTitleOther];
     [self.slider setValue:[dic[@"volume"] floatValue]];
 
 }

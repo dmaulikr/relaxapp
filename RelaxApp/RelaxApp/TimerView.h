@@ -17,6 +17,6 @@
 @property (nonatomic, strong) IBOutlet UIView *vContent;
 @property (strong, nonatomic) IBOutlet UITableView *tableControl;
 @property (strong, nonatomic) IBOutlet UILabel *lbEdit;
-@property (strong, nonatomic) IBOutlet UILabel *lbTitle;
+@property (nonatomic, strong) IBOutlet UIView *vViewEdit;
 
 @end

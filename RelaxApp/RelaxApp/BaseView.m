@@ -31,6 +31,9 @@
         self.imgBackGround.backgroundColor = UIColorFromRGB(COLOR_BACKGROUND_FAVORITE);
 
     }
+    if (self.lbTitle) {
+        self.lbTitle.font = [UIFont fontWithName:@"Roboto-Regular" size:17];
+    }
 }
 -(void)addContraintSupview:(UIView*)viewSuper
 {

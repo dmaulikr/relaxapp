@@ -13,9 +13,8 @@
 -(void)awakeFromNib
 {
     [super awakeFromNib];
-    self.lbCancel.font = [UIFont fontWithName:@"Roboto-Medium" size:16];
-    self.lbTitle.font = [UIFont fontWithName:@"Roboto-Medium" size:16];
-    self.btnSave.titleLabel.font = [UIFont fontWithName:@"Roboto-Medium" size:20];
+    self.lbCancel.font = [UIFont fontWithName:@"Roboto-Regular" size:17];
+    self.btnSave.titleLabel.font = [UIFont fontWithName:@"Roboto-Regular" size:20];
     [self.vContent.layer setMasksToBounds:YES];
     self.vContent.layer.cornerRadius= 5.0;
     [self.btnSave.layer setMasksToBounds:YES];
@@ -45,11 +44,11 @@
     if (_modeType == MODE_INFO) {
         _tfTitle.enabled = NO;
         _btnSave.hidden = YES;
-        _lbTitle.text = @"Info to favorites";
+        self.lbTitle.text = @"Info to favorites";
     }
     else
     {
-        _lbTitle.text = @"Edit to favorites";
+        self.lbTitle.text = @"Edit to favorites";
     }
     _tfTitle.text = dicFavorite[@"name"];
     
@@ -90,7 +89,7 @@
     }
     userLanguage = [language substringToIndex:2];
 
-    _lbTitle.text = @"Add to favorites";
+    self.lbTitle.text = @"Add to favorites";
     _dataSource = [NSMutableArray new];
 
     _dataMusic = arr;

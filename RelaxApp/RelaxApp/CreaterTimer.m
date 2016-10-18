@@ -21,9 +21,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.lbAdd.font = [UIFont fontWithName:@"Roboto-Medium" size:16];
-    self.lbTitle.font = [UIFont fontWithName:@"Roboto-Medium" size:16];
-    self.lbDescription.font = [UIFont fontWithName:@"Roboto-Medium" size:10];
+    self.lbAdd.font = [UIFont fontWithName:@"Roboto-Regular" size:17];
+    self.lbDescription.font = [UIFont fontWithName:@"Roboto-Regular" size:10];
     self.tfTitle.font = [UIFont fontWithName:@"Roboto-Regular" size:18];
     self.lbPlay.font = [UIFont fontWithName:@"Roboto-Regular" size:17];
     self.lbPause.font = [UIFont fontWithName:@"Roboto-Regular" size:17];

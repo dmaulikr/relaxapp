@@ -42,7 +42,7 @@ extern float volumeGlobal;
     self.progressView1.popUpViewAnimatedColors = @[UIColorFromRGB(COLOR_PROGRESS_HOZI), UIColorFromRGB(COLOR_PROGRESS_HOZI), UIColorFromRGB(COLOR_PROGRESS_HOZI)];
     self.progressView1.hidden = YES;
     self.vNavHome.hidden = NO;
-    self.titleCategory.font = [UIFont fontWithName:@"Roboto-Medium" size:16];
+    self.titleCategory.font = [UIFont fontWithName:@"Roboto-Regular" size:17];
     self.lbVolume.font = [UIFont fontWithName:@"Roboto-Regular" size:8];
     self.lbFavorite.font = [UIFont fontWithName:@"Roboto-Regular" size:8];
     self.lbTimer.font = [UIFont fontWithName:@"Roboto-Regular" size:8];
