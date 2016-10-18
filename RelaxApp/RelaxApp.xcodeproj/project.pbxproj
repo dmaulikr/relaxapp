@@ -60,7 +60,6 @@
 		EB3072021DABE2B6009D90DD /* RobotoCondensed-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EB3071F01DABE2B6009D90DD /* RobotoCondensed-Light.ttf */; };
 		EB3072031DABE2B6009D90DD /* RobotoCondensed-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EB3071F11DABE2B6009D90DD /* RobotoCondensed-LightItalic.ttf */; };
 		EB3072041DABE2B6009D90DD /* RobotoCondensed-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EB3071F21DABE2B6009D90DD /* RobotoCondensed-Regular.ttf */; };
-		EB30720B1DAC0637009D90DD /* RBVolumeButtons.m in Sources */ = {isa = PBXBuildFile; fileRef = EB30720A1DAC0637009D90DD /* RBVolumeButtons.m */; };
 		EB420B0E1DAD4A2100F47C8B /* UIDeviceHardware.m in Sources */ = {isa = PBXBuildFile; fileRef = EB420B0D1DAD4A2100F47C8B /* UIDeviceHardware.m */; };
 		EB420B111DAD609500F47C8B /* UIImage+TBTint.m in Sources */ = {isa = PBXBuildFile; fileRef = EB420B101DAD609500F47C8B /* UIImage+TBTint.m */; };
 		EB420B131DAD630600F47C8B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB420B121DAD630600F47C8B /* CoreGraphics.framework */; };
@@ -246,8 +245,6 @@
 		EB3071F01DABE2B6009D90DD /* RobotoCondensed-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoCondensed-Light.ttf"; sourceTree = "<group>"; };
 		EB3071F11DABE2B6009D90DD /* RobotoCondensed-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoCondensed-LightItalic.ttf"; sourceTree = "<group>"; };
 		EB3071F21DABE2B6009D90DD /* RobotoCondensed-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoCondensed-Regular.ttf"; sourceTree = "<group>"; };
-		EB3072091DAC0637009D90DD /* RBVolumeButtons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBVolumeButtons.h; sourceTree = "<group>"; };
-		EB30720A1DAC0637009D90DD /* RBVolumeButtons.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBVolumeButtons.m; sourceTree = "<group>"; };
 		EB420B0C1DAD4A2100F47C8B /* UIDeviceHardware.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIDeviceHardware.h; sourceTree = "<group>"; };
 		EB420B0D1DAD4A2100F47C8B /* UIDeviceHardware.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIDeviceHardware.m; sourceTree = "<group>"; };
 		EB420B0F1DAD609500F47C8B /* UIImage+TBTint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+TBTint.h"; sourceTree = "<group>"; };
@@ -604,15 +601,6 @@
 			path = RobotoTTF;
 			sourceTree = "<group>";
 		};
-		EB30720C1DAC0647009D90DD /* VolumeSnap */ = {
-			isa = PBXGroup;
-			children = (
-				EB3072091DAC0637009D90DD /* RBVolumeButtons.h */,
-				EB30720A1DAC0637009D90DD /* RBVolumeButtons.m */,
-			);
-			name = VolumeSnap;
-			sourceTree = "<group>";
-		};
 		EB4BE3D21DA80044006E6803 /* MBProgressHUD */ = {
 			isa = PBXGroup;
 			children = (
@@ -696,7 +684,6 @@
 				EB420B101DAD609500F47C8B /* UIImage+TBTint.m */,
 				EB420B0C1DAD4A2100F47C8B /* UIDeviceHardware.h */,
 				EB420B0D1DAD4A2100F47C8B /* UIDeviceHardware.m */,
-				EB30720C1DAC0647009D90DD /* VolumeSnap */,
 				EB4BE3E81DA8280B006E6803 /* NSDate+Extensions.h */,
 				EB4BE3E91DA8280B006E6803 /* NSDate+Extensions.m */,
 				EB3071E01DABE2B6009D90DD /* RobotoTTF */,
@@ -1117,7 +1104,6 @@
 				EB4C80051DA3FE69003CD3D6 /* SDWebImageDecoder.m in Sources */,
 				EB56B6091DA2B964001AFC87 /* AHTagsLabel.m in Sources */,
 				EB17B9861DB12B6D007DBFDF /* MCUtil.m in Sources */,
-				EB30720B1DAC0637009D90DD /* RBVolumeButtons.m in Sources */,
 				EB11EE031D9AB4BA00804D34 /* MainNavigationController.m in Sources */,
 				EBFF14301DA01E4700CA98F1 /* zip.c in Sources */,
 				EBFF142A1DA01E4700CA98F1 /* pwd2key.c in Sources */,

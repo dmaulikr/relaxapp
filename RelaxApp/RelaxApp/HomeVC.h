@@ -64,9 +64,10 @@
 @property (nonatomic, strong) IBOutlet UILabel *lbSetting;
 @property (nonatomic, strong) IBOutlet UIImageView *imgSetting;
 @property (nonatomic, strong) IBOutlet UIImageView *imgSettingActive;
+@property (nonatomic, retain) UIView *volumeView;
+
 @property (weak, nonatomic) IBOutlet ASProgressPopUpView *progressView1;
 
-@property (nonatomic, retain) RBVolumeButtons *buttonStealer;
 
 @property (nonatomic, strong) TabVC *vTabbar;
 @property (nonatomic, strong)  FavoriteView *vFavorite;

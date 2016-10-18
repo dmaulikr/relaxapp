@@ -8,7 +8,8 @@
 
 #import "VolumeView.h"
 #import "Define.h"
-extern float volumeGlobal;
+#import <AVFoundation/AVFoundation.h>
+#import <MediaPlayer/MediaPlayer.h>
 @implementation VolumeView
 
 -(instancetype)initWithClassName:(NSString*)className
@@ -45,9 +46,8 @@ extern float volumeGlobal;
                                                                       options:0
                                                                       metrics:nil
                                                                         views:NSDictionaryOfVariableBindings(view)]];
-    
-    
-    [self.slider setValue:volumeGlobal];
+    float vol = [[MPMusicPlayerController applicationMusicPlayer] volume];
+    [self.slider setValue:vol];
 }
 -(void)showVolume:(BOOL)show
 {
@@ -58,6 +58,8 @@ extern float volumeGlobal;
                                              target: self
                                            selector:@selector(dismissView:)
                                            userInfo: nil repeats:NO];
+    float vol = [[MPMusicPlayerController applicationMusicPlayer] volume];
+    [self.slider setValue:vol];
 
 }
 -(void)setCallbackDismiss:(DismissCallback)callbackDismiss
@@ -74,7 +76,7 @@ extern float volumeGlobal;
         volume = 0;
     }
     [self.slider setValue:volume];
-    volumeGlobal = volume;
+    [[MPMusicPlayerController applicationMusicPlayer] setVolume:volume];
     if (_callback) {
         _callback();
     }
@@ -93,8 +95,7 @@ extern float volumeGlobal;
         volume = 1;
     }
     [self.slider setValue:volume];
-    
-    volumeGlobal = volume;
+    [[MPMusicPlayerController applicationMusicPlayer] setVolume:volume];
     if (_callback) {
         _callback();
     }
@@ -118,8 +119,7 @@ extern float volumeGlobal;
 
     UISlider *slider = (UISlider*)sender;
     float volume =  slider.value;
-    
-    volumeGlobal = volume;
+    [[MPMusicPlayerController applicationMusicPlayer] setVolume:volume];
     if (_callback) {
         _callback();
     }

@@ -8,7 +8,6 @@
 
 #import "VolumeItem.h"
 #import "Define.h"
-extern float volumeItem;
 
 @implementation VolumeItem
 
@@ -71,7 +70,6 @@ extern float volumeItem;
 
     UISlider *slider = (UISlider*)sender;
     float volume =  slider.value;
-    volumeItem = volume;
     if (dicMusic) {
         [dicMusic setObject:@(volume) forKey:@"volume"];
         if (_callback) {

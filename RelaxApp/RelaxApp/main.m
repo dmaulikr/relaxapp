@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import "AppDelegate.h"
-float volumeGlobal = 0.5;
-float volumeItem = 0.5;
 
 int main(int argc, char * argv[]) {
     @autoreleasepool {

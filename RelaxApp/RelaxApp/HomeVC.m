@@ -16,10 +16,8 @@
 #import "Define.h"
 #import "MBProgressHUD.h"
 #import "AppDelegate.h"
-#import "RBVolumeButtons.h"
 #import "UIDeviceHardware.h"
-extern float volumeItem;
-extern float volumeGlobal;
+#import <MediaPlayer/MediaPlayer.h>
 
 @interface HomeVC ()<UIScrollViewDelegate,AVAudioSessionDelegate>
 {
@@ -60,40 +58,42 @@ extern float volumeGlobal;
     //default button type
     self.buttonType = BUTTON_RANDOM;
     [self fnSetButtonBottom];
-    
     //volume
     [self addSubViewVolumeTotal];
-    [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback
-                                           error:nil];
-    [[AVAudioSession sharedInstance] setActive:YES
-                                         error:nil];
-    
-    [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
-    [self becomeFirstResponder];
-
-    __weak HomeVC *wself = self;
-    self.buttonStealer = [[RBVolumeButtons alloc] init];
-    self.buttonStealer.upBlock = ^{
-        [wself.vVolumeTotal showVolume:YES];
-        [wself.vVolumeTotal increaseAction:nil];
-    };
-    self.buttonStealer.downBlock = ^{
-        [wself.vVolumeTotal showVolume:YES];
-        [wself.vVolumeTotal decreaseAction:nil];
-    };
-    [self.buttonStealer startStealingVolumeButtonEvents];
-
-    
 }
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
+    
+    [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback
+                                           error:nil];
+    [[AVAudioSession sharedInstance] setActive:YES
+                                         error:nil];
+    [[AVAudioSession sharedInstance] addObserver:self
+                                      forKeyPath:@"outputVolume"
+                                         options:0
+                                         context:nil];
+    
+    [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
+    [self becomeFirstResponder];
+    //hide view volume system
+    CGRect frame = CGRectMake(0, -100, 10, 0);
+    self.volumeView = [[MPVolumeView alloc] initWithFrame:frame];
+    [self.volumeView sizeToFit];
+    [[[[UIApplication sharedApplication] windows] firstObject] insertSubview:self.volumeView atIndex:0];
+
     [self loadCache];
 
 }
 -(void)viewWillDisappear:(BOOL)animated {
     [[UIApplication sharedApplication] endReceivingRemoteControlEvents];
     [self resignFirstResponder]; [super viewWillDisappear:animated];
+}
+-(void) observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
+    
+    if ([keyPath isEqual:@"outputVolume"]) {
+        [self.vVolumeTotal showVolume:YES];
+    }
 }
 - (BOOL)prefersStatusBarHidden {
     return NO;
@@ -401,7 +401,7 @@ extern float volumeGlobal;
     for (int i = 0; i < arrPlayList.count; i++) {
         NSDictionary *musicItem = arrPlayList[i];
             IDZAQAudioPlayer *player  = musicItem[@"player"];
-            [player setVolume:[musicItem[@"music"][@"volume"] floatValue] * volumeGlobal];
+            [player setVolume:[musicItem[@"music"][@"volume"] floatValue]];
     }
 }
 -(void) addSubViewVolumeItemWithDicMusic:(NSDictionary*)dicMusic withCategory:(NSDictionary *)dicCategory
@@ -519,7 +519,7 @@ extern float volumeGlobal;
         IDZOggVorbisFileDecoder* decoder = [[IDZOggVorbisFileDecoder alloc] initWithContentsOfURL:url error:&error];
         NSLog(@"Ogg Vorbis file duration is %g", decoder.duration);
         IDZAQAudioPlayer *player = [[IDZAQAudioPlayer alloc] initWithDecoder:decoder error:nil];
-        [player setVolume:[dicMusic[@"volume"] floatValue] * volumeGlobal];
+        [player setVolume:[dicMusic[@"volume"] floatValue]];
         if(!player)
         {
             NSLog(@"Error creating player: %@", error);
