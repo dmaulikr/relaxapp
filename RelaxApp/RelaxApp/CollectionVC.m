@@ -97,7 +97,7 @@
     layout.itemSize = CGSizeMake(item_width, item_height);
     layout.minimumInteritemSpacing = paddingVertical - 5;
     layout.minimumLineSpacing = paddingHorizontal;
-    layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
+    layout.scrollDirection = UICollectionViewScrollDirectionVertical;
     layout.sectionInset = UIEdgeInsetsMake(paddingVertical/2 + 10, paddingHorizontal/2, paddingVertical/2 + 10, paddingHorizontal/2);
     [self.collectionView setShowsHorizontalScrollIndicator:NO];
     [self.collectionView setShowsVerticalScrollIndicator:NO];
