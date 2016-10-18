@@ -408,7 +408,35 @@ extern float volumeGlobal;
     [self.vVolumeItem setCallback:^(NSDictionary *dicMusic)
      {
          [wself updateDataMusic:dicMusic withCategory:dicCategory];
+         [wself saveVolume:dicMusic];
      }];
+
+}
+-(void)saveVolume:(NSDictionary*)dic
+{
+    //save volume
+    NSString *strPathVolume = [FileHelper pathForApplicationDataFile:FILE_HISTORY_VOLUME_SAVE];
+    NSArray *arrVolume = [NSArray arrayWithContentsOfFile:strPathVolume];
+    NSMutableArray *arrMulVolme = [NSMutableArray arrayWithArray:arrVolume];
+    
+    BOOL isSetVolume;
+    if (arrVolume.count > 0) {
+        for (int i = 0; i <arrVolume.count; i++) {
+            NSMutableDictionary *dicVolume = [NSMutableDictionary dictionaryWithDictionary:arrVolume[i]];
+            if ([dicVolume[@"id"] intValue] == [dic[@"id"] intValue] ) {
+                if (dic[@"volume"]) {
+                    [dicVolume setObject:dic[@"volume"] forKey:@"volume"];
+                    [arrMulVolme replaceObjectAtIndex:i withObject:dicVolume];
+                }
+                isSetVolume = YES;
+                break;
+            }
+        }
+    }
+    if (!isSetVolume) {
+        [arrMulVolme addObject:@{@"id": dic[@"id"],@"volume": dic[@"volume"]}];
+    }
+    [arrMulVolme writeToFile:strPathVolume atomically:YES];
 
 }
 //MARK: - NETWORK
@@ -713,7 +741,35 @@ extern float volumeGlobal;
                  else
                  {
                      [dic setObject:@(1) forKey:@"active"];
-                     [dic setObject:@(volumeItem) forKey:@"volume"];
+                     //save volume
+                     NSString *strPathVolume = [FileHelper pathForApplicationDataFile:FILE_HISTORY_VOLUME_SAVE];
+                     NSArray *arrVolume = [NSArray arrayWithContentsOfFile:strPathVolume];
+                     NSMutableArray *arrMulVolme = [NSMutableArray arrayWithArray:arrVolume];
+                     
+                     BOOL isSetVolume;
+                     if (arrVolume.count > 0) {
+                         for (int i = 0; i <arrVolume.count; i++) {
+                             NSMutableDictionary *dicVolume = [NSMutableDictionary dictionaryWithDictionary:arrVolume[i]];
+                             if ([dicVolume[@"id"] intValue] == [dic[@"id"] intValue] ) {
+                                 if (dicVolume[@"volume"]) {
+                                     [dic setObject:dicVolume[@"volume"] forKey:@"volume"];
+                                 }
+                                 else
+                                 {
+                                     [dic setObject:@(DEFAULT_VOLUME) forKey:@"volume"];
+                                     [dicVolume setObject:@(DEFAULT_VOLUME) forKey:@"volume"];
+                                     [arrMulVolme replaceObjectAtIndex:i withObject:dicVolume];
+                                 }
+                                 isSetVolume = YES;
+                                 break;
+                             }
+                         }
+                     }
+                     if (!isSetVolume) {
+                         [dic setObject:@(DEFAULT_VOLUME) forKey:@"volume"];
+                         [arrMulVolme addObject:@{@"id": dic[@"id"],@"volume": @(DEFAULT_VOLUME)}];
+                     }
+                     [arrMulVolme writeToFile:strPathVolume atomically:YES];
                      //show music
                      [wself addSubViewVolumeItemWithDicMusic:dic withCategory:dicCategory];
                      
