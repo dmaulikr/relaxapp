@@ -27,6 +27,9 @@
     [self.slider setMaximumTrackTintColor:[UIColor whiteColor]];
     [self.slider setThumbImage:[UIImage imageNamed:@"Oval"] forState:UIControlStateNormal];
     [self.vBackGround setBackgroundColor:UIColorFromRGB(COLOR_VOLUME)];
+    [self.btnDecrease setTitleColor:UIColorFromRGB(COLOR_SLIDER_THUMB) forState:UIControlStateNormal];
+    [self.btnIncrease setTitleColor:UIColorFromRGB(COLOR_SLIDER_THUMB) forState:UIControlStateNormal];
+
     dicMusic = [NSMutableDictionary new];
 }
 -(void)addContraintSupview:(UIView*)viewSuper
@@ -58,6 +61,45 @@
                                multiplier:1.0 constant:0] ];
     [self someMethod];
 }
+-(IBAction)decreaseAction:(id)sender
+{
+    [timer invalidate];
+    timer = nil;
+    
+    float volume =  self.slider.value - 0.1;
+    if (volume < 0) {
+        volume = 0;
+    }
+    [self.slider setValue:volume];
+    if (dicMusic) {
+        [dicMusic setObject:@(volume) forKey:@"volume"];
+        if (_callback) {
+            _callback(dicMusic);
+        }
+    }
+}
+-(IBAction)increaseAction:(id)sender
+{
+    [timer invalidate];
+    timer = nil;
+    timer = [NSTimer scheduledTimerWithTimeInterval: 5.0
+                                             target: self
+                                           selector:@selector(dismissView:)
+                                           userInfo: nil repeats:NO];
+    
+    float volume =  self.slider.value + 0.1;
+    if (volume > 1) {
+        volume = 1;
+    }
+    [self.slider setValue:volume];
+    if (dicMusic) {
+        [dicMusic setObject:@(volume) forKey:@"volume"];
+        if (_callback) {
+            _callback(dicMusic);
+        }
+    }
+}
+
 -(IBAction)dismissView:(id)sender
 {
     [self removeFromSuperview];

@@ -52,6 +52,7 @@
 		EB3072041DABE2B6009D90DD /* RobotoCondensed-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EB3071F21DABE2B6009D90DD /* RobotoCondensed-Regular.ttf */; };
 		EB420B111DAD609500F47C8B /* UIImage+TBTint.m in Sources */ = {isa = PBXBuildFile; fileRef = EB420B101DAD609500F47C8B /* UIImage+TBTint.m */; };
 		EB420B131DAD630600F47C8B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB420B121DAD630600F47C8B /* CoreGraphics.framework */; };
+		EB44B5121DB7CFA0007E0C93 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB44B5111DB7CFA0007E0C93 /* StoreKit.framework */; };
 		EB4BE3D41DA817D3006E6803 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB4BE3D31DA817D3006E6803 /* Social.framework */; };
 		EB4BE3D61DA8193F006E6803 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB4BE3D51DA8193F006E6803 /* MessageUI.framework */; };
 		EB4BE3D91DA81A93006E6803 /* SettingAbout.m in Sources */ = {isa = PBXBuildFile; fileRef = EB4BE3D81DA81A93006E6803 /* SettingAbout.m */; };
@@ -79,6 +80,8 @@
 		EB4C800D1DA3FE69003CD3D6 /* UIImageView+HighlightedWebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = EB4C7FFB1DA3FE69003CD3D6 /* UIImageView+HighlightedWebCache.m */; };
 		EB4C800E1DA3FE69003CD3D6 /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = EB4C7FFD1DA3FE69003CD3D6 /* UIImageView+WebCache.m */; };
 		EB4C800F1DA3FE69003CD3D6 /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = EB4C7FFF1DA3FE69003CD3D6 /* UIView+WebCacheOperation.m */; };
+		EB4D85291DB7E12800112454 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EB4D85281DB7E12800112454 /* GoogleService-Info.plist */; };
+		EB4D852C1DB7E61500112454 /* RMStore.m in Sources */ = {isa = PBXBuildFile; fileRef = EB4D852B1DB7E61500112454 /* RMStore.m */; };
 		EB56B6001DA2B958001AFC87 /* AHTag.m in Sources */ = {isa = PBXBuildFile; fileRef = EB56B5FD1DA2B958001AFC87 /* AHTag.m */; };
 		EB56B6091DA2B964001AFC87 /* AHTagsLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = EB56B6031DA2B964001AFC87 /* AHTagsLabel.m */; };
 		EB56B60A1DA2B964001AFC87 /* AHTagTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EB56B6051DA2B964001AFC87 /* AHTagTableViewCell.m */; };
@@ -87,7 +90,6 @@
 		EB56B60F1DA2C497001AFC87 /* FileHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = EB56B60E1DA2C497001AFC87 /* FileHelper.m */; };
 		EB56B6131DA2C697001AFC87 /* AddFavoriteView.m in Sources */ = {isa = PBXBuildFile; fileRef = EB56B6121DA2C697001AFC87 /* AddFavoriteView.m */; };
 		EB56B6151DA2C6A9001AFC87 /* AddFavoriteView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB56B6141DA2C6A9001AFC87 /* AddFavoriteView.xib */; };
-		EBA015EE1DB6B46400D5477C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EBA015ED1DB6B46400D5477C /* GoogleService-Info.plist */; };
 		EBA016011DB6BE0700D5477C /* FirebaseAnalytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBA015FB1DB6BE0700D5477C /* FirebaseAnalytics.framework */; };
 		EBA016021DB6BE0700D5477C /* FirebaseCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBA015FC1DB6BE0700D5477C /* FirebaseCore.framework */; };
 		EBA016031DB6BE0700D5477C /* FirebaseInstanceID.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBA015FD1DB6BE0700D5477C /* FirebaseInstanceID.framework */; };
@@ -212,6 +214,7 @@
 		EB420B0F1DAD609500F47C8B /* UIImage+TBTint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+TBTint.h"; sourceTree = "<group>"; };
 		EB420B101DAD609500F47C8B /* UIImage+TBTint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+TBTint.m"; sourceTree = "<group>"; };
 		EB420B121DAD630600F47C8B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		EB44B5111DB7CFA0007E0C93 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		EB4BE3D31DA817D3006E6803 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		EB4BE3D51DA8193F006E6803 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		EB4BE3D71DA81A93006E6803 /* SettingAbout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingAbout.h; sourceTree = "<group>"; };
@@ -259,6 +262,9 @@
 		EB4C7FFD1DA3FE69003CD3D6 /* UIImageView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+WebCache.m"; sourceTree = "<group>"; };
 		EB4C7FFE1DA3FE69003CD3D6 /* UIView+WebCacheOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+WebCacheOperation.h"; sourceTree = "<group>"; };
 		EB4C7FFF1DA3FE69003CD3D6 /* UIView+WebCacheOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WebCacheOperation.m"; sourceTree = "<group>"; };
+		EB4D85281DB7E12800112454 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		EB4D852A1DB7E61500112454 /* RMStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMStore.h; sourceTree = "<group>"; };
+		EB4D852B1DB7E61500112454 /* RMStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMStore.m; sourceTree = "<group>"; };
 		EB56B5FC1DA2B958001AFC87 /* AHTag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AHTag.h; sourceTree = "<group>"; };
 		EB56B5FD1DA2B958001AFC87 /* AHTag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AHTag.m; sourceTree = "<group>"; };
 		EB56B6021DA2B964001AFC87 /* AHTagsLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AHTagsLabel.h; sourceTree = "<group>"; };
@@ -273,7 +279,6 @@
 		EB56B6111DA2C697001AFC87 /* AddFavoriteView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddFavoriteView.h; sourceTree = "<group>"; };
 		EB56B6121DA2C697001AFC87 /* AddFavoriteView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddFavoriteView.m; sourceTree = "<group>"; };
 		EB56B6141DA2C6A9001AFC87 /* AddFavoriteView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddFavoriteView.xib; sourceTree = "<group>"; };
-		EBA015ED1DB6B46400D5477C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		EBA015EF1DB6BDC200D5477C /* FirebaseAnalytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseAnalytics.framework; path = ../../../../../Users/jojo/Downloads/Firebase/Analytics/FirebaseAnalytics.framework; sourceTree = "<group>"; };
 		EBA015F01DB6BDC200D5477C /* FirebaseCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseCore.framework; path = ../../../../../Users/jojo/Downloads/Firebase/Analytics/FirebaseCore.framework; sourceTree = "<group>"; };
 		EBA015F11DB6BDC200D5477C /* FirebaseInstanceID.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseInstanceID.framework; path = ../../../../../Users/jojo/Downloads/Firebase/Analytics/FirebaseInstanceID.framework; sourceTree = "<group>"; };
@@ -390,6 +395,7 @@
 				EBFF14621DA04B7E00CA98F1 /* Ogg.framework in Frameworks */,
 				EBFF14631DA04B7E00CA98F1 /* Vorbis.framework in Frameworks */,
 				EBFF13F81DA01D7500CA98F1 /* libz.tbd in Frameworks */,
+				EB44B5121DB7CFA0007E0C93 /* StoreKit.framework in Frameworks */,
 				EB11EE6A1D9AF45000804D34 /* QuartzCore.framework in Frameworks */,
 				EB11EE591D9ADAFF00804D34 /* AVFoundation.framework in Frameworks */,
 			);
@@ -439,7 +445,7 @@
 				EBF9B5531DA54CE800F07655 /* TIMER */,
 				EBF9B5551DA54D0500F07655 /* SETTING */,
 				EB11EDD01D9AB24900804D34 /* Assets.xcassets */,
-				EBA015ED1DB6B46400D5477C /* GoogleService-Info.plist */,
+				EB4D85281DB7E12800112454 /* GoogleService-Info.plist */,
 				EB11EDD51D9AB24900804D34 /* Info.plist */,
 				EB11EDC41D9AB24900804D34 /* Supporting Files */,
 				EBFB07BF1D9EE03100AF2569 /* Define.h */,
@@ -476,6 +482,7 @@
 		EB11EE571D9ADAFF00804D34 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EB44B5111DB7CFA0007E0C93 /* StoreKit.framework */,
 				EBA015FB1DB6BE0700D5477C /* FirebaseAnalytics.framework */,
 				EBA015FC1DB6BE0700D5477C /* FirebaseCore.framework */,
 				EBA015FD1DB6BE0700D5477C /* FirebaseInstanceID.framework */,
@@ -635,6 +642,8 @@
 		EB56B6101DA2C4A3001AFC87 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				EB4D852A1DB7E61500112454 /* RMStore.h */,
+				EB4D852B1DB7E61500112454 /* RMStore.m */,
 				EB140DB71DB54834006E6FD9 /* ASProgressPopUpView */,
 				EB17B9871DB12B7D007DBFDF /* PercentageDoughnutView */,
 				EB19F46F1DB003B700A84DE6 /* UIImage+ImageEffects.h */,
@@ -874,6 +883,9 @@
 							com.apple.BackgroundModes = {
 								enabled = 1;
 							};
+							com.apple.InAppPurchase = {
+								enabled = 1;
+							};
 							com.apple.InterAppAudio = {
 								enabled = 0;
 							};
@@ -922,6 +934,7 @@
 				EB3071FF1DABE2B6009D90DD /* RobotoCondensed-Bold.ttf in Resources */,
 				EB3071F41DABE2B6009D90DD /* Roboto-BlackItalic.ttf in Resources */,
 				EB11EDD11D9AB24900804D34 /* Assets.xcassets in Resources */,
+				EB4D85291DB7E12800112454 /* GoogleService-Info.plist in Resources */,
 				EB3071F71DABE2B6009D90DD /* Roboto-Italic.ttf in Resources */,
 				EB11EE6F1D9AF4A300804D34 /* CollectionCell.xib in Resources */,
 				EB56B60B1DA2B964001AFC87 /* AHTagTableViewCell.xib in Resources */,
@@ -943,7 +956,6 @@
 				EB3071F91DABE2B6009D90DD /* Roboto-LightItalic.ttf in Resources */,
 				EB3072041DABE2B6009D90DD /* RobotoCondensed-Regular.ttf in Resources */,
 				EBFF14741DA04C2800CA98F1 /* IDZAQAudioPlayerViewController.xib in Resources */,
-				EBA015EE1DB6B46400D5477C /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1026,6 +1038,7 @@
 				EBFF13B71DA00E1700CA98F1 /* AFHTTPSessionManager.m in Sources */,
 				EB4C80011DA3FE69003CD3D6 /* README.md in Sources */,
 				EBFF13BB1DA00E1700CA98F1 /* AFURLResponseSerialization.m in Sources */,
+				EB4D852C1DB7E61500112454 /* RMStore.m in Sources */,
 				EBFF142B1DA01E4700CA98F1 /* sha1.c in Sources */,
 				EB14BA6D1DA16FCA00385759 /* VolumeItem.m in Sources */,
 				EBFF14321DA01E4700CA98F1 /* SSZipArchive.m in Sources */,
@@ -1163,7 +1176,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_BUNDLE_IDENTIFIER = LZ8SEY56U7.com.Relaf.Relaf;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Relaf.Relaf;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1187,7 +1200,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_BUNDLE_IDENTIFIER = LZ8SEY56U7.com.Relaf.Relaf;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Relaf.Relaf;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";

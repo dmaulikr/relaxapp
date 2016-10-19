@@ -31,7 +31,7 @@
     }
     userLanguage = [language substringToIndex:2];
 
-    self.title.text = dicMusic[@"name"];
+    self.title.text = [dicMusic[@"name"] uppercaseString];
     _dataSource = [NSMutableArray new];
 
     NSArray *arrMusic = dicMusic[@"music"];

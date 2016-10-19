@@ -135,7 +135,7 @@
     paragraphStyle.tailIndent = 10.0f;
     NSDictionary *attributes = @{
                                  NSParagraphStyleAttributeName  : paragraphStyle,
-                                 NSFontAttributeName            : [UIFont boldSystemFontOfSize:14.0]
+                                 NSFontAttributeName            : [UIFont fontWithName:@"Roboto-Regular" size:13]
                                  };
     NSAttributedString *attributedText = [[NSAttributedString alloc] initWithString:string
                                                                          attributes:attributes];

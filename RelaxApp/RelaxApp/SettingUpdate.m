@@ -157,13 +157,6 @@
         [self closeAction:nil];
         [[NSNotificationCenter defaultCenter]postNotificationName:NOTIFCATION_CATEGORY object:nil];
         
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NAME_APP
-                                                        message:@"Success"
-                                                       delegate:self
-                                              cancelButtonTitle:@"OK"
-                                              otherButtonTitles:nil];
-        [alert show];
-
     }
 
 }
@@ -179,13 +172,6 @@
              [self closeAction:nil];
              [[NSNotificationCenter defaultCenter]postNotificationName:NOTIFCATION_CATEGORY object:nil];
              
-             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NAME_APP
-                                                             message:@"Success"
-                                                            delegate:self
-                                                   cancelButtonTitle:@"OK"
-                                                   otherButtonTitles:nil];
-             [alert show];
-
          });
      }];
     [download setCallbackProgess:^(float progress)

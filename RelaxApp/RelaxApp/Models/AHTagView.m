@@ -39,9 +39,9 @@
     _label = [UILabel new];
     _label.textColor = [UIColor blackColor];
     _label.translatesAutoresizingMaskIntoConstraints = NO;
-    _label.layer.cornerRadius = 8;
+    _label.layer.cornerRadius = 15;
     _label.layer.masksToBounds = YES;
-    _label.font = [UIFont fontWithName:@"Roboto-Medium" size:11];
+    _label.font = [UIFont fontWithName:@"Roboto-Regular" size:13];
     [self addSubview:_label];
     [self setupConstraints];
 }
@@ -49,7 +49,7 @@
 - (void)setupConstraints {
     NSMutableArray<NSLayoutConstraint *> *constraints = [NSMutableArray new];
     
-    [constraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-4.0-[_label]-4.0-|"
+    [constraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-6.0-[_label]-6.0-|"
                                                                              options:NSLayoutFormatDirectionLeadingToTrailing
                                                                              metrics:nil
                                                                                views:@{@"_label": _label}]];
@@ -60,7 +60,7 @@
                                                            toItem:nil
                                                         attribute:NSLayoutAttributeHeight
                                                        multiplier:1.0
-                                                         constant:24.0]];
+                                                         constant:30.0]];
     
     [constraints addObject:[NSLayoutConstraint constraintWithItem:_label
                                                         attribute:NSLayoutAttributeTop
@@ -68,7 +68,7 @@
                                                            toItem:self
                                                         attribute:NSLayoutAttributeTop
                                                        multiplier:1.0
-                                                         constant:3.0]];
+                                                         constant:8.0]];
     
     [constraints addObject:[NSLayoutConstraint constraintWithItem:self
                                                         attribute:NSLayoutAttributeBottom
@@ -76,7 +76,7 @@
                                                            toItem:_label
                                                         attribute:NSLayoutAttributeBottom
                                                        multiplier:1.0
-                                                         constant:3.0]];
+                                                         constant:8.0]];
     
     [NSLayoutConstraint activateConstraints:constraints];
 }

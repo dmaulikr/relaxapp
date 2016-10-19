@@ -51,7 +51,7 @@
     self.imgSingle.hidden = YES;
     [self fnSetButtonNavigation];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(timerNotification:) name: NOTIFCATION_TIMER object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loadCache) name: NOTIFCATION_CATEGORY object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshUpdate) name: NOTIFCATION_CATEGORY object:nil];
 
     //default button type
     self.buttonType = BUTTON_RANDOM;
@@ -95,6 +95,16 @@
 }
 - (BOOL)prefersStatusBarHidden {
     return NO;
+}
+-(void)refreshUpdate
+{
+    UIButton *btn = [UIButton new];
+    btn.tag = 12;
+    _buttonType = BUTTON_SETTING;
+    [self tabBottomVCAction:btn];
+
+    [self loadCache];
+    
 }
 -(void)loadCache
 {

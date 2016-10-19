@@ -131,7 +131,7 @@
             
             for (int i = 0 ; i< arrSave.count; i++) {
                 if ([_dicFavorite[@"id"] intValue] == [arrSave[i][@"id"]intValue]) {
-                    NSDictionary *dicSave = @{@"id":_dicFavorite[@"id"],@"name": _tfTitle.text,@"music": _dicFavorite[@"music"]};
+                    NSDictionary *dicSave = @{@"id":_dicFavorite[@"id"],@"name": [_tfTitle.text uppercaseString],@"music": _dicFavorite[@"music"]};
                     [arrSave replaceObjectAtIndex:i withObject:dicSave];
                     [arrSave writeToFile:strPath atomically:YES];
                     [self removeFromSuperview];
