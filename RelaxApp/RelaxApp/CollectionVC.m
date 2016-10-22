@@ -13,9 +13,9 @@
 #import "UIImageView+WebCache.h"
 #import "FileHelper.h"
 #import <StoreKit/StoreKit.h>
-#define kRemoveAdsProductIdentifier @"com.Relaf.Relaf.RelafPricing"
-
-@interface CollectionVC ()<SKProductsRequestDelegate, SKPaymentTransactionObserver>
+#import "RageIAPHelper.h"
+#import "AppDelegate.h"
+@interface CollectionVC ()
 {
     NSMutableArray                  *arrCategory;
     NSMutableArray                  *arrPage;
@@ -23,6 +23,8 @@
     NSMutableArray                  *arrPlayList;
     NSDictionary                    *dicCategory;
     BOOL areAdsRemoved;
+    NSArray *_products;
+
 }
 @end
 @implementation CollectionVC
@@ -111,6 +113,14 @@
 
 -(void)instance
 {
+    //IAP
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(productPurchased:) name:IAPHelperProductPurchasedNotification object:nil];
+    AppDelegate *app = (AppDelegate*)[[UIApplication sharedApplication] delegate];
+    _products = app.arrAIP;
+    if (_products) {
+        [self reloadIAP];
+    }
+
 //    self.pageControl.currentPageIndicatorTintColor = UIColorFromRGB(COLOR_PAGE_ACTIVE);
     [self.collectionView registerNib:[UINib nibWithNibName:@"CollectionCell" bundle:nil] forCellWithReuseIdentifier:@"collectionID"];
     self.collectionView.allowsSelection = NO;
@@ -135,6 +145,10 @@
 }
 -(void)updateDataMusic:(NSDictionary*)dicTmp
 {
+    AppDelegate *app = (AppDelegate*)[[UIApplication sharedApplication] delegate];
+    _products = app.arrAIP;
+
+    
     dicCategory = dicTmp;
     [arrMusic removeAllObjects];
     NSString *path = [self getFullPathWithFileName:dicCategory[@"path"]];
@@ -220,8 +234,9 @@
             //its iPad
             strDevice = @"i6plus";
         }
-        areAdsRemoved = [[NSUserDefaults standardUserDefaults] boolForKey:@"areAdsRemoved"];
+        areAdsRemoved = [[NSUserDefaults standardUserDefaults] boolForKey:kRemoveAdsProductIdentifier];
         [[NSUserDefaults standardUserDefaults] synchronize];
+
 
         if ([dicCategory[@"cover"] isKindOfClass:[NSArray class]]) {
             
@@ -233,7 +248,14 @@
             {
             if ([dicCategory[@"price"] boolValue]) {
                 strCover = dicCategory[@"cover"][0][strDevice];
-                [self.btnDownLoad setTitle:@"Buy $0.99" forState:UIControlStateNormal];
+                [self.btnDownLoad setTitle:@"Buy" forState:UIControlStateNormal];
+                
+                NSString * productIdentifier = kRemoveAdsProductIdentifier;
+                [_products enumerateObjectsUsingBlock:^(SKProduct * product, NSUInteger idx, BOOL *stop) {
+                    if ([product.productIdentifier isEqualToString:productIdentifier]) {
+                        [self.btnDownLoad setTitle:[NSString stringWithFormat:@"Buy %@%@",@"$",product.price] forState:UIControlStateNormal];
+                    }
+                }];
             }
             else
             {
@@ -250,7 +272,14 @@
             else
             {
                 if ([dicCategory[@"price"] boolValue]) {
-                    [self.btnDownLoad setTitle:@"Buy $0.99" forState:UIControlStateNormal];
+                    [self.btnDownLoad setTitle:@"Buy" forState:UIControlStateNormal];
+                    NSString * productIdentifier = kRemoveAdsProductIdentifier;
+                    [_products enumerateObjectsUsingBlock:^(SKProduct * product, NSUInteger idx, BOOL *stop) {
+                        if ([product.productIdentifier isEqualToString:productIdentifier]) {
+                            [self.btnDownLoad setTitle:[NSString stringWithFormat:@"Buy %@%@",@"$",product.price] forState:UIControlStateNormal];
+                        }
+                    }];
+
                 }
                 else
                 {
@@ -304,8 +333,8 @@
     else
     {
         if ([dicCategory[@"price"] boolValue]) {
-            [self restore];
-            [self tapsRemoveAds];
+//            [self restoreTapped:nil];
+            [self buyButtonTapped:nil];
         }
         else
         {
@@ -396,113 +425,39 @@
     return cell;
 }
 //MARK: - InAppPurchase
-- (void)tapsRemoveAds{
-    NSLog(@"User requests to remove ads");
+
+- (void)reloadIAP {
+    AppDelegate *app = (AppDelegate*)[[UIApplication sharedApplication] delegate];
+    [app reloadIAP];
+    [app setCallbackAIP:^()
+     {
+         [self updateDataMusic:dicCategory];
+     }];
+}
+- (void)buyButtonTapped:(id)sender {
+    AppDelegate *app = (AppDelegate*)[[UIApplication sharedApplication] delegate];
+    _products = app.arrAIP;
     
-    if([SKPaymentQueue canMakePayments]){
-        NSLog(@"User can make payments");
-        
-        //If you have more than one in-app purchase, and would like
-        //to have the user purchase a different product, simply define
-        //another function and replace kRemoveAdsProductIdentifier with
-        //the identifier for the other product
-        
-        SKProductsRequest *productsRequest = [[SKProductsRequest alloc] initWithProductIdentifiers:[NSSet setWithObject:kRemoveAdsProductIdentifier]];
-        productsRequest.delegate = self;
-        [productsRequest start];
-        
-    }
-    else{
-        NSLog(@"User cannot make payments due to parental controls");
-        //this is called the user cannot make payments, most likely due to parental controls
-    }
-}
-
-- (void)productsRequest:(SKProductsRequest *)request didReceiveResponse:(SKProductsResponse *)response{
-    SKProduct *validProduct = nil;
-    int count = (int)[response.products count];
-    if(count > 0){
-        validProduct = [response.products objectAtIndex:0];
-        NSLog(@"Products Available!");
-        [self purchase:validProduct];
-    }
-    else if(!validProduct){
-        NSLog(@"No products available");
-        //this is called if your product id is not valid, this shouldn't be called unless that happens.
-    }
-}
-
-- (void)purchase:(SKProduct *)product{
-    SKPayment *payment = [SKPayment paymentWithProduct:product];
-    
-    [[SKPaymentQueue defaultQueue] addTransactionObserver:self];
-    [[SKPaymentQueue defaultQueue] addPayment:payment];
-}
-
-- (void) restore{
-    //this is called when the user restores purchases, you should hook this up to a button
-    [[SKPaymentQueue defaultQueue] addTransactionObserver:self];
-    [[SKPaymentQueue defaultQueue] restoreCompletedTransactions];
-}
-
-- (void) paymentQueueRestoreCompletedTransactionsFinished:(SKPaymentQueue *)queue
-{
-    NSLog(@"received restored transactions: %lu", (unsigned long)queue.transactions.count);
-    for(SKPaymentTransaction *transaction in queue.transactions){
-        if(transaction.transactionState == SKPaymentTransactionStateRestored){
-            //called when the user successfully restores a purchase
-            NSLog(@"Transaction state -> Restored");
-            
-            //if you have more than one in-app purchase product,
-            //you restore the correct product for the identifier.
-            //For example, you could use
-            //if(productID == kRemoveAdsProductIdentifier)
-            //to get the product identifier for the
-            //restored purchases, you can use
-            //
-            //NSString *productID = transaction.payment.productIdentifier;
-            [self doRemoveAds];
-            [[SKPaymentQueue defaultQueue] finishTransaction:transaction];
-            break;
+    NSString * productIdentifier = kRemoveAdsProductIdentifier;
+    [_products enumerateObjectsUsingBlock:^(SKProduct * product, NSUInteger idx, BOOL *stop) {
+        if ([product.productIdentifier isEqualToString:productIdentifier]) {
+            [[RageIAPHelper sharedInstance] buyProduct:product];
+            *stop = YES;
         }
-    }
+    }];
 }
 
-- (void)paymentQueue:(SKPaymentQueue *)queue updatedTransactions:(NSArray *)transactions{
-    for(SKPaymentTransaction *transaction in transactions){
-        switch(transaction.transactionState){
-            case SKPaymentTransactionStatePurchasing: NSLog(@"Transaction state -> Purchasing");
-                //called when the user is in the process of purchasing, do not add any of your own code here.
-                break;
-            case SKPaymentTransactionStatePurchased:
-                //this is called when the user has successfully purchased the package (Cha-Ching!)
-                [self doRemoveAds]; //you can add your code for what you want to happen when the user buys the purchase here, for this tutorial we use removing ads
-                [[SKPaymentQueue defaultQueue] finishTransaction:transaction];
-                NSLog(@"Transaction state -> Purchased");
-                break;
-            case SKPaymentTransactionStateRestored:
-                NSLog(@"Transaction state -> Restored");
-                //add the same code as you did from SKPaymentTransactionStatePurchased here
-                [[SKPaymentQueue defaultQueue] finishTransaction:transaction];
-                break;
-            case SKPaymentTransactionStateFailed:
-                //called when the transaction does not finish
-                if(transaction.error.code == SKErrorPaymentCancelled){
-                    NSLog(@"Transaction state -> Cancelled");
-                    //the user cancelled the payment ;(
-                }
-                [[SKPaymentQueue defaultQueue] finishTransaction:transaction];
-                break;
-        }
-    }
+- (void)restoreTapped:(id)sender {
+    [[RageIAPHelper sharedInstance] restoreCompletedTransactions];
 }
+- (void)productPurchased:(NSNotification *)notification {
+    [self doRemoveAds];
+}
+
 - (void)doRemoveAds{
-    areAdsRemoved = YES;
-    [self.btnDownLoad setTitle:@"Update" forState:UIControlStateNormal];
-    //set the bool for whether or not they purchased it to YES, you could use your own boolean here, but you would have to declare it in your .h file
-    
-    [[NSUserDefaults standardUserDefaults] setBool:areAdsRemoved forKey:@"areAdsRemoved"];
-    //use NSUserDefaults so that you can load wether or not they bought it
+    areAdsRemoved = [[NSUserDefaults standardUserDefaults] boolForKey:kRemoveAdsProductIdentifier];
     [[NSUserDefaults standardUserDefaults] synchronize];
+    [self.btnDownLoad setTitle:@"Update" forState:UIControlStateNormal];
+    
 }
 @end

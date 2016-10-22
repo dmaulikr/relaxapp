@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "HomeVC.h"
 #import "FileHelper.h"
+#import "RageIAPHelper.h"
 @import Firebase;
 @interface AppDelegate ()<GADInterstitialDelegate>
 {
@@ -21,11 +22,13 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    [RageIAPHelper sharedInstance];
+    [self reloadIAP];
     // [START configure]
     [FIRApp configure];
     // [END configure]
     // Initialize Google Mobile Ads SDK
-    [GADMobileAds configureWithApplicationID:@"ca-app-pub-3940256099942544~1458002511"];
+    [GADMobileAds configureWithApplicationID:@"ca-app-pub-1671106005232686~9687608051"];
 
     
     
@@ -195,7 +198,6 @@
 }
 - (void)startNewAds {
     [self createAndLoadInterstitial];
-    [self performSelector:@selector(showAds) withObject:nil afterDelay:1.0];
 }
 -(void)showAds
 {
@@ -214,9 +216,33 @@
     // Request test ads on devices you specify. Your test device ID is printed to the console when
     [self.interstitial loadRequest:request];
 }
+- (void)interstitialDidReceiveAd:(GADInterstitial *)ad
+{
+    [self showAds];
+//    [self performSelector:@selector(showAds) withObject:nil afterDelay:1.0];
+}
+- (void)interstitial:(GADInterstitial *)ad didFailToReceiveAdWithError:(GADRequestError *)error
+{
+
+}
 - (void)interstitialDidDismissScreen:(GADInterstitial *)interstitial {
     if (_callbackDismissAds) {
         _callbackDismissAds();
     }
+}
+//MARK: -AIP
+-(void)setCallbackAIP:(AIPDelegateCallback)callbackAIP
+{
+    _callbackAIP = callbackAIP;
+}
+- (void)reloadIAP {
+    [[RageIAPHelper sharedInstance] requestProductsWithCompletionHandler:^(BOOL success, NSArray *products) {
+        if (success) {
+            _arrAIP = products;
+            if (_callbackAIP) {
+                _callbackAIP();
+            }
+        }
+    }];
 }
 @end

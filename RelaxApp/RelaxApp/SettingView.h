@@ -19,5 +19,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *lbTitleAbout;
 @property (strong, nonatomic) IBOutlet UILabel *lbCredit;
 @property (strong, nonatomic) IBOutlet UILabel *lbPrivacy;
+@property (strong, nonatomic) IBOutlet UISwitch *unlockPro;
+@property (strong, nonatomic) IBOutlet UISwitch *totalRemoveAds;
 
 @end

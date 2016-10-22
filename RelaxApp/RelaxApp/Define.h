@@ -41,8 +41,12 @@
 #define NOTIFCATION_CATEGORY @"NOTIFCATION_CATEGORY"
 #define NOTIFCATION_SHOW_ADS @"SHOW_ADS"
 #define FIREBASE_INTERSTITIAL_UnitID @"ca-app-pub-3940256099942544/4411468910"
-#define FIREBASE_BANNER_UnitID @"ca-app-pub-3940256099942544/2934735716"
+#define FIREBASE_BANNER_UnitID @"ca-app-pub-1671106005232686/2164341256"
 
+#define FILE_IAP_SAVE @"IAP"
+#define kRemoveAdsProductIdentifier @"com.Relaf.Relaf.RelafPricing"
+#define kUnlockProProductIdentifier @"com.Relaf.Relaf.UnlockPro"
+#define kTotalRemoveAdsProductIdentifier @"com.Relaf.Relaf.RemoveAds"
 
 #define DEFAULT_VOLUME 0.5
 

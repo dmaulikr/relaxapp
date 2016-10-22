@@ -20,6 +20,9 @@
 		EB11EE6A1D9AF45000804D34 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB11EE691D9AF45000804D34 /* QuartzCore.framework */; };
 		EB11EE6E1D9AF4A300804D34 /* CollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EB11EE6C1D9AF4A300804D34 /* CollectionCell.m */; };
 		EB11EE6F1D9AF4A300804D34 /* CollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB11EE6D1D9AF4A300804D34 /* CollectionCell.xib */; };
+		EB137BA41DBBD42500DB1EBB /* IAPHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = EB137BA31DBBD42500DB1EBB /* IAPHelper.m */; };
+		EB137BA71DBBD42B00DB1EBB /* RageIAPHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = EB137BA61DBBD42B00DB1EBB /* RageIAPHelper.m */; };
+		EB137BAA1DBC08C900DB1EBB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EB137BA91DBC08C900DB1EBB /* GoogleService-Info.plist */; };
 		EB140DB51DB54830006E6FD9 /* ASPopUpView.m in Sources */ = {isa = PBXBuildFile; fileRef = EB140DB11DB54830006E6FD9 /* ASPopUpView.m */; };
 		EB140DB61DB54830006E6FD9 /* ASProgressPopUpView.m in Sources */ = {isa = PBXBuildFile; fileRef = EB140DB21DB54830006E6FD9 /* ASProgressPopUpView.m */; };
 		EB14BA6D1DA16FCA00385759 /* VolumeItem.m in Sources */ = {isa = PBXBuildFile; fileRef = EB14BA6B1DA16FCA00385759 /* VolumeItem.m */; };
@@ -51,7 +54,6 @@
 		EB3072021DABE2B6009D90DD /* RobotoCondensed-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EB3071F01DABE2B6009D90DD /* RobotoCondensed-Light.ttf */; };
 		EB3072031DABE2B6009D90DD /* RobotoCondensed-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EB3071F11DABE2B6009D90DD /* RobotoCondensed-LightItalic.ttf */; };
 		EB3072041DABE2B6009D90DD /* RobotoCondensed-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EB3071F21DABE2B6009D90DD /* RobotoCondensed-Regular.ttf */; };
-		EB3B17341DBB15E300B26A10 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EB3B17331DBB15E300B26A10 /* GoogleService-Info.plist */; };
 		EB3B17371DBB270C00B26A10 /* UIAlertView+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = EB3B17361DBB270C00B26A10 /* UIAlertView+Blocks.m */; };
 		EB420B111DAD609500F47C8B /* UIImage+TBTint.m in Sources */ = {isa = PBXBuildFile; fileRef = EB420B101DAD609500F47C8B /* UIImage+TBTint.m */; };
 		EB420B131DAD630600F47C8B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB420B121DAD630600F47C8B /* CoreGraphics.framework */; };
@@ -83,7 +85,6 @@
 		EB4C800D1DA3FE69003CD3D6 /* UIImageView+HighlightedWebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = EB4C7FFB1DA3FE69003CD3D6 /* UIImageView+HighlightedWebCache.m */; };
 		EB4C800E1DA3FE69003CD3D6 /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = EB4C7FFD1DA3FE69003CD3D6 /* UIImageView+WebCache.m */; };
 		EB4C800F1DA3FE69003CD3D6 /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = EB4C7FFF1DA3FE69003CD3D6 /* UIView+WebCacheOperation.m */; };
-		EB4D852C1DB7E61500112454 /* RMStore.m in Sources */ = {isa = PBXBuildFile; fileRef = EB4D852B1DB7E61500112454 /* RMStore.m */; };
 		EB56B6001DA2B958001AFC87 /* AHTag.m in Sources */ = {isa = PBXBuildFile; fileRef = EB56B5FD1DA2B958001AFC87 /* AHTag.m */; };
 		EB56B6091DA2B964001AFC87 /* AHTagsLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = EB56B6031DA2B964001AFC87 /* AHTagsLabel.m */; };
 		EB56B60A1DA2B964001AFC87 /* AHTagTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EB56B6051DA2B964001AFC87 /* AHTagTableViewCell.m */; };
@@ -165,6 +166,11 @@
 		EB11EE6B1D9AF4A300804D34 /* CollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionCell.h; sourceTree = "<group>"; };
 		EB11EE6C1D9AF4A300804D34 /* CollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionCell.m; sourceTree = "<group>"; };
 		EB11EE6D1D9AF4A300804D34 /* CollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollectionCell.xib; sourceTree = "<group>"; };
+		EB137BA21DBBD42500DB1EBB /* IAPHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IAPHelper.h; sourceTree = "<group>"; };
+		EB137BA31DBBD42500DB1EBB /* IAPHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IAPHelper.m; sourceTree = "<group>"; };
+		EB137BA51DBBD42B00DB1EBB /* RageIAPHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RageIAPHelper.h; sourceTree = "<group>"; };
+		EB137BA61DBBD42B00DB1EBB /* RageIAPHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RageIAPHelper.m; sourceTree = "<group>"; };
+		EB137BA91DBC08C900DB1EBB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		EB140DB11DB54830006E6FD9 /* ASPopUpView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASPopUpView.m; sourceTree = "<group>"; };
 		EB140DB21DB54830006E6FD9 /* ASProgressPopUpView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASProgressPopUpView.m; sourceTree = "<group>"; };
 		EB140DB31DB54830006E6FD9 /* ASPopUpView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASPopUpView.h; sourceTree = "<group>"; };
@@ -209,7 +215,6 @@
 		EB3071F01DABE2B6009D90DD /* RobotoCondensed-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoCondensed-Light.ttf"; sourceTree = "<group>"; };
 		EB3071F11DABE2B6009D90DD /* RobotoCondensed-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoCondensed-LightItalic.ttf"; sourceTree = "<group>"; };
 		EB3071F21DABE2B6009D90DD /* RobotoCondensed-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoCondensed-Regular.ttf"; sourceTree = "<group>"; };
-		EB3B17331DBB15E300B26A10 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		EB3B17351DBB270C00B26A10 /* UIAlertView+Blocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+Blocks.h"; sourceTree = "<group>"; };
 		EB3B17361DBB270C00B26A10 /* UIAlertView+Blocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertView+Blocks.m"; sourceTree = "<group>"; };
 		EB420B0F1DAD609500F47C8B /* UIImage+TBTint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+TBTint.h"; sourceTree = "<group>"; };
@@ -263,8 +268,6 @@
 		EB4C7FFD1DA3FE69003CD3D6 /* UIImageView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+WebCache.m"; sourceTree = "<group>"; };
 		EB4C7FFE1DA3FE69003CD3D6 /* UIView+WebCacheOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+WebCacheOperation.h"; sourceTree = "<group>"; };
 		EB4C7FFF1DA3FE69003CD3D6 /* UIView+WebCacheOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WebCacheOperation.m"; sourceTree = "<group>"; };
-		EB4D852A1DB7E61500112454 /* RMStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMStore.h; sourceTree = "<group>"; };
-		EB4D852B1DB7E61500112454 /* RMStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMStore.m; sourceTree = "<group>"; };
 		EB56B5FC1DA2B958001AFC87 /* AHTag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AHTag.h; sourceTree = "<group>"; };
 		EB56B5FD1DA2B958001AFC87 /* AHTag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AHTag.m; sourceTree = "<group>"; };
 		EB56B6021DA2B964001AFC87 /* AHTagsLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AHTagsLabel.h; sourceTree = "<group>"; };
@@ -431,7 +434,7 @@
 				EBF9B5551DA54D0500F07655 /* SETTING */,
 				EB11EDD01D9AB24900804D34 /* Assets.xcassets */,
 				EB11EDD51D9AB24900804D34 /* Info.plist */,
-				EB3B17331DBB15E300B26A10 /* GoogleService-Info.plist */,
+				EB137BA91DBC08C900DB1EBB /* GoogleService-Info.plist */,
 				EB11EDC41D9AB24900804D34 /* Supporting Files */,
 				EBFB07BF1D9EE03100AF2569 /* Define.h */,
 			);
@@ -492,6 +495,17 @@
 				EBA016091DB6C83700D5477C /* TabVC.m */,
 			);
 			name = Nav;
+			sourceTree = "<group>";
+		};
+		EB137BA81DBBD43100DB1EBB /* InAppRage */ = {
+			isa = PBXGroup;
+			children = (
+				EB137BA21DBBD42500DB1EBB /* IAPHelper.h */,
+				EB137BA31DBBD42500DB1EBB /* IAPHelper.m */,
+				EB137BA51DBBD42B00DB1EBB /* RageIAPHelper.h */,
+				EB137BA61DBBD42B00DB1EBB /* RageIAPHelper.m */,
+			);
+			name = InAppRage;
 			sourceTree = "<group>";
 		};
 		EB140DB71DB54834006E6FD9 /* ASProgressPopUpView */ = {
@@ -615,10 +629,9 @@
 		EB56B6101DA2C4A3001AFC87 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				EB137BA81DBBD43100DB1EBB /* InAppRage */,
 				EB3B17351DBB270C00B26A10 /* UIAlertView+Blocks.h */,
 				EB3B17361DBB270C00B26A10 /* UIAlertView+Blocks.m */,
-				EB4D852A1DB7E61500112454 /* RMStore.h */,
-				EB4D852B1DB7E61500112454 /* RMStore.m */,
 				EB140DB71DB54834006E6FD9 /* ASProgressPopUpView */,
 				EB17B9871DB12B7D007DBFDF /* PercentageDoughnutView */,
 				EB19F46F1DB003B700A84DE6 /* UIImage+ImageEffects.h */,
@@ -900,7 +913,6 @@
 				EB3071FC1DABE2B6009D90DD /* Roboto-Regular.ttf in Resources */,
 				EBFB07B01D9EA0D300AF2569 /* SettingView.xib in Resources */,
 				EB3072011DABE2B6009D90DD /* RobotoCondensed-Italic.ttf in Resources */,
-				EB3B17341DBB15E300B26A10 /* GoogleService-Info.plist in Resources */,
 				EB4BE3DB1DA81A9B006E6803 /* SettingAbout.xib in Resources */,
 				EB3071F61DABE2B6009D90DD /* Roboto-BoldItalic.ttf in Resources */,
 				EB3072021DABE2B6009D90DD /* RobotoCondensed-Light.ttf in Resources */,
@@ -932,6 +944,7 @@
 				EB4C7FDE1DA3F3BF003CD3D6 /* CreaterTimer.xib in Resources */,
 				EB3071F31DABE2B6009D90DD /* Roboto-Black.ttf in Resources */,
 				EB3071F91DABE2B6009D90DD /* Roboto-LightItalic.ttf in Resources */,
+				EB137BAA1DBC08C900DB1EBB /* GoogleService-Info.plist in Resources */,
 				EB3072041DABE2B6009D90DD /* RobotoCondensed-Regular.ttf in Resources */,
 				EBFF14741DA04C2800CA98F1 /* IDZAQAudioPlayerViewController.xib in Resources */,
 			);
@@ -998,6 +1011,7 @@
 				EB4C80071DA3FE69003CD3D6 /* SDWebImageDownloaderOperation.m in Sources */,
 				EBFF14761DA04C2800CA98F1 /* IDZAQAudioPlayer.m in Sources */,
 				EB56B60F1DA2C497001AFC87 /* FileHelper.m in Sources */,
+				EB137BA41DBBD42500DB1EBB /* IAPHelper.m in Sources */,
 				EB4C7FDB1DA3F3BF003CD3D6 /* TimerCell.m in Sources */,
 				EB140DB51DB54830006E6FD9 /* ASPopUpView.m in Sources */,
 				EBFF14791DA04C2800CA98F1 /* IDZOggVorbisFileDecoder.mm in Sources */,
@@ -1028,6 +1042,7 @@
 				EBFF13B91DA00E1700CA98F1 /* AFSecurityPolicy.m in Sources */,
 				EB56B60C1DA2B964001AFC87 /* AHTagView.m in Sources */,
 				EBFF14291DA01E4700CA98F1 /* prng.c in Sources */,
+				EB137BA71DBBD42B00DB1EBB /* RageIAPHelper.m in Sources */,
 				EBFF14251DA01E4700CA98F1 /* aestab.c in Sources */,
 				EB4BE3EA1DA8280B006E6803 /* NSDate+Extensions.m in Sources */,
 				EB4C80051DA3FE69003CD3D6 /* SDWebImageDecoder.m in Sources */,
@@ -1065,7 +1080,6 @@
 				EBFF13B71DA00E1700CA98F1 /* AFHTTPSessionManager.m in Sources */,
 				EB4C80011DA3FE69003CD3D6 /* README.md in Sources */,
 				EBFF13BB1DA00E1700CA98F1 /* AFURLResponseSerialization.m in Sources */,
-				EB4D852C1DB7E61500112454 /* RMStore.m in Sources */,
 				EBFF142B1DA01E4700CA98F1 /* sha1.c in Sources */,
 				EB14BA6D1DA16FCA00385759 /* VolumeItem.m in Sources */,
 				EBFF14321DA01E4700CA98F1 /* SSZipArchive.m in Sources */,

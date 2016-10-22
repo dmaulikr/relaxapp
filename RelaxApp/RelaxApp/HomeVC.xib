@@ -11,6 +11,7 @@
                 <outlet property="bannerView" destination="4QC-v9-cCj" id="Kt9-GP-ny8"/>
                 <outlet property="btnAddfavorite" destination="HuF-UO-w2s" id="PTn-Lz-XxI"/>
                 <outlet property="btnclearAll" destination="cR3-fq-yGi" id="OVC-EU-Cda"/>
+                <outlet property="contraintBottomvTab" destination="SJQ-0d-UQn" id="vqB-LT-oxg"/>
                 <outlet property="imgAddfavorite" destination="Fcy-Qv-UqT" id="nFD-hK-kef"/>
                 <outlet property="imgBackGround" destination="gs3-0O-fox" id="O7n-Th-69x"/>
                 <outlet property="imgFavorite" destination="SDP-Wj-Imn" id="tuf-aa-U88"/>
@@ -138,7 +139,7 @@
                                 <constraint firstAttribute="trailing" secondItem="I9x-fq-QQD" secondAttribute="trailing" id="xFD-J7-17d"/>
                             </constraints>
                         </view>
-                        <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hKX-rp-Ikx">
+                        <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hKX-rp-Ikx">
                             <connections>
                                 <outlet property="delegate" destination="-1" id="CK2-N2-xXm"/>
                             </connections>
@@ -272,7 +273,7 @@
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <constraints>
-                                <constraint firstItem="IDD-5A-V3f" firstAttribute="centerY" secondItem="VCE-OI-DDE" secondAttribute="centerY" id="1rs-We-GUF"/>
+                                <constraint firstItem="IDD-5A-V3f" firstAttribute="centerY" secondItem="VCE-OI-DDE" secondAttribute="centerY" constant="-3" id="1rs-We-GUF"/>
                                 <constraint firstItem="IDD-5A-V3f" firstAttribute="centerX" secondItem="VCE-OI-DDE" secondAttribute="centerX" id="I9C-cq-iUc"/>
                                 <constraint firstAttribute="trailing" secondItem="VCE-OI-DDE" secondAttribute="trailing" id="SvS-w1-yuV"/>
                                 <constraint firstItem="VCE-OI-DDE" firstAttribute="leading" secondItem="NF6-JL-7p9" secondAttribute="leading" id="Tqb-hf-zSq"/>

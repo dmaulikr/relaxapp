@@ -17,14 +17,16 @@
 #import "AppDelegate.h"
 #import <MediaPlayer/MediaPlayer.h>
 #import "UIAlertView+Blocks.h"
+#import "RageIAPHelper.h"
 @import GoogleMobileAds;
-@interface HomeVC ()<UIScrollViewDelegate,AVAudioSessionDelegate,GADInterstitialDelegate>
+@interface HomeVC ()<UIScrollViewDelegate,AVAudioSessionDelegate,GADInterstitialDelegate,GADBannerViewDelegate>
 {
     NSMutableArray                  *arrCategory;
     NSMutableArray                  *arrPlayList;
     NSMutableArray                  *arrColection;
     NSMutableArray *arrTotal;
     int iNumberCollection;
+
 }
 @end
 
@@ -36,12 +38,16 @@
     
     self.bannerView.adUnitID = FIREBASE_BANNER_UnitID;
     self.bannerView.rootViewController = self;
-    
+    self.bannerView.delegate = self;
     GADRequest *request = [GADRequest request];
+    request.testDevices = @[@"39a7131f0ddf6c07dd8e764042b786e2edb0d7d5",
+                            @"f1b375470fbe578bbaffd54c92170f5b91554f56",
+                            @"492e5fc39e75b5d1015b03ea3e6979997f72442d",
+                            @"73761a8a7e4f7e45547af96fe009872e67598cb2",
+                            @"ba1e422fb34ca93c161b25b78371d4bf64a9bd08"];
     // Requests test ads on devices you specify. Your test device ID is printed to the console when
     // an ad request is made. GADBannerView automatically returns test ads when running on a
     [self.bannerView loadRequest:request];
-
     //
     self.navigationController.navigationBar.hidden = YES;
 
@@ -73,7 +79,7 @@
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    
+
     [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback
                                            error:nil];
     [[AVAudioSession sharedInstance] setActive:YES
@@ -406,7 +412,8 @@
     [self.vVolumeTotal removeFromSuperview];
 
     self.vVolumeTotal = [[VolumeView alloc] initWithClassName:NSStringFromClass([VolumeView class])];
-    [self.vVolumeTotal addContraintSupview:self.view];
+    [self.vVolumeTotal setup];
+    [self addVolumeTotalContraintSupview: self.vVolumeTotal];
     [self.vVolumeTotal setCallback:^()
      {
          [wself changeVolumeTotal];
@@ -429,6 +436,32 @@
          }
      }];
     self.vVolumeTotal.hidden = YES;
+}
+-(void)addVolumeTotalContraintSupview:(UIView*)view
+{
+    UIView *viewSuper = self.view;
+    UIView *viewBottom  = self.vTabVC;
+    view.translatesAutoresizingMaskIntoConstraints = NO;
+    view.frame = viewSuper.frame;
+    
+    [viewSuper addSubview:view];
+    [viewSuper addConstraint: [NSLayoutConstraint
+                               constraintWithItem:view attribute:NSLayoutAttributeBottom
+                               relatedBy:NSLayoutRelationEqual
+                               toItem:viewBottom
+                               attribute:NSLayoutAttributeTop
+                               multiplier:1.0 constant:0] ];
+    [view addConstraint:[NSLayoutConstraint constraintWithItem:view
+                                                      attribute:NSLayoutAttributeWidth
+                                                      relatedBy:NSLayoutRelationEqual
+                                                         toItem:nil
+                                                      attribute: NSLayoutAttributeNotAnAttribute
+                                                     multiplier:1
+                                                       constant:50]];    
+    [viewSuper addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-(0)-[view]-(0)-|"
+                                                                      options:0
+                                                                      metrics:nil
+                                                                        views:NSDictionaryOfVariableBindings(view)]];
 }
 -(void)changeVolumeTotal
 {
@@ -773,6 +806,12 @@
 -(void)caculatorSubScrollview
 {
     [self checkMusicActive];
+    //update frame scroll view
+//    CGRect rect = rectScroll;
+//    rect.size.height = rect.size.height + self.contraintBottomvTab.constant;
+//    self.scroll_View.frame = rect;
+    //
+
     NSString * language = [[NSLocale preferredLanguages] objectAtIndex:0];
     NSString *userLanguage = @"en";
     if (language.length >=2) {
@@ -1195,6 +1234,60 @@
                 break;
         }
     }
+}
+//MARK: - DELEGATE ADS
+- (void)adViewDidReceiveAd:(GADBannerView *)bannerView
+{
+    self.contraintBottomvTab.constant = 50;
+            [UIView animateWithDuration:0.1
+                                  delay:0.1
+                                options: 0
+                             animations:^
+             {
+                 [self.view layoutIfNeeded]; // Called on parent view
+             }
+                             completion:^(BOOL finished)
+             {
+    
+                 [self caculatorSubScrollview];
+
+             }];
+}
+
+/// Tells the delegate that an ad request failed. The failure is normally due to network
+/// connectivity or ad availablility (i.e., no fill).
+- (void)adView:(GADBannerView *)bannerView didFailToReceiveAdWithError:(GADRequestError *)error
+{
+}
+
+#pragma mark Click-Time Lifecycle Notifications
+
+/// Tells the delegate that a full screen view will be presented in response to the user clicking on
+/// an ad. The delegate may want to pause animations and time sensitive interactions.
+- (void)adViewWillPresentScreen:(GADBannerView *)bannerView
+{
+
+}
+
+/// Tells the delegate that the full screen view will be dismissed.
+- (void)adViewWillDismissScreen:(GADBannerView *)bannerView
+{
+
+}
+
+/// Tells the delegate that the full screen view has been dismissed. The delegate should restart
+/// anything paused while handling adViewWillPresentScreen:.
+- (void)adViewDidDismissScreen:(GADBannerView *)bannerView
+{
+
+}
+
+/// Tells the delegate that the user click will open another app, backgrounding the current
+/// application. The standard UIApplicationDelegate methods, like applicationDidEnterBackground:,
+/// are called immediately before this method is called.
+- (void)adViewWillLeaveApplication:(GADBannerView *)bannerView
+{
+
 }
 
 @end

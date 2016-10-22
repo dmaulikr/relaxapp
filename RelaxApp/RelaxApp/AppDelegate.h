@@ -12,6 +12,7 @@
 typedef void (^AppDelegateCallback)(NSDictionary *dicTimer);
 typedef void (^TimerTickCallback)();
 typedef void (^DismisAdsDelegateCallback)();
+typedef void (^AIPDelegateCallback)();
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
@@ -20,8 +21,12 @@ typedef void (^DismisAdsDelegateCallback)();
 @property (nonatomic,copy) AppDelegateCallback callback;
 @property (nonatomic,copy) TimerTickCallback  callbackTimerTick;
 @property (nonatomic,copy) DismisAdsDelegateCallback  callbackDismissAds;
+@property (nonatomic,copy) AIPDelegateCallback  callbackAIP;
+
+@property (nonatomic,strong) NSArray  *arrAIP;
 
 @property(nonatomic, strong) GADInterstitial *interstitial;
 - (void)startNewAds;
+- (void)reloadIAP;
 @end
 

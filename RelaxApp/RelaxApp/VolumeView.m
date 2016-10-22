@@ -19,6 +19,12 @@
     }
     return self;
 }
+-(void)setup
+{
+    float vol = [[MPMusicPlayerController applicationMusicPlayer] volume];
+    [self.slider setValue:vol];
+    
+}
 -(void)awakeFromNib
 {
     [super awakeFromNib];

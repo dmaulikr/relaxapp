@@ -25,4 +25,5 @@ typedef void (^DismissCallback)();
 -(IBAction)decreaseAction:(id)sender;
 -(IBAction)increaseAction:(id)sender;
 -(void)showVolume:(BOOL)show;
+-(void)setup;
 @end

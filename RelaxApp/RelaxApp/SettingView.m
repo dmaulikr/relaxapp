@@ -17,8 +17,15 @@
 #import "Define.h"
 #import "UIImage+ImageEffects.h"
 #import "SettingCredit.h"
+#import "AppDelegate.h"
+#import "RageIAPHelper.h"
 @interface SettingView () <MFMailComposeViewControllerDelegate>
+{
+    BOOL areUnlockPro;
+    BOOL areAdsRemoved;
+    NSArray *_products;
 
+}
 @end
 @implementation SettingView
 
@@ -35,6 +42,15 @@
 //    self.lbPrivacy.font= [UIFont fontWithName:@"Roboto-Regular" size:13];
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(caculatorTimeAgo) name: NOTIFCATION_CATEGORY object:nil];
+    AppDelegate *app = (AppDelegate*)[[UIApplication sharedApplication] delegate];
+    _products = app.arrAIP;
+    if (_products) {
+        [self reloadIAP];
+    }
+    areAdsRemoved = [[NSUserDefaults standardUserDefaults] boolForKey:kTotalRemoveAdsProductIdentifier];
+    areUnlockPro = [[NSUserDefaults standardUserDefaults] boolForKey:kUnlockProProductIdentifier];
+    _unlockPro.on = areUnlockPro;
+    _totalRemoveAds.on = areAdsRemoved;
     [self caculatorTimeAgo];
 }
 -(void)caculatorTimeAgo
@@ -233,6 +249,75 @@
 {
     [self openUrlInBrowser:@"https://www.relafapp.com/privacy.html"];
 
+}
+- (IBAction)switchUnlockProValueChanged:(id)sender
+{
+    UISwitch *sw = (UISwitch*)sender;
+    if (areUnlockPro) {
+        sw.on = areUnlockPro;
+        return;
+    }
+    else
+    {
+        AppDelegate *app = (AppDelegate*)[[UIApplication sharedApplication] delegate];
+        _products = app.arrAIP;
+        
+        NSString * productIdentifier = kUnlockProProductIdentifier;
+        [_products enumerateObjectsUsingBlock:^(SKProduct * product, NSUInteger idx, BOOL *stop) {
+            if ([product.productIdentifier isEqualToString:productIdentifier]) {
+                [[RageIAPHelper sharedInstance] buyProduct:product];
+                *stop = YES;
+            }
+        }];
+    }
+}
+- (IBAction)switchRemoveAdsProValueChanged:(id)sender
+{
+    UISwitch *sw = (UISwitch*)sender;
+    if (areAdsRemoved) {
+        sw.on = areAdsRemoved;
+        return;
+    }
+    else
+    {
+        AppDelegate *app = (AppDelegate*)[[UIApplication sharedApplication] delegate];
+        _products = app.arrAIP;
+        
+        NSString * productIdentifier = kTotalRemoveAdsProductIdentifier;
+        [_products enumerateObjectsUsingBlock:^(SKProduct * product, NSUInteger idx, BOOL *stop) {
+            if ([product.productIdentifier isEqualToString:productIdentifier]) {
+                [[RageIAPHelper sharedInstance] buyProduct:product];
+                *stop = YES;
+            }
+        }];
+    }
+}
+- (void)reloadIAP {
+    AppDelegate *app = (AppDelegate*)[[UIApplication sharedApplication] delegate];
+    [app reloadIAP];
+    [app setCallbackAIP:^()
+     {
+         AppDelegate *app = (AppDelegate*)[[UIApplication sharedApplication] delegate];
+         _products = app.arrAIP;
+     }];
+}
+
+- (void)restoreTapped:(id)sender {
+    [[RageIAPHelper sharedInstance] restoreCompletedTransactions];
+}
+- (void)productPurchased:(NSNotification *)notification {
+    [self doRemoveAds];
+}
+
+- (void)doRemoveAds{
+    areAdsRemoved = [[NSUserDefaults standardUserDefaults] boolForKey:kTotalRemoveAdsProductIdentifier];
+    areUnlockPro = [[NSUserDefaults standardUserDefaults] boolForKey:kUnlockProProductIdentifier];
+    
+    _unlockPro.on = areUnlockPro;
+    _totalRemoveAds.on = areAdsRemoved;
+
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
 }
 - (UIImage *)takeSnapshotOfView:(UIView *)view
 {

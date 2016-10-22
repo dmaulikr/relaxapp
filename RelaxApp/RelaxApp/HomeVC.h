@@ -68,6 +68,7 @@
 
 @property (weak, nonatomic) IBOutlet ASProgressPopUpView *progressView1;
 @property(nonatomic, weak) IBOutlet GADBannerView *bannerView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *contraintBottomvTab;
 
 
 @property (nonatomic, strong)  FavoriteView *vFavorite;
