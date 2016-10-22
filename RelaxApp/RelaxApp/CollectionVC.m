@@ -263,7 +263,7 @@
     }
     else
     {
-        if ([dicCategory[@"price"] boolValue]) {
+        if (![dicCategory[@"price"] boolValue]) {
             [self restore];
             [self tapsRemoveAds];
         }
