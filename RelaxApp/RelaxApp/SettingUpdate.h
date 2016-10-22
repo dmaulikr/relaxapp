@@ -12,6 +12,9 @@
 #import "MCPercentageDoughnutView.h"
 
 @interface SettingUpdate : BaseView
+{
+    BOOL areUnlockPro;
+}
 @property (nonatomic, strong) IBOutlet UIButton *btnCancel;
 @property (nonatomic, strong) IBOutlet UIImageView *blurredBgImage;
 @property (strong, nonatomic) IBOutlet MCPercentageDoughnutView *percentageDoughnut;

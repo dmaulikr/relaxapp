@@ -30,35 +30,53 @@
     self.btnCancel.hidden = YES;
     // Blurred with UIImage+ImageEffects
     //show ads
-    [UIAlertView showWithTitle:@"Watch a video to check update in this time !" message:@"By Clicking OK you permit the app download and use free storage on your phone"
-             cancelButtonTitle:@"Cancel"
-             otherButtonTitles:@[@"OK"]
-                      tapBlock:^(UIAlertView *alertView, NSInteger buttonIndex) {
-                          
-                          if (buttonIndex == 1) {
-                              //OK button handler
-                              AppDelegate *app = (AppDelegate*)[[UIApplication sharedApplication] delegate];
-                              [app startNewAds];
-                              [app setCallbackDismissAds:^()
-                               {
-                                   self.btnCancel.hidden = NO;
-                                   [self updateAction:nil];
-                                   
-                               }];
-                          }
-                          else
-                          {
-                              //Cancel button handler
-                              [self closeAction:nil];
+    areUnlockPro = [[NSUserDefaults standardUserDefaults] boolForKey:kUnlockProProductIdentifier];
+    if (areUnlockPro) {
+        [UIAlertView showWithTitle:@"Do you want update something new?" message:@"By Clicking OK you permit the app download and use free storage on your phone"
+                 cancelButtonTitle:@"Cancel"
+                 otherButtonTitles:@[@"OK"]
+                          tapBlock:^(UIAlertView *alertView, NSInteger buttonIndex) {
+                              
+                              if (buttonIndex == 1) {
+                                  //OK button handler
+                                       self.btnCancel.hidden = NO;
+                                       [self updateAction:nil];
+                              }
+                              else
+                              {
+                                  //Cancel button handler
+                                  [self closeAction:nil];
+                                  
+                              }
+                          }];
+    }
+    else
+    {
+        [UIAlertView showWithTitle:@"Watch a video to check update in this time !" message:@"By Clicking OK you permit the app download and use free storage on your phone"
+                 cancelButtonTitle:@"Cancel"
+                 otherButtonTitles:@[@"OK"]
+                          tapBlock:^(UIAlertView *alertView, NSInteger buttonIndex) {
+                              
+                              if (buttonIndex == 1) {
+                                  //OK button handler
+                                  AppDelegate *app = (AppDelegate*)[[UIApplication sharedApplication] delegate];
+                                  [app startNewAds];
+                                  [app setCallbackDismissAds:^()
+                                   {
+                                       self.btnCancel.hidden = NO;
+                                       [self updateAction:nil];
+                                       
+                                   }];
+                              }
+                              else
+                              {
+                                  //Cancel button handler
+                                  [self closeAction:nil];
+                                  
+                              }
+                          }];
 
-                          }
-                      }];
-//    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Do you want update something new?"
-//                                                    message:@"By Clicking OK you permit the app download and use free storage on your phone"
-//                                                   delegate:self
-//                                          cancelButtonTitle:@"Cancel"
-//                                          otherButtonTitles: @"OK", nil];
-//    [alert show];
+    }
     
     self.percentageDoughnut.dataSource              = self;
     self.percentageDoughnut.percentage              = 0;
@@ -75,21 +93,7 @@
     self.percentageDoughnut.gradientColor2          = [UIColor clearColor];
 
 }
-//- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
-//    switch(buttonIndex){
-//        case 0:
-//            //Cancel button handler
-//            [self closeAction:nil];
-//            break;
-//        case 1:
-//            //OK button handler
-//            self.btnCancel.hidden = NO;
-//            [self updateAction:nil];
-//            break;
-//        default:
-//            break;
-//    }
-//}
+
 
 -(void)dismissKeyboard {
     [self endEditing:YES];

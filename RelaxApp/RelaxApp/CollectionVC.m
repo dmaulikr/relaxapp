@@ -24,7 +24,7 @@
     NSDictionary                    *dicCategory;
     BOOL areAdsRemoved;
     NSArray *_products;
-
+    BOOL areUnlockPro;
 }
 @end
 @implementation CollectionVC
@@ -114,13 +114,16 @@
 -(void)instance
 {
     //IAP
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(productPurchased:) name:IAPHelperProductPurchasedNotification object:nil];
-    AppDelegate *app = (AppDelegate*)[[UIApplication sharedApplication] delegate];
-    _products = app.arrAIP;
-    if (_products) {
-        [self reloadIAP];
-    }
 
+    areUnlockPro = [[NSUserDefaults standardUserDefaults] boolForKey:kUnlockProProductIdentifier];
+    if (!areUnlockPro) {
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(productPurchased:) name:IAPHelperProductPurchasedNotification object:nil];
+        AppDelegate *app = (AppDelegate*)[[UIApplication sharedApplication] delegate];
+        _products = app.arrAIP;
+        if (_products) {
+            [self reloadIAP];
+        }
+    }
 //    self.pageControl.currentPageIndicatorTintColor = UIColorFromRGB(COLOR_PAGE_ACTIVE);
     [self.collectionView registerNib:[UINib nibWithNibName:@"CollectionCell" bundle:nil] forCellWithReuseIdentifier:@"collectionID"];
     self.collectionView.allowsSelection = NO;
@@ -159,26 +162,33 @@
         NSArray *arrSounds = [dicCategory[@"sounds"] mutableCopy];
         for (int i = 0; i <arrSounds.count; i++) {
             NSMutableDictionary *dic = [arrSounds[i] mutableCopy];
-            if ([dic[@"ads"] boolValue]) {
+            if (areUnlockPro) {
+                [dic setObject:@(0) forKey:@"ads"];
                 
-                //check exist in blacklist
-                NSString *strPathShowAds = [FileHelper pathForApplicationDataFile:FILE_HISTORY_SHOW_ADS_SAVE];
-                NSDictionary *dicLoadCache = [NSDictionary dictionaryWithContentsOfFile:strPathShowAds];
-                NSMutableDictionary *dicShowAds = [NSMutableDictionary dictionaryWithDictionary:dicLoadCache];
-
-                NSString *strID = [NSString stringWithFormat:@"%@%@",dicCategory[@"id"],dic[@"id"]];
-                if (dicShowAds[strID]) {
-                    NSDate *dateShowAds = dicShowAds[strID];
-                    if ([self checkPassOneDaye:dateShowAds]) {
-                        [dicShowAds removeObjectForKey:strID];
-                        [dicShowAds writeToFile:strPathShowAds atomically:YES];
+            }
+            else
+            {
+                if ([dic[@"ads"] boolValue]) {
+                    
+                    //check exist in blacklist
+                    NSString *strPathShowAds = [FileHelper pathForApplicationDataFile:FILE_HISTORY_SHOW_ADS_SAVE];
+                    NSDictionary *dicLoadCache = [NSDictionary dictionaryWithContentsOfFile:strPathShowAds];
+                    NSMutableDictionary *dicShowAds = [NSMutableDictionary dictionaryWithDictionary:dicLoadCache];
+                    
+                    NSString *strID = [NSString stringWithFormat:@"%@%@",dicCategory[@"id"],dic[@"id"]];
+                    if (dicShowAds[strID]) {
+                        NSDate *dateShowAds = dicShowAds[strID];
+                        if ([self checkPassOneDaye:dateShowAds]) {
+                            [dicShowAds removeObjectForKey:strID];
+                            [dicShowAds writeToFile:strPathShowAds atomically:YES];
+                        }
+                        else
+                        {
+                            [dic setObject:@(0) forKey:@"ads"];
+                        }
                     }
-                    else
-                    {
-                        [dic setObject:@(0) forKey:@"ads"];
-                    }
+                    
                 }
-                
             }
             [arrMusic addObject:dic];
         }
@@ -240,7 +250,7 @@
 
         if ([dicCategory[@"cover"] isKindOfClass:[NSArray class]]) {
             
-            if (areAdsRemoved) {
+            if (areAdsRemoved || areUnlockPro) {
                 strCover = dicCategory[@"cover"][1][strDevice];
                 [self.btnDownLoad setTitle:@"Update" forState:UIControlStateNormal];
             }
@@ -266,7 +276,7 @@
         }
         else
         {
-            if (areAdsRemoved) {
+            if (areAdsRemoved || areUnlockPro) {
                 [self.btnDownLoad setTitle:@"Update" forState:UIControlStateNormal];
             }
             else
@@ -324,7 +334,7 @@
 //MARK: - ACTION
 -(IBAction)downloadAction:(id)sender
 {
-    if (areAdsRemoved) {
+    if (areAdsRemoved || areUnlockPro) {
         if (_callbackCategory) {
             _callbackCategory(dicCategory, YES);
         }

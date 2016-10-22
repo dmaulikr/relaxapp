@@ -114,25 +114,34 @@ static NSString *identifierSection1 = @"MyTableViewCell1";
                             parameters:dicMusic];
         // [END custom_event_objc]
         //show ads
-        [UIAlertView showWithTitle:nil message:@"Watch a video to play this favorite"
-                 cancelButtonTitle:@"Cancel"
-                 otherButtonTitles:@[@"OK"]
-                          tapBlock:^(UIAlertView *alertView, NSInteger buttonIndex) {
-                              
-                              if (buttonIndex == 1) {
-                                  AppDelegate *app = (AppDelegate*)[[UIApplication sharedApplication] delegate];
-                                  [app startNewAds];
-                                  [app setCallbackDismissAds:^()
-                                   {
-                                       if (_callback) {
-                                           _callback(dicMusic);
-                                           [self removeFromSuperview];
-                                       }
-                                   }];
-
-                              }
-                          }];
-
+        areUnlockPro = [[NSUserDefaults standardUserDefaults] boolForKey:kUnlockProProductIdentifier];
+        if (areUnlockPro) {
+            if (_callback) {
+                _callback(dicMusic);
+                [self removeFromSuperview];
+            }
+        }
+        else
+        {
+            [UIAlertView showWithTitle:nil message:@"Watch a video to play this favorite"
+                     cancelButtonTitle:@"Cancel"
+                     otherButtonTitles:@[@"OK"]
+                              tapBlock:^(UIAlertView *alertView, NSInteger buttonIndex) {
+                                  
+                                  if (buttonIndex == 1) {
+                                      AppDelegate *app = (AppDelegate*)[[UIApplication sharedApplication] delegate];
+                                      [app startNewAds];
+                                      [app setCallbackDismissAds:^()
+                                       {
+                                           if (_callback) {
+                                               _callback(dicMusic);
+                                               [self removeFromSuperview];
+                                           }
+                                       }];
+                                      
+                                  }
+                              }];
+        }
 
     }
 }

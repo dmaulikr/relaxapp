@@ -42,6 +42,7 @@
 //    self.lbPrivacy.font= [UIFont fontWithName:@"Roboto-Regular" size:13];
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(caculatorTimeAgo) name: NOTIFCATION_CATEGORY object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(productPurchased:) name:IAPHelperProductPurchasedNotification object:nil];
     AppDelegate *app = (AppDelegate*)[[UIApplication sharedApplication] delegate];
     _products = app.arrAIP;
     if (_products) {
@@ -317,6 +318,8 @@
     _totalRemoveAds.on = areAdsRemoved;
 
     [[NSUserDefaults standardUserDefaults] synchronize];
+    [[NSNotificationCenter defaultCenter]postNotificationName:NOTIFCATION_HIDE_ADS object:nil];
+
     
 }
 - (UIImage *)takeSnapshotOfView:(UIView *)view

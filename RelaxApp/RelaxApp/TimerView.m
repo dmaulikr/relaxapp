@@ -218,37 +218,59 @@ static NSString *identifierSection1 = @"MyTableViewCell1";
 //MARK: -ACTION
 - (void)switchValueChanged:(id)sender
 {
-    //show ads
-    [UIAlertView showWithTitle:nil message:@"Watch a video to enable this timer!"
-             cancelButtonTitle:@"Cancel"
-             otherButtonTitles:@[@"OK"]
-                      tapBlock:^(UIAlertView *alertView, NSInteger buttonIndex) {
-                          
-                          if (buttonIndex == 1) {
-                              AppDelegate *app = (AppDelegate*)[[UIApplication sharedApplication] delegate];
-                              [app startNewAds];
-                              [app setCallbackDismissAds:^()
-                               {
-                                   NSString *strPath = [FileHelper pathForApplicationDataFile:FILE_TIMER_SAVE];
-                                   
-                                   UISwitch *sv = (UISwitch*)sender;
-                                   int index = (int)sv.tag - 100;
-                                   NSMutableDictionary *dic = [_dataSource[index]mutableCopy];
-                                   [dic setObject:@(![dic[@"enabled"] boolValue]) forKey:@"enabled"];
-                                   if ([dic[@"enabled"] boolValue]) {
-                                       int countdown = [self convertSecondsFromString:[self convertDateToString:dic[@"timer"] withType:[dic[@"type"] intValue]]];
-                                       [dic setObject:@(countdown) forKey:@"countdown"];
-                                       //show ads
-                                       [[NSNotificationCenter defaultCenter]postNotificationName:NOTIFCATION_SHOW_ADS object:nil];
-                                   }
-                                   [_dataSource replaceObjectAtIndex:index withObject:dic];
-                                   [_dataSource writeToFile:strPath atomically:YES];
-                                   [self.tableControl reloadData];
-
-                               }];
-                          }
-                      }];
-
+    areUnlockPro = [[NSUserDefaults standardUserDefaults] boolForKey:kUnlockProProductIdentifier];
+    if (areUnlockPro) {
+        NSString *strPath = [FileHelper pathForApplicationDataFile:FILE_TIMER_SAVE];
+        
+        UISwitch *sv = (UISwitch*)sender;
+        int index = (int)sv.tag - 100;
+        NSMutableDictionary *dic = [_dataSource[index]mutableCopy];
+        [dic setObject:@(![dic[@"enabled"] boolValue]) forKey:@"enabled"];
+        if ([dic[@"enabled"] boolValue]) {
+            int countdown = [self convertSecondsFromString:[self convertDateToString:dic[@"timer"] withType:[dic[@"type"] intValue]]];
+            [dic setObject:@(countdown) forKey:@"countdown"];
+            //show ads
+            [[NSNotificationCenter defaultCenter]postNotificationName:NOTIFCATION_SHOW_ADS object:nil];
+        }
+        [_dataSource replaceObjectAtIndex:index withObject:dic];
+        [_dataSource writeToFile:strPath atomically:YES];
+        [self.tableControl reloadData];
+        
+    }
+    else
+    {
+        //show ads
+        [UIAlertView showWithTitle:nil message:@"Watch a video to enable this timer!"
+                 cancelButtonTitle:@"Cancel"
+                 otherButtonTitles:@[@"OK"]
+                          tapBlock:^(UIAlertView *alertView, NSInteger buttonIndex) {
+                              
+                              if (buttonIndex == 1) {
+                                  AppDelegate *app = (AppDelegate*)[[UIApplication sharedApplication] delegate];
+                                  [app startNewAds];
+                                  [app setCallbackDismissAds:^()
+                                   {
+                                       NSString *strPath = [FileHelper pathForApplicationDataFile:FILE_TIMER_SAVE];
+                                       
+                                       UISwitch *sv = (UISwitch*)sender;
+                                       int index = (int)sv.tag - 100;
+                                       NSMutableDictionary *dic = [_dataSource[index]mutableCopy];
+                                       [dic setObject:@(![dic[@"enabled"] boolValue]) forKey:@"enabled"];
+                                       if ([dic[@"enabled"] boolValue]) {
+                                           int countdown = [self convertSecondsFromString:[self convertDateToString:dic[@"timer"] withType:[dic[@"type"] intValue]]];
+                                           [dic setObject:@(countdown) forKey:@"countdown"];
+                                           //show ads
+                                           [[NSNotificationCenter defaultCenter]postNotificationName:NOTIFCATION_SHOW_ADS object:nil];
+                                       }
+                                       [_dataSource replaceObjectAtIndex:index withObject:dic];
+                                       [_dataSource writeToFile:strPath atomically:YES];
+                                       [self.tableControl reloadData];
+                                       
+                                   }];
+                              }
+                          }];
+    }
+    
 }
 -(int)convertSecondsFromString:(NSString*)strTimer
 {

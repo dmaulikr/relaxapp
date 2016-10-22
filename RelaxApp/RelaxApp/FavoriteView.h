@@ -14,6 +14,7 @@ typedef void (^FavoriteViewCallback)(NSDictionary *dicCategory);
 @interface FavoriteView : BaseView
 {
     NSMutableArray *_arrMusic;
+    BOOL areUnlockPro;
 
 }
 @property (nonatomic, strong) IBOutlet UIView *vViewNav;

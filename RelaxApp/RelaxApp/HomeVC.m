@@ -26,7 +26,7 @@
     NSMutableArray                  *arrColection;
     NSMutableArray *arrTotal;
     int iNumberCollection;
-
+    BOOL areUnlockPro;
 }
 @end
 
@@ -35,19 +35,26 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Replace this ad unit ID with your own ad unit ID.
-    
-    self.bannerView.adUnitID = FIREBASE_BANNER_UnitID;
-    self.bannerView.rootViewController = self;
-    self.bannerView.delegate = self;
-    GADRequest *request = [GADRequest request];
-    request.testDevices = @[@"39a7131f0ddf6c07dd8e764042b786e2edb0d7d5",
-                            @"f1b375470fbe578bbaffd54c92170f5b91554f56",
-                            @"492e5fc39e75b5d1015b03ea3e6979997f72442d",
-                            @"73761a8a7e4f7e45547af96fe009872e67598cb2",
-                            @"ba1e422fb34ca93c161b25b78371d4bf64a9bd08"];
-    // Requests test ads on devices you specify. Your test device ID is printed to the console when
-    // an ad request is made. GADBannerView automatically returns test ads when running on a
-    [self.bannerView loadRequest:request];
+   areUnlockPro = [[NSUserDefaults standardUserDefaults] boolForKey:kUnlockProProductIdentifier];
+    if (areUnlockPro) {
+         [self hideAdsAction];
+    }
+    else
+    {
+        self.bannerView.adUnitID = FIREBASE_BANNER_UnitID;
+        self.bannerView.rootViewController = self;
+        self.bannerView.delegate = self;
+        GADRequest *request = [GADRequest request];
+        request.testDevices = @[@"39a7131f0ddf6c07dd8e764042b786e2edb0d7d5",
+                                @"f1b375470fbe578bbaffd54c92170f5b91554f56",
+                                @"492e5fc39e75b5d1015b03ea3e6979997f72442d",
+                                @"73761a8a7e4f7e45547af96fe009872e67598cb2",
+                                @"ba1e422fb34ca93c161b25b78371d4bf64a9bd08"];
+        // Requests test ads on devices you specify. Your test device ID is printed to the console when
+        // an ad request is made. GADBannerView automatically returns test ads when running on a
+        [self.bannerView loadRequest:request];
+
+    }
     //
     self.navigationController.navigationBar.hidden = YES;
 
@@ -70,6 +77,8 @@
     [self fnSetButtonNavigation];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(timerNotification:) name: NOTIFCATION_TIMER object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshUpdate) name: NOTIFCATION_CATEGORY object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(hideAdsAction) name: NOTIFCATION_HIDE_ADS object:nil];
+    
     //default button type
     self.buttonType = BUTTON_RANDOM;
     [self fnSetButtonBottom];
@@ -92,10 +101,9 @@
     [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
     [self becomeFirstResponder];
     //hide view volume system
-    CGRect frame = CGRectMake(0, -100, 10, 0);
+    CGRect frame = CGRectMake(-1000, -1000, 0, 0);
     self.volumeView = [[MPVolumeView alloc] initWithFrame:frame];
-    [self.volumeView sizeToFit];
-    [[[[UIApplication sharedApplication] windows] firstObject] insertSubview:self.volumeView atIndex:0];
+    [self.view addSubview: self.volumeView];
 
     [self loadCache];
 
@@ -1236,22 +1244,43 @@
     }
 }
 //MARK: - DELEGATE ADS
+-(void)hideAdsAction
+{
+    for (UIView *subview in [self.view subviews]) {
+        if([subview isKindOfClass:[GADBannerView class]]) {
+            [subview removeFromSuperview];
+        }
+    }
+    
+    [self displayAds:NO];
+}
+-(void)displayAds:(BOOL)areDisplay
+{
+    if (areDisplay) {
+        self.contraintBottomvTab.constant = 50;
+    }
+    else
+    {
+        self.contraintBottomvTab.constant = 0;
+    }
+    [UIView animateWithDuration:0.1
+                          delay:0.1
+                        options: 0
+                     animations:^
+     {
+         [self.view layoutIfNeeded]; // Called on parent view
+     }
+                     completion:^(BOOL finished)
+     {
+         
+         [self caculatorSubScrollview];
+         
+     }];
+
+}
 - (void)adViewDidReceiveAd:(GADBannerView *)bannerView
 {
-    self.contraintBottomvTab.constant = 50;
-            [UIView animateWithDuration:0.1
-                                  delay:0.1
-                                options: 0
-                             animations:^
-             {
-                 [self.view layoutIfNeeded]; // Called on parent view
-             }
-                             completion:^(BOOL finished)
-             {
-    
-                 [self caculatorSubScrollview];
-
-             }];
+    [self displayAds:YES];
 }
 
 /// Tells the delegate that an ad request failed. The failure is normally due to network
