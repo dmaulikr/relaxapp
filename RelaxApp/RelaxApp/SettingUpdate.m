@@ -11,6 +11,8 @@
 #import "FileHelper.h"
 #import "AFHTTPSessionManager.h"
 #import "DownLoadCategory.h"
+#import "UIAlertView+Blocks.h"
+#import "AppDelegate.h"
 @interface SettingUpdate ()
 {
     AFHTTPSessionManager *managerCategory;
@@ -27,13 +29,36 @@
     self.btnCancel.layer.cornerRadius= 23.0;
     self.btnCancel.hidden = YES;
     // Blurred with UIImage+ImageEffects
+    //show ads
+    [UIAlertView showWithTitle:@"Watch a video to check update in this time !" message:@"By Clicking OK you permit the app download and use free storage on your phone"
+             cancelButtonTitle:@"Cancel"
+             otherButtonTitles:@[@"OK"]
+                      tapBlock:^(UIAlertView *alertView, NSInteger buttonIndex) {
+                          
+                          if (buttonIndex == 1) {
+                              //OK button handler
+                              AppDelegate *app = (AppDelegate*)[[UIApplication sharedApplication] delegate];
+                              [app startNewAds];
+                              [app setCallbackDismissAds:^()
+                               {
+                                   self.btnCancel.hidden = NO;
+                                   [self updateAction:nil];
+                                   
+                               }];
+                          }
+                          else
+                          {
+                              //Cancel button handler
+                              [self closeAction:nil];
 
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Do you want update something new?"
-                                                    message:@"By Clicking OK you permit the app download and use free storage on your phone"
-                                                   delegate:self
-                                          cancelButtonTitle:@"Cancel"
-                                          otherButtonTitles: @"OK", nil];
-    [alert show];
+                          }
+                      }];
+//    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Do you want update something new?"
+//                                                    message:@"By Clicking OK you permit the app download and use free storage on your phone"
+//                                                   delegate:self
+//                                          cancelButtonTitle:@"Cancel"
+//                                          otherButtonTitles: @"OK", nil];
+//    [alert show];
     
     self.percentageDoughnut.dataSource              = self;
     self.percentageDoughnut.percentage              = 0;
@@ -50,21 +75,21 @@
     self.percentageDoughnut.gradientColor2          = [UIColor clearColor];
 
 }
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
-    switch(buttonIndex){
-        case 0:
-            //Cancel button handler
-            [self closeAction:nil];
-            break;
-        case 1:
-            //OK button handler
-            self.btnCancel.hidden = NO;
-            [self updateAction:nil];
-            break;
-        default:
-            break;
-    }
-}
+//- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+//    switch(buttonIndex){
+//        case 0:
+//            //Cancel button handler
+//            [self closeAction:nil];
+//            break;
+//        case 1:
+//            //OK button handler
+//            self.btnCancel.hidden = NO;
+//            [self updateAction:nil];
+//            break;
+//        default:
+//            break;
+//    }
+//}
 
 -(void)dismissKeyboard {
     [self endEditing:YES];
@@ -98,6 +123,7 @@
         else
         {
             [self closeAction:nil];
+            [[NSNotificationCenter defaultCenter]postNotificationName:NOTIFCATION_SHOW_ADS object:nil];
             [[NSNotificationCenter defaultCenter]postNotificationName:NOTIFCATION_CATEGORY object:nil];
             
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NAME_APP
@@ -109,6 +135,7 @@
         }
     } failure:^(NSURLSessionTask *operation, NSError *error) {
         [self closeAction:nil];
+        [[NSNotificationCenter defaultCenter]postNotificationName:NOTIFCATION_SHOW_ADS object:nil];
         [[NSNotificationCenter defaultCenter]postNotificationName:NOTIFCATION_CATEGORY object:nil];
         
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NAME_APP
@@ -155,6 +182,7 @@
     else
     {
         [self closeAction:nil];
+        [[NSNotificationCenter defaultCenter]postNotificationName:NOTIFCATION_SHOW_ADS object:nil];
         [[NSNotificationCenter defaultCenter]postNotificationName:NOTIFCATION_CATEGORY object:nil];
         
     }
@@ -170,6 +198,7 @@
          dispatch_async(dispatch_get_main_queue(), ^{
              self.viewProgress.hidden = YES;
              [self closeAction:nil];
+             [[NSNotificationCenter defaultCenter]postNotificationName:NOTIFCATION_SHOW_ADS object:nil];
              [[NSNotificationCenter defaultCenter]postNotificationName:NOTIFCATION_CATEGORY object:nil];
              
          });

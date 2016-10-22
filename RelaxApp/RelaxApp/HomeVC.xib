@@ -8,6 +8,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeVC">
             <connections>
+                <outlet property="bannerView" destination="4QC-v9-cCj" id="Kt9-GP-ny8"/>
                 <outlet property="btnAddfavorite" destination="HuF-UO-w2s" id="PTn-Lz-XxI"/>
                 <outlet property="btnclearAll" destination="cR3-fq-yGi" id="OVC-EU-Cda"/>
                 <outlet property="imgAddfavorite" destination="Fcy-Qv-UqT" id="nFD-hK-kef"/>
@@ -391,6 +392,13 @@
                         <constraint firstAttribute="bottom" secondItem="6mp-bY-JVg" secondAttribute="bottom" id="yGK-yO-M4U"/>
                     </constraints>
                 </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4QC-v9-cCj" customClass="GADBannerView">
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="EO2-hb-Omx"/>
+                        <constraint firstAttribute="width" constant="320" id="ZKp-zH-uLq"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" red="0.070588235294117646" green="0.40392156862745099" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
@@ -402,9 +410,11 @@
                 <constraint firstAttribute="bottom" secondItem="4vg-kI-ZKL" secondAttribute="bottom" id="SJQ-0d-UQn"/>
                 <constraint firstItem="4vg-kI-ZKL" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="TqG-LW-xGQ"/>
                 <constraint firstItem="G8u-jB-XKA" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Y8Y-xh-ee3"/>
+                <constraint firstAttribute="bottom" secondItem="4QC-v9-cCj" secondAttribute="bottom" id="ZkG-vv-Jj7"/>
                 <constraint firstItem="4vg-kI-ZKL" firstAttribute="top" secondItem="G8u-jB-XKA" secondAttribute="bottom" id="fC8-TG-Vm8"/>
                 <constraint firstAttribute="trailing" secondItem="4vg-kI-ZKL" secondAttribute="trailing" id="fUV-5a-USh"/>
                 <constraint firstItem="4vg-kI-ZKL" firstAttribute="top" secondItem="jmE-MP-vBO" secondAttribute="bottom" id="gKs-5K-PHg"/>
+                <constraint firstItem="4QC-v9-cCj" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="gNX-Pt-ibm"/>
                 <constraint firstItem="jmE-MP-vBO" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="hy7-bd-fZr"/>
                 <constraint firstItem="jmE-MP-vBO" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="uLG-gg-JTA"/>
                 <constraint firstAttribute="trailing" secondItem="gs3-0O-fox" secondAttribute="trailing" id="xDg-va-eBo"/>

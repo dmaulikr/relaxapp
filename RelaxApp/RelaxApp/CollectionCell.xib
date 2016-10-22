@@ -22,6 +22,7 @@
                             <constraint firstAttribute="width" constant="47" id="n2f-Np-BmE"/>
                         </constraints>
                     </imageView>
+                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ads" translatesAutoresizingMaskIntoConstraints="NO" id="tNh-EJ-ySP"/>
                     <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Oval_2" translatesAutoresizingMaskIntoConstraints="NO" id="59E-Cc-Mel">
                         <constraints>
                             <constraint firstAttribute="width" constant="20" id="4uq-k8-Ep9"/>
@@ -37,15 +38,20 @@
             </view>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstItem="tNh-EJ-ySP" firstAttribute="width" secondItem="h9e-cn-fZy" secondAttribute="width" id="5pw-W4-Gnr"/>
                 <constraint firstItem="reg-nb-YlD" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="9NY-9P-NDT"/>
+                <constraint firstItem="tNh-EJ-ySP" firstAttribute="height" secondItem="h9e-cn-fZy" secondAttribute="height" id="DOz-uF-SYs"/>
+                <constraint firstItem="tNh-EJ-ySP" firstAttribute="centerY" secondItem="h9e-cn-fZy" secondAttribute="centerY" id="KY2-tT-UTL"/>
                 <constraint firstItem="h9e-cn-fZy" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="Kni-2v-T5t"/>
                 <constraint firstAttribute="trailing" secondItem="reg-nb-YlD" secondAttribute="trailing" id="Mlz-rE-eVp"/>
                 <constraint firstItem="h9e-cn-fZy" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="bog-7i-Cqo"/>
                 <constraint firstItem="59E-Cc-Mel" firstAttribute="centerY" secondItem="h9e-cn-fZy" secondAttribute="centerY" id="dpM-dg-jAr"/>
+                <constraint firstItem="tNh-EJ-ySP" firstAttribute="centerX" secondItem="h9e-cn-fZy" secondAttribute="centerX" id="gf2-MX-rat"/>
                 <constraint firstItem="59E-Cc-Mel" firstAttribute="centerX" secondItem="h9e-cn-fZy" secondAttribute="centerX" id="pri-tX-KrA"/>
                 <constraint firstItem="reg-nb-YlD" firstAttribute="top" secondItem="h9e-cn-fZy" secondAttribute="bottom" constant="10" id="qGV-5u-hSf"/>
             </constraints>
             <connections>
+                <outlet property="imgAds" destination="tNh-EJ-ySP" id="1bU-oR-Hlx"/>
                 <outlet property="imgCheck" destination="59E-Cc-Mel" id="WVJ-rL-uph"/>
                 <outlet property="imgIcon" destination="h9e-cn-fZy" id="ori-Im-mNR"/>
                 <outlet property="lbTitle" destination="reg-nb-YlD" id="0gA-FX-RWc"/>
@@ -54,5 +60,6 @@
     </objects>
     <resources>
         <image name="Oval_2" width="26" height="26"/>
+        <image name="ads" width="47" height="47"/>
     </resources>
 </document>

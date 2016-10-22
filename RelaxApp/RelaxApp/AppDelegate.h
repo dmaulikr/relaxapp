@@ -7,8 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+@import GoogleMobileAds;
+
 typedef void (^AppDelegateCallback)(NSDictionary *dicTimer);
 typedef void (^TimerTickCallback)();
+typedef void (^DismisAdsDelegateCallback)();
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
@@ -16,6 +19,9 @@ typedef void (^TimerTickCallback)();
 @property (strong, nonatomic) UINavigationController *navigationController;
 @property (nonatomic,copy) AppDelegateCallback callback;
 @property (nonatomic,copy) TimerTickCallback  callbackTimerTick;
+@property (nonatomic,copy) DismisAdsDelegateCallback  callbackDismissAds;
 
+@property(nonatomic, strong) GADInterstitial *interstitial;
+- (void)startNewAds;
 @end
 

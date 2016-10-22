@@ -18,6 +18,8 @@ typedef void (^CollectionCellCallback)(GESTURE_TYPE type,NSInteger index);
 @property (nonatomic, strong) IBOutlet UILabel *lbTitle;
 @property (nonatomic, strong) IBOutlet UIImageView *imgIcon;
 @property (nonatomic, strong) IBOutlet UIImageView *imgCheck;
+@property (nonatomic, strong) IBOutlet UIImageView *imgAds;
+
 @property (nonatomic,copy) CollectionCellCallback callback;
 
 @end

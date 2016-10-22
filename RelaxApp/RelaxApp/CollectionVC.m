@@ -119,16 +119,56 @@
     arrPlayList = [NSMutableArray new];
 }
 //MARK: - DATA
+-(BOOL)checkPassOneDaye:(NSDate*)date
+{
+    NSDate *current= [NSDate date];
+    NSDate *yesterday = [current dateByAddingTimeInterval: -86400.0];
+    NSComparisonResult result = [yesterday compare:date];
+    if(result == NSOrderedDescending)
+    {
+        return YES;
+    }
+    else
+    {
+        return NO;
+    }
+}
 -(void)updateDataMusic:(NSDictionary*)dicTmp
 {
     dicCategory = dicTmp;
-    
+    [arrMusic removeAllObjects];
     NSString *path = [self getFullPathWithFileName:dicCategory[@"path"]];
     NSFileManager *fileManager = [[NSFileManager alloc] init];
     BOOL isDir;
     BOOL exists = [fileManager fileExistsAtPath:path isDirectory:&isDir];
     if (dicCategory[@"sounds"] && exists) {
-        arrMusic = [dicCategory[@"sounds"] mutableCopy];
+        NSArray *arrSounds = [dicCategory[@"sounds"] mutableCopy];
+        for (int i = 0; i <arrSounds.count; i++) {
+            NSMutableDictionary *dic = [arrSounds[i] mutableCopy];
+            if ([dic[@"ads"] boolValue]) {
+                
+                //check exist in blacklist
+                NSString *strPathShowAds = [FileHelper pathForApplicationDataFile:FILE_HISTORY_SHOW_ADS_SAVE];
+                NSDictionary *dicLoadCache = [NSDictionary dictionaryWithContentsOfFile:strPathShowAds];
+                NSMutableDictionary *dicShowAds = [NSMutableDictionary dictionaryWithDictionary:dicLoadCache];
+
+                NSString *strID = [NSString stringWithFormat:@"%@%@",dicCategory[@"id"],dic[@"id"]];
+                if (dicShowAds[strID]) {
+                    NSDate *dateShowAds = dicShowAds[strID];
+                    if ([self checkPassOneDaye:dateShowAds]) {
+                        [dicShowAds removeObjectForKey:strID];
+                        [dicShowAds writeToFile:strPathShowAds atomically:YES];
+                    }
+                    else
+                    {
+                        [dic setObject:@(0) forKey:@"ads"];
+                    }
+                }
+                
+            }
+            [arrMusic addObject:dic];
+        }
+
         self.collectionView.hidden = NO;
         self.vDownLoad.hidden = YES;
         [self.collectionView reloadData];
@@ -263,7 +303,7 @@
     }
     else
     {
-        if (![dicCategory[@"price"] boolValue]) {
+        if ([dicCategory[@"price"] boolValue]) {
             [self restore];
             [self tapsRemoveAds];
         }
@@ -333,6 +373,13 @@
     else
     {
         cell.imgCheck.hidden = YES;
+    }
+    if ([dic[@"ads"] boolValue]) {
+        cell.imgAds.hidden = NO;
+    }
+    else
+    {
+        cell.imgAds.hidden = YES;
     }
     __weak CollectionVC *myWeak = self;
     cell.imgIcon.tag = indexPath.row;

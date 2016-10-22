@@ -16,8 +16,9 @@
 #import "Define.h"
 #import "AppDelegate.h"
 #import <MediaPlayer/MediaPlayer.h>
-
-@interface HomeVC ()<UIScrollViewDelegate,AVAudioSessionDelegate>
+#import "UIAlertView+Blocks.h"
+@import GoogleMobileAds;
+@interface HomeVC ()<UIScrollViewDelegate,AVAudioSessionDelegate,GADInterstitialDelegate>
 {
     NSMutableArray                  *arrCategory;
     NSMutableArray                  *arrPlayList;
@@ -31,6 +32,17 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    // Replace this ad unit ID with your own ad unit ID.
+    
+    self.bannerView.adUnitID = FIREBASE_BANNER_UnitID;
+    self.bannerView.rootViewController = self;
+    
+    GADRequest *request = [GADRequest request];
+    // Requests test ads on devices you specify. Your test device ID is printed to the console when
+    // an ad request is made. GADBannerView automatically returns test ads when running on a
+    [self.bannerView loadRequest:request];
+
+    //
     self.navigationController.navigationBar.hidden = YES;
 
     [[UIApplication sharedApplication] setStatusBarHidden:NO];
@@ -52,7 +64,6 @@
     [self fnSetButtonNavigation];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(timerNotification:) name: NOTIFCATION_TIMER object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshUpdate) name: NOTIFCATION_CATEGORY object:nil];
-
     //default button type
     self.buttonType = BUTTON_RANDOM;
     [self fnSetButtonBottom];
@@ -206,6 +217,29 @@
     [self caculatorSubScrollview];
 
 }
+-(void)checkMusicActive
+{
+    for (int i = 0; i< arrCategory.count; i++) {
+        
+        NSMutableDictionary *dicCategory = [arrCategory[i] mutableCopy];
+        NSMutableArray *arrSounds = [dicCategory[@"sounds"] mutableCopy];
+        for (int j = 0; j <arrSounds.count; j++) {
+            NSMutableDictionary *dicSound = [NSMutableDictionary dictionaryWithDictionary:arrSounds[j]];
+            for (int k = 0; k < arrPlayList.count; k ++) {
+                NSDictionary *musicItem = arrPlayList[k];
+                if ([dicSound[@"id"] intValue] == [musicItem[@"music"][@"id"] intValue]) {
+                    [dicSound setObject:@(1) forKey:@"active"];
+                    [arrSounds replaceObjectAtIndex:j withObject:dicSound];
+                    [dicCategory setObject:arrSounds forKey:@"sounds"];
+                    [arrCategory replaceObjectAtIndex:i withObject:dicCategory];
+                    break;
+                }
+                
+            }
+        }
+        
+    }
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -223,14 +257,6 @@
     self.vNavHome.hidden = NO;
     UIButton *btn = (UIButton*)sender;
     switch (btn.tag - 10) {
-//        case 0:
-//        {
-//            //setting
-////            [self addSubViewVolumeTotal];
-//            _buttonType = BUTTON_VOLUME;
-//
-//        }
-//            break;
         case 1:
         {
             //favorite
@@ -660,9 +686,93 @@
 {
     NSLog(@"%s error=%@", __PRETTY_FUNCTION__, error);
 }
+//MARK: -CLICK ITEM MUSIC
+-(void)clickItemAction:(NSDictionary *)dicMusic dicCategory:(NSDictionary *)dicCategory isLongTap:( BOOL )isLongTap
+{
+    if (isLongTap) {
+        if ([dicMusic[@"active"] boolValue]) {
+            //show music
+            [self addSubViewVolumeItemWithDicMusic:dicMusic withCategory:dicCategory];
+        }
+    }
+    else
+    {
+        _dicChooseCategory = nil;
+        NSMutableDictionary *dic = [dicMusic mutableCopy];
+        if ([dic[@"active"] boolValue]) {
+            [dic setObject:@(0) forKey:@"active"];
+        }
+        else
+        {
+            [dic setObject:@(1) forKey:@"active"];
+            [dic setObject:dicCategory[@"id"] forKey:@"category_id"];
+            //save volume
+            NSString *strPathVolume = [FileHelper pathForApplicationDataFile:FILE_HISTORY_VOLUME_SAVE];
+            NSArray *arrVolume = [NSArray arrayWithContentsOfFile:strPathVolume];
+            NSMutableArray *arrMulVolme = [NSMutableArray arrayWithArray:arrVolume];
+            
+            BOOL isSetVolume;
+            if (arrVolume.count > 0) {
+                for (int i = 0; i <arrVolume.count; i++) {
+                    NSMutableDictionary *dicVolume = [NSMutableDictionary dictionaryWithDictionary:arrVolume[i]];
+                    if ([dicVolume[@"id"] intValue] == [dic[@"id"] intValue] ) {
+                        if (dicVolume[@"volume"]) {
+                            [dic setObject:dicVolume[@"volume"] forKey:@"volume"];
+                        }
+                        else
+                        {
+                            [dic setObject:@(DEFAULT_VOLUME) forKey:@"volume"];
+                            [dicVolume setObject:@(DEFAULT_VOLUME) forKey:@"volume"];
+                            [arrMulVolme replaceObjectAtIndex:i withObject:dicVolume];
+                        }
+                        isSetVolume = YES;
+                        break;
+                    }
+                }
+            }
+            if (!isSetVolume) {
+                [dic setObject:@(DEFAULT_VOLUME) forKey:@"volume"];
+                [arrMulVolme addObject:@{@"id": dic[@"id"],@"volume": @(DEFAULT_VOLUME)}];
+            }
+            [arrMulVolme writeToFile:strPathVolume atomically:YES];
+            //show music
+            [self addSubViewVolumeItemWithDicMusic:dic withCategory:dicCategory];
+            
+            
+        }
+        [self updateDataMusic:dic withCategory:dicCategory];
+        [self fnSetButtonNavigation];
+        if (arrPlayList.count > 0) {
+            _buttonType = BUTTON_PLAYING;
+        }
+        else
+        {
+            _buttonType = BUTTON_RANDOM;
+            
+        }
+        [self fnSetButtonBottom];
+    }
+    
+
+}
+-(BOOL)checkPassOneDaye:(NSDate*)date
+{
+    NSDate *current= [NSDate date];
+    NSDate *yesterday = [current dateByAddingTimeInterval: -86400.0];
+    NSComparisonResult result = [yesterday compare:date];
+    if(result == NSOrderedDescending)
+    {
+        return YES;
+    }
+    else
+    {
+        return NO;
+    }
+}
 //MARK: - SCROLL VIEW
 -(void)caculatorSubScrollview
 {
+    [self checkMusicActive];
     NSString * language = [[NSLocale preferredLanguages] objectAtIndex:0];
     NSString *userLanguage = @"en";
     if (language.length >=2) {
@@ -696,21 +806,26 @@
     float delta = CGRectGetWidth(self.scroll_View.frame);
     //caculator number page
    arrTotal = [NSMutableArray new];
+    //set active
+    //
     for (int j=0; j < arrCategory.count; j++) {
         NSArray *arrItem = arrCategory[j][@"sounds"];
         for (int i = 0; i <arrItem.count; i = i + deltal) {
             NSMutableDictionary *dicCategory = [arrCategory[j] mutableCopy];
             [dicCategory removeObjectForKey:@"sounds"];
-            
+            NSArray *arrTmp;
             if (i + deltal <= arrItem.count - 1) {
-                [dicCategory setObject:[arrItem subarrayWithRange:NSMakeRange(i, deltal)] forKey:@"sounds"];
-                [arrTotal addObject:dicCategory];
+                //set active
+                arrTmp = [arrItem subarrayWithRange:NSMakeRange(i, deltal)];
             }
             else
             {
-                [dicCategory setObject:[arrItem subarrayWithRange:NSMakeRange(i, arrItem.count - i)] forKey:@"sounds"];
-                [arrTotal addObject:dicCategory];
+                arrTmp = [arrItem subarrayWithRange:NSMakeRange(i, arrItem.count - i)];
             }
+            
+            //
+            [dicCategory setObject:arrTmp forKey:@"sounds"];
+            [arrTotal addObject:dicCategory];
         }
         if (arrItem.count == 0) {
             NSMutableDictionary *dicCategory = [arrCategory[j] mutableCopy];
@@ -731,70 +846,50 @@
         [collection updateDataMusic:dicCategory];
         [collection setCallback:^(NSDictionary *dicMusic,NSDictionary *dicCategory, BOOL isLongTap)
          {
-             if (isLongTap) {
-                 if ([dicMusic[@"active"] boolValue]) {
-                     //show music
-                     [wself addSubViewVolumeItemWithDicMusic:dicMusic withCategory:dicCategory];
-                 }
+             if ([dicMusic[@"ads"] boolValue]) {
+                 //show ads
+                 [UIAlertView showWithTitle:nil message:@"Watch a video to get this sound in 1 days!"
+                          cancelButtonTitle:@"Cancel"
+                          otherButtonTitles:@[@"OK"]
+                                   tapBlock:^(UIAlertView *alertView, NSInteger buttonIndex) {
+                                       
+                                       if (buttonIndex == 1) {
+                                           //show ads
+                                           AppDelegate *app = (AppDelegate*)[[UIApplication sharedApplication] delegate];
+                                           [app startNewAds];
+                                           [app setCallbackDismissAds:^()
+                                            {
+                                                //check exist in blacklist
+                                                NSString *strPathShowAds = [FileHelper pathForApplicationDataFile:FILE_HISTORY_SHOW_ADS_SAVE];
+                                                NSDictionary *dicLoadCache = [NSDictionary dictionaryWithContentsOfFile:strPathShowAds];
+                                                NSMutableDictionary *dicShowAds = [NSMutableDictionary dictionaryWithDictionary:dicLoadCache];
+                                                
+                                                NSString *strID = [NSString stringWithFormat:@"%@%@",dicCategory[@"id"],dicMusic[@"id"]];
+                                                if (dicShowAds[strID]) {
+                                                    NSDate *dateShowAds = dicShowAds[strID];
+                                                    if ([self checkPassOneDaye:dateShowAds]) {
+                                                        [dicShowAds removeObjectForKey:strID];
+                                                        [dicShowAds writeToFile:strPathShowAds atomically:YES];
+                                                    }
+                                                }
+                                                else
+                                                {
+                                                    [dicShowAds setObject:[NSDate date] forKey:strID];
+                                                    [dicShowAds writeToFile:strPathShowAds atomically:YES];
+                                                    
+                                                }
+                                                
+                                                [wself clickItemAction:dicMusic dicCategory:dicCategory isLongTap:isLongTap];
+                                            }];
+                                           
+                                       }
+                                   }];
              }
              else
              {
-                 _dicChooseCategory = nil;
-                 NSMutableDictionary *dic = [dicMusic mutableCopy];
-                 if ([dic[@"active"] boolValue]) {
-                     [dic setObject:@(0) forKey:@"active"];
-                 }
-                 else
-                 {
-                     [dic setObject:@(1) forKey:@"active"];
-                     [dic setObject:dicCategory[@"id"] forKey:@"category_id"];
-                     //save volume
-                     NSString *strPathVolume = [FileHelper pathForApplicationDataFile:FILE_HISTORY_VOLUME_SAVE];
-                     NSArray *arrVolume = [NSArray arrayWithContentsOfFile:strPathVolume];
-                     NSMutableArray *arrMulVolme = [NSMutableArray arrayWithArray:arrVolume];
-                     
-                     BOOL isSetVolume;
-                     if (arrVolume.count > 0) {
-                         for (int i = 0; i <arrVolume.count; i++) {
-                             NSMutableDictionary *dicVolume = [NSMutableDictionary dictionaryWithDictionary:arrVolume[i]];
-                             if ([dicVolume[@"id"] intValue] == [dic[@"id"] intValue] ) {
-                                 if (dicVolume[@"volume"]) {
-                                     [dic setObject:dicVolume[@"volume"] forKey:@"volume"];
-                                 }
-                                 else
-                                 {
-                                     [dic setObject:@(DEFAULT_VOLUME) forKey:@"volume"];
-                                     [dicVolume setObject:@(DEFAULT_VOLUME) forKey:@"volume"];
-                                     [arrMulVolme replaceObjectAtIndex:i withObject:dicVolume];
-                                 }
-                                 isSetVolume = YES;
-                                 break;
-                             }
-                         }
-                     }
-                     if (!isSetVolume) {
-                         [dic setObject:@(DEFAULT_VOLUME) forKey:@"volume"];
-                         [arrMulVolme addObject:@{@"id": dic[@"id"],@"volume": @(DEFAULT_VOLUME)}];
-                     }
-                     [arrMulVolme writeToFile:strPathVolume atomically:YES];
-                     //show music
-                     [wself addSubViewVolumeItemWithDicMusic:dic withCategory:dicCategory];
-                     
-                     
-                 }
-                 [wself updateDataMusic:dic withCategory:dicCategory];
-                 [wself fnSetButtonNavigation];
-                 if (arrPlayList.count > 0) {
-                     _buttonType = BUTTON_PLAYING;
-                 }
-                 else
-                 {
-                     _buttonType = BUTTON_RANDOM;
-                     
-                 }
-                 [self fnSetButtonBottom];
+                 //nomarl
+                 [wself clickItemAction:dicMusic dicCategory:dicCategory isLongTap:isLongTap];
              }
-
              
          }];
         [collection setCallbackCategory:^(NSDictionary *dicCategory, BOOL isDownLoad)
@@ -901,14 +996,7 @@
 {
 
     __weak HomeVC *wself = self;
-//    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.vProgress animated:YES];
-    
-    // Set the determinate mode to show task progress.
-//    hud.mode = MBProgressHUDModeDeterminate;
-//    hud.label.text = @"Downloading...";
-//    dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0), ^{
-//
-//    });
+
     self.progressView1.hidden = NO;
     [self.progressView1 setProgress:0 animated:YES];
     DownLoadCategory *download = [DownLoadCategory sharedInstance];
@@ -917,7 +1005,6 @@
      {
          [wself caculatorSubScrollview];
          dispatch_async(dispatch_get_main_queue(), ^{
-//             [hud hideAnimated:YES];
              [self.progressView1 setProgress:0 animated:YES];
              self.progressView1.hidden = YES;
          });
@@ -926,7 +1013,6 @@
      {
          dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0), ^{
              dispatch_async(dispatch_get_main_queue(), ^{
-//                 [MBProgressHUD HUDForView:self.vProgress].progress = progress;
                  [self.progressView1 setProgress:progress animated:YES];
 
              });
@@ -1110,4 +1196,5 @@
         }
     }
 }
+
 @end

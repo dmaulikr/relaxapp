@@ -7,21 +7,21 @@
 	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
 	<string>ca-app-pub-3940256099942544/4411468910</string>
 	<key>CLIENT_ID</key>
-	<string>416042469470-iglt32b08sssg61emt01akn8qm55i9eo.apps.googleusercontent.com</string>
+	<string>763384796877-u09mkemc2qurlpu2s5o76597ds0lfokc.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.416042469470-iglt32b08sssg61emt01akn8qm55i9eo</string>
+	<string>com.googleusercontent.apps.763384796877-u09mkemc2qurlpu2s5o76597ds0lfokc</string>
 	<key>API_KEY</key>
-	<string>AIzaSyBJTFi63JYupGmMMpo77BhjH0b-RoXZJxI</string>
+	<string>AIzaSyCgUkU9roCtCCL3AziwBKbLh0RX65G-Ylc</string>
 	<key>GCM_SENDER_ID</key>
-	<string>416042469470</string>
+	<string>763384796877</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>LZ8SEY56U7.com.Relaf.Relaf</string>
+	<string>com.Relaf.Relaf</string>
 	<key>PROJECT_ID</key>
-	<string>relafapp-6f1a9</string>
+	<string>relaf-app</string>
 	<key>STORAGE_BUCKET</key>
-	<string>relafapp-6f1a9.appspot.com</string>
+	<string>relaf-app.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<true/>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -33,8 +33,8 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true/>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:416042469470:ios:6ab275f3fd709402</string>
+	<string>1:763384796877:ios:6a2fbd06de2ea8dd</string>
 	<key>DATABASE_URL</key>
-	<string>https://relafapp-6f1a9.firebaseio.com</string>
+	<string>https://relaf-app.firebaseio.com</string>
 </dict>
 </plist>

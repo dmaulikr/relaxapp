@@ -18,7 +18,7 @@
 #import "ASProgressPopUpView.h"
 #import "TabVC.h"
 @class RBVolumeButtons;
-
+@class GADBannerView;
 @interface HomeVC : UIViewController<AVAudioPlayerDelegate, IDZAudioPlayerDelegate>
 {
     AFURLSessionManager *manager;
@@ -67,6 +67,7 @@
 @property (nonatomic, retain) UIView *volumeView;
 
 @property (weak, nonatomic) IBOutlet ASProgressPopUpView *progressView1;
+@property(nonatomic, weak) IBOutlet GADBannerView *bannerView;
 
 
 @property (nonatomic, strong)  FavoriteView *vFavorite;

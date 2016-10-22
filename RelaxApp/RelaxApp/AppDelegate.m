@@ -9,11 +9,11 @@
 #import "AppDelegate.h"
 #import "HomeVC.h"
 #import "FileHelper.h"
-@import FirebaseCore;
-@interface AppDelegate ()
+@import Firebase;
+@interface AppDelegate ()<GADInterstitialDelegate>
 {
     NSTimer* timer;
-
+    HomeVC *viewController1;
 }
 @end
 
@@ -24,11 +24,16 @@
     // [START configure]
     [FIRApp configure];
     // [END configure]
+    // Initialize Google Mobile Ads SDK
+    [GADMobileAds configureWithApplicationID:@"ca-app-pub-3940256099942544~1458002511"];
+
+    
+    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     [self.window setBackgroundColor:[UIColor whiteColor]];
 
     // Override point for customization after application launch.
-    HomeVC *viewController1 = [[HomeVC alloc] initWithNibName:@"HomeVC" bundle:nil];
+    viewController1 = [[HomeVC alloc] initWithNibName:@"HomeVC" bundle:nil];
     
     self.navigationController = [[UINavigationController alloc] initWithRootViewController:viewController1];
     
@@ -181,6 +186,37 @@
     else
     {
         return NO;
+    }
+}
+#pragma mark Game logic
+-(void)setCallbackDismissAds:(DismisAdsDelegateCallback)callbackDismissAds
+{
+    _callbackDismissAds = callbackDismissAds;
+}
+- (void)startNewAds {
+    [self createAndLoadInterstitial];
+    [self performSelector:@selector(showAds) withObject:nil afterDelay:1.0];
+}
+-(void)showAds
+{
+    if (self.interstitial.isReady) {
+        [self.interstitial presentFromRootViewController:viewController1];
+    } else {
+        NSLog(@"Ad wasn't ready");
+    }
+    
+}
+- (void)createAndLoadInterstitial {
+    self.interstitial =
+    [[GADInterstitial alloc] initWithAdUnitID:FIREBASE_INTERSTITIAL_UnitID];
+    self.interstitial.delegate = self;
+    GADRequest *request = [GADRequest request];
+    // Request test ads on devices you specify. Your test device ID is printed to the console when
+    [self.interstitial loadRequest:request];
+}
+- (void)interstitialDidDismissScreen:(GADInterstitial *)interstitial {
+    if (_callbackDismissAds) {
+        _callbackDismissAds();
     }
 }
 @end

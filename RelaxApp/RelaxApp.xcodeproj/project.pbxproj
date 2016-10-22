@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E3B5A0CE7AE4C45DCFBC7D56 /* libPods-RelaxApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 527C56B751CCB97C3D037665 /* libPods-RelaxApp.a */; };
 		EB0582591D9C0D2200E29C9B /* SpringboardLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = EB0582581D9C0D2200E29C9B /* SpringboardLayout.m */; };
 		EB11EDC61D9AB24900804D34 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EB11EDC51D9AB24900804D34 /* main.m */; };
 		EB11EDC91D9AB24900804D34 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EB11EDC81D9AB24900804D34 /* AppDelegate.m */; };
@@ -50,6 +51,8 @@
 		EB3072021DABE2B6009D90DD /* RobotoCondensed-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EB3071F01DABE2B6009D90DD /* RobotoCondensed-Light.ttf */; };
 		EB3072031DABE2B6009D90DD /* RobotoCondensed-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EB3071F11DABE2B6009D90DD /* RobotoCondensed-LightItalic.ttf */; };
 		EB3072041DABE2B6009D90DD /* RobotoCondensed-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EB3071F21DABE2B6009D90DD /* RobotoCondensed-Regular.ttf */; };
+		EB3B17341DBB15E300B26A10 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EB3B17331DBB15E300B26A10 /* GoogleService-Info.plist */; };
+		EB3B17371DBB270C00B26A10 /* UIAlertView+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = EB3B17361DBB270C00B26A10 /* UIAlertView+Blocks.m */; };
 		EB420B111DAD609500F47C8B /* UIImage+TBTint.m in Sources */ = {isa = PBXBuildFile; fileRef = EB420B101DAD609500F47C8B /* UIImage+TBTint.m */; };
 		EB420B131DAD630600F47C8B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB420B121DAD630600F47C8B /* CoreGraphics.framework */; };
 		EB44B5121DB7CFA0007E0C93 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB44B5111DB7CFA0007E0C93 /* StoreKit.framework */; };
@@ -80,7 +83,6 @@
 		EB4C800D1DA3FE69003CD3D6 /* UIImageView+HighlightedWebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = EB4C7FFB1DA3FE69003CD3D6 /* UIImageView+HighlightedWebCache.m */; };
 		EB4C800E1DA3FE69003CD3D6 /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = EB4C7FFD1DA3FE69003CD3D6 /* UIImageView+WebCache.m */; };
 		EB4C800F1DA3FE69003CD3D6 /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = EB4C7FFF1DA3FE69003CD3D6 /* UIView+WebCacheOperation.m */; };
-		EB4D85291DB7E12800112454 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EB4D85281DB7E12800112454 /* GoogleService-Info.plist */; };
 		EB4D852C1DB7E61500112454 /* RMStore.m in Sources */ = {isa = PBXBuildFile; fileRef = EB4D852B1DB7E61500112454 /* RMStore.m */; };
 		EB56B6001DA2B958001AFC87 /* AHTag.m in Sources */ = {isa = PBXBuildFile; fileRef = EB56B5FD1DA2B958001AFC87 /* AHTag.m */; };
 		EB56B6091DA2B964001AFC87 /* AHTagsLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = EB56B6031DA2B964001AFC87 /* AHTagsLabel.m */; };
@@ -90,12 +92,6 @@
 		EB56B60F1DA2C497001AFC87 /* FileHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = EB56B60E1DA2C497001AFC87 /* FileHelper.m */; };
 		EB56B6131DA2C697001AFC87 /* AddFavoriteView.m in Sources */ = {isa = PBXBuildFile; fileRef = EB56B6121DA2C697001AFC87 /* AddFavoriteView.m */; };
 		EB56B6151DA2C6A9001AFC87 /* AddFavoriteView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB56B6141DA2C6A9001AFC87 /* AddFavoriteView.xib */; };
-		EBA016011DB6BE0700D5477C /* FirebaseAnalytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBA015FB1DB6BE0700D5477C /* FirebaseAnalytics.framework */; };
-		EBA016021DB6BE0700D5477C /* FirebaseCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBA015FC1DB6BE0700D5477C /* FirebaseCore.framework */; };
-		EBA016031DB6BE0700D5477C /* FirebaseInstanceID.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBA015FD1DB6BE0700D5477C /* FirebaseInstanceID.framework */; };
-		EBA016041DB6BE0700D5477C /* GoogleInterchangeUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBA015FE1DB6BE0700D5477C /* GoogleInterchangeUtilities.framework */; };
-		EBA016051DB6BE0700D5477C /* GoogleSymbolUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBA015FF1DB6BE0700D5477C /* GoogleSymbolUtilities.framework */; };
-		EBA016061DB6BE0700D5477C /* GoogleUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBA016001DB6BE0700D5477C /* GoogleUtilities.framework */; };
 		EBA0160A1DB6C83700D5477C /* TabVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBA016071DB6C83700D5477C /* TabVC.xib */; };
 		EBA0160B1DB6C83700D5477C /* TabVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EBA016091DB6C83700D5477C /* TabVC.m */; };
 		EBC18F591DA0F508000E00FD /* DownLoadCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = EBC18F581DA0F508000E00FD /* DownLoadCategory.m */; };
@@ -141,6 +137,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		05E7C820D1B24585F963E568 /* Pods-RelaxApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RelaxApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RelaxApp/Pods-RelaxApp.debug.xcconfig"; sourceTree = "<group>"; };
+		0C0B061630A6DDFA59C76042 /* Pods-RelaxApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RelaxApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-RelaxApp/Pods-RelaxApp.release.xcconfig"; sourceTree = "<group>"; };
 		527C56B751CCB97C3D037665 /* libPods-RelaxApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RelaxApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		660D525C6A6A82E76822225F /* libPods-RelaxAppTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RelaxAppTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8695C991756FC49B5BEB0DBB /* libPods-RelaxAppUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RelaxAppUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -211,6 +209,9 @@
 		EB3071F01DABE2B6009D90DD /* RobotoCondensed-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoCondensed-Light.ttf"; sourceTree = "<group>"; };
 		EB3071F11DABE2B6009D90DD /* RobotoCondensed-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoCondensed-LightItalic.ttf"; sourceTree = "<group>"; };
 		EB3071F21DABE2B6009D90DD /* RobotoCondensed-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoCondensed-Regular.ttf"; sourceTree = "<group>"; };
+		EB3B17331DBB15E300B26A10 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		EB3B17351DBB270C00B26A10 /* UIAlertView+Blocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+Blocks.h"; sourceTree = "<group>"; };
+		EB3B17361DBB270C00B26A10 /* UIAlertView+Blocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertView+Blocks.m"; sourceTree = "<group>"; };
 		EB420B0F1DAD609500F47C8B /* UIImage+TBTint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+TBTint.h"; sourceTree = "<group>"; };
 		EB420B101DAD609500F47C8B /* UIImage+TBTint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+TBTint.m"; sourceTree = "<group>"; };
 		EB420B121DAD630600F47C8B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -262,7 +263,6 @@
 		EB4C7FFD1DA3FE69003CD3D6 /* UIImageView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+WebCache.m"; sourceTree = "<group>"; };
 		EB4C7FFE1DA3FE69003CD3D6 /* UIView+WebCacheOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+WebCacheOperation.h"; sourceTree = "<group>"; };
 		EB4C7FFF1DA3FE69003CD3D6 /* UIView+WebCacheOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WebCacheOperation.m"; sourceTree = "<group>"; };
-		EB4D85281DB7E12800112454 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		EB4D852A1DB7E61500112454 /* RMStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMStore.h; sourceTree = "<group>"; };
 		EB4D852B1DB7E61500112454 /* RMStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMStore.m; sourceTree = "<group>"; };
 		EB56B5FC1DA2B958001AFC87 /* AHTag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AHTag.h; sourceTree = "<group>"; };
@@ -279,18 +279,6 @@
 		EB56B6111DA2C697001AFC87 /* AddFavoriteView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddFavoriteView.h; sourceTree = "<group>"; };
 		EB56B6121DA2C697001AFC87 /* AddFavoriteView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddFavoriteView.m; sourceTree = "<group>"; };
 		EB56B6141DA2C6A9001AFC87 /* AddFavoriteView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddFavoriteView.xib; sourceTree = "<group>"; };
-		EBA015EF1DB6BDC200D5477C /* FirebaseAnalytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseAnalytics.framework; path = ../../../../../Users/jojo/Downloads/Firebase/Analytics/FirebaseAnalytics.framework; sourceTree = "<group>"; };
-		EBA015F01DB6BDC200D5477C /* FirebaseCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseCore.framework; path = ../../../../../Users/jojo/Downloads/Firebase/Analytics/FirebaseCore.framework; sourceTree = "<group>"; };
-		EBA015F11DB6BDC200D5477C /* FirebaseInstanceID.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseInstanceID.framework; path = ../../../../../Users/jojo/Downloads/Firebase/Analytics/FirebaseInstanceID.framework; sourceTree = "<group>"; };
-		EBA015F21DB6BDC200D5477C /* GoogleInterchangeUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleInterchangeUtilities.framework; path = ../../../../../Users/jojo/Downloads/Firebase/Analytics/GoogleInterchangeUtilities.framework; sourceTree = "<group>"; };
-		EBA015F31DB6BDC200D5477C /* GoogleSymbolUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleSymbolUtilities.framework; path = ../../../../../Users/jojo/Downloads/Firebase/Analytics/GoogleSymbolUtilities.framework; sourceTree = "<group>"; };
-		EBA015F41DB6BDC200D5477C /* GoogleUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleUtilities.framework; path = ../../../../../Users/jojo/Downloads/Firebase/Analytics/GoogleUtilities.framework; sourceTree = "<group>"; };
-		EBA015FB1DB6BE0700D5477C /* FirebaseAnalytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseAnalytics.framework; path = Frameworks/Analytics/FirebaseAnalytics.framework; sourceTree = "<group>"; };
-		EBA015FC1DB6BE0700D5477C /* FirebaseCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseCore.framework; path = Frameworks/Analytics/FirebaseCore.framework; sourceTree = "<group>"; };
-		EBA015FD1DB6BE0700D5477C /* FirebaseInstanceID.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseInstanceID.framework; path = Frameworks/Analytics/FirebaseInstanceID.framework; sourceTree = "<group>"; };
-		EBA015FE1DB6BE0700D5477C /* GoogleInterchangeUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleInterchangeUtilities.framework; path = Frameworks/Analytics/GoogleInterchangeUtilities.framework; sourceTree = "<group>"; };
-		EBA015FF1DB6BE0700D5477C /* GoogleSymbolUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleSymbolUtilities.framework; path = Frameworks/Analytics/GoogleSymbolUtilities.framework; sourceTree = "<group>"; };
-		EBA016001DB6BE0700D5477C /* GoogleUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleUtilities.framework; path = Frameworks/Analytics/GoogleUtilities.framework; sourceTree = "<group>"; };
 		EBA016071DB6C83700D5477C /* TabVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TabVC.xib; sourceTree = "<group>"; };
 		EBA016081DB6C83700D5477C /* TabVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabVC.h; sourceTree = "<group>"; };
 		EBA016091DB6C83700D5477C /* TabVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabVC.m; sourceTree = "<group>"; };
@@ -383,12 +371,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EBA016011DB6BE0700D5477C /* FirebaseAnalytics.framework in Frameworks */,
-				EBA016021DB6BE0700D5477C /* FirebaseCore.framework in Frameworks */,
-				EBA016031DB6BE0700D5477C /* FirebaseInstanceID.framework in Frameworks */,
-				EBA016041DB6BE0700D5477C /* GoogleInterchangeUtilities.framework in Frameworks */,
-				EBA016051DB6BE0700D5477C /* GoogleSymbolUtilities.framework in Frameworks */,
-				EBA016061DB6BE0700D5477C /* GoogleUtilities.framework in Frameworks */,
 				EB420B131DAD630600F47C8B /* CoreGraphics.framework in Frameworks */,
 				EB4BE3D61DA8193F006E6803 /* MessageUI.framework in Frameworks */,
 				EB4BE3D41DA817D3006E6803 /* Social.framework in Frameworks */,
@@ -398,6 +380,7 @@
 				EB44B5121DB7CFA0007E0C93 /* StoreKit.framework in Frameworks */,
 				EB11EE6A1D9AF45000804D34 /* QuartzCore.framework in Frameworks */,
 				EB11EE591D9ADAFF00804D34 /* AVFoundation.framework in Frameworks */,
+				E3B5A0CE7AE4C45DCFBC7D56 /* libPods-RelaxApp.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -407,6 +390,8 @@
 		7A31C7880E8B623AD01DA5E7 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
+				05E7C820D1B24585F963E568 /* Pods-RelaxApp.debug.xcconfig */,
+				0C0B061630A6DDFA59C76042 /* Pods-RelaxApp.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -445,8 +430,8 @@
 				EBF9B5531DA54CE800F07655 /* TIMER */,
 				EBF9B5551DA54D0500F07655 /* SETTING */,
 				EB11EDD01D9AB24900804D34 /* Assets.xcassets */,
-				EB4D85281DB7E12800112454 /* GoogleService-Info.plist */,
 				EB11EDD51D9AB24900804D34 /* Info.plist */,
+				EB3B17331DBB15E300B26A10 /* GoogleService-Info.plist */,
 				EB11EDC41D9AB24900804D34 /* Supporting Files */,
 				EBFB07BF1D9EE03100AF2569 /* Define.h */,
 			);
@@ -483,18 +468,6 @@
 			isa = PBXGroup;
 			children = (
 				EB44B5111DB7CFA0007E0C93 /* StoreKit.framework */,
-				EBA015FB1DB6BE0700D5477C /* FirebaseAnalytics.framework */,
-				EBA015FC1DB6BE0700D5477C /* FirebaseCore.framework */,
-				EBA015FD1DB6BE0700D5477C /* FirebaseInstanceID.framework */,
-				EBA015FE1DB6BE0700D5477C /* GoogleInterchangeUtilities.framework */,
-				EBA015FF1DB6BE0700D5477C /* GoogleSymbolUtilities.framework */,
-				EBA016001DB6BE0700D5477C /* GoogleUtilities.framework */,
-				EBA015EF1DB6BDC200D5477C /* FirebaseAnalytics.framework */,
-				EBA015F01DB6BDC200D5477C /* FirebaseCore.framework */,
-				EBA015F11DB6BDC200D5477C /* FirebaseInstanceID.framework */,
-				EBA015F21DB6BDC200D5477C /* GoogleInterchangeUtilities.framework */,
-				EBA015F31DB6BDC200D5477C /* GoogleSymbolUtilities.framework */,
-				EBA015F41DB6BDC200D5477C /* GoogleUtilities.framework */,
 				EB420B121DAD630600F47C8B /* CoreGraphics.framework */,
 				EB4BE3D51DA8193F006E6803 /* MessageUI.framework */,
 				EB4BE3D31DA817D3006E6803 /* Social.framework */,
@@ -642,6 +615,8 @@
 		EB56B6101DA2C4A3001AFC87 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				EB3B17351DBB270C00B26A10 /* UIAlertView+Blocks.h */,
+				EB3B17361DBB270C00B26A10 /* UIAlertView+Blocks.m */,
 				EB4D852A1DB7E61500112454 /* RMStore.h */,
 				EB4D852B1DB7E61500112454 /* RMStore.m */,
 				EB140DB71DB54834006E6FD9 /* ASProgressPopUpView */,
@@ -853,9 +828,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EB11EDEE1D9AB24900804D34 /* Build configuration list for PBXNativeTarget "RelaxApp" */;
 			buildPhases = (
+				D1DF060D892D5D39759C9B31 /* [CP] Check Pods Manifest.lock */,
 				EB11EDBD1D9AB24800804D34 /* Sources */,
 				EB11EDBE1D9AB24800804D34 /* Frameworks */,
 				EB11EDBF1D9AB24800804D34 /* Resources */,
+				45F9B0FF392AA38722663486 /* [CP] Embed Pods Frameworks */,
+				9D016D613B0CD545EF00EA03 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -922,6 +900,7 @@
 				EB3071FC1DABE2B6009D90DD /* Roboto-Regular.ttf in Resources */,
 				EBFB07B01D9EA0D300AF2569 /* SettingView.xib in Resources */,
 				EB3072011DABE2B6009D90DD /* RobotoCondensed-Italic.ttf in Resources */,
+				EB3B17341DBB15E300B26A10 /* GoogleService-Info.plist in Resources */,
 				EB4BE3DB1DA81A9B006E6803 /* SettingAbout.xib in Resources */,
 				EB3071F61DABE2B6009D90DD /* Roboto-BoldItalic.ttf in Resources */,
 				EB3072021DABE2B6009D90DD /* RobotoCondensed-Light.ttf in Resources */,
@@ -934,7 +913,6 @@
 				EB3071FF1DABE2B6009D90DD /* RobotoCondensed-Bold.ttf in Resources */,
 				EB3071F41DABE2B6009D90DD /* Roboto-BlackItalic.ttf in Resources */,
 				EB11EDD11D9AB24900804D34 /* Assets.xcassets in Resources */,
-				EB4D85291DB7E12800112454 /* GoogleService-Info.plist in Resources */,
 				EB3071F71DABE2B6009D90DD /* Roboto-Italic.ttf in Resources */,
 				EB11EE6F1D9AF4A300804D34 /* CollectionCell.xib in Resources */,
 				EB56B60B1DA2B964001AFC87 /* AHTagTableViewCell.xib in Resources */,
@@ -960,6 +938,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		45F9B0FF392AA38722663486 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RelaxApp/Pods-RelaxApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9D016D613B0CD545EF00EA03 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RelaxApp/Pods-RelaxApp-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D1DF060D892D5D39759C9B31 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		EB11EDBD1D9AB24800804D34 /* Sources */ = {
@@ -1005,6 +1031,7 @@
 				EBFF14251DA01E4700CA98F1 /* aestab.c in Sources */,
 				EB4BE3EA1DA8280B006E6803 /* NSDate+Extensions.m in Sources */,
 				EB4C80051DA3FE69003CD3D6 /* SDWebImageDecoder.m in Sources */,
+				EB3B17371DBB270C00B26A10 /* UIAlertView+Blocks.m in Sources */,
 				EB56B6091DA2B964001AFC87 /* AHTagsLabel.m in Sources */,
 				EB17B9861DB12B6D007DBFDF /* MCUtil.m in Sources */,
 				EBFF14301DA01E4700CA98F1 /* zip.c in Sources */,
@@ -1161,6 +1188,7 @@
 		};
 		EB11EDEF1D9AB24900804D34 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 05E7C820D1B24585F963E568 /* Pods-RelaxApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -1175,7 +1203,7 @@
 				INFOPLIST_FILE = RelaxApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Relaf.Relaf;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -1185,6 +1213,7 @@
 		};
 		EB11EDF01D9AB24900804D34 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0C0B061630A6DDFA59C76042 /* Pods-RelaxApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -1199,7 +1228,7 @@
 				INFOPLIST_FILE = RelaxApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Relaf.Relaf;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
