@@ -26,7 +26,7 @@
     NSMutableArray                  *arrColection;
     NSMutableArray *arrTotal;
     int iNumberCollection;
-    BOOL areUnlockPro;
+    BOOL areAdsRemoved;
 }
 @end
 
@@ -35,8 +35,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Replace this ad unit ID with your own ad unit ID.
-   areUnlockPro = [[NSUserDefaults standardUserDefaults] boolForKey:kUnlockProProductIdentifier];
-    if (areUnlockPro) {
+   areAdsRemoved = [[NSUserDefaults standardUserDefaults] boolForKey:kTotalRemoveAdsProductIdentifier];
+    if (areAdsRemoved) {
          [self hideAdsAction];
     }
     else
@@ -227,7 +227,7 @@
 
         }
     }
-    [self setupPlayerWithMusicItem:dicMusic];
+    [self setupPlayerWithMusicItem:dicMusic withCategory:category];
     [self caculatorSubScrollview];
 
 }
@@ -536,7 +536,7 @@
 
             NSMutableArray *arrTmp = [NSMutableArray new];
             for (NSDictionary *dic in responseObject[@"categories"]) {
-                if (![dic[@"price"] boolValue] && ![arrBlackList containsObject:dic[@"id"]]) {
+                if (![arrBlackList containsObject:dic[@"id"]]) {
                     [arrTmp addObject:dic];
                 }
                 
@@ -557,7 +557,7 @@
 }
 
 //MARK: - PLAYER
--(void)setupPlayerWithMusicItem:(NSDictionary*)dicMusic
+-(void)setupPlayerWithMusicItem:(NSDictionary*)dicMusic withCategory:(NSDictionary *)category
 {
     for (int i = 0; i < arrPlayList.count; i++) {
         NSDictionary *musicItem = arrPlayList[i];
@@ -570,19 +570,7 @@
         
     }
     if ([dicMusic[@"active"] boolValue]) {
-        NSString *category_name = @"";
-        for (NSDictionary *dicCategory in arrCategory) {
-            if (category_name.length > 0) {
-                break;
-            }
-            NSArray *arrSounds = dicCategory[@"sounds"];
-            for (NSDictionary *dicSound in arrSounds) {
-                if (dicSound[@"id"] == dicMusic[@"id"]) {
-                    category_name = dicCategory[@"path"];
-                    break;
-                }
-            }
-        }
+        NSString *category_name = category[@"path"];;
         if (category_name.length ==0) {
             return;
         }
@@ -646,7 +634,7 @@
             [arrSounds replaceObjectAtIndex:j withObject:dicSound];
             [dicCategory setObject:arrSounds forKey:@"sounds"];
             [arrCategory replaceObjectAtIndex:i withObject:dicCategory];
-            [self setupPlayerWithMusicItem:dicSound];
+            [self setupPlayerWithMusicItem:dicSound withCategory:dicCategory];
         }
     }
     [self caculatorSubScrollview];
@@ -705,7 +693,7 @@
                     [arrSounds replaceObjectAtIndex:j withObject:dicSound];
                     [dicCategory setObject:arrSounds forKey:@"sounds"];
                     [arrCategory replaceObjectAtIndex:i withObject:dicCategory];
-                    [self setupPlayerWithMusicItem:dicSound];
+                    [self setupPlayerWithMusicItem:dicSound withCategory:dicCategory];
                     break;
                     
                 }

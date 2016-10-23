@@ -11,7 +11,7 @@
 @interface TimerView : BaseView<UIActionSheetDelegate>
 {
     NSMutableArray *_dataSource;
-    BOOL areUnlockPro;
+    BOOL areAdsRemoved;
 }
 @property (nonatomic, strong) IBOutlet UIView *vViewNav;
 @property (nonatomic, strong) IBOutlet UIView *vContent;

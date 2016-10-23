@@ -114,8 +114,8 @@ static NSString *identifierSection1 = @"MyTableViewCell1";
                             parameters:dicMusic];
         // [END custom_event_objc]
         //show ads
-        areUnlockPro = [[NSUserDefaults standardUserDefaults] boolForKey:kUnlockProProductIdentifier];
-        if (areUnlockPro) {
+        areAdsRemoved = [[NSUserDefaults standardUserDefaults] boolForKey:kTotalRemoveAdsProductIdentifier];
+        if (areAdsRemoved) {
             if (_callback) {
                 _callback(dicMusic);
                 [self removeFromSuperview];

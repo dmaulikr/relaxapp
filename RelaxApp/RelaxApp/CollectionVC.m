@@ -23,8 +23,9 @@
     NSMutableArray                  *arrPlayList;
     NSDictionary                    *dicCategory;
     BOOL areAdsRemoved;
+    BOOL areBuyCategory;
     NSArray *_products;
-    BOOL areUnlockPro;
+    NSString * productIdentifier;
 }
 @end
 @implementation CollectionVC
@@ -73,27 +74,27 @@
     int numberVertical =3;
     int item_width = 70;
     int item_height = 70;
-        
-        CGFloat screenHeight = [UIScreen mainScreen].bounds.size.height;
-        CGFloat screenWidth = [UIScreen mainScreen].bounds.size.width;
-        if( screenHeight < screenWidth ){
-            screenHeight = screenWidth;
-        }
-        
-        if ( screenHeight >= 667){
-            numberHozi = 3;
-            numberVertical = 4;
-            item_width = 90;
-            item_height = 90;
-        }else {
-            numberHozi = 3;
-            numberVertical = 3;
-            item_width = 70;
-            item_height = 70;
-        }
-
+    
+    CGFloat screenHeight = [UIScreen mainScreen].bounds.size.height;
+    CGFloat screenWidth = [UIScreen mainScreen].bounds.size.width;
+    if( screenHeight < screenWidth ){
+        screenHeight = screenWidth;
+    }
+    
+    if ( screenHeight >= 667){
+        numberHozi = 3;
+        numberVertical = 4;
+        item_width = 90;
+        item_height = 90;
+    }else {
+        numberHozi = 3;
+        numberVertical = 3;
+        item_width = 70;
+        item_height = 70;
+    }
+    
     CGRect rect = self.frame;
-
+    
     int paddingHorizontal = (rect.size.width - numberHozi*item_width)/numberHozi;
     int paddingVertical = (rect.size.height - 20   - numberVertical*item_height)/(numberVertical + 1);
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
@@ -108,23 +109,19 @@
     [self.collectionView setShowsVerticalScrollIndicator:NO];
     self.collectionView.hidden = YES;
     self.vDownLoad.hidden = YES;
-
+    
 }
 
 -(void)instance
 {
     //IAP
-
-    areUnlockPro = [[NSUserDefaults standardUserDefaults] boolForKey:kUnlockProProductIdentifier];
-    if (!areUnlockPro) {
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(productPurchased:) name:IAPHelperProductPurchasedNotification object:nil];
-        AppDelegate *app = (AppDelegate*)[[UIApplication sharedApplication] delegate];
-        _products = app.arrAIP;
-        if (_products) {
-            [self reloadIAP];
-        }
-    }
-//    self.pageControl.currentPageIndicatorTintColor = UIColorFromRGB(COLOR_PAGE_ACTIVE);
+    productIdentifier = kBuyCategoryIdentifier;
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(productPurchased:) name:IAPHelperProductPurchasedNotification object:nil];
+    [[RageIAPHelper sharedInstance] addProdcutPurchase:kBuyCategoryIdentifier];
+    AppDelegate *app = (AppDelegate*)[[UIApplication sharedApplication] delegate];
+    _products = app.arrAIP;
+    [self reloadIAP];
     [self.collectionView registerNib:[UINib nibWithNibName:@"CollectionCell" bundle:nil] forCellWithReuseIdentifier:@"collectionID"];
     self.collectionView.allowsSelection = NO;
     arrCategory = [NSMutableArray new];
@@ -148,9 +145,12 @@
 }
 -(void)updateDataMusic:(NSDictionary*)dicTmp
 {
+    areAdsRemoved = [[NSUserDefaults standardUserDefaults] boolForKey:kTotalRemoveAdsProductIdentifier];
+    areBuyCategory = [[NSUserDefaults standardUserDefaults] boolForKey:kBuyCategoryIdentifier];
+
     AppDelegate *app = (AppDelegate*)[[UIApplication sharedApplication] delegate];
     _products = app.arrAIP;
-
+    
     
     dicCategory = dicTmp;
     [arrMusic removeAllObjects];
@@ -162,7 +162,7 @@
         NSArray *arrSounds = [dicCategory[@"sounds"] mutableCopy];
         for (int i = 0; i <arrSounds.count; i++) {
             NSMutableDictionary *dic = [arrSounds[i] mutableCopy];
-            if (areUnlockPro) {
+            if (areAdsRemoved) {
                 [dic setObject:@(0) forKey:@"ads"];
                 
             }
@@ -192,7 +192,7 @@
             }
             [arrMusic addObject:dic];
         }
-
+        
         self.collectionView.hidden = NO;
         self.vDownLoad.hidden = YES;
         [self.collectionView reloadData];
@@ -225,7 +225,7 @@
             {
                 // iPhone 5
                 strDevice = @"i5";
-
+                
             }
             else if(screenHeight == 667)
             {
@@ -237,59 +237,57 @@
                 // iPhone 6 Plus
                 strDevice = @"i6plus";
             }
-
+            
         }
         else
         {
             //its iPad
             strDevice = @"i6plus";
         }
-        areAdsRemoved = [[NSUserDefaults standardUserDefaults] boolForKey:kRemoveAdsProductIdentifier];
         [[NSUserDefaults standardUserDefaults] synchronize];
-
-
+        
+        
         if ([dicCategory[@"cover"] isKindOfClass:[NSArray class]]) {
             
-            if (areAdsRemoved || areUnlockPro) {
+            if (areBuyCategory) {
                 strCover = dicCategory[@"cover"][1][strDevice];
                 [self.btnDownLoad setTitle:@"Update" forState:UIControlStateNormal];
             }
             else
             {
-            if ([dicCategory[@"price"] boolValue]) {
-                strCover = dicCategory[@"cover"][0][strDevice];
-                [self.btnDownLoad setTitle:@"Buy" forState:UIControlStateNormal];
-                
-                NSString * productIdentifier = kRemoveAdsProductIdentifier;
-                [_products enumerateObjectsUsingBlock:^(SKProduct * product, NSUInteger idx, BOOL *stop) {
-                    if ([product.productIdentifier isEqualToString:productIdentifier]) {
-                        [self.btnDownLoad setTitle:[NSString stringWithFormat:@"Buy %@%@",@"$",product.price] forState:UIControlStateNormal];
-                    }
-                }];
-            }
-            else
-            {
-                strCover = dicCategory[@"cover"][1][strDevice];
-                [self.btnDownLoad setTitle:@"Update" forState:UIControlStateNormal];
-            }
+                if ([dicCategory[@"price"] boolValue]) {
+                    strCover = dicCategory[@"cover"][0][strDevice];
+                    [self.btnDownLoad setTitle:@"Buy" forState:UIControlStateNormal];
+                    
+                    [_products enumerateObjectsUsingBlock:^(SKProduct * product, NSUInteger idx, BOOL *stop) {
+                        if ([product.productIdentifier isEqualToString:productIdentifier]) {
+                            [self.btnDownLoad setTitle:[NSString stringWithFormat:@"Buy %@%@",@"$",product.price] forState:UIControlStateNormal];
+                        }
+                    }];
+                }
+                else
+                {
+                    strCover = dicCategory[@"cover"][1][strDevice];
+                    [self.btnDownLoad setTitle:@"Update" forState:UIControlStateNormal];
+                }
             }
         }
         else
         {
-            if (areAdsRemoved || areUnlockPro) {
+            if (areBuyCategory) {
+                strCover = dicCategory[@"cover"][1][strDevice];
                 [self.btnDownLoad setTitle:@"Update" forState:UIControlStateNormal];
             }
             else
             {
                 if ([dicCategory[@"price"] boolValue]) {
                     [self.btnDownLoad setTitle:@"Buy" forState:UIControlStateNormal];
-                    NSString * productIdentifier = kRemoveAdsProductIdentifier;
                     [_products enumerateObjectsUsingBlock:^(SKProduct * product, NSUInteger idx, BOOL *stop) {
                         if ([product.productIdentifier isEqualToString:productIdentifier]) {
                             [self.btnDownLoad setTitle:[NSString stringWithFormat:@"Buy %@%@",@"$",product.price] forState:UIControlStateNormal];
                         }
                     }];
-
+                    
                 }
                 else
                 {
@@ -297,15 +295,15 @@
                 }
             }
             strCover = dicCategory[@"cover"];
-
+            
         }
         NSURL *url =[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",BASE_IMAGE_URL,strCover]];
         [self.image sd_setImageWithURL:url placeholderImage: nil completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
         }];
-
-
+        
+        
     }
-
+    
 }
 -(NSString*)getFullPathWithFileName:(NSString*)fileName
 {
@@ -318,10 +316,10 @@
 -(void)selectItem:(NSInteger)index withIsLongTap:(BOOL)isLongTap
 {
     NSDictionary *dic = arrMusic[index];
-
-        if (_callback) {
-            _callback(dic,dicCategory,isLongTap);
-        }
+    
+    if (_callback) {
+        _callback(dic,dicCategory,isLongTap);
+    }
 }
 -(void)setCallback:(CollectionVCCallback)callback
 {
@@ -334,7 +332,7 @@
 //MARK: - ACTION
 -(IBAction)downloadAction:(id)sender
 {
-    if (areAdsRemoved || areUnlockPro) {
+    if (areBuyCategory) {
         if (_callbackCategory) {
             _callbackCategory(dicCategory, YES);
         }
@@ -343,7 +341,7 @@
     else
     {
         if ([dicCategory[@"price"] boolValue]) {
-//            [self restoreTapped:nil];
+            //            [self restoreTapped:nil];
             [self buyButtonTapped:nil];
         }
         else
@@ -364,7 +362,7 @@
     if (_callbackCategory) {
         _callbackCategory(dicCategory, NO);
     }
-
+    
 }
 //MARK: - COLLECTION
 // collection view data source methods ////////////////////////////////////
@@ -382,7 +380,7 @@
         userLanguage = [language substringToIndex:2];
     }
     userLanguage = [language substringToIndex:2];
-
+    
     
     NSDictionary *dic = arrMusic[indexPath.row];
     CollectionCell *cell = (CollectionCell *)[collectionView dequeueReusableCellWithReuseIdentifier:@"collectionID" forIndexPath:indexPath];
@@ -402,7 +400,7 @@
     {
         strTitleShort = dic[@"titleShort"];
     }
-
+    
     cell.lbTitle.text = strTitleShort;
     NSString *fullPath = [self getFullPathWithFileName:[NSString stringWithFormat:@"%@/img/%@",dicCategory[@"path"],dic[@"img"]]];
     cell.imgIcon.image = [UIImage imageWithContentsOfFile:fullPath];
@@ -448,7 +446,6 @@
     AppDelegate *app = (AppDelegate*)[[UIApplication sharedApplication] delegate];
     _products = app.arrAIP;
     
-    NSString * productIdentifier = kRemoveAdsProductIdentifier;
     [_products enumerateObjectsUsingBlock:^(SKProduct * product, NSUInteger idx, BOOL *stop) {
         if ([product.productIdentifier isEqualToString:productIdentifier]) {
             [[RageIAPHelper sharedInstance] buyProduct:product];
@@ -465,7 +462,7 @@
 }
 
 - (void)doRemoveAds{
-    areAdsRemoved = [[NSUserDefaults standardUserDefaults] boolForKey:kRemoveAdsProductIdentifier];
+    areBuyCategory = [[NSUserDefaults standardUserDefaults] boolForKey:kBuyCategoryIdentifier];
     [[NSUserDefaults standardUserDefaults] synchronize];
     [self.btnDownLoad setTitle:@"Update" forState:UIControlStateNormal];
     

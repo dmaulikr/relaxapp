@@ -144,7 +144,7 @@ Help us share on social</string>
                                             <color key="textColor" red="0.61960784310000006" green="0.61960784310000006" blue="0.61960784310000006" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZqP-cb-a9h">
+                                        <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZqP-cb-a9h">
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Unlock pro featured" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GdX-BM-1kn">
                                                     <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
@@ -171,7 +171,7 @@ Help us share on social</string>
                                                 <constraint firstItem="GdX-BM-1kn" firstAttribute="leading" secondItem="ZqP-cb-a9h" secondAttribute="leading" constant="10" id="Ilt-rc-EWv"/>
                                                 <constraint firstAttribute="bottom" secondItem="sTz-Df-edA" secondAttribute="bottom" id="RSC-yP-JSo"/>
                                                 <constraint firstAttribute="trailing" secondItem="L3K-pf-ohK" secondAttribute="trailing" constant="10" id="dPT-ka-ZgZ"/>
-                                                <constraint firstAttribute="height" constant="40" id="uMe-mU-K9q"/>
+                                                <constraint firstAttribute="height" id="uMe-mU-K9q"/>
                                                 <constraint firstItem="L3K-pf-ohK" firstAttribute="centerY" secondItem="ZqP-cb-a9h" secondAttribute="centerY" id="xny-YB-zY2"/>
                                             </constraints>
                                         </view>
@@ -558,7 +558,7 @@ Help us share on social</string>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <constraints>
                                         <constraint firstItem="afp-3W-ia3" firstAttribute="top" secondItem="fdT-ap-A6X" secondAttribute="bottom" id="0ky-s1-9Ft"/>
-                                        <constraint firstItem="6cS-qe-Wrv" firstAttribute="top" secondItem="6dd-Rd-ZZ4" secondAttribute="bottom" constant="140" id="1xd-xY-nmQ"/>
+                                        <constraint firstItem="6cS-qe-Wrv" firstAttribute="top" secondItem="6dd-Rd-ZZ4" secondAttribute="bottom" constant="100" id="1xd-xY-nmQ"/>
                                         <constraint firstItem="phq-e9-fnE" firstAttribute="leading" secondItem="4a4-ug-Dhm" secondAttribute="leading" id="2Uz-sM-iHK"/>
                                         <constraint firstItem="jJe-JU-hiE" firstAttribute="leading" secondItem="4a4-ug-Dhm" secondAttribute="leading" constant="10" id="3DZ-R9-DO8"/>
                                         <constraint firstItem="EvV-oR-QME" firstAttribute="centerX" secondItem="4a4-ug-Dhm" secondAttribute="centerX" id="6Hh-j7-eOA"/>

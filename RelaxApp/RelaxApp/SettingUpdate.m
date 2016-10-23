@@ -30,8 +30,8 @@
     self.btnCancel.hidden = YES;
     // Blurred with UIImage+ImageEffects
     //show ads
-    areUnlockPro = [[NSUserDefaults standardUserDefaults] boolForKey:kUnlockProProductIdentifier];
-    if (areUnlockPro) {
+    areAdsRemoved = [[NSUserDefaults standardUserDefaults] boolForKey:kTotalRemoveAdsProductIdentifier];
+    if (areAdsRemoved) {
         [UIAlertView showWithTitle:@"Do you want update something new?" message:@"By Clicking OK you permit the app download and use free storage on your phone"
                  cancelButtonTitle:@"Cancel"
                  otherButtonTitles:@[@"OK"]
@@ -116,9 +116,7 @@
             //free
             NSMutableArray *arrTmp = [NSMutableArray new];
             for (NSDictionary *dic in responseObject[@"categories"]) {
-                if (![dic[@"price"] boolValue]) {
                     [arrTmp addObject:dic];
-                }
                 
             }
             [self fnGetListCategory: arrTmp];
@@ -160,7 +158,10 @@
     NSString *strPathBlackList = [FileHelper pathForApplicationDataFile:FILE_BLACKLIST_CATEGORY_SAVE];
     NSArray *arrBlackList =@[];
     [arrBlackList writeToFile:strPathBlackList atomically:YES];
-    
+//    areUnlockPro = [[NSUserDefaults standardUserDefaults] boolForKey:kUnlockProProductIdentifier];
+    areAdsRemoved = [[NSUserDefaults standardUserDefaults] boolForKey:kTotalRemoveAdsProductIdentifier];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+
     NSMutableArray *arrUpdate = [NSMutableArray new];
     for (NSDictionary *dic in arrCategory) {
         for (NSDictionary *dicTmp in arrCache) {
@@ -168,7 +169,14 @@
             int  _id_Tmp = [dicTmp[@"id"] intValue];
             int _md5 = [dic[@"md5"] intValue];
             int _md5_Tmp = [dicTmp[@"md5"] intValue];
-            BOOL price = [dic[@"price"] boolValue];
+            BOOL price = YES;
+            if (areAdsRemoved) {
+                price = NO;
+            }
+            else
+            {
+                price = [dic[@"price"] boolValue];
+            }
             if ((_id == _id_Tmp) && (_md5 > _md5_Tmp) &&(!price)){
                 [arrUpdate addObject:dic];
             }

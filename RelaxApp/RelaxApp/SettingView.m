@@ -21,7 +21,7 @@
 #import "RageIAPHelper.h"
 @interface SettingView () <MFMailComposeViewControllerDelegate>
 {
-    BOOL areUnlockPro;
+//    BOOL areUnlockPro;
     BOOL areAdsRemoved;
     NSArray *_products;
 
@@ -45,12 +45,12 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(productPurchased:) name:IAPHelperProductPurchasedNotification object:nil];
     AppDelegate *app = (AppDelegate*)[[UIApplication sharedApplication] delegate];
     _products = app.arrAIP;
-    if (_products) {
+    if (!_products) {
         [self reloadIAP];
     }
     areAdsRemoved = [[NSUserDefaults standardUserDefaults] boolForKey:kTotalRemoveAdsProductIdentifier];
-    areUnlockPro = [[NSUserDefaults standardUserDefaults] boolForKey:kUnlockProProductIdentifier];
-    _unlockPro.on = areUnlockPro;
+//    areUnlockPro = [[NSUserDefaults standardUserDefaults] boolForKey:kUnlockProProductIdentifier];
+//    _unlockPro.on = areUnlockPro;
     _totalRemoveAds.on = areAdsRemoved;
     [self caculatorTimeAgo];
 }
@@ -253,24 +253,24 @@
 }
 - (IBAction)switchUnlockProValueChanged:(id)sender
 {
-    UISwitch *sw = (UISwitch*)sender;
-    if (areUnlockPro) {
-        sw.on = areUnlockPro;
-        return;
-    }
-    else
-    {
-        AppDelegate *app = (AppDelegate*)[[UIApplication sharedApplication] delegate];
-        _products = app.arrAIP;
-        
-        NSString * productIdentifier = kUnlockProProductIdentifier;
-        [_products enumerateObjectsUsingBlock:^(SKProduct * product, NSUInteger idx, BOOL *stop) {
-            if ([product.productIdentifier isEqualToString:productIdentifier]) {
-                [[RageIAPHelper sharedInstance] buyProduct:product];
-                *stop = YES;
-            }
-        }];
-    }
+//    UISwitch *sw = (UISwitch*)sender;
+//    if (areUnlockPro) {
+//        sw.on = areUnlockPro;
+//        return;
+//    }
+//    else
+//    {
+//        AppDelegate *app = (AppDelegate*)[[UIApplication sharedApplication] delegate];
+//        _products = app.arrAIP;
+//        
+//        NSString * productIdentifier = kUnlockProProductIdentifier;
+//        [_products enumerateObjectsUsingBlock:^(SKProduct * product, NSUInteger idx, BOOL *stop) {
+//            if ([product.productIdentifier isEqualToString:productIdentifier]) {
+//                [[RageIAPHelper sharedInstance] buyProduct:product];
+//                *stop = YES;
+//            }
+//        }];
+//    }
 }
 - (IBAction)switchRemoveAdsProValueChanged:(id)sender
 {
@@ -312,9 +312,9 @@
 
 - (void)doRemoveAds{
     areAdsRemoved = [[NSUserDefaults standardUserDefaults] boolForKey:kTotalRemoveAdsProductIdentifier];
-    areUnlockPro = [[NSUserDefaults standardUserDefaults] boolForKey:kUnlockProProductIdentifier];
+//    areUnlockPro = [[NSUserDefaults standardUserDefaults] boolForKey:kUnlockProProductIdentifier];
     
-    _unlockPro.on = areUnlockPro;
+//    _unlockPro.on = areUnlockPro;
     _totalRemoveAds.on = areAdsRemoved;
 
     [[NSUserDefaults standardUserDefaults] synchronize];

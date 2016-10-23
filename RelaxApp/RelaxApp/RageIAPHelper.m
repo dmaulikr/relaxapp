@@ -15,8 +15,7 @@
     static RageIAPHelper * sharedInstance;
     dispatch_once(&once, ^{
         NSSet * productIdentifiers = [NSSet setWithObjects:
-                                      kRemoveAdsProductIdentifier,
-                                      kUnlockProProductIdentifier,
+                                      kTotalRemoveAdsProductIdentifier,
                                       nil];
         sharedInstance = [[self alloc] initWithProductIdentifiers:productIdentifiers];
     });

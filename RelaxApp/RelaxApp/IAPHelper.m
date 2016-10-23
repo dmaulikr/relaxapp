@@ -64,7 +64,24 @@ NSString *const IAPHelperProductPurchasedNotification = @"IAPHelperProductPurcha
     [_productsRequest start];
     
 }
+-(void)addProdcutPurchase:(NSString *)productIdentifier
+{
+    if (![self productPurchased:productIdentifier]) {
+        
+        NSMutableSet * mSet = [[NSMutableSet alloc]initWithSet:_productIdentifiers];
+        [mSet addObject:productIdentifier];
+        _productIdentifiers = mSet;
 
+        BOOL productPurchased = [[NSUserDefaults standardUserDefaults] boolForKey:productIdentifier];
+        if (productPurchased) {
+            [_purchasedProductIdentifiers addObject:productIdentifier];
+            NSLog(@"Previously purchased: %@", productIdentifier);
+        } else {
+            NSLog(@"Not purchased: %@", productIdentifier);
+        }
+
+    }
+}
 - (BOOL)productPurchased:(NSString *)productIdentifier {
     return [_purchasedProductIdentifiers containsObject:productIdentifier];
 }

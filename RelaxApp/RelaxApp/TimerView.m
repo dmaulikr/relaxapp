@@ -218,8 +218,8 @@ static NSString *identifierSection1 = @"MyTableViewCell1";
 //MARK: -ACTION
 - (void)switchValueChanged:(id)sender
 {
-    areUnlockPro = [[NSUserDefaults standardUserDefaults] boolForKey:kUnlockProProductIdentifier];
-    if (areUnlockPro) {
+    areAdsRemoved = [[NSUserDefaults standardUserDefaults] boolForKey:kTotalRemoveAdsProductIdentifier];
+    if (areAdsRemoved) {
         NSString *strPath = [FileHelper pathForApplicationDataFile:FILE_TIMER_SAVE];
         
         UISwitch *sv = (UISwitch*)sender;

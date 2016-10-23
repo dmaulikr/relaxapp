@@ -13,7 +13,9 @@
 
 @interface SettingUpdate : BaseView
 {
-    BOOL areUnlockPro;
+//    BOOL areUnlockPro;
+    BOOL areAdsRemoved;
+    
 }
 @property (nonatomic, strong) IBOutlet UIButton *btnCancel;
 @property (nonatomic, strong) IBOutlet UIImageView *blurredBgImage;
