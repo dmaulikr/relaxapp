@@ -169,13 +169,16 @@
             int  _id_Tmp = [dicTmp[@"id"] intValue];
             int _md5 = [dic[@"md5"] intValue];
             int _md5_Tmp = [dicTmp[@"md5"] intValue];
-            BOOL price = YES;
-            if (areAdsRemoved) {
-                price = NO;
+            BOOL price = false;
+            BOOL areBuyCategory = false;
+            if ([dic[@"price"] isKindOfClass:[NSDictionary class]]) {
+                if ([dic[@"price"][@"isPrice"] boolValue]) {
+                    price = true;
+                    areBuyCategory = [[NSUserDefaults standardUserDefaults] boolForKey:dic[@"price"][@"iap"]];
+                }
             }
-            else
-            {
-                price = [dic[@"price"] boolValue];
+            if (areBuyCategory) {
+                price =false;
             }
             if ((_id == _id_Tmp) && (_md5 > _md5_Tmp) &&(!price)){
                 [arrUpdate addObject:dic];

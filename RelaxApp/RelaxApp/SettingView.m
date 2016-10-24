@@ -82,32 +82,7 @@
     
     // Facebook
     [self openUrl:@"http://fb.com/relafapp"];
-//    if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeFacebook])
-//    {
-//        SLComposeViewController *tweet = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
-//        [tweet setInitialText:@"Initial tweet text."];
-//        [tweet setCompletionHandler:^(SLComposeViewControllerResult result)
-//         {
-//             if (result == SLComposeViewControllerResultCancelled)
-//             {
-//                 NSLog(@"The user cancelled.");
-//             }
-//             else if (result == SLComposeViewControllerResultDone)
-//             {
-//                 NSLog(@"The user sent the post.");
-//             }
-//         }];
-//        [self.parent presentViewController:tweet animated:YES completion:nil];
-//    }
-//    else
-//    {
-//        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Twitter"
-//                                                        message:@"Facebook integration is not available.  Make sure you have setup your Facebook account on your device."
-//                                                       delegate:self
-//                                              cancelButtonTitle:@"OK"
-//                                              otherButtonTitles: nil];
-//        [alert show];
-//    }
+
 
 }
 -(void) openUrlInBrowser:(NSString *) url
@@ -174,32 +149,6 @@
     {
         [self openUrlInBrowser:urlString];
     }
-//    if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter])
-//    {
-//        SLComposeViewController *tweet = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
-//        [tweet setInitialText:@"http://twitter.com/relafapp"];
-//        [tweet setCompletionHandler:^(SLComposeViewControllerResult result)
-//         {
-//             if (result == SLComposeViewControllerResultCancelled)
-//             {
-//                 NSLog(@"The user cancelled.");
-//             }
-//             else if (result == SLComposeViewControllerResultDone)
-//             {
-//                 NSLog(@"The user sent the tweet");
-//             }
-//         }];
-//        [self.parent presentViewController:tweet animated:YES completion:nil];
-//    }
-//    else
-//    {
-//        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Twitter"
-//                                                        message:@"Twitter integration is not available.  A Twitter account must be set up on your device."
-//                                                       delegate:self
-//                                              cancelButtonTitle:@"OK"
-//                                              otherButtonTitles:nil];
-//        [alert show];
-//    }
 
 }
 - (IBAction)showEmail:(id)sender {
@@ -311,13 +260,14 @@
 }
 
 - (void)doRemoveAds{
+    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:kTotalRemoveAdsProductIdentifier];
     areAdsRemoved = [[NSUserDefaults standardUserDefaults] boolForKey:kTotalRemoveAdsProductIdentifier];
+    [[NSUserDefaults standardUserDefaults] synchronize];
 //    areUnlockPro = [[NSUserDefaults standardUserDefaults] boolForKey:kUnlockProProductIdentifier];
     
 //    _unlockPro.on = areUnlockPro;
     _totalRemoveAds.on = areAdsRemoved;
 
-    [[NSUserDefaults standardUserDefaults] synchronize];
     [[NSNotificationCenter defaultCenter]postNotificationName:NOTIFCATION_HIDE_ADS object:nil];
 
     

@@ -131,10 +131,11 @@
                                                   cancelButtonTitle:@"OK"
                                                   otherButtonTitles:nil];
             [alert show];
+            [self closeAction:nil];
             if (_callback) {
                 _callback();
             }
-
+            
 
         }
     }

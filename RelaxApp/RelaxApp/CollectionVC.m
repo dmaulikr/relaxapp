@@ -85,7 +85,7 @@
         numberHozi = 3;
         numberVertical = 4;
         item_width = 90;
-        item_height = 90;
+        item_height = 80;
     }else {
         numberHozi = 3;
         numberVertical = 3;
@@ -96,7 +96,7 @@
     CGRect rect = self.frame;
     
     int paddingHorizontal = (rect.size.width - numberHozi*item_width)/numberHozi;
-    int paddingVertical = (rect.size.height - 20   - numberVertical*item_height)/(numberVertical + 1);
+    int paddingVertical = (rect.size.height - 20  - numberVertical*item_height)/(numberVertical + 1);
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
     // setting cell attributes globally via layout properties ///////////////
     [self.collectionView setCollectionViewLayout:layout];
@@ -114,19 +114,13 @@
 
 -(void)instance
 {
-    //IAP
-    productIdentifier = kBuyCategoryIdentifier;
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(productPurchased:) name:IAPHelperProductPurchasedNotification object:nil];
-    [[RageIAPHelper sharedInstance] addProdcutPurchase:kBuyCategoryIdentifier];
-    AppDelegate *app = (AppDelegate*)[[UIApplication sharedApplication] delegate];
-    _products = app.arrAIP;
-    [self reloadIAP];
     [self.collectionView registerNib:[UINib nibWithNibName:@"CollectionCell" bundle:nil] forCellWithReuseIdentifier:@"collectionID"];
     self.collectionView.allowsSelection = NO;
     arrCategory = [NSMutableArray new];
     arrMusic  = [NSMutableArray new];
     arrPlayList = [NSMutableArray new];
+    areAdsRemoved = [[NSUserDefaults standardUserDefaults] boolForKey:kTotalRemoveAdsProductIdentifier];
+
 }
 //MARK: - DATA
 -(BOOL)checkPassOneDaye:(NSDate*)date
@@ -145,14 +139,16 @@
 }
 -(void)updateDataMusic:(NSDictionary*)dicTmp
 {
-    areAdsRemoved = [[NSUserDefaults standardUserDefaults] boolForKey:kTotalRemoveAdsProductIdentifier];
-    areBuyCategory = [[NSUserDefaults standardUserDefaults] boolForKey:kBuyCategoryIdentifier];
-
-    AppDelegate *app = (AppDelegate*)[[UIApplication sharedApplication] delegate];
-    _products = app.arrAIP;
-    
-    
     dicCategory = dicTmp;
+    BOOL price = false;
+    if ([dicCategory[@"price"] isKindOfClass:[NSDictionary class]]) {
+        if ([dicCategory[@"price"][@"isPrice"] boolValue]) {
+            price = true;
+            productIdentifier = dicCategory[@"price"][@"iap"];
+            areBuyCategory = [[NSUserDefaults standardUserDefaults] boolForKey:productIdentifier];
+        }
+    }
+
     [arrMusic removeAllObjects];
     NSString *path = [self getFullPathWithFileName:dicCategory[@"path"]];
     NSFileManager *fileManager = [[NSFileManager alloc] init];
@@ -245,25 +241,20 @@
             strDevice = @"i6plus";
         }
         [[NSUserDefaults standardUserDefaults] synchronize];
-        
-        
+
         if ([dicCategory[@"cover"] isKindOfClass:[NSArray class]]) {
-            
+
             if (areBuyCategory) {
                 strCover = dicCategory[@"cover"][1][strDevice];
                 [self.btnDownLoad setTitle:@"Update" forState:UIControlStateNormal];
             }
             else
             {
-                if ([dicCategory[@"price"] boolValue]) {
+
+                if (price) {
                     strCover = dicCategory[@"cover"][0][strDevice];
-                    [self.btnDownLoad setTitle:@"Buy" forState:UIControlStateNormal];
-                    
-                    [_products enumerateObjectsUsingBlock:^(SKProduct * product, NSUInteger idx, BOOL *stop) {
-                        if ([product.productIdentifier isEqualToString:productIdentifier]) {
-                            [self.btnDownLoad setTitle:[NSString stringWithFormat:@"Buy %@%@",@"$",product.price] forState:UIControlStateNormal];
-                        }
-                    }];
+                    [self.btnDownLoad setTitle:[NSString stringWithFormat:@"Buy %@%@",@"$",dicCategory[@"price"][@"value"]] forState:UIControlStateNormal];
+
                 }
                 else
                 {
@@ -280,13 +271,15 @@
             }
             else
             {
-                if ([dicCategory[@"price"] boolValue]) {
+                BOOL price = false;
+                if ([dicCategory[@"price"] isKindOfClass:[NSDictionary class]]) {
+                    if ([dicCategory[@"price"][@"isPrice"] boolValue]) {
+                        price = true;
+                    }
+                }
+                if (price) {
                     [self.btnDownLoad setTitle:@"Buy" forState:UIControlStateNormal];
-                    [_products enumerateObjectsUsingBlock:^(SKProduct * product, NSUInteger idx, BOOL *stop) {
-                        if ([product.productIdentifier isEqualToString:productIdentifier]) {
-                            [self.btnDownLoad setTitle:[NSString stringWithFormat:@"Buy %@%@",@"$",product.price] forState:UIControlStateNormal];
-                        }
-                    }];
+                    [self.btnDownLoad setTitle:[NSString stringWithFormat:@"Buy %@%@",@"$",dicCategory[@"price"][@"value"]] forState:UIControlStateNormal];
                     
                 }
                 else
@@ -340,8 +333,13 @@
     }
     else
     {
-        if ([dicCategory[@"price"] boolValue]) {
-            //            [self restoreTapped:nil];
+        BOOL price = false;
+        if ([dicCategory[@"price"] isKindOfClass:[NSDictionary class]]) {
+            if ([dicCategory[@"price"][@"isPrice"] boolValue]) {
+                price = true;
+            }
+        }
+        if (price) {
             [self buyButtonTapped:nil];
         }
         else
@@ -439,32 +437,53 @@
     [app reloadIAP];
     [app setCallbackAIP:^()
      {
-         [self updateDataMusic:dicCategory];
+         _products = app.arrAIP;
+         [_products enumerateObjectsUsingBlock:^(SKProduct * product, NSUInteger idx, BOOL *stop) {
+             if ([product.productIdentifier isEqualToString:productIdentifier]) {
+                 [[RageIAPHelper sharedInstance] buyProduct:product];
+                 [self removeAds];
+                 *stop = YES;
+             }
+
+         }];
      }];
 }
 - (void)buyButtonTapped:(id)sender {
-    AppDelegate *app = (AppDelegate*)[[UIApplication sharedApplication] delegate];
-    _products = app.arrAIP;
-    
-    [_products enumerateObjectsUsingBlock:^(SKProduct * product, NSUInteger idx, BOOL *stop) {
-        if ([product.productIdentifier isEqualToString:productIdentifier]) {
-            [[RageIAPHelper sharedInstance] buyProduct:product];
-            *stop = YES;
-        }
-    }];
+    if (productIdentifier.length > 0) {
+        [[RageIAPHelper sharedInstance] addProdcutPurchase:productIdentifier];
+        AppDelegate *app = (AppDelegate*)[[UIApplication sharedApplication] delegate];
+        _products = app.arrAIP;
+        [_products enumerateObjectsUsingBlock:^(SKProduct * product, NSUInteger idx, BOOL *stop) {
+            if ([product.productIdentifier isEqualToString:productIdentifier]) {
+                [[RageIAPHelper sharedInstance] buyProduct:product];
+                [self removeAds];
+                *stop = YES;
+            }
+            else
+            {
+                [self reloadIAP];
+
+            }
+        }];
+
+    }
 }
 
 - (void)restoreTapped:(id)sender {
     [[RageIAPHelper sharedInstance] restoreCompletedTransactions];
 }
-- (void)productPurchased:(NSNotification *)notification {
-    [self doRemoveAds];
+-(void)removeAds
+{
+    [[RageIAPHelper sharedInstance] productPurchasedValidate:^(BOOL success, NSString *proIdentifier) {
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:proIdentifier];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        areBuyCategory = [[NSUserDefaults standardUserDefaults] boolForKey:proIdentifier];
+        [self.btnDownLoad setTitle:@"Update" forState:UIControlStateNormal];
+        [self downloadAction:nil];
+    }];
 }
 
-- (void)doRemoveAds{
-    areBuyCategory = [[NSUserDefaults standardUserDefaults] boolForKey:kBuyCategoryIdentifier];
-    [[NSUserDefaults standardUserDefaults] synchronize];
-    [self.btnDownLoad setTitle:@"Update" forState:UIControlStateNormal];
-    
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 @end

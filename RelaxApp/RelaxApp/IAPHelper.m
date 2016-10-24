@@ -20,7 +20,8 @@ NSString *const IAPHelperProductPurchasedNotification = @"IAPHelperProductPurcha
 @implementation IAPHelper {
     SKProductsRequest * _productsRequest;
     RequestProductsCompletionHandler _completionHandler;
-    
+    productPurchasedValidate _productValidate;
+
     NSSet * _productIdentifiers;
     NSMutableSet * _purchasedProductIdentifiers;
 }
@@ -63,6 +64,10 @@ NSString *const IAPHelperProductPurchasedNotification = @"IAPHelperProductPurcha
     _productsRequest.delegate = self;
     [_productsRequest start];
     
+}
+-(void)productPurchasedValidate:(productPurchasedValidate)Valider
+{
+    _productValidate = Valider;
 }
 -(void)addProdcutPurchase:(NSString *)productIdentifier
 {
@@ -185,7 +190,11 @@ NSString *const IAPHelperProductPurchasedNotification = @"IAPHelperProductPurcha
         [[NSUserDefaults standardUserDefaults] synchronize];
     
     [[NSNotificationCenter defaultCenter] postNotificationName:IAPHelperProductPurchasedNotification object:productIdentifier userInfo:nil];
-    
+    if (_productValidate) {
+        _productValidate(YES, productIdentifier);
+        _productValidate = nil;
+    }
+
 }
 
 - (void)restoreCompletedTransactions {

@@ -35,9 +35,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Replace this ad unit ID with your own ad unit ID.
-   areAdsRemoved = [[NSUserDefaults standardUserDefaults] boolForKey:kTotalRemoveAdsProductIdentifier];
+    areAdsRemoved = [[NSUserDefaults standardUserDefaults] boolForKey:kTotalRemoveAdsProductIdentifier];
     if (areAdsRemoved) {
-         [self hideAdsAction];
+        [self hideAdsAction];
     }
     else
     {
@@ -53,11 +53,11 @@
         // Requests test ads on devices you specify. Your test device ID is printed to the console when
         // an ad request is made. GADBannerView automatically returns test ads when running on a
         [self.bannerView loadRequest:request];
-
+        
     }
     //
     self.navigationController.navigationBar.hidden = YES;
-
+    
     [[UIApplication sharedApplication] setStatusBarHidden:NO];
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     self.progressView1.popUpViewAnimatedColors = @[UIColorFromRGB(COLOR_PROGRESS_HOZI), UIColorFromRGB(COLOR_PROGRESS_HOZI), UIColorFromRGB(COLOR_PROGRESS_HOZI)];
@@ -68,7 +68,7 @@
     self.lbFavorite.font = [UIFont fontWithName:@"Roboto-Regular" size:8];
     self.lbTimer.font = [UIFont fontWithName:@"Roboto-Regular" size:8];
     self.lbSetting.font = [UIFont fontWithName:@"Roboto-Regular" size:8];
-
+    
     arrCategory  = [NSMutableArray new];
     arrPlayList = [NSMutableArray new];
     arrColection = [NSMutableArray new];
@@ -88,7 +88,7 @@
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-
+    
     [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback
                                            error:nil];
     [[AVAudioSession sharedInstance] setActive:YES
@@ -104,9 +104,9 @@
     CGRect frame = CGRectMake(-1000, -1000, 0, 0);
     self.volumeView = [[MPVolumeView alloc] initWithFrame:frame];
     [self.view addSubview: self.volumeView];
-
+    
     [self loadCache];
-
+    
 }
 -(void)viewWillDisappear:(BOOL)animated {
     [[UIApplication sharedApplication] endReceivingRemoteControlEvents];
@@ -127,7 +127,7 @@
     btn.tag = 12;
     _buttonType = BUTTON_SETTING;
     [self tabBottomVCAction:btn];
-
+    
     [self loadCache];
     
 }
@@ -140,7 +140,7 @@
         //check exist in blacklist
         NSString *strPathBlackList = [FileHelper pathForApplicationDataFile:FILE_BLACKLIST_CATEGORY_SAVE];
         NSArray *arrBlackList = [NSArray arrayWithContentsOfFile:strPathBlackList];
-
+        
         NSArray *arrTmp = dicTmp[@"category"];
         for (NSDictionary *dic in arrTmp) {
             if (![arrBlackList containsObject:dic[@"id"]]) {
@@ -153,7 +153,7 @@
     {
         [self getCategory];
     }
-
+    
 }
 - (void)timerNotification:(NSNotification *)notification
 {
@@ -180,28 +180,29 @@
                 }
                 [self fnSetButtonBottom];
             }
-
+            
         }
         else
         {
             //pause
             if (arrPlayList.count > 0) {
+                if (_buttonType == BUTTON_PLAYING) {
                 _buttonType = BUTTON_PAUSE;
+                }
                 for (int i = 0; i < arrPlayList.count; i ++) {
                     NSDictionary *musicItem = arrPlayList[i];
                     IDZAQAudioPlayer *player  = musicItem[@"player"];
                     [player pause];
                 }
-
+                
             }
-            [self fnSetButtonBottom];
         }
-
+        
     });
 }
 -(void)updateDataMusic:(NSDictionary*)dicMusic withCategory:(NSDictionary *)category
 {
-
+    
     for (int i = 0; i< arrCategory.count; i++) {
         
         NSMutableDictionary *dicCategory = [arrCategory[i] mutableCopy];
@@ -224,12 +225,12 @@
                     }
                 }
             }
-
+            
         }
     }
     [self setupPlayerWithMusicItem:dicMusic withCategory:category];
     [self caculatorSubScrollview];
-
+    
 }
 -(void)checkMusicActive
 {
@@ -241,7 +242,8 @@
             NSMutableDictionary *dicSound = [NSMutableDictionary dictionaryWithDictionary:arrSounds[j]];
             for (int k = 0; k < arrPlayList.count; k ++) {
                 NSDictionary *musicItem = arrPlayList[k];
-                if ([dicSound[@"id"] intValue] == [musicItem[@"music"][@"id"] intValue]) {
+                if ([dicSound[@"id"] intValue] == [musicItem[@"music"][@"id"] intValue]&&
+                    [dicCategory[@"id"]intValue]== [musicItem[@"category_id"] intValue]) {
                     [dicSound setObject:@(1) forKey:@"active"];
                     [arrSounds replaceObjectAtIndex:j withObject:dicSound];
                     [dicCategory setObject:arrSounds forKey:@"sounds"];
@@ -277,12 +279,12 @@
             [self addSubViewFavorite];
             _buttonType = BUTTON_FAVORITE;
             self.vNavHome.hidden = YES;
-
+            
         }
             break;
         case 2:
         {
-
+            
             if (_buttonType == BUTTON_VOLUME || _buttonType == BUTTON_FAVORITE || _buttonType == BUTTON_TIMER || _buttonType == BUTTON_SETTING) {
                 //get state befor
                 if (arrPlayList.count > 0) {
@@ -300,7 +302,7 @@
                 {
                     _buttonType = BUTTON_RANDOM;
                 }
-
+                
             }
             else
             {
@@ -316,7 +318,7 @@
                     else
                     {
                         _buttonType = BUTTON_RANDOM;
-
+                        
                     }
                 }
                 else if (_buttonType == BUTTON_PAUSE)
@@ -349,8 +351,8 @@
             [self addSubViewTimer];
             _buttonType = BUTTON_TIMER;
             self.vNavHome.hidden = YES;
-
-
+            
+            
         }
             break;
         case 4:
@@ -359,8 +361,8 @@
             [self addSubViewSetting];
             _buttonType = BUTTON_SETTING;
             self.vNavHome.hidden = YES;
-
-
+            
+            
         }
             break;
         default:
@@ -403,14 +405,14 @@
         self.lbVolume.textColor = UIColorFromRGB(COLOR_PAGE_ACTIVE);
         self.imgVolume.hidden = YES;
         self.imgVolumeActive.hidden = NO;
-
+        
     }
     else
     {
         self.lbVolume.textColor = [UIColor whiteColor];
         self.imgVolume.hidden = NO;
         self.imgVolumeActive.hidden = YES;
-
+        
     }
 }
 
@@ -418,7 +420,7 @@
 {
     __weak HomeVC *wself = self;
     [self.vVolumeTotal removeFromSuperview];
-
+    
     self.vVolumeTotal = [[VolumeView alloc] initWithClassName:NSStringFromClass([VolumeView class])];
     [self.vVolumeTotal setup];
     [self addVolumeTotalContraintSupview: self.vVolumeTotal];
@@ -460,12 +462,12 @@
                                attribute:NSLayoutAttributeTop
                                multiplier:1.0 constant:0] ];
     [view addConstraint:[NSLayoutConstraint constraintWithItem:view
-                                                      attribute:NSLayoutAttributeWidth
-                                                      relatedBy:NSLayoutRelationEqual
-                                                         toItem:nil
-                                                      attribute: NSLayoutAttributeNotAnAttribute
-                                                     multiplier:1
-                                                       constant:50]];    
+                                                     attribute:NSLayoutAttributeWidth
+                                                     relatedBy:NSLayoutRelationEqual
+                                                        toItem:nil
+                                                     attribute: NSLayoutAttributeNotAnAttribute
+                                                    multiplier:1
+                                                      constant:50]];
     [viewSuper addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-(0)-[view]-(0)-|"
                                                                       options:0
                                                                       metrics:nil
@@ -475,8 +477,8 @@
 {
     for (int i = 0; i < arrPlayList.count; i++) {
         NSDictionary *musicItem = arrPlayList[i];
-            IDZAQAudioPlayer *player  = musicItem[@"player"];
-            [player setVolume:[musicItem[@"music"][@"volume"] floatValue]];
+        IDZAQAudioPlayer *player  = musicItem[@"player"];
+        [player setVolume:[musicItem[@"music"][@"volume"] floatValue]];
     }
 }
 -(void) addSubViewVolumeItemWithDicMusic:(NSDictionary*)dicMusic withCategory:(NSDictionary *)dicCategory
@@ -489,22 +491,25 @@
     [self.vVolumeItem setCallback:^(NSDictionary *dicMusic)
      {
          [wself updateDataMusic:dicMusic withCategory:dicCategory];
-         [wself saveVolume:dicMusic];
+         [wself saveVolume:dicMusic withCategory:dicCategory];
      }];
-
+    
 }
--(void)saveVolume:(NSDictionary*)dic
+-(void)saveVolume:(NSDictionary*)dic withCategory:(NSDictionary *)category
 {
     //save volume
+    NSString *strID = [NSString stringWithFormat:@"%@%@",category[@"id"],dic[@"id"]];
+
     NSString *strPathVolume = [FileHelper pathForApplicationDataFile:FILE_HISTORY_VOLUME_SAVE];
     NSArray *arrVolume = [NSArray arrayWithContentsOfFile:strPathVolume];
     NSMutableArray *arrMulVolme = [NSMutableArray arrayWithArray:arrVolume];
     
-    BOOL isSetVolume;
+    BOOL isSetVolume = NO;
     if (arrVolume.count > 0) {
         for (int i = 0; i <arrVolume.count; i++) {
             NSMutableDictionary *dicVolume = [NSMutableDictionary dictionaryWithDictionary:arrVolume[i]];
-            if ([dicVolume[@"id"] intValue] == [dic[@"id"] intValue] ) {
+            NSString *strVolumeID = dicVolume[@"id"];
+            if ([strVolumeID isEqualToString: strID] ) {
                 if (dic[@"volume"]) {
                     [dicVolume setObject:dic[@"volume"] forKey:@"volume"];
                     [arrMulVolme replaceObjectAtIndex:i withObject:dicVolume];
@@ -515,10 +520,10 @@
         }
     }
     if (!isSetVolume) {
-        [arrMulVolme addObject:@{@"id": dic[@"id"],@"volume": dic[@"volume"]}];
+        [arrMulVolme addObject:@{@"id": strID,@"volume": dic[@"volume"]}];
     }
     [arrMulVolme writeToFile:strPathVolume atomically:YES];
-
+    
 }
 //MARK: - NETWORK
 -(void)getCategory
@@ -533,7 +538,7 @@
             //check exist in blacklist
             NSString *strPathBlackList = [FileHelper pathForApplicationDataFile:FILE_BLACKLIST_CATEGORY_SAVE];
             NSArray *arrBlackList = [NSArray arrayWithContentsOfFile:strPathBlackList];
-
+            
             NSMutableArray *arrTmp = [NSMutableArray new];
             for (NSDictionary *dic in responseObject[@"categories"]) {
                 if (![arrBlackList containsObject:dic[@"id"]]) {
@@ -549,7 +554,7 @@
                 NSDictionary *dicTmp = @{@"category": arrCategory,@"date":date};
                 [dicTmp writeToFile:strPath atomically:YES];
             }
-
+            
         }
     } failure:^(NSURLSessionTask *operation, NSError *error) {
         NSLog(@"Error: %@", error);
@@ -561,7 +566,8 @@
 {
     for (int i = 0; i < arrPlayList.count; i++) {
         NSDictionary *musicItem = arrPlayList[i];
-        if ([dicMusic[@"id"] intValue] == [musicItem[@"music"][@"id"] intValue]) {
+        if ([dicMusic[@"id"] intValue] == [musicItem[@"music"][@"id"] intValue] &&
+            [category[@"id"]intValue]== [musicItem[@"category_id"] intValue]) {
             IDZAQAudioPlayer *player  = musicItem[@"player"];
             [player stop];
             [arrPlayList removeObjectAtIndex:i];
@@ -593,11 +599,12 @@
         NSMutableDictionary *dic = [NSMutableDictionary new];
         [dic setObject:player forKey:@"player"];
         [dic setObject:dicMusic forKey:@"music"];
+        [dic setObject:category[@"id"] forKey:@"category_id"];
         [arrPlayList addObject:dic];
-
+        
     }
     [self performSelector:@selector(playMusic) withObject:nil afterDelay:0.04];
-
+    
 }
 -(void)playMusic
 {
@@ -638,7 +645,7 @@
         }
     }
     [self caculatorSubScrollview];
-
+    
 }
 //MARK: - FAVORITE
 -(IBAction)addFavoriteAction:(id)sender
@@ -650,7 +657,7 @@
         [self.vAddFavorite addContraintSupview:self.view];
         self.vAddFavorite.modeType = MODE_INFO;
         [self.vAddFavorite fnSetInfoFavorite:_dicChooseCategory];
-
+        
     }
     else
     {
@@ -669,7 +676,7 @@
         [self.vAddFavorite addContraintSupview:self.view];
         self.vAddFavorite.modeType = MODE_CREATE;
         [self.vAddFavorite fnSetDataMusic:arrChoose];
-
+        
     }
 }
 -(void)fnPlayerFromFavorite:(NSArray*)chooseFavotite
@@ -681,29 +688,32 @@
         
         for (int i = 0; i< arrCategory.count; i++) {
             NSMutableDictionary *dicCategory = [arrCategory[i] mutableCopy];
-            NSMutableArray *arrSounds = [dicCategory[@"sounds"] mutableCopy];
-            for (int j = 0; j <arrSounds.count; j++) {
-                NSMutableDictionary *dicSound = [arrSounds[j] mutableCopy];
-                if ([dicSound[@"id"] intValue] == [dichChoose[@"id"] intValue]) {
-                    [dicSound setObject:dichChoose[@"volume"] forKey:@"volume"];
-                    [dicSound setObject:dichChoose[@"active"] forKey:@"active"];
-                    [dicSound setObject:dicCategory[@"id"] forKey:@"category_id"];
-
-                    //show music
-                    [arrSounds replaceObjectAtIndex:j withObject:dicSound];
-                    [dicCategory setObject:arrSounds forKey:@"sounds"];
-                    [arrCategory replaceObjectAtIndex:i withObject:dicCategory];
-                    [self setupPlayerWithMusicItem:dicSound withCategory:dicCategory];
-                    break;
-                    
+            if ([dicCategory[@"id"] intValue] == [dichChoose[@"category_id"] intValue]) {
+                NSMutableArray *arrSounds = [dicCategory[@"sounds"] mutableCopy];
+                for (int j = 0; j <arrSounds.count; j++) {
+                    NSMutableDictionary *dicSound = [arrSounds[j] mutableCopy];
+                    if ([dicSound[@"id"] intValue] == [dichChoose[@"id"] intValue]) {
+                        [dicSound setObject:dichChoose[@"volume"] forKey:@"volume"];
+                        [dicSound setObject:dichChoose[@"active"] forKey:@"active"];
+                        [dicSound setObject:dicCategory[@"id"] forKey:@"category_id"];
+                        
+                        //show music
+                        [arrSounds replaceObjectAtIndex:j withObject:dicSound];
+                        [dicCategory setObject:arrSounds forKey:@"sounds"];
+                        [arrCategory replaceObjectAtIndex:i withObject:dicCategory];
+                        [self setupPlayerWithMusicItem:dicSound withCategory:dicCategory];
+                        break;
+                        
+                    }
                 }
+
             }
         }
     }
-
+    
     [self caculatorSubScrollview];
     [self fnSetButtonNavigation];
-
+    
 }
 #pragma mark - IDZAudioPlayerDelegate
 - (void)audioPlayerDidFinishPlaying:(id<IDZAudioPlayer>)player successfully:(BOOL)flag
@@ -726,8 +736,10 @@
     }
     else
     {
+        
         _dicChooseCategory = nil;
         NSMutableDictionary *dic = [dicMusic mutableCopy];
+        NSString *strID = [NSString stringWithFormat:@"%@%@",dicCategory[@"id"],dic[@"id"]];
         if ([dic[@"active"] boolValue]) {
             [dic setObject:@(0) forKey:@"active"];
         }
@@ -737,14 +749,15 @@
             [dic setObject:dicCategory[@"id"] forKey:@"category_id"];
             //save volume
             NSString *strPathVolume = [FileHelper pathForApplicationDataFile:FILE_HISTORY_VOLUME_SAVE];
-            NSArray *arrVolume = [NSArray arrayWithContentsOfFile:strPathVolume];
-            NSMutableArray *arrMulVolme = [NSMutableArray arrayWithArray:arrVolume];
+            NSArray *arr = [NSArray arrayWithContentsOfFile:strPathVolume];
+            NSMutableArray *arrMulVolme = [NSMutableArray arrayWithArray:arr];
             
-            BOOL isSetVolume;
-            if (arrVolume.count > 0) {
-                for (int i = 0; i <arrVolume.count; i++) {
-                    NSMutableDictionary *dicVolume = [NSMutableDictionary dictionaryWithDictionary:arrVolume[i]];
-                    if ([dicVolume[@"id"] intValue] == [dic[@"id"] intValue] ) {
+            BOOL isSetVolume = NO;
+            if (arrMulVolme.count > 0) {
+                for (int i = 0; i <arrMulVolme.count; i++) {
+                    NSMutableDictionary *dicVolume = [NSMutableDictionary dictionaryWithDictionary:arrMulVolme[i]];
+                    NSString *strVolumeID = dicVolume[@"id"];
+                    if ([strVolumeID isEqualToString: strID] ) {
                         if (dicVolume[@"volume"]) {
                             [dic setObject:dicVolume[@"volume"] forKey:@"volume"];
                         }
@@ -759,9 +772,10 @@
                     }
                 }
             }
+            
             if (!isSetVolume) {
                 [dic setObject:@(DEFAULT_VOLUME) forKey:@"volume"];
-                [arrMulVolme addObject:@{@"id": dic[@"id"],@"volume": @(DEFAULT_VOLUME)}];
+                [arrMulVolme addObject:@{@"id": strID,@"volume": @(DEFAULT_VOLUME)}];
             }
             [arrMulVolme writeToFile:strPathVolume atomically:YES];
             //show music
@@ -782,7 +796,7 @@
         [self fnSetButtonBottom];
     }
     
-
+    
 }
 -(BOOL)checkPassOneDaye:(NSDate*)date
 {
@@ -803,35 +817,35 @@
 {
     [self checkMusicActive];
     //update frame scroll view
-//    CGRect rect = rectScroll;
-//    rect.size.height = rect.size.height + self.contraintBottomvTab.constant;
-//    self.scroll_View.frame = rect;
+    //    CGRect rect = rectScroll;
+    //    rect.size.height = rect.size.height + self.contraintBottomvTab.constant;
+    //    self.scroll_View.frame = rect;
     //
-
+    
     NSString * language = [[NSLocale preferredLanguages] objectAtIndex:0];
     NSString *userLanguage = @"en";
     if (language.length >=2) {
         userLanguage = [language substringToIndex:2];
     }
     userLanguage = [language substringToIndex:2];
-
+    
     int deltal = 9;
     
-        CGFloat screenHeight = [UIScreen mainScreen].bounds.size.height;
-        CGFloat screenWidth = [UIScreen mainScreen].bounds.size.width;
-        if( screenHeight < screenWidth ){
-            screenHeight = screenWidth;
-        }
-        
-       if ( screenHeight >= 667){
-           deltal = 12;
-        }else {
-            deltal = 9;
-        }
+    CGFloat screenHeight = [UIScreen mainScreen].bounds.size.height;
+    CGFloat screenWidth = [UIScreen mainScreen].bounds.size.width;
+    if( screenHeight < screenWidth ){
+        screenHeight = screenWidth;
+    }
+    
+    if ( screenHeight >= 667){
+        deltal = 12;
+    }else {
+        deltal = 9;
+    }
     
     __weak HomeVC *wself = self;
     iNumberCollection = 0;
-
+    
     //remove subview scroll news
     for (UIView *view in self.scroll_View.subviews) {
         [view removeFromSuperview];
@@ -840,7 +854,7 @@
     
     float delta = CGRectGetWidth(self.scroll_View.frame);
     //caculator number page
-   arrTotal = [NSMutableArray new];
+    arrTotal = [NSMutableArray new];
     //set active
     //
     for (int j=0; j < arrCategory.count; j++) {
@@ -952,12 +966,12 @@
                  }
                  [wself downloadSoundWithCategory:dicCategory];
              }
-
+             
          }];
         [arrColection addObject:collection];
         i++;
     }
-
+    
     [self.scroll_View setContentSize:CGSizeMake(iNumberCollection*delta, CGRectGetHeight(self.scroll_View.frame))];
     [self.scroll_View setPagingEnabled:YES];
     self.pageControl.numberOfPages = iNumberCollection;
@@ -983,13 +997,13 @@
         {
             strName = arrTotal[(int)currentPage][@"name"];
         }
-
+        
         self.titleCategory.text = strName;
         self.imgSingle.hidden = [arrTotal[(int)currentPage][@"manyselect"] boolValue];
-
+        
     }
-
-
+    
+    
 }
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
@@ -999,7 +1013,7 @@
         userLanguage = [language substringToIndex:2];
     }
     userLanguage = [language substringToIndex:2];
-
+    
     CGFloat pageWidth = CGRectGetWidth(scrollView.frame);
     CGFloat currentPage = floor((scrollView.contentOffset.x-pageWidth/2)/pageWidth)+1;
     // Change the indicator
@@ -1025,13 +1039,13 @@
         self.titleCategory.text = strName;
         self.imgSingle.hidden = [arrTotal[(int)currentPage][@"manyselect"] boolValue];
     }
-
+    
 }
 -(void)downloadSoundWithCategory:(NSDictionary*)dicCategory
 {
-
+    
     __weak HomeVC *wself = self;
-
+    
     self.progressView1.hidden = NO;
     [self.progressView1 setProgress:0 animated:YES];
     DownLoadCategory *download = [DownLoadCategory sharedInstance];
@@ -1049,10 +1063,10 @@
          dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0), ^{
              dispatch_async(dispatch_get_main_queue(), ^{
                  [self.progressView1 setProgress:progress animated:YES];
-
+                 
              });
          });
-
+         
      }];
 }
 //MARK: - STATUS BUTTON
@@ -1078,7 +1092,7 @@
         _imgAddfavorite.hidden = NO;
         _btnclearAll.hidden = NO;
         _imgclearAll.hidden = NO;
-
+        
     }
 }
 -(void)fnSetButtonBottom
@@ -1091,7 +1105,7 @@
     self.lbFavorite.textColor = [UIColor whiteColor];
     self.imgFavorite.hidden = NO;
     self.imgFavoriteActive.hidden = YES;
-
+    
     //home
     self.imgHome.image = [UIImage imageNamed:@"backtohome"];
     
@@ -1099,12 +1113,12 @@
     self.lbTimer.textColor = [UIColor whiteColor];
     self.imgTimer.hidden = NO;
     self.imgTimerActive.hidden = YES;
-
+    
     //setting
     self.lbSetting.textColor = [UIColor whiteColor];
     self.imgSetting.hidden = NO;
     self.imgSettingActive.hidden = YES;
-
+    
     if (_buttonType == BUTTON_VOLUME) {
     }
     switch (_buttonType) {
@@ -1163,7 +1177,7 @@
     NSString *strPath = [FileHelper pathForApplicationDataFile:FILE_FAVORITE_SAVE];
     NSArray *arrTmp = [NSArray arrayWithContentsOfFile:strPath];
     if (arrTmp.count > 0) {
-      int random = arc4random() % (arrTmp.count);
+        int random = arc4random() % (arrTmp.count);
         NSDictionary *dicFavorite = arrTmp[random];
         self.dicChooseCategory = dicFavorite;
         NSArray *chooseMusic = self.dicChooseCategory[@"music"];
@@ -1171,26 +1185,26 @@
         _buttonType = BUTTON_PLAYING;
         [self fnSetButtonBottom];
     }
-
+    
 }
 //MARK: - AVSection delegate
 - (void)beginInterruption /* something has caused your audio session to be interrupted */
 {
-
+    
 }
 /* the interruption is over */
 - (void)endInterruptionWithFlags:(NSUInteger)flags  /* Currently the only flag is AVAudioSessionInterruptionFlags_ShouldResume. */
 {
-
+    
 }
 - (void)endInterruption /* endInterruptionWithFlags: will be called instead if implemented. */
 {
-
+    
 }
 /* notification for input become available or unavailable */
 - (void)inputIsAvailableChanged:(BOOL)isInputAvailable
 {
-
+    
 }
 - (BOOL)canBecomeFirstResponder
 {
@@ -1203,20 +1217,20 @@
         switch (receivedEvent.subtype) {
             case UIEventSubtypeRemoteControlPlay:
             {
-                    UIButton *btn = [UIButton new];
-                    btn.tag = 12;
-                    _buttonType = BUTTON_PAUSE;
-                    [self tabBottomVCAction:btn];
+                UIButton *btn = [UIButton new];
+                btn.tag = 12;
+                _buttonType = BUTTON_PAUSE;
+                [self tabBottomVCAction:btn];
             }
                 break;
-
+                
             case UIEventSubtypeRemoteControlPause:
             {
                 UIButton *btn = [UIButton new];
                 btn.tag = 12;
                 _buttonType = BUTTON_PLAYING;
                 [self tabBottomVCAction:btn];
-
+                
             }
                 break;
                 
@@ -1264,7 +1278,7 @@
          [self caculatorSubScrollview];
          
      }];
-
+    
 }
 - (void)adViewDidReceiveAd:(GADBannerView *)bannerView
 {
@@ -1283,20 +1297,20 @@
 /// an ad. The delegate may want to pause animations and time sensitive interactions.
 - (void)adViewWillPresentScreen:(GADBannerView *)bannerView
 {
-
+    
 }
 
 /// Tells the delegate that the full screen view will be dismissed.
 - (void)adViewWillDismissScreen:(GADBannerView *)bannerView
 {
-
+    
 }
 
 /// Tells the delegate that the full screen view has been dismissed. The delegate should restart
 /// anything paused while handling adViewWillPresentScreen:.
 - (void)adViewDidDismissScreen:(GADBannerView *)bannerView
 {
-
+    
 }
 
 /// Tells the delegate that the user click will open another app, backgrounding the current
@@ -1304,7 +1318,7 @@
 /// are called immediately before this method is called.
 - (void)adViewWillLeaveApplication:(GADBannerView *)bannerView
 {
-
+    
 }
 
 @end

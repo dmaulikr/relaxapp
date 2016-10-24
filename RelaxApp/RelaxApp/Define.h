@@ -45,7 +45,7 @@
 #define FIREBASE_BANNER_UnitID @"ca-app-pub-1671106005232686/2164341256"
 
 #define FILE_IAP_SAVE @"IAP"
-#define kBuyCategoryIdentifier @"com.Relaf.Relaf.RelafPricing"
+//#define kBuyCategoryIdentifier @"com.Relaf.Relaf.RelafPricing"
 //#define kUnlockProProductIdentifier @"com.Relaf.Relaf.UnlockPro"
 #define kTotalRemoveAdsProductIdentifier @"com.Relaf.Relaf.RemoveAds"
 
