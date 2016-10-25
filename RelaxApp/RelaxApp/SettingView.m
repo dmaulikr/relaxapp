@@ -32,6 +32,15 @@
 -(void)awakeFromNib
 {
     [super awakeFromNib];
+    if (VERSION_PRO) {
+        self.contraintHeightAds.constant = 0;
+        self.vAds.hidden = YES;
+    }
+    else
+    {
+        self.contraintHeightAds.constant = 71;
+        self.vAds.hidden = NO;
+    }
     self.lbShare.font = [UIFont fontWithName:@"Roboto-Light" size:20];
     
     self.lbTitleCheckUpdate.font= [UIFont fontWithName:@"Roboto-Regular" size:13];
@@ -48,7 +57,7 @@
     if (!_products) {
         [self reloadIAP];
     }
-    areAdsRemoved = [[NSUserDefaults standardUserDefaults] boolForKey:kTotalRemoveAdsProductIdentifier];
+    areAdsRemoved = VERSION_PRO?1:[[NSUserDefaults standardUserDefaults] boolForKey:kTotalRemoveAdsProductIdentifier];
 //    areUnlockPro = [[NSUserDefaults standardUserDefaults] boolForKey:kUnlockProProductIdentifier];
 //    _unlockPro.on = areUnlockPro;
     _totalRemoveAds.on = areAdsRemoved;

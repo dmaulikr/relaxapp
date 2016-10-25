@@ -21,5 +21,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *lbPrivacy;
 @property (strong, nonatomic) IBOutlet UISwitch *unlockPro;
 @property (strong, nonatomic) IBOutlet UISwitch *totalRemoveAds;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *contraintHeightAds;
+@property (weak, nonatomic) IBOutlet UIView *vAds;
 
 @end

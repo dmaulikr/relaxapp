@@ -30,7 +30,7 @@
     self.btnCancel.hidden = YES;
     // Blurred with UIImage+ImageEffects
     //show ads
-    areAdsRemoved = [[NSUserDefaults standardUserDefaults] boolForKey:kTotalRemoveAdsProductIdentifier];
+    areAdsRemoved = VERSION_PRO?1:[[NSUserDefaults standardUserDefaults] boolForKey:kTotalRemoveAdsProductIdentifier];
     if (areAdsRemoved) {
         [UIAlertView showWithTitle:@"Do you want update something new?" message:@"By Clicking OK you permit the app download and use free storage on your phone"
                  cancelButtonTitle:@"Cancel"
@@ -52,7 +52,7 @@
     }
     else
     {
-        [UIAlertView showWithTitle:@"Watch a video to check update in this time !" message:@"By Clicking OK you permit the app download and use free storage on your phone"
+        [UIAlertView showWithTitle:@"Watch an ads to check update in this time !" message:@"By Clicking OK you permit the app download and use free storage on your phone"
                  cancelButtonTitle:@"Cancel"
                  otherButtonTitles:@[@"OK"]
                           tapBlock:^(UIAlertView *alertView, NSInteger buttonIndex) {
@@ -159,7 +159,7 @@
     NSArray *arrBlackList =@[];
     [arrBlackList writeToFile:strPathBlackList atomically:YES];
 //    areUnlockPro = [[NSUserDefaults standardUserDefaults] boolForKey:kUnlockProProductIdentifier];
-    areAdsRemoved = [[NSUserDefaults standardUserDefaults] boolForKey:kTotalRemoveAdsProductIdentifier];
+    areAdsRemoved = VERSION_PRO?1:[[NSUserDefaults standardUserDefaults] boolForKey:kTotalRemoveAdsProductIdentifier];
     [[NSUserDefaults standardUserDefaults] synchronize];
 
     NSMutableArray *arrUpdate = [NSMutableArray new];
@@ -174,7 +174,15 @@
             if ([dic[@"price"] isKindOfClass:[NSDictionary class]]) {
                 if ([dic[@"price"][@"isPrice"] boolValue]) {
                     price = true;
-                    areBuyCategory = [[NSUserDefaults standardUserDefaults] boolForKey:dic[@"price"][@"iap"]];
+                    NSString *productIdentifier;
+                    if (VERSION_PRO) {
+                        productIdentifier = [NSString stringWithFormat:@"%@%@",root_ipa_pro,dic[@"price"][@"iap"]];
+                    }
+                    else
+                    {
+                        productIdentifier = [NSString stringWithFormat:@"%@%@",root_ipa_free,dic[@"price"][@"iap"]];
+                    }
+                    areBuyCategory = [[NSUserDefaults standardUserDefaults] boolForKey:productIdentifier];
                 }
             }
             if (areBuyCategory) {

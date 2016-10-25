@@ -114,7 +114,7 @@ static NSString *identifierSection1 = @"MyTableViewCell1";
                             parameters:dicMusic];
         // [END custom_event_objc]
         //show ads
-        areAdsRemoved = [[NSUserDefaults standardUserDefaults] boolForKey:kTotalRemoveAdsProductIdentifier];
+        areAdsRemoved = VERSION_PRO?1:[[NSUserDefaults standardUserDefaults] boolForKey:kTotalRemoveAdsProductIdentifier];
         if (areAdsRemoved) {
             if (_callback) {
                 _callback(dicMusic);
@@ -123,7 +123,7 @@ static NSString *identifierSection1 = @"MyTableViewCell1";
         }
         else
         {
-            [UIAlertView showWithTitle:nil message:@"Watch a video to play this favorite"
+            [UIAlertView showWithTitle:nil message:@"Watch an ads to play this favorite"
                      cancelButtonTitle:@"Cancel"
                      otherButtonTitles:@[@"OK"]
                               tapBlock:^(UIAlertView *alertView, NSInteger buttonIndex) {

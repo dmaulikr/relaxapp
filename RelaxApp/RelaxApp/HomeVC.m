@@ -35,7 +35,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Replace this ad unit ID with your own ad unit ID.
-    areAdsRemoved = [[NSUserDefaults standardUserDefaults] boolForKey:kTotalRemoveAdsProductIdentifier];
+    areAdsRemoved = VERSION_PRO?1:[[NSUserDefaults standardUserDefaults] boolForKey:kTotalRemoveAdsProductIdentifier];
     if (areAdsRemoved) {
         [self hideAdsAction];
     }
@@ -112,6 +112,11 @@
     [[UIApplication sharedApplication] endReceivingRemoteControlEvents];
     [self resignFirstResponder]; [super viewWillDisappear:animated];
 }
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
 -(void) observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
     
     if ([keyPath isEqual:@"outputVolume"]) {
@@ -131,6 +136,8 @@
     [self loadCache];
     
 }
+
+//MARK: - NETWORK
 -(void)loadCache
 {
     NSString *strPath = [FileHelper pathForApplicationDataFile:FILE_CATEGORY_SAVE];
@@ -155,6 +162,41 @@
     }
     
 }
+-(void)getCategory
+{
+    __weak HomeVC *wself = self;
+    managerCategory = [AFHTTPSessionManager manager];
+    [managerCategory GET:[NSString stringWithFormat:@"%@%@",BASE_URL,@"data.json"] parameters:nil progress:nil success:^(NSURLSessionTask *task, id responseObject) {
+        NSLog(@"JSON: %@", responseObject);
+        if ([responseObject[@"categories"] isKindOfClass:[NSArray class]]) {
+            //free
+            [arrCategory removeAllObjects];
+            //check exist in blacklist
+            NSString *strPathBlackList = [FileHelper pathForApplicationDataFile:FILE_BLACKLIST_CATEGORY_SAVE];
+            NSArray *arrBlackList = [NSArray arrayWithContentsOfFile:strPathBlackList];
+            
+            NSMutableArray *arrTmp = [NSMutableArray new];
+            for (NSDictionary *dic in responseObject[@"categories"]) {
+                if (![arrBlackList containsObject:dic[@"id"]]) {
+                    [arrTmp addObject:dic];
+                }
+                
+            }
+            [arrCategory addObjectsFromArray:arrTmp];
+            [wself caculatorSubScrollview];
+            NSString *strPath = [FileHelper pathForApplicationDataFile:FILE_CATEGORY_SAVE];
+            if (arrCategory.count > 0) {
+                NSDate *date = [NSDate date];
+                NSDictionary *dicTmp = @{@"category": arrCategory,@"date":date};
+                [dicTmp writeToFile:strPath atomically:YES];
+            }
+            
+        }
+    } failure:^(NSURLSessionTask *operation, NSError *error) {
+        NSLog(@"Error: %@", error);
+    }];
+}
+//MARK: - TIMER PLAY
 - (void)timerNotification:(NSNotification *)notification
 {
     dispatch_async(dispatch_get_main_queue(), ^{
@@ -200,203 +242,8 @@
         
     });
 }
--(void)updateDataMusic:(NSDictionary*)dicMusic withCategory:(NSDictionary *)category
-{
-    
-    for (int i = 0; i< arrCategory.count; i++) {
-        
-        NSMutableDictionary *dicCategory = [arrCategory[i] mutableCopy];
-        if ([dicCategory[@"id"] intValue] == [category[@"id"] intValue]) {
-            NSMutableArray *arrSounds = [dicCategory[@"sounds"] mutableCopy];
-            for (int j = 0; j <arrSounds.count; j++) {
-                NSMutableDictionary *dicSound = [NSMutableDictionary dictionaryWithDictionary:arrSounds[j]];
-                if (dicSound[@"id"] == dicMusic[@"id"]) {
-                    [arrSounds replaceObjectAtIndex:j withObject:dicMusic];
-                    [dicCategory setObject:arrSounds forKey:@"sounds"];
-                    [arrCategory replaceObjectAtIndex:i withObject:dicCategory];
-                }
-                else
-                {
-                    if (![dicCategory[@"manyselect"] boolValue]) {
-                        [dicSound setObject:@(0) forKey:@"active"];
-                        [arrSounds replaceObjectAtIndex:j withObject:dicSound];
-                        [dicCategory setObject:arrSounds forKey:@"sounds"];
-                        [arrCategory replaceObjectAtIndex:i withObject:dicCategory];
-                    }
-                }
-            }
-            
-        }
-    }
-    [self setupPlayerWithMusicItem:dicMusic withCategory:category];
-    [self caculatorSubScrollview];
-    
-}
--(void)checkMusicActive
-{
-    for (int i = 0; i< arrCategory.count; i++) {
-        
-        NSMutableDictionary *dicCategory = [arrCategory[i] mutableCopy];
-        NSMutableArray *arrSounds = [dicCategory[@"sounds"] mutableCopy];
-        for (int j = 0; j <arrSounds.count; j++) {
-            NSMutableDictionary *dicSound = [NSMutableDictionary dictionaryWithDictionary:arrSounds[j]];
-            for (int k = 0; k < arrPlayList.count; k ++) {
-                NSDictionary *musicItem = arrPlayList[k];
-                if ([dicSound[@"id"] intValue] == [musicItem[@"music"][@"id"] intValue]&&
-                    [dicCategory[@"id"]intValue]== [musicItem[@"category_id"] intValue]) {
-                    [dicSound setObject:@(1) forKey:@"active"];
-                    [arrSounds replaceObjectAtIndex:j withObject:dicSound];
-                    [dicCategory setObject:arrSounds forKey:@"sounds"];
-                    [arrCategory replaceObjectAtIndex:i withObject:dicCategory];
-                    break;
-                }
-                
-            }
-        }
-        
-    }
-}
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-//MARK: ACTION
 
--(IBAction)tabBottomVCAction:(id)sender
-{
-    [self.vFavorite dismissView];
-    [self.vAddFavorite dismissView];
-    [self.vTimer dismissView];
-    [self.vSetting dismissView];
-    [self.vVolumeTotal showVolume:NO];
-    [self.vVolumeItem removeFromSuperview];
-    self.vNavHome.hidden = NO;
-    UIButton *btn = (UIButton*)sender;
-    switch (btn.tag - 10) {
-        case 1:
-        {
-            //favorite
-            [self addSubViewFavorite];
-            _buttonType = BUTTON_FAVORITE;
-            self.vNavHome.hidden = YES;
-            
-        }
-            break;
-        case 2:
-        {
-            
-            if (_buttonType == BUTTON_VOLUME || _buttonType == BUTTON_FAVORITE || _buttonType == BUTTON_TIMER || _buttonType == BUTTON_SETTING) {
-                //get state befor
-                if (arrPlayList.count > 0) {
-                    NSDictionary *musicItem = arrPlayList[0];
-                    IDZAQAudioPlayer *player  = musicItem[@"player"];
-                    if (player.state == IDZAudioPlayerStatePlaying) {
-                        _buttonType = BUTTON_PLAYING;
-                    }
-                    else
-                    {
-                        _buttonType = BUTTON_PAUSE;
-                    }
-                }
-                else
-                {
-                    _buttonType = BUTTON_RANDOM;
-                }
-                
-            }
-            else
-            {
-                if (_buttonType == BUTTON_PLAYING) {
-                    if (arrPlayList.count > 0) {
-                        _buttonType = BUTTON_PAUSE;
-                        for (int i = 0; i < arrPlayList.count; i ++) {
-                            NSDictionary *musicItem = arrPlayList[i];
-                            IDZAQAudioPlayer *player  = musicItem[@"player"];
-                            [player pause];
-                        }
-                    }
-                    else
-                    {
-                        _buttonType = BUTTON_RANDOM;
-                        
-                    }
-                }
-                else if (_buttonType == BUTTON_PAUSE)
-                {
-                    if (arrPlayList.count > 0) {
-                        _buttonType = BUTTON_PLAYING;
-                        for (int i = 0; i < arrPlayList.count; i ++) {
-                            NSDictionary *musicItem = arrPlayList[i];
-                            IDZAQAudioPlayer *player  = musicItem[@"player"];
-                            [player play];
-                        }
-                    }
-                    else
-                    {
-                        _buttonType = BUTTON_RANDOM;
-                        
-                    }
-                }
-                else if (_buttonType == BUTTON_RANDOM)
-                {
-                    [self randomPlayList];
-                }
-            }
-            
-        }
-            break;
-        case 3:
-        {
-            //timer
-            [self addSubViewTimer];
-            _buttonType = BUTTON_TIMER;
-            self.vNavHome.hidden = YES;
-            
-            
-        }
-            break;
-        case 4:
-        {
-            //setting
-            [self addSubViewSetting];
-            _buttonType = BUTTON_SETTING;
-            self.vNavHome.hidden = YES;
-            
-            
-        }
-            break;
-        default:
-            break;
-    }
-    [self fnSetButtonBottom];
-}
 
--(void) addSubViewFavorite
-{
-    __weak HomeVC *wself = self;
-    self.vFavorite = [[FavoriteView alloc] initWithClassName:NSStringFromClass([FavoriteView class])];
-    [self.vFavorite addContraintSupview:self.vContrainer];
-    [self.vFavorite setCallback:^(NSDictionary *dicCateogry)
-     {
-         wself.dicChooseCategory = dicCateogry;
-         NSArray *chooseMusic = wself.dicChooseCategory[@"music"];
-         [wself fnPlayerFromFavorite:chooseMusic];
-         _buttonType = BUTTON_PLAYING;
-         [wself fnSetButtonBottom];
-     }];
-}
--(void) addSubViewTimer
-{
-    self.vTimer = [[TimerView alloc] initWithClassName:NSStringFromClass([TimerView class])];
-    self.vTimer.parent = self;
-    [self.vTimer addContraintSupview:self.vContrainer];
-}
--(void) addSubViewSetting
-{
-    self.vSetting = [[SettingView alloc] initWithClassName:NSStringFromClass([SettingView class])];
-    self.vSetting.parent = self;
-    [self.vSetting addContraintSupview:self.vContrainer];
-}
 //MARK: - VOLUME
 -(IBAction)volumeAction:(id)sender
 {
@@ -525,101 +372,8 @@
     [arrMulVolme writeToFile:strPathVolume atomically:YES];
     
 }
-//MARK: - NETWORK
--(void)getCategory
-{
-    __weak HomeVC *wself = self;
-    managerCategory = [AFHTTPSessionManager manager];
-    [managerCategory GET:[NSString stringWithFormat:@"%@%@",BASE_URL,@"data.json"] parameters:nil progress:nil success:^(NSURLSessionTask *task, id responseObject) {
-        NSLog(@"JSON: %@", responseObject);
-        if ([responseObject[@"categories"] isKindOfClass:[NSArray class]]) {
-            //free
-            [arrCategory removeAllObjects];
-            //check exist in blacklist
-            NSString *strPathBlackList = [FileHelper pathForApplicationDataFile:FILE_BLACKLIST_CATEGORY_SAVE];
-            NSArray *arrBlackList = [NSArray arrayWithContentsOfFile:strPathBlackList];
-            
-            NSMutableArray *arrTmp = [NSMutableArray new];
-            for (NSDictionary *dic in responseObject[@"categories"]) {
-                if (![arrBlackList containsObject:dic[@"id"]]) {
-                    [arrTmp addObject:dic];
-                }
-                
-            }
-            [arrCategory addObjectsFromArray:arrTmp];
-            [wself caculatorSubScrollview];
-            NSString *strPath = [FileHelper pathForApplicationDataFile:FILE_CATEGORY_SAVE];
-            if (arrCategory.count > 0) {
-                NSDate *date = [NSDate date];
-                NSDictionary *dicTmp = @{@"category": arrCategory,@"date":date};
-                [dicTmp writeToFile:strPath atomically:YES];
-            }
-            
-        }
-    } failure:^(NSURLSessionTask *operation, NSError *error) {
-        NSLog(@"Error: %@", error);
-    }];
-}
 
-//MARK: - PLAYER
--(void)setupPlayerWithMusicItem:(NSDictionary*)dicMusic withCategory:(NSDictionary *)category
-{
-    for (int i = 0; i < arrPlayList.count; i++) {
-        NSDictionary *musicItem = arrPlayList[i];
-        if ([dicMusic[@"id"] intValue] == [musicItem[@"music"][@"id"] intValue] &&
-            [category[@"id"]intValue]== [musicItem[@"category_id"] intValue]) {
-            IDZAQAudioPlayer *player  = musicItem[@"player"];
-            [player stop];
-            [arrPlayList removeObjectAtIndex:i];
-            break;
-        }
-        
-    }
-    if ([dicMusic[@"active"] boolValue]) {
-        NSString *category_name = category[@"path"];;
-        if (category_name.length ==0) {
-            return;
-        }
-        
-        NSString *path = [self getFullPathWithFileName:[NSString stringWithFormat:@"%@/sound/%@",category_name,dicMusic[@"sound"]]];
-        NSError* error = nil;
-        NSURL* url = [NSURL fileURLWithPath:path];
-        
-        IDZOggVorbisFileDecoder* decoder = [[IDZOggVorbisFileDecoder alloc] initWithContentsOfURL:url error:&error];
-        NSLog(@"Ogg Vorbis file duration is %g", decoder.duration);
-        IDZAQAudioPlayer *player = [[IDZAQAudioPlayer alloc] initWithDecoder:decoder error:nil];
-        [player setVolume:[dicMusic[@"volume"] floatValue]];
-        if(!player)
-        {
-            NSLog(@"Error creating player: %@", error);
-        }
-        player.delegate = self;
-        [player prepareToPlay];
-        
-        NSMutableDictionary *dic = [NSMutableDictionary new];
-        [dic setObject:player forKey:@"player"];
-        [dic setObject:dicMusic forKey:@"music"];
-        [dic setObject:category[@"id"] forKey:@"category_id"];
-        [arrPlayList addObject:dic];
-        
-    }
-    [self performSelector:@selector(playMusic) withObject:nil afterDelay:0.04];
-    
-}
--(void)playMusic
-{
-    for (NSDictionary *dicMusic in arrPlayList) {
-        IDZAQAudioPlayer *player  = dicMusic[@"player"];
-        [player play];
-    }
-}
--(NSString*)getFullPathWithFileName:(NSString*)fileName
-{
-    NSArray       *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString  *documentsDirectory = [paths objectAtIndex:0];
-    NSString *archivePath = [documentsDirectory stringByAppendingPathComponent:fileName];
-    return archivePath;
-}
+
 //MARK: - CLEAR ALL
 -(IBAction)clearAll:(id)sender
 {
@@ -714,6 +468,130 @@
     [self caculatorSubScrollview];
     [self fnSetButtonNavigation];
     
+}
+//MARK: - PLAYER
+-(void)updateDataMusic:(NSDictionary*)dicMusic withCategory:(NSDictionary *)category
+{
+    
+    for (int i = 0; i< arrCategory.count; i++) {
+        
+        NSMutableDictionary *dicCategory = [arrCategory[i] mutableCopy];
+        if ([dicCategory[@"id"] intValue] == [category[@"id"] intValue]) {
+            NSMutableArray *arrSounds = [dicCategory[@"sounds"] mutableCopy];
+            for (int j = 0; j <arrSounds.count; j++) {
+                NSMutableDictionary *dicSound = [NSMutableDictionary dictionaryWithDictionary:arrSounds[j]];
+                if (dicSound[@"id"] == dicMusic[@"id"]) {
+                    [arrSounds replaceObjectAtIndex:j withObject:dicMusic];
+                    [dicCategory setObject:arrSounds forKey:@"sounds"];
+                    [arrCategory replaceObjectAtIndex:i withObject:dicCategory];
+                }
+                else
+                {
+                    if (![dicCategory[@"manyselect"] boolValue]) {
+                        [dicSound setObject:@(0) forKey:@"active"];
+                        [arrSounds replaceObjectAtIndex:j withObject:dicSound];
+                        [dicCategory setObject:arrSounds forKey:@"sounds"];
+                        [arrCategory replaceObjectAtIndex:i withObject:dicCategory];
+                    }
+                }
+            }
+            
+        }
+    }
+    [self setupPlayerWithMusicItem:dicMusic withCategory:category];
+    [self caculatorSubScrollview];
+    
+}
+-(void)checkMusicActive
+{
+    for (int i = 0; i< arrCategory.count; i++) {
+        
+        NSMutableDictionary *dicCategory = [arrCategory[i] mutableCopy];
+        NSMutableArray *arrSounds = [dicCategory[@"sounds"] mutableCopy];
+        for (int j = 0; j <arrSounds.count; j++) {
+            NSMutableDictionary *dicSound = [NSMutableDictionary dictionaryWithDictionary:arrSounds[j]];
+            for (int k = 0; k < arrPlayList.count; k ++) {
+                NSDictionary *musicItem = arrPlayList[k];
+                if ([dicSound[@"id"] intValue] == [musicItem[@"music"][@"id"] intValue]&&
+                    [dicCategory[@"id"]intValue]== [musicItem[@"category_id"] intValue]) {
+                    [dicSound setObject:@(1) forKey:@"active"];
+                    [arrSounds replaceObjectAtIndex:j withObject:dicSound];
+                    [dicCategory setObject:arrSounds forKey:@"sounds"];
+                    [arrCategory replaceObjectAtIndex:i withObject:dicCategory];
+                    break;
+                }
+                
+            }
+        }
+        
+    }
+}
+-(void)setupPlayerWithMusicItem:(NSDictionary*)dicMusic withCategory:(NSDictionary *)category
+{
+    for (int i = 0; i < arrPlayList.count; i++) {
+        NSDictionary *musicItem = arrPlayList[i];
+        if ([category[@"id"]intValue]== [musicItem[@"category_id"] intValue]) {
+            if (![category[@"manyselect"] boolValue]) {
+                IDZAQAudioPlayer *player  = musicItem[@"player"];
+                [player stop];
+                [arrPlayList removeObjectAtIndex:i];
+            }
+            else
+            {
+                if ([dicMusic[@"id"] intValue] == [musicItem[@"music"][@"id"] intValue]) {
+                    IDZAQAudioPlayer *player  = musicItem[@"player"];
+                    [player stop];
+                    [arrPlayList removeObjectAtIndex:i];
+                    break;
+                }
+            }
+        }
+        
+    }
+    if ([dicMusic[@"active"] boolValue]) {
+        NSString *category_name = category[@"path"];;
+        if (category_name.length ==0) {
+            return;
+        }
+        
+        NSString *path = [self getFullPathWithFileName:[NSString stringWithFormat:@"%@/sound/%@",category_name,dicMusic[@"sound"]]];
+        NSError* error = nil;
+        NSURL* url = [NSURL fileURLWithPath:path];
+        
+        IDZOggVorbisFileDecoder* decoder = [[IDZOggVorbisFileDecoder alloc] initWithContentsOfURL:url error:&error];
+        NSLog(@"Ogg Vorbis file duration is %g", decoder.duration);
+        IDZAQAudioPlayer *player = [[IDZAQAudioPlayer alloc] initWithDecoder:decoder error:nil];
+        [player setVolume:[dicMusic[@"volume"] floatValue]];
+        if(!player)
+        {
+            NSLog(@"Error creating player: %@", error);
+        }
+        player.delegate = self;
+        [player prepareToPlay];
+        
+        NSMutableDictionary *dic = [NSMutableDictionary new];
+        [dic setObject:player forKey:@"player"];
+        [dic setObject:dicMusic forKey:@"music"];
+        [dic setObject:category[@"id"] forKey:@"category_id"];
+        [arrPlayList addObject:dic];
+        
+    }
+    [self performSelector:@selector(playMusic) withObject:nil afterDelay:0.04];
+    
+}
+-(void)playMusic
+{
+    for (NSDictionary *dicMusic in arrPlayList) {
+        IDZAQAudioPlayer *player  = dicMusic[@"player"];
+        [player play];
+    }
+}
+-(NSString*)getFullPathWithFileName:(NSString*)fileName
+{
+    NSArray       *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString  *documentsDirectory = [paths objectAtIndex:0];
+    NSString *archivePath = [documentsDirectory stringByAppendingPathComponent:fileName];
+    return archivePath;
 }
 #pragma mark - IDZAudioPlayerDelegate
 - (void)audioPlayerDidFinishPlaying:(id<IDZAudioPlayer>)player successfully:(BOOL)flag
@@ -897,7 +775,7 @@
          {
              if ([dicMusic[@"ads"] boolValue]) {
                  //show ads
-                 [UIAlertView showWithTitle:nil message:@"Watch a video to get this sound in 1 days!"
+                 [UIAlertView showWithTitle:nil message:@"Watch an ads to get this sound in 1 days!"
                           cancelButtonTitle:@"Cancel"
                           otherButtonTitles:@[@"OK"]
                                    tapBlock:^(UIAlertView *alertView, NSInteger buttonIndex) {
@@ -1068,6 +946,143 @@
          });
          
      }];
+}
+//MARK: ACTION
+
+-(IBAction)tabBottomVCAction:(id)sender
+{
+    [self.vFavorite dismissView];
+    [self.vAddFavorite dismissView];
+    [self.vTimer dismissView];
+    [self.vSetting dismissView];
+    [self.vVolumeTotal showVolume:NO];
+    [self.vVolumeItem removeFromSuperview];
+    self.vNavHome.hidden = NO;
+    UIButton *btn = (UIButton*)sender;
+    switch (btn.tag - 10) {
+        case 1:
+        {
+            //favorite
+            [self addSubViewFavorite];
+            _buttonType = BUTTON_FAVORITE;
+            self.vNavHome.hidden = YES;
+            
+        }
+            break;
+        case 2:
+        {
+            
+            if (_buttonType == BUTTON_VOLUME || _buttonType == BUTTON_FAVORITE || _buttonType == BUTTON_TIMER || _buttonType == BUTTON_SETTING) {
+                //get state befor
+                if (arrPlayList.count > 0) {
+                    NSDictionary *musicItem = arrPlayList[0];
+                    IDZAQAudioPlayer *player  = musicItem[@"player"];
+                    if (player.state == IDZAudioPlayerStatePlaying) {
+                        _buttonType = BUTTON_PLAYING;
+                    }
+                    else
+                    {
+                        _buttonType = BUTTON_PAUSE;
+                    }
+                }
+                else
+                {
+                    _buttonType = BUTTON_RANDOM;
+                }
+                
+            }
+            else
+            {
+                if (_buttonType == BUTTON_PLAYING) {
+                    if (arrPlayList.count > 0) {
+                        _buttonType = BUTTON_PAUSE;
+                        for (int i = 0; i < arrPlayList.count; i ++) {
+                            NSDictionary *musicItem = arrPlayList[i];
+                            IDZAQAudioPlayer *player  = musicItem[@"player"];
+                            [player pause];
+                        }
+                    }
+                    else
+                    {
+                        _buttonType = BUTTON_RANDOM;
+                        
+                    }
+                }
+                else if (_buttonType == BUTTON_PAUSE)
+                {
+                    if (arrPlayList.count > 0) {
+                        _buttonType = BUTTON_PLAYING;
+                        for (int i = 0; i < arrPlayList.count; i ++) {
+                            NSDictionary *musicItem = arrPlayList[i];
+                            IDZAQAudioPlayer *player  = musicItem[@"player"];
+                            [player play];
+                        }
+                    }
+                    else
+                    {
+                        _buttonType = BUTTON_RANDOM;
+                        
+                    }
+                }
+                else if (_buttonType == BUTTON_RANDOM)
+                {
+                    [self randomPlayList];
+                }
+            }
+            
+        }
+            break;
+        case 3:
+        {
+            //timer
+            [self addSubViewTimer];
+            _buttonType = BUTTON_TIMER;
+            self.vNavHome.hidden = YES;
+            
+            
+        }
+            break;
+        case 4:
+        {
+            //setting
+            [self addSubViewSetting];
+            _buttonType = BUTTON_SETTING;
+            self.vNavHome.hidden = YES;
+            
+            
+        }
+            break;
+        default:
+            break;
+    }
+    [self fnSetButtonBottom];
+}
+
+-(void) addSubViewFavorite
+{
+    __weak HomeVC *wself = self;
+    self.vFavorite = [[FavoriteView alloc] initWithClassName:NSStringFromClass([FavoriteView class])];
+    [self.vFavorite addContraintSupview:self.vContrainer];
+    [self.vFavorite setCallback:^(NSDictionary *dicCateogry)
+     {
+         wself.dicChooseCategory = dicCateogry;
+         NSArray *chooseMusic = wself.dicChooseCategory[@"music"];
+         [wself fnPlayerFromFavorite:chooseMusic];
+         _buttonType = BUTTON_PLAYING;
+         [wself fnSetButtonBottom];
+     }];
+}
+-(void) addSubViewTimer
+{
+    self.vTimer = [[TimerView alloc] initWithClassName:NSStringFromClass([TimerView class])];
+    self.vTimer.parent = self;
+    [self.vTimer addContraintSupview:self.vContrainer];
+}
+-(void) addSubViewSetting
+{
+    self.vSetting = [[SettingView alloc] initWithClassName:NSStringFromClass([SettingView class])];
+    self.vSetting.parent = self;
+    [self.vSetting addContraintSupview:self.vContrainer];
 }
 //MARK: - STATUS BUTTON
 -(void)fnSetButtonNavigation

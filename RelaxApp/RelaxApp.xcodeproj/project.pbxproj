@@ -22,7 +22,6 @@
 		EB11EE6F1D9AF4A300804D34 /* CollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB11EE6D1D9AF4A300804D34 /* CollectionCell.xib */; };
 		EB137BA41DBBD42500DB1EBB /* IAPHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = EB137BA31DBBD42500DB1EBB /* IAPHelper.m */; };
 		EB137BA71DBBD42B00DB1EBB /* RageIAPHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = EB137BA61DBBD42B00DB1EBB /* RageIAPHelper.m */; };
-		EB137BAA1DBC08C900DB1EBB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EB137BA91DBC08C900DB1EBB /* GoogleService-Info.plist */; };
 		EB140DB51DB54830006E6FD9 /* ASPopUpView.m in Sources */ = {isa = PBXBuildFile; fileRef = EB140DB11DB54830006E6FD9 /* ASPopUpView.m */; };
 		EB140DB61DB54830006E6FD9 /* ASProgressPopUpView.m in Sources */ = {isa = PBXBuildFile; fileRef = EB140DB21DB54830006E6FD9 /* ASProgressPopUpView.m */; };
 		EB14BA6D1DA16FCA00385759 /* VolumeItem.m in Sources */ = {isa = PBXBuildFile; fileRef = EB14BA6B1DA16FCA00385759 /* VolumeItem.m */; };
@@ -34,6 +33,7 @@
 		EB17B9861DB12B6D007DBFDF /* MCUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = EB17B9811DB12B6D007DBFDF /* MCUtil.m */; };
 		EB17B98B1DB16B27007DBFDF /* SettingCredit.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB17B9881DB16B27007DBFDF /* SettingCredit.xib */; };
 		EB17B98C1DB16B27007DBFDF /* SettingCredit.m in Sources */ = {isa = PBXBuildFile; fileRef = EB17B98A1DB16B27007DBFDF /* SettingCredit.m */; };
+		EB18BD2F1DBE8E7E0087945F /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = EB18BD2E1DBE8E7E0087945F /* Podfile */; };
 		EB19F4711DB003B700A84DE6 /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = EB19F4701DB003B700A84DE6 /* UIImage+ImageEffects.m */; };
 		EB2552E01DA6ABD900FD4BC4 /* MDTimerBackGround.m in Sources */ = {isa = PBXBuildFile; fileRef = EB2552DF1DA6ABD900FD4BC4 /* MDTimerBackGround.m */; };
 		EB3071F31DABE2B6009D90DD /* Roboto-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EB3071E11DABE2B6009D90DD /* Roboto-Black.ttf */; };
@@ -105,6 +105,8 @@
 		EBFB07B31D9EA1F000AF2569 /* BaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = EBFB07B21D9EA1F000AF2569 /* BaseView.m */; };
 		EBFB07B61D9EAD7200AF2569 /* VolumeView.m in Sources */ = {isa = PBXBuildFile; fileRef = EBFB07B51D9EAD7200AF2569 /* VolumeView.m */; };
 		EBFB07B81D9EAD8500AF2569 /* VolumeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBFB07B71D9EAD8500AF2569 /* VolumeView.xib */; };
+		EBFF08BE1DBFC97800688968 /* GoogleService-Info_f.plist in Resources */ = {isa = PBXBuildFile; fileRef = EBFF08BD1DBFC97800688968 /* GoogleService-Info_f.plist */; };
+		EBFF08C01DBFD5FA00688968 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EBFF08BF1DBFD5FA00688968 /* GoogleService-Info.plist */; };
 		EBFF13B71DA00E1700CA98F1 /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EBFF13AB1DA00E1700CA98F1 /* AFHTTPSessionManager.m */; };
 		EBFF13B81DA00E1700CA98F1 /* AFNetworkReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EBFF13AE1DA00E1700CA98F1 /* AFNetworkReachabilityManager.m */; };
 		EBFF13B91DA00E1700CA98F1 /* AFSecurityPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = EBFF13B01DA00E1700CA98F1 /* AFSecurityPolicy.m */; };
@@ -170,7 +172,6 @@
 		EB137BA31DBBD42500DB1EBB /* IAPHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IAPHelper.m; sourceTree = "<group>"; };
 		EB137BA51DBBD42B00DB1EBB /* RageIAPHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RageIAPHelper.h; sourceTree = "<group>"; };
 		EB137BA61DBBD42B00DB1EBB /* RageIAPHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RageIAPHelper.m; sourceTree = "<group>"; };
-		EB137BA91DBC08C900DB1EBB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		EB140DB11DB54830006E6FD9 /* ASPopUpView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASPopUpView.m; sourceTree = "<group>"; };
 		EB140DB21DB54830006E6FD9 /* ASProgressPopUpView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASProgressPopUpView.m; sourceTree = "<group>"; };
 		EB140DB31DB54830006E6FD9 /* ASPopUpView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASPopUpView.h; sourceTree = "<group>"; };
@@ -193,6 +194,7 @@
 		EB17B9881DB16B27007DBFDF /* SettingCredit.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingCredit.xib; sourceTree = "<group>"; };
 		EB17B9891DB16B27007DBFDF /* SettingCredit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingCredit.h; sourceTree = "<group>"; };
 		EB17B98A1DB16B27007DBFDF /* SettingCredit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingCredit.m; sourceTree = "<group>"; };
+		EB18BD2E1DBE8E7E0087945F /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		EB19F46F1DB003B700A84DE6 /* UIImage+ImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageEffects.h"; sourceTree = "<group>"; };
 		EB19F4701DB003B700A84DE6 /* UIImage+ImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageEffects.m"; sourceTree = "<group>"; };
 		EB2552DE1DA6ABD900FD4BC4 /* MDTimerBackGround.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDTimerBackGround.h; sourceTree = "<group>"; };
@@ -282,6 +284,7 @@
 		EB56B6111DA2C697001AFC87 /* AddFavoriteView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddFavoriteView.h; sourceTree = "<group>"; };
 		EB56B6121DA2C697001AFC87 /* AddFavoriteView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddFavoriteView.m; sourceTree = "<group>"; };
 		EB56B6141DA2C6A9001AFC87 /* AddFavoriteView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddFavoriteView.xib; sourceTree = "<group>"; };
+		EB6DCF101DBEE8A2004B45DC /* RelaxApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RelaxApp.entitlements; sourceTree = "<group>"; };
 		EBA016071DB6C83700D5477C /* TabVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TabVC.xib; sourceTree = "<group>"; };
 		EBA016081DB6C83700D5477C /* TabVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabVC.h; sourceTree = "<group>"; };
 		EBA016091DB6C83700D5477C /* TabVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabVC.m; sourceTree = "<group>"; };
@@ -302,6 +305,8 @@
 		EBFB07B51D9EAD7200AF2569 /* VolumeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VolumeView.m; sourceTree = "<group>"; };
 		EBFB07B71D9EAD8500AF2569 /* VolumeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VolumeView.xib; sourceTree = "<group>"; };
 		EBFB07BF1D9EE03100AF2569 /* Define.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Define.h; sourceTree = "<group>"; };
+		EBFF08BD1DBFC97800688968 /* GoogleService-Info_f.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info_f.plist"; sourceTree = "<group>"; };
+		EBFF08BF1DBFD5FA00688968 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		EBFF13AA1DA00E1700CA98F1 /* AFHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPSessionManager.h; sourceTree = "<group>"; };
 		EBFF13AB1DA00E1700CA98F1 /* AFHTTPSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPSessionManager.m; sourceTree = "<group>"; };
 		EBFF13AC1DA00E1700CA98F1 /* AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworking.h; sourceTree = "<group>"; };
@@ -422,6 +427,7 @@
 		EB11EDC31D9AB24900804D34 /* RelaxApp */ = {
 			isa = PBXGroup;
 			children = (
+				EB6DCF101DBEE8A2004B45DC /* RelaxApp.entitlements */,
 				EB56B6101DA2C4A3001AFC87 /* Common */,
 				EB11EDC71D9AB24900804D34 /* AppDelegate.h */,
 				EB11EDC81D9AB24900804D34 /* AppDelegate.m */,
@@ -434,7 +440,9 @@
 				EBF9B5551DA54D0500F07655 /* SETTING */,
 				EB11EDD01D9AB24900804D34 /* Assets.xcassets */,
 				EB11EDD51D9AB24900804D34 /* Info.plist */,
-				EB137BA91DBC08C900DB1EBB /* GoogleService-Info.plist */,
+				EB18BD2E1DBE8E7E0087945F /* Podfile */,
+				EBFF08BD1DBFC97800688968 /* GoogleService-Info_f.plist */,
+				EBFF08BF1DBFD5FA00688968 /* GoogleService-Info.plist */,
 				EB11EDC41D9AB24900804D34 /* Supporting Files */,
 				EBFB07BF1D9EE03100AF2569 /* Define.h */,
 			);
@@ -869,7 +877,7 @@
 					EB11EDC01D9AB24800804D34 = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = LZ8SEY56U7;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -879,6 +887,9 @@
 							};
 							com.apple.InterAppAudio = {
 								enabled = 0;
+							};
+							com.apple.Push = {
+								enabled = 1;
 							};
 						};
 					};
@@ -909,6 +920,7 @@
 			files = (
 				EB56B6151DA2C6A9001AFC87 /* AddFavoriteView.xib in Resources */,
 				EB4BE3E41DA81E37006E6803 /* SettingUpdate.xib in Resources */,
+				EBFF08BE1DBFC97800688968 /* GoogleService-Info_f.plist in Resources */,
 				EB3072001DABE2B6009D90DD /* RobotoCondensed-BoldItalic.ttf in Resources */,
 				EB3071FC1DABE2B6009D90DD /* Roboto-Regular.ttf in Resources */,
 				EBFB07B01D9EA0D300AF2569 /* SettingView.xib in Resources */,
@@ -941,10 +953,11 @@
 				EBFB07B81D9EAD8500AF2569 /* VolumeView.xib in Resources */,
 				EB3071FD1DABE2B6009D90DD /* Roboto-Thin.ttf in Resources */,
 				EBFB07A61D9EA07300AF2569 /* FavoriteView.xib in Resources */,
+				EB18BD2F1DBE8E7E0087945F /* Podfile in Resources */,
 				EB4C7FDE1DA3F3BF003CD3D6 /* CreaterTimer.xib in Resources */,
+				EBFF08C01DBFD5FA00688968 /* GoogleService-Info.plist in Resources */,
 				EB3071F31DABE2B6009D90DD /* Roboto-Black.ttf in Resources */,
 				EB3071F91DABE2B6009D90DD /* Roboto-LightItalic.ttf in Resources */,
-				EB137BAA1DBC08C900DB1EBB /* GoogleService-Info.plist in Resources */,
 				EB3072041DABE2B6009D90DD /* RobotoCondensed-Regular.ttf in Resources */,
 				EBFF14741DA04C2800CA98F1 /* IDZAQAudioPlayerViewController.xib in Resources */,
 			);
@@ -1129,10 +1142,11 @@
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Do Thi Binh (QQZ53QXRHM)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Do Thi Binh (QQZ53QXRHM)";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = LZ8SEY56U7;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -1152,6 +1166,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "35429f30-9713-4206-a3d0-abf7c6425d4a";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1178,10 +1193,11 @@
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Do Thi Binh (QQZ53QXRHM)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Do Thi Binh (QQZ53QXRHM)";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = LZ8SEY56U7;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -1194,6 +1210,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				PROVISIONING_PROFILE = "35429f30-9713-4206-a3d0-abf7c6425d4a";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -1206,8 +1223,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Do Thi Binh (QQZ53QXRHM)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_ENTITLEMENTS = RelaxApp/RelaxApp.entitlements;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				DEVELOPMENT_TEAM = LZ8SEY56U7;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1218,10 +1236,10 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = com.Relaf.Relaf;
+				PRODUCT_BUNDLE_IDENTIFIER = com.relaf.pro;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "f6c03f4b-0bd1-4048-a123-258b31c53f7f";
+				PROVISIONING_PROFILE_SPECIFIER = "Relax in the Fantasy Free Distribution";
 			};
 			name = Debug;
 		};
@@ -1231,8 +1249,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Do Thi Binh (QQZ53QXRHM)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_ENTITLEMENTS = RelaxApp/RelaxApp.entitlements;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				DEVELOPMENT_TEAM = LZ8SEY56U7;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1243,10 +1262,10 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = com.Relaf.Relaf;
+				PRODUCT_BUNDLE_IDENTIFIER = com.relaf.pro;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "f6c03f4b-0bd1-4048-a123-258b31c53f7f";
+				PROVISIONING_PROFILE_SPECIFIER = "Relax in the Fantasy Free Distribution";
 			};
 			name = Release;
 		};

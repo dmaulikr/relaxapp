@@ -119,7 +119,7 @@
     arrCategory = [NSMutableArray new];
     arrMusic  = [NSMutableArray new];
     arrPlayList = [NSMutableArray new];
-    areAdsRemoved = [[NSUserDefaults standardUserDefaults] boolForKey:kTotalRemoveAdsProductIdentifier];
+    areAdsRemoved = VERSION_PRO?1:[[NSUserDefaults standardUserDefaults] boolForKey:kTotalRemoveAdsProductIdentifier];
 
 }
 //MARK: - DATA
@@ -144,7 +144,13 @@
     if ([dicCategory[@"price"] isKindOfClass:[NSDictionary class]]) {
         if ([dicCategory[@"price"][@"isPrice"] boolValue]) {
             price = true;
-            productIdentifier = dicCategory[@"price"][@"iap"];
+            if (VERSION_PRO) {
+                productIdentifier = [NSString stringWithFormat:@"%@%@",root_ipa_pro,dicCategory[@"price"][@"iap"]];
+            }
+            else
+            {
+                productIdentifier = [NSString stringWithFormat:@"%@%@",root_ipa_free,dicCategory[@"price"][@"iap"]];
+            }
             areBuyCategory = [[NSUserDefaults standardUserDefaults] boolForKey:productIdentifier];
         }
     }

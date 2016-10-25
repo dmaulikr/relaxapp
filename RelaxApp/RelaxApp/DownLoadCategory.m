@@ -106,7 +106,7 @@ static bool isFinish;
     //
     NSString *unzipPath = documentsDirectory;
     //unzip
-    [SSZipArchive unzipFileAtPath:archivePath toDestination:unzipPath overwrite:YES password:@"0000" progressHandler:^(NSString * _Nonnull entry, unz_file_info zipInfo, long entryNumber, long total) {
+    [SSZipArchive unzipFileAtPath:archivePath toDestination:unzipPath overwrite:YES password:pwd_Unzip progressHandler:^(NSString * _Nonnull entry, unz_file_info zipInfo, long entryNumber, long total) {
         //PRORESS
     } completionHandler:^(NSString * _Nonnull path, BOOL succeeded, NSError * _Nonnull error) {
         //COMPLETE

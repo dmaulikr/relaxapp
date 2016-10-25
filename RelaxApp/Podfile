@@ -5,4 +5,5 @@ platform :ios, '7.0'
 target 'RelaxApp' do
   pod 'Firebase/Core'
   pod 'Firebase/AdMob'
+  pod 'Firebase/Messaging'
 end

@@ -218,7 +218,7 @@ static NSString *identifierSection1 = @"MyTableViewCell1";
 //MARK: -ACTION
 - (void)switchValueChanged:(id)sender
 {
-    areAdsRemoved = [[NSUserDefaults standardUserDefaults] boolForKey:kTotalRemoveAdsProductIdentifier];
+    areAdsRemoved = VERSION_PRO?1:[[NSUserDefaults standardUserDefaults] boolForKey:kTotalRemoveAdsProductIdentifier];
     if (areAdsRemoved) {
         NSString *strPath = [FileHelper pathForApplicationDataFile:FILE_TIMER_SAVE];
         
@@ -240,7 +240,7 @@ static NSString *identifierSection1 = @"MyTableViewCell1";
     else
     {
         //show ads
-        [UIAlertView showWithTitle:nil message:@"Watch a video to enable this timer!"
+        [UIAlertView showWithTitle:nil message:@"Watch an ads to enable this timer!"
                  cancelButtonTitle:@"Cancel"
                  otherButtonTitles:@[@"OK"]
                           tapBlock:^(UIAlertView *alertView, NSInteger buttonIndex) {

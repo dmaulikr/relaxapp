@@ -8,8 +8,16 @@
 
 #ifndef Define_h
 #define Define_h
-#define BASE_URL @"https://data.relafapp.com/data-examples/data/"
-#define BASE_IMAGE_URL @"https://data.relafapp.com/data-examples/data/img/"
+//test
+//#define BASE_URL @"https://data.relafapp.com/data-examples/data/"
+//#define BASE_IMAGE_URL @"https://data.relafapp.com/data-examples/data/img/"
+//#define pwd_Unzip @"0000" //d41d8cd98f00b204e9800998ecf8427e
+
+//
+#define BASE_URL @"https://data.relafapp.com/product/"
+#define BASE_IMAGE_URL @"https://data.relafapp.com/product/img/"
+#define pwd_Unzip @"d41d8cd98f00b204e9800998ecf8427e"
+#define VERSION_PRO 1
 
 #define COLOR_SLIDER_THUMB 0x50E3C2
 #define COLOR_NAVIGATION_HOME 0x0241A8
@@ -42,12 +50,15 @@
 #define NOTIFCATION_HIDE_ADS @"NOTIFCATION_HIDE_ADS"
 #define NOTIFCATION_SHOW_ADS @"SHOW_ADS"
 #define FIREBASE_INTERSTITIAL_UnitID @"ca-app-pub-3940256099942544/4411468910"
-#define FIREBASE_BANNER_UnitID @"ca-app-pub-1671106005232686/2164341256"
+#define FIREBASE_BANNER_UnitID @"ca-app-pub-3940256099942544/2934735716"
+#define FIREBASE_APP_ID @"ca-app-pub-1671106005232686~9963149658"
 
 #define FILE_IAP_SAVE @"IAP"
 //#define kBuyCategoryIdentifier @"com.Relaf.Relaf.RelafPricing"
 //#define kUnlockProProductIdentifier @"com.Relaf.Relaf.UnlockPro"
 #define kTotalRemoveAdsProductIdentifier @"com.Relaf.Relaf.RemoveAds"
+#define root_ipa_free @"com.relaf.free."
+#define root_ipa_pro @"com.relaf.pro."
 
 #define DEFAULT_VOLUME 0.5
 
