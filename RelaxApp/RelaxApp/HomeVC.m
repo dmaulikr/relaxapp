@@ -68,7 +68,12 @@
     self.lbFavorite.font = [UIFont fontWithName:@"Roboto-Regular" size:8];
     self.lbTimer.font = [UIFont fontWithName:@"Roboto-Regular" size:8];
     self.lbSetting.font = [UIFont fontWithName:@"Roboto-Regular" size:8];
-    
+    //
+    self.pageControl.pageIndicatorImage = [UIImage imageNamed:@"padeDotInactive"];
+    self.pageControl.currentPageIndicatorImage = [UIImage imageNamed:@"padeDotActive"];
+    self.imagBack.hidden = YES;
+    self.imgNext.hidden = YES;
+    [self randomBackGround];
     arrCategory  = [NSMutableArray new];
     arrPlayList = [NSMutableArray new];
     arrColection = [NSMutableArray new];
@@ -766,7 +771,6 @@
     for (NSDictionary *dicCategory in arrTotal) {
         UIView *v =[UIView new];
         v.frame = CGRectMake( i*delta, 0 , delta , CGRectGetHeight(self.scroll_View.frame));
-        
         [self.scroll_View addSubview:v];
         CollectionVC *collection = [[CollectionVC alloc] initWithEVC];
         [collection addContraintSupview:v];
@@ -858,6 +862,31 @@
     CGFloat currentPage = floor((self.scroll_View.contentOffset.x-pageWidth/2)/pageWidth)+1;
     // Change the indicator
     self.pageControl.currentPage = (int) currentPage;
+    if (iNumberCollection > 0) {
+        if (currentPage == 0) {
+            self.imagBack.hidden = YES;
+            self.imgNext.hidden = NO;
+
+        }
+        else if (currentPage == iNumberCollection -1)
+        {
+            self.imagBack.hidden = NO;
+            self.imgNext.hidden = YES;
+
+        }
+        else
+        {
+            self.imagBack.hidden = NO;
+            self.imgNext.hidden = NO;
+
+        }
+    }
+    else
+    {
+        self.imagBack.hidden = YES;
+        self.imgNext.hidden = YES;
+
+    }
     if (currentPage < arrTotal.count) {
         NSString *strName;
         if ([arrTotal[(int)currentPage][@"name"] isKindOfClass:[NSDictionary class]]) {
@@ -883,8 +912,11 @@
     
     
 }
+
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
+    //set ramdom background
+    [self randomBackGround];
     NSString * language = [[NSLocale preferredLanguages] objectAtIndex:0];
     NSString *userLanguage = @"en";
     if (language.length >=2) {
@@ -896,6 +928,32 @@
     CGFloat currentPage = floor((scrollView.contentOffset.x-pageWidth/2)/pageWidth)+1;
     // Change the indicator
     self.pageControl.currentPage = (int) currentPage;
+    if (iNumberCollection > 0) {
+        if (currentPage == 0) {
+            self.imagBack.hidden = YES;
+            self.imgNext.hidden = NO;
+            
+        }
+        else if (currentPage == iNumberCollection -1)
+        {
+            self.imagBack.hidden = NO;
+            self.imgNext.hidden = YES;
+            
+        }
+        else
+        {
+            self.imagBack.hidden = NO;
+            self.imgNext.hidden = NO;
+            
+        }
+    }
+    else
+    {
+        self.imagBack.hidden = YES;
+        self.imgNext.hidden = YES;
+        
+    }
+
     if (currentPage < arrTotal.count) {
         NSString *strName;
         if ([arrTotal[(int)currentPage][@"name"] isKindOfClass:[NSDictionary class]]) {
@@ -1335,5 +1393,42 @@
 {
     
 }
+//MARK: -Random backgroun
+-(void)randomBackGround
+{
+    NSMutableArray *arrBackGround = [NSMutableArray new];
+    [arrBackGround addObject:@"Home1"];
+    [arrBackGround addObject:@"Home2"];
+    [arrBackGround addObject:@"Home3"];
+    [arrBackGround addObject:@"Home4"];
+    [arrBackGround addObject:@"Home5"];
+    [arrBackGround addObject:@"Home6"];
+    [arrBackGround addObject:@"Home7"];
+    [arrBackGround addObject:@"Home8"];
 
+    int min = 0; //Get the current text from your minimum and maximum textfields.
+    int max = (int) arrBackGround.count;
+    int randNum = 0;
+    if (arrBackGround.count > 1) {
+        randNum = arc4random() % (max - min) + min;
+    }
+    
+    [self.imgBackGround setAlpha:1.0f];
+    
+    //fade in
+    [UIView animateWithDuration:2.0f animations:^{
+        
+        [self.imgBackGround setAlpha:0.5f];
+        
+    } completion:^(BOOL finished) {
+        self.imgBackGround.image = [UIImage imageNamed:arrBackGround[randNum]];
+        //fade out
+        [UIView animateWithDuration:2.0f animations:^{
+            
+            [self.imgBackGround setAlpha:1.0f];
+            
+        } completion:nil];
+        
+    }];
+}
 @end

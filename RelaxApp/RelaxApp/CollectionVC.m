@@ -70,6 +70,9 @@
                                                                       options:0
                                                                       metrics:nil
                                                                         views:NSDictionaryOfVariableBindings(view)]];
+    [self.imageBackground.layer setMasksToBounds:YES];
+    self.imageBackground.layer.cornerRadius= 5.0;
+
     int numberHozi = 3;
     int numberVertical =3;
     int item_width = 70;
@@ -84,27 +87,25 @@
     if ( screenHeight >= 667){
         numberHozi = 3;
         numberVertical = 4;
-        item_width = 90;
-        item_height = 80;
     }else {
         numberHozi = 3;
         numberVertical = 3;
-        item_width = 70;
-        item_height = 70;
     }
     
     CGRect rect = self.frame;
     
-    int paddingHorizontal = (rect.size.width - numberHozi*item_width)/numberHozi;
-    int paddingVertical = (rect.size.height - 20  - numberVertical*item_height)/(numberVertical + 1);
+     item_width = (rect.size.width - 40)/numberHozi;
+     item_height = (rect.size.height -40)/numberVertical;
+    
+    _contraintBottomBackGround.constant = 15 + ( item_height - 65)/2;
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
     // setting cell attributes globally via layout properties ///////////////
     [self.collectionView setCollectionViewLayout:layout];
     layout.itemSize = CGSizeMake(item_width, item_height);
-    layout.minimumInteritemSpacing = paddingVertical - 5;
-    layout.minimumLineSpacing = paddingHorizontal;
+    layout.minimumInteritemSpacing = 0;
+    layout.minimumLineSpacing = 0;
     layout.scrollDirection = UICollectionViewScrollDirectionVertical;
-    layout.sectionInset = UIEdgeInsetsMake(paddingVertical/2 + 10, paddingHorizontal/2, paddingVertical/2 + 10, paddingHorizontal/2);
+    layout.sectionInset = UIEdgeInsetsMake(0, 20, 20, 20);
     [self.collectionView setShowsHorizontalScrollIndicator:NO];
     [self.collectionView setShowsVerticalScrollIndicator:NO];
     self.collectionView.hidden = YES;
@@ -439,6 +440,7 @@
 //MARK: - InAppPurchase
 
 - (void)reloadIAP {
+    [[RageIAPHelper sharedInstance] addProdcutPurchase:productIdentifier];
     AppDelegate *app = (AppDelegate*)[[UIApplication sharedApplication] delegate];
     [app reloadIAP];
     [app setCallbackAIP:^()
@@ -459,18 +461,24 @@
         [[RageIAPHelper sharedInstance] addProdcutPurchase:productIdentifier];
         AppDelegate *app = (AppDelegate*)[[UIApplication sharedApplication] delegate];
         _products = app.arrAIP;
-        [_products enumerateObjectsUsingBlock:^(SKProduct * product, NSUInteger idx, BOOL *stop) {
-            if ([product.productIdentifier isEqualToString:productIdentifier]) {
-                [[RageIAPHelper sharedInstance] buyProduct:product];
-                [self removeAds];
-                *stop = YES;
-            }
-            else
-            {
-                [self reloadIAP];
-
-            }
-        }];
+        if (_products.count > 0) {
+            [_products enumerateObjectsUsingBlock:^(SKProduct * product, NSUInteger idx, BOOL *stop) {
+                if ([product.productIdentifier isEqualToString:productIdentifier]) {
+                    [[RageIAPHelper sharedInstance] buyProduct:product];
+                    [self removeAds];
+                    *stop = YES;
+                }
+                else
+                {
+                    [self reloadIAP];
+                    
+                }
+            }];
+        }
+        else
+        {
+            [self reloadIAP];
+        }
 
     }
 }

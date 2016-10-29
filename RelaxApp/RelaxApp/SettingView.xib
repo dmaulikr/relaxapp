@@ -445,7 +445,7 @@ Help us share on social</string>
                                                 <constraint firstAttribute="trailing" secondItem="MDF-If-HL3" secondAttribute="trailing" id="v8l-8U-e9Z"/>
                                             </constraints>
                                         </view>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a8U-iN-36l">
+                                        <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a8U-iN-36l">
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Build" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fw5-QZ-TIi">
                                                     <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
@@ -469,7 +469,7 @@ Help us share on social</string>
                                             </subviews>
                                             <color key="backgroundColor" red="0.1647058824" green="0.1843137255" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="40" id="03z-70-mn5"/>
+                                                <constraint firstAttribute="height" id="03z-70-mn5"/>
                                                 <constraint firstAttribute="trailing" secondItem="ODo-Hf-Sc8" secondAttribute="trailing" id="BsJ-zd-hDN"/>
                                                 <constraint firstItem="fw5-QZ-TIi" firstAttribute="centerY" secondItem="a8U-iN-36l" secondAttribute="centerY" id="DCe-2Z-60H"/>
                                                 <constraint firstItem="ODo-Hf-Sc8" firstAttribute="top" secondItem="a8U-iN-36l" secondAttribute="top" id="PIo-hK-ctc"/>

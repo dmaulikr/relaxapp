@@ -52,11 +52,6 @@
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(caculatorTimeAgo) name: NOTIFCATION_CATEGORY object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(productPurchased:) name:IAPHelperProductPurchasedNotification object:nil];
-    AppDelegate *app = (AppDelegate*)[[UIApplication sharedApplication] delegate];
-    _products = app.arrAIP;
-    if (!_products) {
-        [self reloadIAP];
-    }
     areAdsRemoved = VERSION_PRO?1:[[NSUserDefaults standardUserDefaults] boolForKey:kTotalRemoveAdsProductIdentifier];
 //    areUnlockPro = [[NSUserDefaults standardUserDefaults] boolForKey:kUnlockProProductIdentifier];
 //    _unlockPro.on = areUnlockPro;
@@ -239,25 +234,45 @@
     }
     else
     {
+        NSString * productIdentifier = kTotalRemoveAdsProductIdentifier;
+        [[RageIAPHelper sharedInstance] addProdcutPurchase:productIdentifier];
         AppDelegate *app = (AppDelegate*)[[UIApplication sharedApplication] delegate];
         _products = app.arrAIP;
-        
-        NSString * productIdentifier = kTotalRemoveAdsProductIdentifier;
-        [_products enumerateObjectsUsingBlock:^(SKProduct * product, NSUInteger idx, BOOL *stop) {
-            if ([product.productIdentifier isEqualToString:productIdentifier]) {
-                [[RageIAPHelper sharedInstance] buyProduct:product];
-                *stop = YES;
-            }
-        }];
+        if (_products.count > 0) {
+            [_products enumerateObjectsUsingBlock:^(SKProduct * product, NSUInteger idx, BOOL *stop) {
+                if ([product.productIdentifier isEqualToString:productIdentifier]) {
+                    [[RageIAPHelper sharedInstance] buyProduct:product];
+                    *stop = YES;
+                }
+                else
+                {
+                    [self reloadIAP];
+                    
+                }
+            }];
+        }
+        else
+        {
+            [self reloadIAP];
+        }
     }
 }
 - (void)reloadIAP {
+    NSString * productIdentifier = kTotalRemoveAdsProductIdentifier;
+    [[RageIAPHelper sharedInstance] addProdcutPurchase:productIdentifier];
+
     AppDelegate *app = (AppDelegate*)[[UIApplication sharedApplication] delegate];
     [app reloadIAP];
     [app setCallbackAIP:^()
      {
-         AppDelegate *app = (AppDelegate*)[[UIApplication sharedApplication] delegate];
          _products = app.arrAIP;
+         [_products enumerateObjectsUsingBlock:^(SKProduct * product, NSUInteger idx, BOOL *stop) {
+             if ([product.productIdentifier isEqualToString:productIdentifier]) {
+                 [[RageIAPHelper sharedInstance] buyProduct:product];
+                 *stop = YES;
+             }
+         }];
+
      }];
 }
 

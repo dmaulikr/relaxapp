@@ -14,7 +14,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SettingAbout"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="Tmx-vs-DOj" customClass="SettingAbout">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="1016"/>
+            <rect key="frame" x="0.0" y="0.0" width="375" height="1092"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4ik-JB-PoB">
@@ -106,21 +106,22 @@
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EI0-aa-v0d">
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k2B-dc-n9l">
-                                            <mutableString key="text">Modern life to follow it is the tension stress. It makes life of our ordinary becomes difficult, and no one wants to be pursued by stress.
+                                            <mutableString key="text">Nowadays, modern life leads to the tension stress. It makes our life becomes more difficult, and no one wants to be pursued by stress.
 
-According to a new paper published in the Wall Street Journal, stress is the cause of a decrease in labor productivity, on both obesity and physical inactivity. Moreover, it also makes the relationship between people, or stress worsen.
+According to a newspaper of the Wall Street Journal, stress causes the decrease in labor productivity, on both obesity and physical inactivity. Moreover, it also makes the bad relationships &amp; come to stress 
 
-A work of Catalyst report indicated that most employees feel stress because of four main reasons: The volume of work, personal relationships, working conditions, working interest and issues personal.
+A Catalyst report indicated that most employees feel stress because of four main reasons: workload, personal relationships, working conditions, working interest and personal issues.
 
-According to Huffingtonpost, resulting a 45-year long study on the effects of stress on middle-aged women showed that stressful events in life can leave serious consequences and long term both physical and spirit, increase the risk of memory decline.
+According to Huffington post, a result in 45-year long study on the effects of stress on middle-aged women showed that stressful events in their life can leave serious consequences and long term both physical and spirit which increase the risk of memory decline.
 
-Chronic stress can cause a series of serious disease, especially cardiovascular disease. Everyone knows that diet plays an important role in health, but have you ever wondered stress affects your life like? In a recent study on the relationship between chronic stress and heart disease published on Health, the researchers recommend that people should not allow ourselves to fall into a state of chronic stress if you want a healthy life and longevity.
+Chronic stress can cause a series of serious disease, especially cardiovascular disease. Everyone knows that diet plays an important role in health, but have you ever wondered how stress affects your life. In a recent study on the relationship between chronic stress and heart disease published on Health page, the researchers recommend that people should not allow ourselves to fall into a state of chronic stress if you want a healthy life and longevity.
 
-Stress can also increase the body's levels of cortisol, chronic as it is dangerous. Cortisol is the hormone plays an important role in the metabolism of proteins, fats and carbohydrates. It affects blood sugar levels, helps maintain blood pressure, and helps regulate the immune system. Cortisol plays an important role in helping us cope in stressful situations, but its presence can often be harmful to the body.
+Stress can also increase the body's levels of cortisol, chronic as it is dangerous. Cortisol is the hormone plays an important role in the metabolism of proteins, fats and carbohydrates. It affects levels of sugar in blood, helps maintain blood pressure, and helps regulate the immune system. Cortisol plays an important role in helping us cope in stressful situations, but its presence can often be harmful to the body.
 
-Childhood Stress also causes heart disease in adulthood. The scientists found that if a person is under stress or psychological trauma in childhood, prone to heart disease later. The cause was interpreted as the tension increases the sensitivity of a hormone that works to increase blood pressure, which increases the risk of cardiovascular disease later.
+Childhood Stress also causes heart disease in adulthood. The scientists found that if a person is under stress or psychological trauma in childhood, prone to heart disease later. The cause was interpreted as the tension increases the sensitivity of a hormone that leads to increase blood pressure, which increases the risk of cardiovascular disease later.
 
-Aware of the dangers of stress in your life and it's important that no one can renounce life stress. Relaf born, we are a team of research about stress and how to relieve stress in modern life. Through years of research and find out the methods we realize the music is an indispensable catalyst for human development can prevent stress induced uncontrollable consequences in life.</mutableString>
+Aware of the dangers of stress in your life and it's important that no one can renounce stress life. Relaf was born, we are a team of researching about stress and how to relieve stress in the modern life. Through years of research and find out the methods we realize the music is an indispensable catalyst for human development can prevent stress induced uncontrollable consequences in life. Relaf was born with the aim of being a catalyst for life, bring joys. The application will help you control and minimize the stress everyday, more focus on the job. We will be very happy if you join our fan page at facebook.com/relafapp. One way to encourage us if you notice that you feel comfortable when using.
+</mutableString>
                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                             <color key="textColor" red="0.61960784310000006" green="0.61960784310000006" blue="0.61960784310000006" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -174,7 +175,7 @@ Aware of the dangers of stress in your life and it's important that no one can r
                 <outlet property="vContent" destination="4ik-JB-PoB" id="NxH-LS-cHF"/>
                 <outlet property="vViewNav" destination="034-ae-JVr" id="QBp-kl-hSj"/>
             </connections>
-            <point key="canvasLocation" x="-126.5" y="177"/>
+            <point key="canvasLocation" x="-122.5" y="246"/>
         </view>
     </objects>
     <resources>

@@ -96,6 +96,7 @@
 		EBA0160A1DB6C83700D5477C /* TabVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBA016071DB6C83700D5477C /* TabVC.xib */; };
 		EBA0160B1DB6C83700D5477C /* TabVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EBA016091DB6C83700D5477C /* TabVC.m */; };
 		EBC18F591DA0F508000E00FD /* DownLoadCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = EBC18F581DA0F508000E00FD /* DownLoadCategory.m */; };
+		EBE9C7921DC24DE600CE9E18 /* SMPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = EBE9C7911DC24DE600CE9E18 /* SMPageControl.m */; };
 		EBFB07A41D9EA06000AF2569 /* FavoriteView.m in Sources */ = {isa = PBXBuildFile; fileRef = EBFB07A31D9EA06000AF2569 /* FavoriteView.m */; };
 		EBFB07A61D9EA07300AF2569 /* FavoriteView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBFB07A51D9EA07300AF2569 /* FavoriteView.xib */; };
 		EBFB07A91D9EA08700AF2569 /* TimerView.m in Sources */ = {isa = PBXBuildFile; fileRef = EBFB07A81D9EA08700AF2569 /* TimerView.m */; };
@@ -290,6 +291,8 @@
 		EBA016091DB6C83700D5477C /* TabVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabVC.m; sourceTree = "<group>"; };
 		EBC18F571DA0F508000E00FD /* DownLoadCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DownLoadCategory.h; sourceTree = "<group>"; };
 		EBC18F581DA0F508000E00FD /* DownLoadCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DownLoadCategory.m; sourceTree = "<group>"; };
+		EBE9C7901DC24DE600CE9E18 /* SMPageControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMPageControl.h; sourceTree = "<group>"; };
+		EBE9C7911DC24DE600CE9E18 /* SMPageControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMPageControl.m; sourceTree = "<group>"; };
 		EBFB07A21D9EA06000AF2569 /* FavoriteView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoriteView.h; sourceTree = "<group>"; };
 		EBFB07A31D9EA06000AF2569 /* FavoriteView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoriteView.m; sourceTree = "<group>"; };
 		EBFB07A51D9EA07300AF2569 /* FavoriteView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FavoriteView.xib; sourceTree = "<group>"; };
@@ -637,6 +640,7 @@
 		EB56B6101DA2C4A3001AFC87 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				EBE9C7931DC24DEA00CE9E18 /* SMPageControl */,
 				EB137BA81DBBD43100DB1EBB /* InAppRage */,
 				EB3B17351DBB270C00B26A10 /* UIAlertView+Blocks.h */,
 				EB3B17361DBB270C00B26A10 /* UIAlertView+Blocks.m */,
@@ -663,6 +667,15 @@
 				EB11EE631D9AEBCF00804D34 /* Nav */,
 			);
 			name = Common;
+			sourceTree = "<group>";
+		};
+		EBE9C7931DC24DEA00CE9E18 /* SMPageControl */ = {
+			isa = PBXGroup;
+			children = (
+				EBE9C7901DC24DE600CE9E18 /* SMPageControl.h */,
+				EBE9C7911DC24DE600CE9E18 /* SMPageControl.m */,
+			);
+			name = SMPageControl;
 			sourceTree = "<group>";
 		};
 		EBF9B5511DA54CC200F07655 /* FAVORITE */ = {
@@ -1054,6 +1067,7 @@
 				EB4C800F1DA3FE69003CD3D6 /* UIView+WebCacheOperation.m in Sources */,
 				EBFF13B91DA00E1700CA98F1 /* AFSecurityPolicy.m in Sources */,
 				EB56B60C1DA2B964001AFC87 /* AHTagView.m in Sources */,
+				EBE9C7921DC24DE600CE9E18 /* SMPageControl.m in Sources */,
 				EBFF14291DA01E4700CA98F1 /* prng.c in Sources */,
 				EB137BA71DBBD42B00DB1EBB /* RageIAPHelper.m in Sources */,
 				EBFF14251DA01E4700CA98F1 /* aestab.c in Sources */,

@@ -201,7 +201,33 @@
                                         </label>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uHN-WP-WvS">
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vincentiu Solomon - https://unsplash.com/photos/ln5drpv_ImI" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Om-4Q-jKY">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Om-4Q-jKY">
+                                                    <string key="text">Vincentiu Solomon
+https://unsplash.com/photos/ln5drpv_ImI
+
+Li Yang
+unsplash.com/photos/_vPCiuXL2HE
+
+Griffin Keller
+unsplash.com/photos/7oS_26cb1Wo
+
+Jiri Sifalda
+unsplash.com/photos/ITjiVXcwVng
+
+Jamie Street
+unsplash.com/photos/3IEZsaXmzzs
+
+Nasa
+unsplash.com/photos/Q1p7bh3SHj8
+
+Thomas Griesbeck
+unsplash.com/photos/BS-Uxe8wU5Y
+
+Alberto Restifo
+unsplash.com/photos/wpMQWrjwPLs
+
+Vicentiu Solomon
+unsplash.com/photos/In5drpv_lml</string>
                                                     <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>

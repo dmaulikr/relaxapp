@@ -203,3 +203,13 @@ RelaxApp/Pods/FirebaseAnalytics/Frameworks/frameworks/FirebaseAnalytics.framewor
 RelaxApp/Pods/Google-Mobile-Ads-SDK/Frameworks/GoogleMobileAds.framework/Versions/A/Headers/GADNativeAdImage+Mediation.h
 RelaxApp/Pods/Headers/Public/FirebaseAnalytics/FirebaseAnalytics/FIRAnalytics+AppDelegate.h
 RelaxApp/Pods/Headers/Public/Google-Mobile-Ads-SDK/GoogleMobileAds/GADNativeAdImage+Mediation.h
+RelaxApp/Pods/FirebaseMessaging/Frameworks/frameworks/FirebaseMessaging.framework/FirebaseMessaging
+RelaxApp/Pods/FirebaseMessaging/Frameworks/frameworks/FirebaseMessaging.framework/Headers/FirebaseMessaging.h
+RelaxApp/Pods/FirebaseMessaging/Frameworks/frameworks/FirebaseMessaging.framework/Headers/FIRMessaging.h
+RelaxApp/Pods/FirebaseMessaging/Frameworks/frameworks/FirebaseMessaging.framework/Modules/module.modulemap
+RelaxApp/Pods/FirebaseMessaging/Sources/FIRMessaging.h
+RelaxApp/Pods/GoogleIPhoneUtilities/Frameworks/GoogleIPhoneUtilities.framework/GoogleIPhoneUtilities
+RelaxApp/Pods/Headers/Private/FirebaseMessaging/FIRMessaging.h
+RelaxApp/Pods/Headers/Public/FirebaseMessaging/FIRMessaging.h
+RelaxApp/Pods/Headers/Public/FirebaseMessaging/FirebaseMessaging/FirebaseMessaging.h
+RelaxApp/Pods/Headers/Public/FirebaseMessaging/FirebaseMessaging/FIRMessaging.h

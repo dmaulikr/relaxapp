@@ -15,40 +15,58 @@
                 <rect key="frame" x="0.0" y="0.0" width="90" height="90"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="h9e-cn-fZy">
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WvL-Wh-cMa">
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Polygon" translatesAutoresizingMaskIntoConstraints="NO" id="pC2-D3-EVc">
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="h9e-cn-fZy">
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="47" id="7T1-RZ-RlH"/>
+                                    <constraint firstAttribute="width" constant="47" id="n2f-Np-BmE"/>
+                                </constraints>
+                            </imageView>
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ads" translatesAutoresizingMaskIntoConstraints="NO" id="tNh-EJ-ySP"/>
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Oval_2" translatesAutoresizingMaskIntoConstraints="NO" id="59E-Cc-Mel">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="20" id="4uq-k8-Ep9"/>
+                                    <constraint firstAttribute="height" constant="20" id="lWt-i2-yDl"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rio de janeiro" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="reg-nb-YlD">
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="47" id="7T1-RZ-RlH"/>
-                            <constraint firstAttribute="width" constant="47" id="n2f-Np-BmE"/>
+                            <constraint firstItem="tNh-EJ-ySP" firstAttribute="height" secondItem="h9e-cn-fZy" secondAttribute="height" id="0RF-EA-Avw"/>
+                            <constraint firstItem="pC2-D3-EVc" firstAttribute="bottom" secondItem="h9e-cn-fZy" secondAttribute="bottom" id="AQn-7m-acu"/>
+                            <constraint firstItem="pC2-D3-EVc" firstAttribute="trailing" secondItem="h9e-cn-fZy" secondAttribute="trailing" id="E3P-Vy-fwH"/>
+                            <constraint firstItem="h9e-cn-fZy" firstAttribute="centerX" secondItem="WvL-Wh-cMa" secondAttribute="centerX" id="KMd-yx-3Yn"/>
+                            <constraint firstItem="reg-nb-YlD" firstAttribute="top" secondItem="h9e-cn-fZy" secondAttribute="bottom" constant="10" id="NNh-f1-Ju5"/>
+                            <constraint firstItem="reg-nb-YlD" firstAttribute="leading" secondItem="WvL-Wh-cMa" secondAttribute="leading" id="RlV-Eg-Lfs"/>
+                            <constraint firstItem="tNh-EJ-ySP" firstAttribute="centerY" secondItem="h9e-cn-fZy" secondAttribute="centerY" id="RnG-hR-6ha"/>
+                            <constraint firstItem="59E-Cc-Mel" firstAttribute="centerY" secondItem="h9e-cn-fZy" secondAttribute="centerY" id="SYk-kj-F4F"/>
+                            <constraint firstItem="h9e-cn-fZy" firstAttribute="top" secondItem="WvL-Wh-cMa" secondAttribute="top" id="TUc-X5-fLR"/>
+                            <constraint firstItem="tNh-EJ-ySP" firstAttribute="width" secondItem="h9e-cn-fZy" secondAttribute="width" id="VqJ-Xf-c2k"/>
+                            <constraint firstItem="tNh-EJ-ySP" firstAttribute="centerX" secondItem="h9e-cn-fZy" secondAttribute="centerX" id="dAX-Y3-ALS"/>
+                            <constraint firstAttribute="height" constant="75" id="eKq-NF-QDj"/>
+                            <constraint firstItem="pC2-D3-EVc" firstAttribute="leading" secondItem="h9e-cn-fZy" secondAttribute="leading" id="i5y-V9-n8n"/>
+                            <constraint firstAttribute="trailing" secondItem="reg-nb-YlD" secondAttribute="trailing" id="sOG-KC-C3H"/>
+                            <constraint firstItem="pC2-D3-EVc" firstAttribute="top" secondItem="h9e-cn-fZy" secondAttribute="top" id="vOc-CI-wdx"/>
+                            <constraint firstItem="59E-Cc-Mel" firstAttribute="centerX" secondItem="h9e-cn-fZy" secondAttribute="centerX" id="yvZ-ak-1Ck"/>
                         </constraints>
-                    </imageView>
-                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ads" translatesAutoresizingMaskIntoConstraints="NO" id="tNh-EJ-ySP"/>
-                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Oval_2" translatesAutoresizingMaskIntoConstraints="NO" id="59E-Cc-Mel">
-                        <constraints>
-                            <constraint firstAttribute="width" constant="20" id="4uq-k8-Ep9"/>
-                            <constraint firstAttribute="height" constant="20" id="lWt-i2-yDl"/>
-                        </constraints>
-                    </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rio de janeiro" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="reg-nb-YlD">
-                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <nil key="highlightedColor"/>
-                    </label>
+                    </view>
                 </subviews>
             </view>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="tNh-EJ-ySP" firstAttribute="width" secondItem="h9e-cn-fZy" secondAttribute="width" id="5pw-W4-Gnr"/>
-                <constraint firstItem="reg-nb-YlD" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="9NY-9P-NDT"/>
-                <constraint firstItem="tNh-EJ-ySP" firstAttribute="height" secondItem="h9e-cn-fZy" secondAttribute="height" id="DOz-uF-SYs"/>
-                <constraint firstItem="tNh-EJ-ySP" firstAttribute="centerY" secondItem="h9e-cn-fZy" secondAttribute="centerY" id="KY2-tT-UTL"/>
-                <constraint firstItem="h9e-cn-fZy" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="Kni-2v-T5t"/>
-                <constraint firstAttribute="trailing" secondItem="reg-nb-YlD" secondAttribute="trailing" id="Mlz-rE-eVp"/>
-                <constraint firstItem="h9e-cn-fZy" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="bog-7i-Cqo"/>
-                <constraint firstItem="59E-Cc-Mel" firstAttribute="centerY" secondItem="h9e-cn-fZy" secondAttribute="centerY" id="dpM-dg-jAr"/>
-                <constraint firstItem="tNh-EJ-ySP" firstAttribute="centerX" secondItem="h9e-cn-fZy" secondAttribute="centerX" id="gf2-MX-rat"/>
-                <constraint firstItem="59E-Cc-Mel" firstAttribute="centerX" secondItem="h9e-cn-fZy" secondAttribute="centerX" id="pri-tX-KrA"/>
-                <constraint firstItem="reg-nb-YlD" firstAttribute="top" secondItem="h9e-cn-fZy" secondAttribute="bottom" constant="10" id="qGV-5u-hSf"/>
+                <constraint firstItem="WvL-Wh-cMa" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="08H-43-XX9"/>
+                <constraint firstItem="WvL-Wh-cMa" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="aij-rl-2TW"/>
+                <constraint firstAttribute="trailing" secondItem="WvL-Wh-cMa" secondAttribute="trailing" id="f8h-uD-CJ3"/>
             </constraints>
             <connections>
                 <outlet property="imgAds" destination="tNh-EJ-ySP" id="1bU-oR-Hlx"/>
@@ -60,6 +78,7 @@
     </objects>
     <resources>
         <image name="Oval_2" width="26" height="26"/>
+        <image name="Polygon" width="44" height="50"/>
         <image name="ads" width="47" height="47"/>
     </resources>
 </document>

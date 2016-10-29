@@ -17,6 +17,9 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
+                <imageView userInteractionEnabled="NO" alpha="0.20000000000000001" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yhk-OY-IjK">
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                </imageView>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="puc-dH-xLE">
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="aZJ-MW-DmS">
@@ -72,20 +75,26 @@
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstAttribute="trailing" secondItem="yhk-OY-IjK" secondAttribute="trailing" constant="20" id="BJx-rq-vYC"/>
+                <constraint firstAttribute="bottom" secondItem="yhk-OY-IjK" secondAttribute="bottom" constant="20" id="OBt-d7-FiQ"/>
                 <constraint firstItem="6F3-iS-Su2" firstAttribute="leading" secondItem="Uwh-Sk-xwS" secondAttribute="leading" id="Viz-VJ-E4Y"/>
                 <constraint firstItem="6F3-iS-Su2" firstAttribute="top" secondItem="Uwh-Sk-xwS" secondAttribute="top" id="Xs6-nL-HBR"/>
                 <constraint firstItem="puc-dH-xLE" firstAttribute="top" secondItem="Uwh-Sk-xwS" secondAttribute="top" id="eVc-ho-rf7"/>
+                <constraint firstItem="yhk-OY-IjK" firstAttribute="leading" secondItem="Uwh-Sk-xwS" secondAttribute="leading" constant="20" id="fHp-g7-dD4"/>
                 <constraint firstAttribute="trailing" secondItem="puc-dH-xLE" secondAttribute="trailing" id="fRD-Ho-dcQ"/>
                 <constraint firstAttribute="bottom" secondItem="puc-dH-xLE" secondAttribute="bottom" id="lDg-o6-WOP"/>
                 <constraint firstAttribute="bottom" secondItem="6F3-iS-Su2" secondAttribute="bottom" id="mge-yT-lSa"/>
                 <constraint firstItem="puc-dH-xLE" firstAttribute="leading" secondItem="Uwh-Sk-xwS" secondAttribute="leading" id="p7e-Ed-JCy"/>
                 <constraint firstAttribute="trailing" secondItem="6F3-iS-Su2" secondAttribute="trailing" id="qaC-zG-LDZ"/>
+                <constraint firstItem="yhk-OY-IjK" firstAttribute="top" secondItem="Uwh-Sk-xwS" secondAttribute="top" id="uWR-hO-X27"/>
             </constraints>
             <connections>
                 <outlet property="btnClose" destination="Zjh-hs-I0y" id="Ada-yz-PbC"/>
                 <outlet property="btnDownLoad" destination="kda-Ch-rTb" id="Zn9-21-VwE"/>
                 <outlet property="collectionView" destination="puc-dH-xLE" id="k4F-ea-rty"/>
+                <outlet property="contraintBottomBackGround" destination="OBt-d7-FiQ" id="Ss6-mA-azS"/>
                 <outlet property="image" destination="8tu-j0-tMG" id="7YY-uX-wcR"/>
+                <outlet property="imageBackground" destination="yhk-OY-IjK" id="WNY-hp-ceA"/>
                 <outlet property="vDownLoad" destination="6F3-iS-Su2" id="Meh-by-cXT"/>
             </connections>
             <point key="canvasLocation" x="105.5" y="-19.5"/>

@@ -16,6 +16,8 @@ typedef void (^CategoryCallback)(NSDictionary *dicCategory, BOOL isDownload);
 @property (nonatomic, strong) IBOutlet UIButton *btnDownLoad;
 @property (nonatomic, strong) IBOutlet UIButton *btnClose;
 @property (nonatomic, strong) IBOutlet UIView *vDownLoad;
+@property (nonatomic, strong) IBOutlet UIImageView *imageBackground;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *contraintBottomBackGround;
 
 -(instancetype)initWithEVC;
 -(void)addContraintSupview:(UIView*)viewSuper;

@@ -17,6 +17,7 @@
 #import "AddFavoriteView.h"
 #import "ASProgressPopUpView.h"
 #import "TabVC.h"
+#import "SMPageControl.h"
 @class RBVolumeButtons;
 @class GADBannerView;
 @interface HomeVC : UIViewController<AVAudioPlayerDelegate, IDZAudioPlayerDelegate>
@@ -31,7 +32,7 @@
 @property (nonatomic, strong) TabVC *vTabbar;
 @property (nonatomic, strong) IBOutlet UIView *vContrainer;
 @property (nonatomic, strong) IBOutlet UIImageView *imgBackGround;
-@property (nonatomic, strong) IBOutlet UIPageControl *pageControl;
+@property (nonatomic, strong) IBOutlet SMPageControl *pageControl;
 @property (nonatomic, strong) IBOutlet UIScrollView *scroll_View;
 @property (nonatomic, strong) IBOutlet UILabel *titleCategory;
 @property (nonatomic, strong) IBOutlet UIImageView *imgSingle;
@@ -70,6 +71,8 @@
 @property(nonatomic, weak) IBOutlet GADBannerView *bannerView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *contraintBottomvTab;
 
+@property (nonatomic, strong) IBOutlet UIImageView *imagBack;
+@property (nonatomic, strong) IBOutlet UIImageView *imgNext;
 
 @property (nonatomic, strong)  FavoriteView *vFavorite;
 @property (nonatomic, strong)  AddFavoriteView *vAddFavorite;
