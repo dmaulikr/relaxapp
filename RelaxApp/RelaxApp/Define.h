@@ -17,7 +17,7 @@
 #define BASE_URL @"https://data.relafapp.com/product/"
 #define BASE_IMAGE_URL @"https://data.relafapp.com/product/img/"
 #define pwd_Unzip @"d41d8cd98f00b204e9800998ecf8427e"
-#define VERSION_PRO 1
+#define VERSION_PRO 0
 
 #define COLOR_SLIDER_THUMB 0x50E3C2
 #define COLOR_NAVIGATION_HOME 0x0241A8
@@ -56,13 +56,13 @@
 #define FILE_IAP_SAVE @"IAP"
 //#define kBuyCategoryIdentifier @"com.Relaf.Relaf.RelafPricing"
 //#define kUnlockProProductIdentifier @"com.Relaf.Relaf.UnlockPro"
-#define kTotalRemoveAdsProductIdentifier @"com.Relaf.Relaf.RemoveAds"
+#define kTotalRemoveAdsProductIdentifier @"com.relaf.free.removeads"
 #define root_ipa_free @"com.relaf.free."
 #define root_ipa_pro @"com.relaf.pro."
 
 #define DEFAULT_VOLUME 0.5
 
-#define NAME_APP @"Relaf"
+#define NAME_APP @"RelaF Free"
 
 #define IS_IPHONE_4 (fabs((double)[[UIScreen mainScreen]bounds].size.height - (double)480) < DBL_EPSILON)
 #define IS_IPHONE_5 (fabs((double)[[UIScreen mainScreen]bounds].size.height - (double)568) < DBL_EPSILON)

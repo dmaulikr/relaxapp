@@ -18,6 +18,7 @@
 #import <MediaPlayer/MediaPlayer.h>
 #import "UIAlertView+Blocks.h"
 #import "RageIAPHelper.h"
+#import "AppCommon.h"
 @import GoogleMobileAds;
 @interface HomeVC ()<UIScrollViewDelegate,AVAudioSessionDelegate,GADInterstitialDelegate,GADBannerViewDelegate>
 {
@@ -34,28 +35,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Replace this ad unit ID with your own ad unit ID.
-    areAdsRemoved = VERSION_PRO?1:[[NSUserDefaults standardUserDefaults] boolForKey:kTotalRemoveAdsProductIdentifier];
-    if (areAdsRemoved) {
-        [self hideAdsAction];
-    }
-    else
-    {
-        self.bannerView.adUnitID = FIREBASE_BANNER_UnitID;
-        self.bannerView.rootViewController = self;
-        self.bannerView.delegate = self;
-        GADRequest *request = [GADRequest request];
-        request.testDevices = @[@"39a7131f0ddf6c07dd8e764042b786e2edb0d7d5",
-                                @"f1b375470fbe578bbaffd54c92170f5b91554f56",
-                                @"492e5fc39e75b5d1015b03ea3e6979997f72442d",
-                                @"73761a8a7e4f7e45547af96fe009872e67598cb2",
-                                @"ba1e422fb34ca93c161b25b78371d4bf64a9bd08"];
-        // Requests test ads on devices you specify. Your test device ID is printed to the console when
-        // an ad request is made. GADBannerView automatically returns test ads when running on a
-        [self.bannerView loadRequest:request];
-        
-    }
-    //
+    [self showAds];
     self.navigationController.navigationBar.hidden = YES;
     
     [[UIApplication sharedApplication] setStatusBarHidden:NO];
@@ -145,6 +125,10 @@
 //MARK: - NETWORK
 -(void)loadCache
 {
+    
+    if (![COMMON isReachableCheck]) {
+    }
+    
     NSString *strPath = [FileHelper pathForApplicationDataFile:FILE_CATEGORY_SAVE];
     NSDictionary *dicTmp = [NSDictionary dictionaryWithContentsOfFile:strPath];
     if (dicTmp) {
@@ -163,9 +147,36 @@
     }
     else
     {
-        [self getCategory];
+        if ([COMMON isReachableCheck]) {
+            [self getCategory];
+        }
     }
     
+}
+-(void)showAds
+{
+    // Replace this ad unit ID with your own ad unit ID.
+    areAdsRemoved = VERSION_PRO?1:[[NSUserDefaults standardUserDefaults] boolForKey:kTotalRemoveAdsProductIdentifier];
+    if (areAdsRemoved) {
+        [self hideAdsAction];
+    }
+    else
+    {
+        self.bannerView.adUnitID = FIREBASE_BANNER_UnitID;
+        self.bannerView.rootViewController = self;
+        self.bannerView.delegate = self;
+        GADRequest *request = [GADRequest request];
+        //        request.testDevices = @[@"39a7131f0ddf6c07dd8e764042b786e2edb0d7d5",
+        //                                @"f1b375470fbe578bbaffd54c92170f5b91554f56",
+        //                                @"492e5fc39e75b5d1015b03ea3e6979997f72442d",
+        //                                @"73761a8a7e4f7e45547af96fe009872e67598cb2",
+        //                                @"ba1e422fb34ca93c161b25b78371d4bf64a9bd08"];
+        // Requests test ads on devices you specify. Your test device ID is printed to the console when
+        // an ad request is made. GADBannerView automatically returns test ads when running on a
+        [self.bannerView loadRequest:request];
+        
+    }
+    //
 }
 -(void)getCategory
 {
@@ -778,6 +789,9 @@
         [collection setCallback:^(NSDictionary *dicMusic,NSDictionary *dicCategory, BOOL isLongTap)
          {
              if ([dicMusic[@"ads"] boolValue]) {
+                 if (![COMMON isReachableCheck]) {
+                     return ;
+                 }
                  //show ads
                  [UIAlertView showWithTitle:nil message:@"Watch an ads to get this sound in 1 days!"
                           cancelButtonTitle:@"Cancel"
@@ -1402,9 +1416,6 @@
     [arrBackGround addObject:@"Home3"];
     [arrBackGround addObject:@"Home4"];
     [arrBackGround addObject:@"Home5"];
-    [arrBackGround addObject:@"Home6"];
-    [arrBackGround addObject:@"Home7"];
-    [arrBackGround addObject:@"Home8"];
 
     int min = 0; //Get the current text from your minimum and maximum textfields.
     int max = (int) arrBackGround.count;

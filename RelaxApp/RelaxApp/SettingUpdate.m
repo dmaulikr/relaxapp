@@ -13,6 +13,7 @@
 #import "DownLoadCategory.h"
 #import "UIAlertView+Blocks.h"
 #import "AppDelegate.h"
+#import "AppCommon.h"
 @interface SettingUpdate ()
 {
     AFHTTPSessionManager *managerCategory;
@@ -52,18 +53,22 @@
     }
     else
     {
+        if (![COMMON isReachableCheck]) {
+            self.btnCancel.hidden = NO;
+            return ;
+        }
         [UIAlertView showWithTitle:@"Watch an ads to check update in this time !" message:@"By Clicking OK you permit the app download and use free storage on your phone"
                  cancelButtonTitle:@"Cancel"
                  otherButtonTitles:@[@"OK"]
                           tapBlock:^(UIAlertView *alertView, NSInteger buttonIndex) {
                               
                               if (buttonIndex == 1) {
+                                  self.btnCancel.hidden = NO;
                                   //OK button handler
                                   AppDelegate *app = (AppDelegate*)[[UIApplication sharedApplication] delegate];
                                   [app startNewAds];
                                   [app setCallbackDismissAds:^()
                                    {
-                                       self.btnCancel.hidden = NO;
                                        [self updateAction:nil];
                                        
                                    }];
@@ -107,6 +112,9 @@
 }
 -(IBAction)updateAction:(id)sender
 {
+    if (![COMMON isReachableCheck]) {
+        return;
+    }
     self.viewProgress.hidden = NO;
     self.percentageDoughnut.percentage              = 0;
     managerCategory = [AFHTTPSessionManager manager];

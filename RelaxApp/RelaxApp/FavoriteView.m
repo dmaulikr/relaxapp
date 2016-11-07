@@ -12,6 +12,7 @@
 #import "FileHelper.h"
 #import "UIAlertView+Blocks.h"
 #import "AppDelegate.h"
+#import "AppCommon.h"
 static NSString *identifierSection1 = @"MyTableViewCell1";
 @import FirebaseAnalytics;
 
@@ -123,6 +124,9 @@ static NSString *identifierSection1 = @"MyTableViewCell1";
         }
         else
         {
+            if (![COMMON isReachableCheck]) {
+                return ;
+            }
             [UIAlertView showWithTitle:nil message:@"Watch an ads to play this favorite"
                      cancelButtonTitle:@"Cancel"
                      otherButtonTitles:@[@"OK"]

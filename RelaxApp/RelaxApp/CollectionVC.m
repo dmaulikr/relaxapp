@@ -15,6 +15,7 @@
 #import <StoreKit/StoreKit.h>
 #import "RageIAPHelper.h"
 #import "AppDelegate.h"
+#import "AppCommon.h"
 @interface CollectionVC ()
 {
     NSMutableArray                  *arrCategory;
@@ -250,30 +251,33 @@
         [[NSUserDefaults standardUserDefaults] synchronize];
 
         if ([dicCategory[@"cover"] isKindOfClass:[NSArray class]]) {
-
-            if (areBuyCategory) {
+            if (areAdsRemoved) {
+                strCover = dicCategory[@"cover"][0][strDevice];
+            }
+            else
+            {
                 strCover = dicCategory[@"cover"][1][strDevice];
+            }
+            if (areBuyCategory) {
                 [self.btnDownLoad setTitle:@"Update" forState:UIControlStateNormal];
             }
             else
             {
 
                 if (price) {
-                    strCover = dicCategory[@"cover"][0][strDevice];
                     [self.btnDownLoad setTitle:[NSString stringWithFormat:@"Buy %@%@",@"$",dicCategory[@"price"][@"value"]] forState:UIControlStateNormal];
 
                 }
                 else
                 {
-                    strCover = dicCategory[@"cover"][1][strDevice];
                     [self.btnDownLoad setTitle:@"Update" forState:UIControlStateNormal];
                 }
             }
         }
         else
         {
+            
             if (areBuyCategory) {
-                strCover = dicCategory[@"cover"][1][strDevice];
                 [self.btnDownLoad setTitle:@"Update" forState:UIControlStateNormal];
             }
             else
@@ -332,6 +336,9 @@
 //MARK: - ACTION
 -(IBAction)downloadAction:(id)sender
 {
+    if (![COMMON isReachableCheck]) {
+        return;
+    }
     if (areBuyCategory) {
         if (_callbackCategory) {
             _callbackCategory(dicCategory, YES);
@@ -457,6 +464,7 @@
      }];
 }
 - (void)buyButtonTapped:(id)sender {
+
     if (productIdentifier.length > 0) {
         [[RageIAPHelper sharedInstance] addProdcutPurchase:productIdentifier];
         AppDelegate *app = (AppDelegate*)[[UIApplication sharedApplication] delegate];
@@ -489,11 +497,13 @@
 -(void)removeAds
 {
     [[RageIAPHelper sharedInstance] productPurchasedValidate:^(BOOL success, NSString *proIdentifier) {
-        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:proIdentifier];
-        [[NSUserDefaults standardUserDefaults] synchronize];
-        areBuyCategory = [[NSUserDefaults standardUserDefaults] boolForKey:proIdentifier];
-        [self.btnDownLoad setTitle:@"Update" forState:UIControlStateNormal];
-        [self downloadAction:nil];
+        if ([proIdentifier isEqualToString:productIdentifier]) {
+            [[NSUserDefaults standardUserDefaults] setBool:YES forKey:proIdentifier];
+            [[NSUserDefaults standardUserDefaults] synchronize];
+            areBuyCategory = [[NSUserDefaults standardUserDefaults] boolForKey:proIdentifier];
+            [self.btnDownLoad setTitle:@"Update" forState:UIControlStateNormal];
+            [self downloadAction:nil];
+        }
     }];
 }
 

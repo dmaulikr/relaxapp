@@ -202,10 +202,7 @@
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uHN-WP-WvS">
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Om-4Q-jKY">
-                                                    <string key="text">Vincentiu Solomon
-https://unsplash.com/photos/ln5drpv_ImI
-
-Li Yang
+                                                    <string key="text">Li Yang
 unsplash.com/photos/_vPCiuXL2HE
 
 Griffin Keller

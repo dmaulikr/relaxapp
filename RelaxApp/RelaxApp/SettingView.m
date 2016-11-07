@@ -19,6 +19,9 @@
 #import "SettingCredit.h"
 #import "AppDelegate.h"
 #import "RageIAPHelper.h"
+#import "AppCommon.h"
+#import "UIAlertView+Blocks.h"
+
 @interface SettingView () <MFMailComposeViewControllerDelegate>
 {
 //    BOOL areUnlockPro;
@@ -51,7 +54,6 @@
 //    self.lbPrivacy.font= [UIFont fontWithName:@"Roboto-Regular" size:13];
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(caculatorTimeAgo) name: NOTIFCATION_CATEGORY object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(productPurchased:) name:IAPHelperProductPurchasedNotification object:nil];
     areAdsRemoved = VERSION_PRO?1:[[NSUserDefaults standardUserDefaults] boolForKey:kTotalRemoveAdsProductIdentifier];
 //    areUnlockPro = [[NSUserDefaults standardUserDefaults] boolForKey:kUnlockProProductIdentifier];
 //    _unlockPro.on = areUnlockPro;
@@ -161,7 +163,7 @@
     // Email Content
     NSString *messageBody = @"";
     // To address
-    NSArray *toRecipents = [NSArray arrayWithObject:@"relafapp@gmail.com"];
+    NSArray *toRecipents = [NSArray arrayWithObject:@"support@relafapp.com"];
     
     MFMailComposeViewController *mc = [[MFMailComposeViewController alloc] init];
     mc.mailComposeDelegate = self;
@@ -185,7 +187,10 @@
 }
 -(IBAction)updateAction:(id)sender
 {
-    
+    if (![COMMON isReachableCheck]) {
+        return;
+    }
+
     SettingUpdate *viewController1 = [[SettingUpdate alloc] initWithClassName:NSStringFromClass([SettingUpdate class])];
     [viewController1 addContraintSupview:self.parent.view];
     viewController1.blurredBgImage.image = [self blurWithImageEffects:[self takeSnapshotOfView:self.parent.view]];
@@ -228,7 +233,7 @@
 - (IBAction)switchRemoveAdsProValueChanged:(id)sender
 {
     UISwitch *sw = (UISwitch*)sender;
-    if (areAdsRemoved) {
+    if (areAdsRemoved || ![COMMON isReachableCheck]) {
         sw.on = areAdsRemoved;
         return;
     }
@@ -242,6 +247,7 @@
             [_products enumerateObjectsUsingBlock:^(SKProduct * product, NSUInteger idx, BOOL *stop) {
                 if ([product.productIdentifier isEqualToString:productIdentifier]) {
                     [[RageIAPHelper sharedInstance] buyProduct:product];
+                    [self removeAds];
                     *stop = YES;
                 }
                 else
@@ -269,6 +275,7 @@
          [_products enumerateObjectsUsingBlock:^(SKProduct * product, NSUInteger idx, BOOL *stop) {
              if ([product.productIdentifier isEqualToString:productIdentifier]) {
                  [[RageIAPHelper sharedInstance] buyProduct:product];
+                 [self removeAds];
                  *stop = YES;
              }
          }];
@@ -279,8 +286,13 @@
 - (void)restoreTapped:(id)sender {
     [[RageIAPHelper sharedInstance] restoreCompletedTransactions];
 }
-- (void)productPurchased:(NSNotification *)notification {
-    [self doRemoveAds];
+-(void)removeAds
+{
+    [[RageIAPHelper sharedInstance] productPurchasedValidate:^(BOOL success, NSString *proIdentifier) {
+        if ([proIdentifier isEqualToString:kTotalRemoveAdsProductIdentifier]) {
+            [self doRemoveAds];
+        }
+    }];
 }
 
 - (void)doRemoveAds{

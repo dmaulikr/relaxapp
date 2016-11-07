@@ -10,6 +10,7 @@
 #import "HomeVC.h"
 #import "FileHelper.h"
 #import "RageIAPHelper.h"
+#import "AppCommon.h"
 #if defined(__IPHONE_10_0) && __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_10_0
 @import UserNotifications;
 #endif
@@ -120,6 +121,13 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+-(void)applicationDidBecomeActive:(UIApplication *)application
+{
+    if ([COMMON isReachable]) {
+        [viewController1 loadCache];
+    }
+    
 }
 -(void)setCallback:(AppDelegateCallback)callback
 {

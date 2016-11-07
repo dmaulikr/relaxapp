@@ -14,6 +14,7 @@
 #import "AppDelegate.h"
 #import "MDTimerBackGround.h"
 #import "UIAlertView+Blocks.h"
+#import "AppCommon.h"
 static NSString *identifierSection1 = @"MyTableViewCell1";
 
 @implementation TimerView
@@ -239,6 +240,9 @@ static NSString *identifierSection1 = @"MyTableViewCell1";
     }
     else
     {
+        if (![COMMON isReachableCheck]) {
+            return ;
+        }
         //show ads
         [UIAlertView showWithTitle:nil message:@"Watch an ads to enable this timer!"
                  cancelButtonTitle:@"Cancel"

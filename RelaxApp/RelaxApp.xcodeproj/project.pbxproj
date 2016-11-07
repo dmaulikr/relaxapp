@@ -93,6 +93,8 @@
 		EB56B60F1DA2C497001AFC87 /* FileHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = EB56B60E1DA2C497001AFC87 /* FileHelper.m */; };
 		EB56B6131DA2C697001AFC87 /* AddFavoriteView.m in Sources */ = {isa = PBXBuildFile; fileRef = EB56B6121DA2C697001AFC87 /* AddFavoriteView.m */; };
 		EB56B6151DA2C6A9001AFC87 /* AddFavoriteView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB56B6141DA2C6A9001AFC87 /* AddFavoriteView.xib */; };
+		EB605EC61DD0D37D007802A1 /* AppCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = EB605EC51DD0D37D007802A1 /* AppCommon.m */; };
+		EB605EC91DD0D3A8007802A1 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = EB605EC81DD0D3A8007802A1 /* Reachability.m */; };
 		EBA0160A1DB6C83700D5477C /* TabVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBA016071DB6C83700D5477C /* TabVC.xib */; };
 		EBA0160B1DB6C83700D5477C /* TabVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EBA016091DB6C83700D5477C /* TabVC.m */; };
 		EBC18F591DA0F508000E00FD /* DownLoadCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = EBC18F581DA0F508000E00FD /* DownLoadCategory.m */; };
@@ -106,8 +108,8 @@
 		EBFB07B31D9EA1F000AF2569 /* BaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = EBFB07B21D9EA1F000AF2569 /* BaseView.m */; };
 		EBFB07B61D9EAD7200AF2569 /* VolumeView.m in Sources */ = {isa = PBXBuildFile; fileRef = EBFB07B51D9EAD7200AF2569 /* VolumeView.m */; };
 		EBFB07B81D9EAD8500AF2569 /* VolumeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBFB07B71D9EAD8500AF2569 /* VolumeView.xib */; };
-		EBFF08BE1DBFC97800688968 /* GoogleService-Info_f.plist in Resources */ = {isa = PBXBuildFile; fileRef = EBFF08BD1DBFC97800688968 /* GoogleService-Info_f.plist */; };
-		EBFF08C01DBFD5FA00688968 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EBFF08BF1DBFD5FA00688968 /* GoogleService-Info.plist */; };
+		EBFF08BE1DBFC97800688968 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EBFF08BD1DBFC97800688968 /* GoogleService-Info.plist */; };
+		EBFF08C01DBFD5FA00688968 /* GoogleService-Info_p.plist in Resources */ = {isa = PBXBuildFile; fileRef = EBFF08BF1DBFD5FA00688968 /* GoogleService-Info_p.plist */; };
 		EBFF13B71DA00E1700CA98F1 /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EBFF13AB1DA00E1700CA98F1 /* AFHTTPSessionManager.m */; };
 		EBFF13B81DA00E1700CA98F1 /* AFNetworkReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EBFF13AE1DA00E1700CA98F1 /* AFNetworkReachabilityManager.m */; };
 		EBFF13B91DA00E1700CA98F1 /* AFSecurityPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = EBFF13B01DA00E1700CA98F1 /* AFSecurityPolicy.m */; };
@@ -285,6 +287,10 @@
 		EB56B6111DA2C697001AFC87 /* AddFavoriteView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddFavoriteView.h; sourceTree = "<group>"; };
 		EB56B6121DA2C697001AFC87 /* AddFavoriteView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddFavoriteView.m; sourceTree = "<group>"; };
 		EB56B6141DA2C6A9001AFC87 /* AddFavoriteView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddFavoriteView.xib; sourceTree = "<group>"; };
+		EB605EC41DD0D37D007802A1 /* AppCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppCommon.h; sourceTree = "<group>"; };
+		EB605EC51DD0D37D007802A1 /* AppCommon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppCommon.m; sourceTree = "<group>"; };
+		EB605EC71DD0D3A8007802A1 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		EB605EC81DD0D3A8007802A1 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		EB6DCF101DBEE8A2004B45DC /* RelaxApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RelaxApp.entitlements; sourceTree = "<group>"; };
 		EBA016071DB6C83700D5477C /* TabVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TabVC.xib; sourceTree = "<group>"; };
 		EBA016081DB6C83700D5477C /* TabVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabVC.h; sourceTree = "<group>"; };
@@ -308,8 +314,8 @@
 		EBFB07B51D9EAD7200AF2569 /* VolumeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VolumeView.m; sourceTree = "<group>"; };
 		EBFB07B71D9EAD8500AF2569 /* VolumeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VolumeView.xib; sourceTree = "<group>"; };
 		EBFB07BF1D9EE03100AF2569 /* Define.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Define.h; sourceTree = "<group>"; };
-		EBFF08BD1DBFC97800688968 /* GoogleService-Info_f.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info_f.plist"; sourceTree = "<group>"; };
-		EBFF08BF1DBFD5FA00688968 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		EBFF08BD1DBFC97800688968 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		EBFF08BF1DBFD5FA00688968 /* GoogleService-Info_p.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info_p.plist"; sourceTree = "<group>"; };
 		EBFF13AA1DA00E1700CA98F1 /* AFHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPSessionManager.h; sourceTree = "<group>"; };
 		EBFF13AB1DA00E1700CA98F1 /* AFHTTPSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPSessionManager.m; sourceTree = "<group>"; };
 		EBFF13AC1DA00E1700CA98F1 /* AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworking.h; sourceTree = "<group>"; };
@@ -444,10 +450,9 @@
 				EB11EDD01D9AB24900804D34 /* Assets.xcassets */,
 				EB11EDD51D9AB24900804D34 /* Info.plist */,
 				EB18BD2E1DBE8E7E0087945F /* Podfile */,
-				EBFF08BD1DBFC97800688968 /* GoogleService-Info_f.plist */,
-				EBFF08BF1DBFD5FA00688968 /* GoogleService-Info.plist */,
+				EBFF08BD1DBFC97800688968 /* GoogleService-Info.plist */,
+				EBFF08BF1DBFD5FA00688968 /* GoogleService-Info_p.plist */,
 				EB11EDC41D9AB24900804D34 /* Supporting Files */,
-				EBFB07BF1D9EE03100AF2569 /* Define.h */,
 			);
 			path = RelaxApp;
 			sourceTree = "<group>";
@@ -455,6 +460,7 @@
 		EB11EDC41D9AB24900804D34 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				EBFB07BF1D9EE03100AF2569 /* Define.h */,
 				EB11EDC51D9AB24900804D34 /* main.m */,
 			);
 			name = "Supporting Files";
@@ -644,6 +650,10 @@
 				EB137BA81DBBD43100DB1EBB /* InAppRage */,
 				EB3B17351DBB270C00B26A10 /* UIAlertView+Blocks.h */,
 				EB3B17361DBB270C00B26A10 /* UIAlertView+Blocks.m */,
+				EB605EC41DD0D37D007802A1 /* AppCommon.h */,
+				EB605EC51DD0D37D007802A1 /* AppCommon.m */,
+				EB605EC71DD0D3A8007802A1 /* Reachability.h */,
+				EB605EC81DD0D3A8007802A1 /* Reachability.m */,
 				EB140DB71DB54834006E6FD9 /* ASProgressPopUpView */,
 				EB17B9871DB12B7D007DBFDF /* PercentageDoughnutView */,
 				EB19F46F1DB003B700A84DE6 /* UIImage+ImageEffects.h */,
@@ -933,7 +943,7 @@
 			files = (
 				EB56B6151DA2C6A9001AFC87 /* AddFavoriteView.xib in Resources */,
 				EB4BE3E41DA81E37006E6803 /* SettingUpdate.xib in Resources */,
-				EBFF08BE1DBFC97800688968 /* GoogleService-Info_f.plist in Resources */,
+				EBFF08BE1DBFC97800688968 /* GoogleService-Info.plist in Resources */,
 				EB3072001DABE2B6009D90DD /* RobotoCondensed-BoldItalic.ttf in Resources */,
 				EB3071FC1DABE2B6009D90DD /* Roboto-Regular.ttf in Resources */,
 				EBFB07B01D9EA0D300AF2569 /* SettingView.xib in Resources */,
@@ -968,7 +978,7 @@
 				EBFB07A61D9EA07300AF2569 /* FavoriteView.xib in Resources */,
 				EB18BD2F1DBE8E7E0087945F /* Podfile in Resources */,
 				EB4C7FDE1DA3F3BF003CD3D6 /* CreaterTimer.xib in Resources */,
-				EBFF08C01DBFD5FA00688968 /* GoogleService-Info.plist in Resources */,
+				EBFF08C01DBFD5FA00688968 /* GoogleService-Info_p.plist in Resources */,
 				EB3071F31DABE2B6009D90DD /* Roboto-Black.ttf in Resources */,
 				EB3071F91DABE2B6009D90DD /* Roboto-LightItalic.ttf in Resources */,
 				EB3072041DABE2B6009D90DD /* RobotoCondensed-Regular.ttf in Resources */,
@@ -1063,6 +1073,7 @@
 				EBFF13BA1DA00E1700CA98F1 /* AFURLRequestSerialization.m in Sources */,
 				EB4C800C1DA3FE69003CD3D6 /* UIImage+MultiFormat.m in Sources */,
 				EB4C80091DA3FE69003CD3D6 /* SDWebImagePrefetcher.m in Sources */,
+				EB605EC61DD0D37D007802A1 /* AppCommon.m in Sources */,
 				EB17B9851DB12B6D007DBFDF /* MCSliceLayer.m in Sources */,
 				EB4C800F1DA3FE69003CD3D6 /* UIView+WebCacheOperation.m in Sources */,
 				EBFF13B91DA00E1700CA98F1 /* AFSecurityPolicy.m in Sources */,
@@ -1082,6 +1093,7 @@
 				EB11EDC61D9AB24900804D34 /* main.m in Sources */,
 				EB4C800A1DA3FE69003CD3D6 /* UIButton+WebCache.m in Sources */,
 				EBFF13B81DA00E1700CA98F1 /* AFNetworkReachabilityManager.m in Sources */,
+				EB605EC91DD0D3A8007802A1 /* Reachability.m in Sources */,
 				EB17B98C1DB16B27007DBFDF /* SettingCredit.m in Sources */,
 				EBFB07B61D9EAD7200AF2569 /* VolumeView.m in Sources */,
 				EBFB07AE1D9EA0C100AF2569 /* SettingView.m in Sources */,
@@ -1239,7 +1251,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = RelaxApp/RelaxApp.entitlements;
 				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = LZ8SEY56U7;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1250,10 +1262,10 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = com.relaf.pro;
+				PRODUCT_BUNDLE_IDENTIFIER = com.relaf.free;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "f6c03f4b-0bd1-4048-a123-258b31c53f7f";
-				PROVISIONING_PROFILE_SPECIFIER = "Relax in the Fantasy Free Distribution";
+				PROVISIONING_PROFILE = "de26215f-60d9-48fd-aa34-8abc6029daf7";
+				PROVISIONING_PROFILE_SPECIFIER = "Relax in the Fantasy Free";
 			};
 			name = Debug;
 		};
@@ -1265,7 +1277,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = RelaxApp/RelaxApp.entitlements;
 				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = LZ8SEY56U7;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1276,10 +1288,10 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = com.relaf.pro;
+				PRODUCT_BUNDLE_IDENTIFIER = com.relaf.free;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "f6c03f4b-0bd1-4048-a123-258b31c53f7f";
-				PROVISIONING_PROFILE_SPECIFIER = "Relax in the Fantasy Free Distribution";
+				PROVISIONING_PROFILE = "de26215f-60d9-48fd-aa34-8abc6029daf7";
+				PROVISIONING_PROFILE_SPECIFIER = "Relax in the Fantasy Free";
 			};
 			name = Release;
 		};
