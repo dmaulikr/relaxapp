@@ -52,6 +52,7 @@
 #define FIREBASE_INTERSTITIAL_UnitID @"ca-app-pub-1671106005232686/3358212851"
 #define FIREBASE_BANNER_UnitID @"ca-app-pub-1671106005232686/9265145652"
 #define FIREBASE_APP_ID @"ca-app-pub-1671106005232686~9963149658"
+#define REVMOB_ID @"581b77b688e696b311e2fd3d"
 
 #define FILE_IAP_SAVE @"IAP"
 //#define kBuyCategoryIdentifier @"com.Relaf.Relaf.RelafPricing"
@@ -63,6 +64,7 @@
 #define DEFAULT_VOLUME 0.5
 
 #define NAME_APP @"RelaF Free"
+#define schemeName @"relaf"
 
 #define IS_IPHONE_4 (fabs((double)[[UIScreen mainScreen]bounds].size.height - (double)480) < DBL_EPSILON)
 #define IS_IPHONE_5 (fabs((double)[[UIScreen mainScreen]bounds].size.height - (double)568) < DBL_EPSILON)

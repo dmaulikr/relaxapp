@@ -11,6 +11,11 @@
 #import "FileHelper.h"
 #import "RageIAPHelper.h"
 #import "AppCommon.h"
+#import <RevMobAds/RevMobAds.h>
+#import <RevMobAds/RevMobAdsDelegate.h>
+#import <QuartzCore/QuartzCore.h>
+#import <CoreLocation/CoreLocation.h>
+
 #if defined(__IPHONE_10_0) && __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_10_0
 @import UserNotifications;
 #endif
@@ -21,11 +26,16 @@
 // Implement UNUserNotificationCenterDelegate to receive display notification via APNS for devices
 // running iOS 10 and above. Implement FIRMessagingDelegate to receive data message via FCM for
 // devices running iOS 10 and above.
-@interface AppDelegate ()<GADInterstitialDelegate,UNUserNotificationCenterDelegate, FIRMessagingDelegate>
+@interface AppDelegate ()<GADInterstitialDelegate,UNUserNotificationCenterDelegate, FIRMessagingDelegate,RevMobAdsDelegate>
 {
     NSTimer* timer;
     HomeVC *viewController1;
+    RevMobBanner *banner;
+    BOOL isAdsMob;
+
 }
+@property (nonatomic, strong) RevMobFullscreen *fullscreen,*video;
+
 @end
 
 @implementation AppDelegate
@@ -90,9 +100,9 @@
     [GADMobileAds configureWithApplicationID:FIREBASE_APP_ID];
 
     
-    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     [self.window setBackgroundColor:[UIColor whiteColor]];
+    //
 
     // Override point for customization after application launch.
     viewController1 = [[HomeVC alloc] initWithNibName:@"HomeVC" bundle:nil];
@@ -103,6 +113,10 @@
 
     [self.window makeKeyAndVisible];
     [self timerBackGround];
+    //[START configure_revabmod]
+    [self startSampleApp3Session];
+    //[END configure_revabmod]
+
     return YES;
 }
 
@@ -129,6 +143,20 @@
     }
     
 }
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url
+  sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
+{
+    if([[url scheme] isEqualToString:schemeName])
+    {
+        NSLog(@"Calling Application Bundle ID: %@", sourceApplication);
+        NSLog(@"URL scheme:%@", [url scheme]);
+        NSLog(@"URL query: %@", [url query]);
+        //relaf://play?1=1,1,20&2,4,20&4,2,8
+    }
+    
+    return YES;
+}
+
 -(void)setCallback:(AppDelegateCallback)callback
 {
     _callback = callback;
@@ -261,6 +289,9 @@
         [self.interstitial presentFromRootViewController:viewController1];
     } else {
         NSLog(@"Ad wasn't ready");
+        isAdsMob = NO;
+
+        [self showVideo];
     }
     
 }
@@ -274,12 +305,14 @@
 }
 - (void)interstitialDidReceiveAd:(GADInterstitial *)ad
 {
+    isAdsMob = YES;
     [self showAds];
-//    [self performSelector:@selector(showAds) withObject:nil afterDelay:1.0];
+
 }
 - (void)interstitial:(GADInterstitial *)ad didFailToReceiveAdWithError:(GADRequestError *)error
 {
-
+    isAdsMob = NO;
+    [self showVideo];
 }
 - (void)interstitialDidDismissScreen:(GADInterstitial *)interstitial {
     if (_callbackDismissAds) {
@@ -376,4 +409,137 @@ fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
 //    NSLog(@"Disconnected from FCM");
 //}
 //// [END disconnect_from_fcm]
+
+#pragma mark RevMob methods
+
+- (void)startSampleApp3Session {
+    [RevMobAds startSessionWithAppID:REVMOB_ID
+                  withSuccessHandler:^{
+                      NSLog(@"Session started with block");
+                      [self startingAds];
+                  } andFailHandler:^(NSError *error) {
+                      NSLog(@"Session failed to start with block");
+                      isAdsMob = NO;
+                  }];
+}
+
+- (void) startingAds {
+//    [self showBanner];
+    [self loadFullscreen];
+    [self loadVideo];
+}
+
+- (void)printEnvironmentInformation {
+    [[RevMobAds session] printEnvironmentInformation];
+}
+
+- (void)showBanner {
+    //Creating the banner with delegate
+    banner = [[RevMobAds session] banner];
+    banner.delegate = self;
+    [banner showAd];
+}
+
+- (void)openAdLink {
+    [[RevMobAds session] openAdLinkWithDelegate:self];
+}
+
+- (void)loadFullscreen {
+    self.fullscreen = [[RevMobAds session] fullscreen];
+    self.fullscreen.delegate = self;
+    [self.fullscreen loadAd];
+}
+
+- (void)showPreLoadedFullscreen{
+    if (isAdsMob) {
+        return;
+    }
+    if (self.fullscreen) [self.fullscreen showAd];
+}
+
+-(void) loadVideo {
+
+    self.video = [[RevMobAds session] fullscreen];
+    self.video.delegate = self;
+    [self.video loadVideo];
+}
+
+-(void) showVideo{
+    if (isAdsMob) {
+        return;
+    }
+    if(self.video) [self.video showVideo];
+}
+
+- (void)showPopup {
+    [[RevMobAds session] showPopup];
+}
+
+#pragma mark - RevMobAdsDelegate methods
+
+
+/////Fullscreen Listeners/////
+
+-(void) revmobUserDidClickOnFullscreen:(NSString *)placementId{
+    NSLog(@"[RevMob Sample App] User clicked in the Fullscreen.");
+}
+-(void) revmobFullscreenDidReceive:(NSString *)placementId{
+    NSLog(@"[RevMob Sample App] Fullscreen loaded.");
+}
+-(void) revmobFullscreenDidFailWithError:(NSError *)error onPlacement:(NSString *)placementId{
+    NSLog(@"[RevMob Sample App] Fullscreen failed: %@. ID: %@", error, placementId);
+}
+-(void) revmobFullscreenDidDisplay:(NSString *)placementId{
+    NSLog(@"[RevMob Sample App] Fullscreen displayed.");
+}
+-(void) revmobUserDidCloseFullscreen:(NSString *)placementId{
+    NSLog(@"[RevMob Sample App] User closed the fullscreen.");
+    if (_callbackDismissAds) {
+        _callbackDismissAds();
+    }
+
+}
+
+///Banner Listeners///
+
+-(void) revmobUserDidClickOnBanner:(NSString *)placementId{
+    NSLog(@"[RevMob Sample App] User clicked in the Banner.");
+}
+-(void) revmobBannerDidReceive:(NSString *)placementId{
+    NSLog(@"[RevMob Sample App] Banner loaded.");
+}
+-(void) revmobBannerDidFailWithError:(NSError *)error onPlacement:(NSString *)placementId{
+    NSLog(@"[RevMob Sample App] Banner failed: %@. ID: %@", error, placementId);
+}
+-(void) revmobBannerDidDisplay:(NSString *)placementId{
+    NSLog(@"[RevMob Sample App] Banner displayed.");
+
+}
+
+
+/////Video Listeners/////
+-(void)revmobVideoDidLoad:(NSString *)placementId {
+    NSLog(@"[RevMob Sample App] Video loaded. ID: %@", placementId);
+}
+
+-(void)revmobVideoNotCompletelyLoaded:(NSString *)placementId {
+    NSLog(@"[RevMob Sample App] Video not completely loaded. ID: %@", placementId);
+    [self showPreLoadedFullscreen];
+}
+
+-(void)revmobVideoDidStart:(NSString *)placementId {
+    NSLog(@"[RevMob Sample App] Video started. ID: %@", placementId);
+}
+
+-(void)revmobVideoDidFinish:(NSString *)placementId {
+    NSLog(@"[RevMob Sample App] Video started. ID: %@", placementId);
+}
+- (void)revmobUserDidCloseVideo:(NSString *)placementId
+{
+    if (_callbackDismissAds) {
+        _callbackDismissAds();
+    }
+
+}
+
 @end

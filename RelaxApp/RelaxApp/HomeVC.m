@@ -19,6 +19,7 @@
 #import "UIAlertView+Blocks.h"
 #import "RageIAPHelper.h"
 #import "AppCommon.h"
+#import <RevMobAds/RevMobAds.h>
 @import GoogleMobileAds;
 @interface HomeVC ()<UIScrollViewDelegate,AVAudioSessionDelegate,GADInterstitialDelegate,GADBannerViewDelegate>
 {
@@ -28,7 +29,10 @@
     NSMutableArray *arrTotal;
     int iNumberCollection;
     BOOL areAdsRemoved;
+    BOOL isAdsMob;
 }
+@property (nonatomic, strong) RevMobBannerView *bannerViewRevMobAds;
+
 @end
 
 @implementation HomeVC
@@ -177,6 +181,41 @@
         
     }
     //
+}
+//MARK: -  Rev MobAds
+-(void)showRevMobAds
+{
+    [RevMobAds startSessionWithAppID:REVMOB_ID
+                  withSuccessHandler:^{
+                      [self showBannerWithCustomFrame];
+                  } andFailHandler:^(NSError *error) {
+                      //For now we don't need this
+                      isAdsMob = NO;
+                  }];
+}
+- (void)showBannerWithCustomFrame {
+    self.bannerViewRevMobAds = [[RevMobAds session] bannerView];
+    [self.bannerViewRevMobAds loadWithSuccessHandler:^(RevMobBannerView *bannerV) {
+        if (isAdsMob) {
+            return;
+        }
+        //If you're using delegates, please notice that this method won't call the revmobBannerDidDisplay delegate
+        CGFloat width = self.view.bounds.size.width;
+        CGFloat height = self.view.bounds.size.height;
+        bannerV.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleWidth;
+        bannerV.frame = CGRectMake(0, height - 50, width, 50);
+        [self.view addSubview:bannerV];
+        [self displayAds:YES];
+    } andLoadFailHandler:^(RevMobBannerView *banner, NSError *error) {
+        //Banner failed to load
+        isAdsMob = NO;
+    } onClickHandler:^(RevMobBannerView *banner) {
+        //Banner was clicked
+        isAdsMob = NO;
+    }];
+}
+- (void)hideCustomBanner {
+    [self.bannerViewRevMobAds removeFromSuperview];
 }
 -(void)getCategory
 {
@@ -1340,6 +1379,11 @@
             [subview removeFromSuperview];
         }
     }
+    for (UIView *subview in [self.view subviews]) {
+        if([subview isKindOfClass:[RevMobBannerView class]]) {
+            [subview removeFromSuperview];
+        }
+    }
     
     [self displayAds:NO];
 }
@@ -1369,13 +1413,18 @@
 }
 - (void)adViewDidReceiveAd:(GADBannerView *)bannerView
 {
+    isAdsMob = YES;
     [self displayAds:YES];
+    [self hideCustomBanner];
+
 }
 
 /// Tells the delegate that an ad request failed. The failure is normally due to network
 /// connectivity or ad availablility (i.e., no fill).
 - (void)adView:(GADBannerView *)bannerView didFailToReceiveAdWithError:(GADRequestError *)error
 {
+    isAdsMob = NO;
+    [self performSelector:@selector(showRevMobAds) withObject:nil afterDelay:2.0];
 }
 
 #pragma mark Click-Time Lifecycle Notifications

@@ -95,6 +95,8 @@
 		EB56B6151DA2C6A9001AFC87 /* AddFavoriteView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB56B6141DA2C6A9001AFC87 /* AddFavoriteView.xib */; };
 		EB605EC61DD0D37D007802A1 /* AppCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = EB605EC51DD0D37D007802A1 /* AppCommon.m */; };
 		EB605EC91DD0D3A8007802A1 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = EB605EC81DD0D3A8007802A1 /* Reachability.m */; };
+		EB605ECE1DD0EDFB007802A1 /* RevMobAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB605ECD1DD0EDFB007802A1 /* RevMobAds.framework */; };
+		EB605ED01DD0EE5A007802A1 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB605ECF1DD0EE5A007802A1 /* CoreLocation.framework */; };
 		EBA0160A1DB6C83700D5477C /* TabVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBA016071DB6C83700D5477C /* TabVC.xib */; };
 		EBA0160B1DB6C83700D5477C /* TabVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EBA016091DB6C83700D5477C /* TabVC.m */; };
 		EBC18F591DA0F508000E00FD /* DownLoadCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = EBC18F581DA0F508000E00FD /* DownLoadCategory.m */; };
@@ -291,6 +293,8 @@
 		EB605EC51DD0D37D007802A1 /* AppCommon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppCommon.m; sourceTree = "<group>"; };
 		EB605EC71DD0D3A8007802A1 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		EB605EC81DD0D3A8007802A1 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		EB605ECD1DD0EDFB007802A1 /* RevMobAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RevMobAds.framework; path = Frameworks/RevMobAds.framework; sourceTree = "<group>"; };
+		EB605ECF1DD0EE5A007802A1 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		EB6DCF101DBEE8A2004B45DC /* RelaxApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RelaxApp.entitlements; sourceTree = "<group>"; };
 		EBA016071DB6C83700D5477C /* TabVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TabVC.xib; sourceTree = "<group>"; };
 		EBA016081DB6C83700D5477C /* TabVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabVC.h; sourceTree = "<group>"; };
@@ -388,6 +392,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB605ED01DD0EE5A007802A1 /* CoreLocation.framework in Frameworks */,
+				EB605ECE1DD0EDFB007802A1 /* RevMobAds.framework in Frameworks */,
 				EB420B131DAD630600F47C8B /* CoreGraphics.framework in Frameworks */,
 				EB4BE3D61DA8193F006E6803 /* MessageUI.framework in Frameworks */,
 				EB4BE3D41DA817D3006E6803 /* Social.framework in Frameworks */,
@@ -487,6 +493,8 @@
 		EB11EE571D9ADAFF00804D34 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EB605ECF1DD0EE5A007802A1 /* CoreLocation.framework */,
+				EB605ECD1DD0EDFB007802A1 /* RevMobAds.framework */,
 				EB44B5111DB7CFA0007E0C93 /* StoreKit.framework */,
 				EB420B121DAD630600F47C8B /* CoreGraphics.framework */,
 				EB4BE3D51DA8193F006E6803 /* MessageUI.framework */,
@@ -1257,6 +1265,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks",
 					"$(PROJECT_DIR)/Frameworks/Analytics",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = RelaxApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -1283,6 +1292,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks",
 					"$(PROJECT_DIR)/Frameworks/Analytics",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = RelaxApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;

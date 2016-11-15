@@ -76,5 +76,16 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLName</key>
+			<string>com.relaf.free</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>relaf</string>
+			</array>
+		</dict>
+	</array>
 </dict>
 </plist>
