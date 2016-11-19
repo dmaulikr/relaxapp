@@ -143,6 +143,7 @@
     }
     
 }
+//MARK: - SHARE SOCIAL
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url
   sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
 {
@@ -156,7 +157,15 @@
     
     return YES;
 }
-
+- (void)shareFavorite:(NSString*)favorite {
+    
+    NSArray * shareItems = @[favorite];
+    
+    UIActivityViewController * avc = [[UIActivityViewController alloc] initWithActivityItems:shareItems applicationActivities:nil];
+    
+    [viewController1 presentViewController:avc animated:YES completion:nil];
+    
+}
 -(void)setCallback:(AppDelegateCallback)callback
 {
     _callback = callback;

@@ -35,6 +35,7 @@
 		EB17B98C1DB16B27007DBFDF /* SettingCredit.m in Sources */ = {isa = PBXBuildFile; fileRef = EB17B98A1DB16B27007DBFDF /* SettingCredit.m */; };
 		EB18BD2F1DBE8E7E0087945F /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = EB18BD2E1DBE8E7E0087945F /* Podfile */; };
 		EB19F4711DB003B700A84DE6 /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = EB19F4701DB003B700A84DE6 /* UIImage+ImageEffects.m */; };
+		EB23A9D91DE0D58B002465E4 /* UIImage+ProportionalFill.m in Sources */ = {isa = PBXBuildFile; fileRef = EB23A9D81DE0D58B002465E4 /* UIImage+ProportionalFill.m */; };
 		EB2552E01DA6ABD900FD4BC4 /* MDTimerBackGround.m in Sources */ = {isa = PBXBuildFile; fileRef = EB2552DF1DA6ABD900FD4BC4 /* MDTimerBackGround.m */; };
 		EB3071F31DABE2B6009D90DD /* Roboto-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EB3071E11DABE2B6009D90DD /* Roboto-Black.ttf */; };
 		EB3071F41DABE2B6009D90DD /* Roboto-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EB3071E21DABE2B6009D90DD /* Roboto-BlackItalic.ttf */; };
@@ -100,7 +101,6 @@
 		EBA0160A1DB6C83700D5477C /* TabVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBA016071DB6C83700D5477C /* TabVC.xib */; };
 		EBA0160B1DB6C83700D5477C /* TabVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EBA016091DB6C83700D5477C /* TabVC.m */; };
 		EBC18F591DA0F508000E00FD /* DownLoadCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = EBC18F581DA0F508000E00FD /* DownLoadCategory.m */; };
-		EBE9C7921DC24DE600CE9E18 /* SMPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = EBE9C7911DC24DE600CE9E18 /* SMPageControl.m */; };
 		EBFB07A41D9EA06000AF2569 /* FavoriteView.m in Sources */ = {isa = PBXBuildFile; fileRef = EBFB07A31D9EA06000AF2569 /* FavoriteView.m */; };
 		EBFB07A61D9EA07300AF2569 /* FavoriteView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBFB07A51D9EA07300AF2569 /* FavoriteView.xib */; };
 		EBFB07A91D9EA08700AF2569 /* TimerView.m in Sources */ = {isa = PBXBuildFile; fileRef = EBFB07A81D9EA08700AF2569 /* TimerView.m */; };
@@ -202,6 +202,8 @@
 		EB18BD2E1DBE8E7E0087945F /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		EB19F46F1DB003B700A84DE6 /* UIImage+ImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageEffects.h"; sourceTree = "<group>"; };
 		EB19F4701DB003B700A84DE6 /* UIImage+ImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageEffects.m"; sourceTree = "<group>"; };
+		EB23A9D71DE0D58B002465E4 /* UIImage+ProportionalFill.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ProportionalFill.h"; sourceTree = "<group>"; };
+		EB23A9D81DE0D58B002465E4 /* UIImage+ProportionalFill.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ProportionalFill.m"; sourceTree = "<group>"; };
 		EB2552DE1DA6ABD900FD4BC4 /* MDTimerBackGround.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDTimerBackGround.h; sourceTree = "<group>"; };
 		EB2552DF1DA6ABD900FD4BC4 /* MDTimerBackGround.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDTimerBackGround.m; sourceTree = "<group>"; };
 		EB3071E11DABE2B6009D90DD /* Roboto-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Black.ttf"; sourceTree = "<group>"; };
@@ -301,8 +303,6 @@
 		EBA016091DB6C83700D5477C /* TabVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabVC.m; sourceTree = "<group>"; };
 		EBC18F571DA0F508000E00FD /* DownLoadCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DownLoadCategory.h; sourceTree = "<group>"; };
 		EBC18F581DA0F508000E00FD /* DownLoadCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DownLoadCategory.m; sourceTree = "<group>"; };
-		EBE9C7901DC24DE600CE9E18 /* SMPageControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMPageControl.h; sourceTree = "<group>"; };
-		EBE9C7911DC24DE600CE9E18 /* SMPageControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMPageControl.m; sourceTree = "<group>"; };
 		EBFB07A21D9EA06000AF2569 /* FavoriteView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoriteView.h; sourceTree = "<group>"; };
 		EBFB07A31D9EA06000AF2569 /* FavoriteView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoriteView.m; sourceTree = "<group>"; };
 		EBFB07A51D9EA07300AF2569 /* FavoriteView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FavoriteView.xib; sourceTree = "<group>"; };
@@ -654,10 +654,11 @@
 		EB56B6101DA2C4A3001AFC87 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				EBE9C7931DC24DEA00CE9E18 /* SMPageControl */,
 				EB137BA81DBBD43100DB1EBB /* InAppRage */,
 				EB3B17351DBB270C00B26A10 /* UIAlertView+Blocks.h */,
 				EB3B17361DBB270C00B26A10 /* UIAlertView+Blocks.m */,
+				EB23A9D71DE0D58B002465E4 /* UIImage+ProportionalFill.h */,
+				EB23A9D81DE0D58B002465E4 /* UIImage+ProportionalFill.m */,
 				EB605EC41DD0D37D007802A1 /* AppCommon.h */,
 				EB605EC51DD0D37D007802A1 /* AppCommon.m */,
 				EB605EC71DD0D3A8007802A1 /* Reachability.h */,
@@ -685,15 +686,6 @@
 				EB11EE631D9AEBCF00804D34 /* Nav */,
 			);
 			name = Common;
-			sourceTree = "<group>";
-		};
-		EBE9C7931DC24DEA00CE9E18 /* SMPageControl */ = {
-			isa = PBXGroup;
-			children = (
-				EBE9C7901DC24DE600CE9E18 /* SMPageControl.h */,
-				EBE9C7911DC24DE600CE9E18 /* SMPageControl.m */,
-			);
-			name = SMPageControl;
 			sourceTree = "<group>";
 		};
 		EBF9B5511DA54CC200F07655 /* FAVORITE */ = {
@@ -1086,7 +1078,6 @@
 				EB4C800F1DA3FE69003CD3D6 /* UIView+WebCacheOperation.m in Sources */,
 				EBFF13B91DA00E1700CA98F1 /* AFSecurityPolicy.m in Sources */,
 				EB56B60C1DA2B964001AFC87 /* AHTagView.m in Sources */,
-				EBE9C7921DC24DE600CE9E18 /* SMPageControl.m in Sources */,
 				EBFF14291DA01E4700CA98F1 /* prng.c in Sources */,
 				EB137BA71DBBD42B00DB1EBB /* RageIAPHelper.m in Sources */,
 				EBFF14251DA01E4700CA98F1 /* aestab.c in Sources */,
@@ -1098,6 +1089,7 @@
 				EBFF14301DA01E4700CA98F1 /* zip.c in Sources */,
 				EBFF142A1DA01E4700CA98F1 /* pwd2key.c in Sources */,
 				EB4C80041DA3FE69003CD3D6 /* SDWebImageCompat.m in Sources */,
+				EB23A9D91DE0D58B002465E4 /* UIImage+ProportionalFill.m in Sources */,
 				EB11EDC61D9AB24900804D34 /* main.m in Sources */,
 				EB4C800A1DA3FE69003CD3D6 /* UIButton+WebCache.m in Sources */,
 				EBFF13B81DA00E1700CA98F1 /* AFNetworkReachabilityManager.m in Sources */,

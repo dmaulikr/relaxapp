@@ -79,6 +79,10 @@ static NSString *identifierSection1 = @"MyTableViewCell1";
     NSDictionary *dicMusic = _arrMusic[indexPath.row];
     
     [cell fnSetDataWithDicMusic:dicMusic];
+    [cell.label setCallback:^(NSDictionary *dicMusic)
+     {
+         [self shareSocial:dicMusic];
+     }];
 //    cell.btnSelect.tag=indexPath.row;
 //    [cell.btnSelect addTarget:self action:@selector(selectCell:) forControlEvents:UIControlEventTouchUpInside];
 
@@ -174,6 +178,19 @@ static NSString *identifierSection1 = @"MyTableViewCell1";
         }
         [self loadCahe];
     }
+}
+//Share
+- (void)shareSocial:(NSDictionary*)dicMusic {
+    NSString * message = @"© 2016 by Relafapp";
+    
+    //    UIImage * image = [UIImage imageNamed:@"icon"];
+    
+    NSArray * shareItems = @[message];
+    
+    UIActivityViewController * avc = [[UIActivityViewController alloc] initWithActivityItems:shareItems applicationActivities:nil];
+    
+    [self.parent presentViewController:avc animated:YES completion:nil];
+    
 }
 
 @end

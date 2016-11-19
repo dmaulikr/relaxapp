@@ -23,5 +23,15 @@
 @property (strong, nonatomic) IBOutlet UISwitch *totalRemoveAds;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *contraintHeightAds;
 @property (weak, nonatomic) IBOutlet UIView *vAds;
+@property (strong, nonatomic) IBOutlet UIView *vViewCheckNow;
+@property (strong, nonatomic) IBOutlet UIView *vViewFeedBack;
+@property (strong, nonatomic) IBOutlet UIView *vViewFacebook;
+@property (strong, nonatomic) IBOutlet UIView *vViewTwitter;
+@property (strong, nonatomic) IBOutlet UIView *vViewAbout;
+@property (strong, nonatomic) IBOutlet UIView *vViewVersion;
+@property (strong, nonatomic) IBOutlet UIView *vViewBuild;
+@property (strong, nonatomic) IBOutlet UIView *vViewCredit;
+@property (strong, nonatomic) IBOutlet UIView *vViewPrivacy;
+
 
 @end

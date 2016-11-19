@@ -7,12 +7,13 @@
 //
 
 #import "AHTagTableViewCell.h"
-
+#import "Define.h"
 @implementation AHTagTableViewCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];
     self.title.font = [UIFont fontWithName:@"Roboto-Medium" size:13];
+    self.title.textColor = UIColorFromRGB(COLOR_TEXT_ITEM);
     // Initialization code
     _dataSource = [NSMutableArray new];
 }
@@ -58,6 +59,7 @@
         tag.title =strTitleShort;
         [_dataSource addObject:tag];
     }
-    [self.label fnSetTags:_dataSource withScreen:1];
+    [self.label fnSetTags:_dataSource withDicMusic:dicMusic withScreen:FAVORITE_SCREEN_INFO];
+
 }
 @end

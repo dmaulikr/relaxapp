@@ -17,7 +17,6 @@
 #import "AddFavoriteView.h"
 #import "ASProgressPopUpView.h"
 #import "TabVC.h"
-#import "SMPageControl.h"
 @class RBVolumeButtons;
 @class GADBannerView;
 @interface HomeVC : UIViewController<AVAudioPlayerDelegate, IDZAudioPlayerDelegate>
@@ -32,7 +31,7 @@
 @property (nonatomic, strong) TabVC *vTabbar;
 @property (nonatomic, strong) IBOutlet UIView *vContrainer;
 @property (nonatomic, strong) IBOutlet UIImageView *imgBackGround;
-@property (nonatomic, strong) IBOutlet SMPageControl *pageControl;
+@property (nonatomic, strong) IBOutlet UIPageControl *pageControl;
 @property (nonatomic, strong) IBOutlet UIScrollView *scroll_View;
 @property (nonatomic, strong) IBOutlet UILabel *titleCategory;
 @property (nonatomic, strong) IBOutlet UIImageView *imgSingle;
@@ -60,6 +59,7 @@
 @property (nonatomic, strong) IBOutlet UILabel *lbTimer;
 @property (nonatomic, strong) IBOutlet UIImageView *imgTimer;
 @property (nonatomic, strong) IBOutlet UIImageView *imgTimerActive;
+@property (nonatomic, strong) IBOutlet UIImageView *imgBackgroundNavigation;
 
 //SETTING
 @property (nonatomic, strong) IBOutlet UILabel *lbSetting;

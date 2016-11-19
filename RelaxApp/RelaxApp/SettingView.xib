@@ -680,7 +680,16 @@ Help us share on social</string>
                 <outlet property="unlockPro" destination="L3K-pf-ohK" id="Kfa-mk-oL0"/>
                 <outlet property="vAds" destination="P1H-iU-zXk" id="q9p-P0-zAm"/>
                 <outlet property="vContent" destination="gBn-Wv-Lpj" id="oUo-IO-NJq"/>
+                <outlet property="vViewAbout" destination="BQc-J0-tvJ" id="hol-2d-llO"/>
+                <outlet property="vViewBuild" destination="a8U-iN-36l" id="cxF-pK-bSC"/>
+                <outlet property="vViewCheckNow" destination="6dd-Rd-ZZ4" id="exo-3h-feN"/>
+                <outlet property="vViewCredit" destination="a7y-BB-M9a" id="rvz-O3-tGr"/>
+                <outlet property="vViewFacebook" destination="fdT-ap-A6X" id="eVu-it-CM2"/>
+                <outlet property="vViewFeedBack" destination="6cS-qe-Wrv" id="ztn-oK-EKB"/>
                 <outlet property="vViewNav" destination="HqM-zg-CLO" id="3k0-a6-bgi"/>
+                <outlet property="vViewPrivacy" destination="phq-e9-fnE" id="XIJ-dk-gga"/>
+                <outlet property="vViewTwitter" destination="afp-3W-ia3" id="qSi-oc-L0B"/>
+                <outlet property="vViewVersion" destination="ORK-01-JBt" id="8hf-Ah-Rts"/>
             </connections>
             <point key="canvasLocation" x="-208.5" y="220"/>
         </view>

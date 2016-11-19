@@ -8,6 +8,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CreaterTimer">
             <connections>
+                <outlet property="imgBackGround" destination="mXt-ae-FDg" id="H1v-If-agf"/>
                 <outlet property="imgCheckPause" destination="Seh-bG-Tob" id="qhM-dI-oIZ"/>
                 <outlet property="imgCheckPlaying" destination="Lh0-18-Wp3" id="fwv-6b-QX0"/>
                 <outlet property="lbAdd" destination="Xxs-N5-7nm" id="Sa6-r0-Eha"/>
@@ -32,7 +33,9 @@
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4ik-JB-PoB">
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backgroundTimer" translatesAutoresizingMaskIntoConstraints="NO" id="mXt-ae-FDg"/>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mXt-ae-FDg">
+                            <color key="backgroundColor" red="0.56470588239999997" green="0.074509803920000006" blue="0.99607843139999996" alpha="1" colorSpace="calibratedRGB"/>
+                        </imageView>
                         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="034-ae-JVr" customClass="MainNavHome">
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LBd-3H-hGx" userLabel="Favorist">
@@ -319,8 +322,7 @@
     <resources>
         <image name="Checkmark" width="13" height="11"/>
         <image name="CombinedShape" width="10" height="10"/>
-        <image name="backgroundTimer" width="1125" height="2001"/>
-        <image name="ic_exit" width="22" height="22"/>
-        <image name="ic_open" width="22" height="22"/>
+        <image name="ic_exit" width="44" height="44"/>
+        <image name="ic_open" width="44" height="44"/>
     </resources>
 </document>

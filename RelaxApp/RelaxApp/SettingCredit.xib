@@ -348,6 +348,11 @@ SDWebImage</string>
                 <outlet property="imgBackGround" destination="a5a-89-HoJ" id="3mR-bM-1Kx"/>
                 <outlet property="imgHeader" destination="ZgW-bg-vTO" id="qWW-Ak-Fza"/>
                 <outlet property="vContent" destination="4ik-JB-PoB" id="NxH-LS-cHF"/>
+                <outlet property="vView1" destination="0WY-nf-VqL" id="SZs-GQ-ggK"/>
+                <outlet property="vView2" destination="q1A-pE-YPa" id="Lxj-T8-WNI"/>
+                <outlet property="vView3" destination="bKu-an-AEE" id="Rbt-gb-BL9"/>
+                <outlet property="vView4" destination="uHN-WP-WvS" id="juZ-7P-Je5"/>
+                <outlet property="vView5" destination="Gbd-LF-bfJ" id="ETB-1K-4dG"/>
                 <outlet property="vViewNav" destination="034-ae-JVr" id="QBp-kl-hSj"/>
             </connections>
             <point key="canvasLocation" x="-126.5" y="2.5"/>

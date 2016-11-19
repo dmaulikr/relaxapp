@@ -15,7 +15,12 @@
     // Initialization code
    self.lbTitle.font = [UIFont fontWithName:@"Roboto-Regular" size:10];
     [self.imgIcon.layer setMasksToBounds:YES];
-    self.imgIcon.layer.cornerRadius= 10.0;
+    self.imgIcon.layer.cornerRadius= 24;
+    self.imgIcon.backgroundColor = UIColorFromRGB(COLOR_SOUND_ITEM);
+    
+    [self.imgAds.layer setMasksToBounds:YES];
+    self.imgAds.layer.cornerRadius= 24;
+    self.lbTitle.textColor = UIColorFromRGB(COLOR_TEXT_ITEM);
     /**Adds a gesture recognizer for a long press.*/
     UILongPressGestureRecognizer * pressRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(handleLongPress:)];
     pressRecognizer.minimumPressDuration = 1.5;

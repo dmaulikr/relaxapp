@@ -40,8 +40,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self showAds];
+    self.imgBackgroundNavigation.backgroundColor = UIColorFromRGB(COLOR_NAVIGATION_HOME);
+    self.imgBackGround.backgroundColor = [UIColor whiteColor];
+    self.vTabVC.backgroundColor = UIColorFromRGB(COLOR_TABBAR_BOTTOM);
+    self.vTabVC.layer.shadowOffset = CGSizeMake(0, -2);
+    self.vTabVC.layer.shadowRadius = 3;
+    self.vTabVC.layer.shadowOpacity = 0.4;
+
     self.navigationController.navigationBar.hidden = YES;
-    
     [[UIApplication sharedApplication] setStatusBarHidden:NO];
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     self.progressView1.popUpViewAnimatedColors = @[UIColorFromRGB(COLOR_PROGRESS_HOZI), UIColorFromRGB(COLOR_PROGRESS_HOZI), UIColorFromRGB(COLOR_PROGRESS_HOZI)];
@@ -53,11 +59,12 @@
     self.lbTimer.font = [UIFont fontWithName:@"Roboto-Regular" size:8];
     self.lbSetting.font = [UIFont fontWithName:@"Roboto-Regular" size:8];
     //
-    self.pageControl.pageIndicatorImage = [UIImage imageNamed:@"padeDotInactive"];
-    self.pageControl.currentPageIndicatorImage = [UIImage imageNamed:@"padeDotActive"];
     self.imagBack.hidden = YES;
     self.imgNext.hidden = YES;
-    [self randomBackGround];
+    self.pageControl.tintColor = UIColorFromRGB(COLOR_PAGECONTROL_TINT);
+    self.pageControl.currentPageIndicatorTintColor = UIColorFromRGB(COLOR_PAGECONTROL_CURRENT);
+
+//    [self randomBackGround];
     arrCategory  = [NSMutableArray new];
     arrPlayList = [NSMutableArray new];
     arrColection = [NSMutableArray new];
@@ -311,7 +318,7 @@
     }
     else
     {
-        self.lbVolume.textColor = [UIColor whiteColor];
+        self.lbVolume.textColor = UIColorFromRGB(COLOR_TEXT_ITEM);
         self.imgVolume.hidden = NO;
         self.imgVolumeActive.hidden = YES;
         
@@ -341,7 +348,7 @@
          }
          else
          {
-             wself.lbVolume.textColor = [UIColor whiteColor];
+             wself.lbVolume.textColor = UIColorFromRGB(COLOR_TEXT_ITEM);
              wself.imgVolume.hidden = NO;
              wself.imgVolumeActive.hidden = YES;
              
@@ -969,7 +976,7 @@
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
     //set ramdom background
-    [self randomBackGround];
+//    [self randomBackGround];
     NSString * language = [[NSLocale preferredLanguages] objectAtIndex:0];
     NSString *userLanguage = @"en";
     if (language.length >=2) {
@@ -1173,6 +1180,7 @@
 {
     __weak HomeVC *wself = self;
     self.vFavorite = [[FavoriteView alloc] initWithClassName:NSStringFromClass([FavoriteView class])];
+    self.vFavorite.parent = self;
     [self.vFavorite addContraintSupview:self.vContrainer];
     [self.vFavorite setCallback:^(NSDictionary *dicCateogry)
      {
@@ -1224,11 +1232,11 @@
 -(void)fnSetButtonBottom
 {
     //volume
-    self.lbVolume.textColor = [UIColor whiteColor];
+    self.lbVolume.textColor = UIColorFromRGB(COLOR_TEXT_ITEM);
     self.imgVolume.hidden = NO;
     self.imgVolumeActive.hidden = YES;
     //favorite
-    self.lbFavorite.textColor = [UIColor whiteColor];
+    self.lbFavorite.textColor = UIColorFromRGB(COLOR_TEXT_ITEM);
     self.imgFavorite.hidden = NO;
     self.imgFavoriteActive.hidden = YES;
     
@@ -1236,12 +1244,12 @@
     self.imgHome.image = [UIImage imageNamed:@"backtohome"];
     
     //timer
-    self.lbTimer.textColor = [UIColor whiteColor];
+    self.lbTimer.textColor = UIColorFromRGB(COLOR_TEXT_ITEM);
     self.imgTimer.hidden = NO;
     self.imgTimerActive.hidden = YES;
     
     //setting
-    self.lbSetting.textColor = [UIColor whiteColor];
+    self.lbSetting.textColor = UIColorFromRGB(COLOR_TEXT_ITEM);
     self.imgSetting.hidden = NO;
     self.imgSettingActive.hidden = YES;
     

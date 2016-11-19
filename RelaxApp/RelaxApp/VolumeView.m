@@ -31,9 +31,15 @@
     [self.btnDecrease setTitleColor:UIColorFromRGB(COLOR_SLIDER_THUMB) forState:UIControlStateNormal];
     [self.btnIncrease setTitleColor:UIColorFromRGB(COLOR_SLIDER_THUMB) forState:UIControlStateNormal];
     [self.slider setMinimumTrackTintColor:UIColorFromRGB(COLOR_SLIDER_THUMB)];
-    [self.slider setMaximumTrackTintColor:[UIColor whiteColor]];
+    [self.slider setMaximumTrackTintColor:UIColorFromRGB(COLOR_SLIDER_MAX)];
     [self.slider setThumbImage:[UIImage imageNamed:@"Oval"] forState:UIControlStateNormal];
-    [self.vBackGround setBackgroundColor:UIColorFromRGB(COLOR_VOLUME)];
+    [self.vBackGround setBackgroundColor:UIColorFromRGB(COLOR_TABBAR_BOTTOM)];
+    [self.vBackGround.layer setMasksToBounds:YES];
+    self.vBackGround.layer.cornerRadius= 5;
+    self.layer.shadowOffset = CGSizeMake(0, -2);
+    self.layer.shadowRadius = 3;
+    self.layer.shadowOpacity = 0.4;
+
 }
 -(void)addContraintSupview:(UIView*)viewSuper
 {

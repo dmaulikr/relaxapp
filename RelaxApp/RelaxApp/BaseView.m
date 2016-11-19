@@ -24,7 +24,7 @@
 -(void)instance
 {
     if (self.imgHeader) {
-        self.imgHeader.backgroundColor = UIColorFromAlpha(COLOR_NAVIGATION_FAVORITE, 0.4);
+        self.imgHeader.backgroundColor = UIColorFromAlpha(COLOR_NAVIGATION_FAVORITE, 0.0);
     }
     if(self.imgBackGround)
     {

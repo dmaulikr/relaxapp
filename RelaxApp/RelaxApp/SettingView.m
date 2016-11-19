@@ -35,6 +35,16 @@
 -(void)awakeFromNib
 {
     [super awakeFromNib];
+    self.vViewCheckNow.backgroundColor = UIColorFromRGB(COLOR_NAVIGATION_HOME);
+    self.vViewFeedBack.backgroundColor = UIColorFromRGB(COLOR_NAVIGATION_HOME);
+    self.vViewFacebook.backgroundColor = UIColorFromRGB(COLOR_NAVIGATION_HOME);
+    self.vViewTwitter.backgroundColor = UIColorFromRGB(COLOR_NAVIGATION_HOME);
+    self.vViewAbout.backgroundColor = UIColorFromRGB(COLOR_NAVIGATION_HOME);
+    self.vViewVersion.backgroundColor = UIColorFromRGB(COLOR_NAVIGATION_HOME);
+    self.vViewBuild.backgroundColor = UIColorFromRGB(COLOR_NAVIGATION_HOME);
+    self.vViewCredit.backgroundColor = UIColorFromRGB(COLOR_NAVIGATION_HOME);
+    self.vViewPrivacy.backgroundColor = UIColorFromRGB(COLOR_NAVIGATION_HOME);
+    
     if (VERSION_PRO) {
         self.contraintHeightAds.constant = 0;
         self.vAds.hidden = YES;

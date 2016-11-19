@@ -7,7 +7,7 @@
 //
 
 #import "TimerCell.h"
-
+#import "Define.h"
 @implementation TimerCell
 
 - (void)awakeFromNib {
@@ -16,6 +16,9 @@
     self.lbNameTimer.font = [UIFont fontWithName:@"Roboto-Regular" size:13];
     self.lbValueTimer.font = [UIFont fontWithName:@"Roboto-Regular" size:24];
     self.lbDescription.font = [UIFont fontWithName:@"Roboto-Regular" size:10];
+    self.lbNameTimer.textColor = UIColorFromRGB(COLOR_TEXT_ITEM);
+    self.lbValueTimer.textColor = [UIColor blackColor];
+    self.lbDescription.textColor = UIColorFromRGB(COLOR_TEXT_ITEM);
 
 }
 

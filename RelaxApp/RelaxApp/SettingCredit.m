@@ -21,6 +21,12 @@
 {
     [super awakeFromNib];
     self.imgBackGround.backgroundColor = UIColorFromRGB(COLOR_BACKGROUND_FAVORITE);
+    self.vView1.backgroundColor = UIColorFromRGB(COLOR_NAVIGATION_HOME);
+    self.vView2.backgroundColor = UIColorFromRGB(COLOR_NAVIGATION_HOME);
+    self.vView3.backgroundColor = UIColorFromRGB(COLOR_NAVIGATION_HOME);
+    self.vView4.backgroundColor = UIColorFromRGB(COLOR_NAVIGATION_HOME);
+    self.vView5.backgroundColor = UIColorFromRGB(COLOR_NAVIGATION_HOME);
+
 
 }
 -(void)setCallback:(SettingCreditCallback)callback

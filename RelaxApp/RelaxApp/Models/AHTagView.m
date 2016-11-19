@@ -43,6 +43,8 @@
     _label.layer.masksToBounds = YES;
     _label.font = [UIFont fontWithName:@"Roboto-Regular" size:13];
     [self addSubview:_label];
+    _imgBackGround = [UIImageView new];
+    [self addSubview:_imgBackGround];
     [self setupConstraints];
 }
 
@@ -78,6 +80,39 @@
                                                        multiplier:1.0
                                                          constant:8.0]];
     
+    //
+    
+    _imgBackGround.translatesAutoresizingMaskIntoConstraints = NO;
+    UIView *view =  (UIView*)_imgBackGround;
+    [self addConstraint: [NSLayoutConstraint constraintWithItem:view
+                                 attribute:NSLayoutAttributeCenterX
+                                 relatedBy:NSLayoutRelationEqual
+                                    toItem:self
+                                 attribute:NSLayoutAttributeCenterX
+                                multiplier:1.f constant:0.f]];
+    
+    [self addConstraint: [NSLayoutConstraint constraintWithItem:view
+                                                      attribute:NSLayoutAttributeCenterY
+                                                      relatedBy:NSLayoutRelationEqual
+                                                         toItem:self
+                                                      attribute:NSLayoutAttributeCenterY
+                                                     multiplier:1.f constant:0.f]];
+    
+    [self addConstraint:[NSLayoutConstraint constraintWithItem:view
+                                                     attribute:NSLayoutAttributeWidth
+                                                     relatedBy:NSLayoutRelationEqual
+                                                        toItem:nil
+                                                     attribute:NSLayoutAttributeNotAnAttribute 
+                                                    multiplier:1.0 
+                                                      constant:30]];
+    [self addConstraint:[NSLayoutConstraint constraintWithItem:view
+                                                     attribute:NSLayoutAttributeHeight
+                                                     relatedBy:NSLayoutRelationEqual
+                                                        toItem:nil
+                                                     attribute:NSLayoutAttributeNotAnAttribute
+                                                    multiplier:1.0
+                                                      constant:30]];
+
     [NSLayoutConstraint activateConstraints:constraints];
 }
 

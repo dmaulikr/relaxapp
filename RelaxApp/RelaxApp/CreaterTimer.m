@@ -29,7 +29,7 @@
     self.lbChooseTimer.font = [UIFont fontWithName:@"Roboto-Regular" size:13];
     self.lbPlayFavorite.font = [UIFont fontWithName:@"Roboto-Regular" size:13];
 
-    self.imgBackGround.backgroundColor = UIColorFromRGB(COLOR_BACKGROUND_FAVORITE);
+    self.imgBackGround.backgroundColor = UIColorFromAlpha(COLOR_NAVIGATION_HOME, 0.8);
     // read cache favorite
     NSString *strPath = [FileHelper pathForApplicationDataFile:FILE_FAVORITE_SAVE];
     NSArray *arrTmp = [NSArray arrayWithContentsOfFile:strPath];

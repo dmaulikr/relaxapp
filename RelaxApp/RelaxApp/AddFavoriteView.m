@@ -19,7 +19,8 @@
     self.vContent.layer.cornerRadius= 5.0;
     [self.btnSave.layer setMasksToBounds:YES];
     self.btnSave.layer.cornerRadius= 5.0;
-
+    self.imgBG.backgroundColor = UIColorFromAlpha(COLOR_NAVIGATION_HOME, 0.8);
+        
     _dataSource = [NSMutableArray new];
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
                                    initWithTarget:self
@@ -77,7 +78,7 @@
         tag.title =strTitleShort;
         [_dataSource addObject:tag];
     }
-    [self.label fnSetTags:_dataSource withScreen:0] ;
+    [self.label fnSetTags:_dataSource withDicMusic:dicFavorite withScreen:FAVORITE_SCREEN_ADD] ;
 
 }
 -(void)fnSetDataMusic:(NSArray*)arr
@@ -116,7 +117,7 @@
         tag.title =strTitleShort;
         [_dataSource addObject:tag];
     }
-    [self.label fnSetTags:_dataSource withScreen:0] ;
+    [self.label fnSetTags:_dataSource withDicMusic:nil withScreen:FAVORITE_SCREEN_ADD] ;
 }
 -(IBAction)saveAction:(id)sender
 {

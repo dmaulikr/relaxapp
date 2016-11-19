@@ -9,13 +9,14 @@
 #import "AHTagsLabel.h"
 #import "AHTagView.h"
 #import "Define.h"
+#import "UIImage+ProportionalFill.h"
 @implementation AHTagsLabel
 
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
         [self setup];
-//        [self setupGesture];
+        [self setupGesture];
     }
     return self;
 }
@@ -24,7 +25,7 @@
     [super awakeFromNib];
     
     [self setup];
-//    [self setupGesture];
+    [self setupGesture];
 }
 
 - (void)setup {
@@ -40,7 +41,10 @@
                                                                                  action:@selector(tap:)];
     [self addGestureRecognizer:recognizer];
 }
-
+-(void)setCallback:(AHTagsLabelCallback)callback
+{
+    _callback = callback;
+}
 /*
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
@@ -68,32 +72,30 @@
     NSInteger indexOfCharacter = [manager characterIndexForPoint:touchPoint
                                                  inTextContainer:container
                         fractionOfDistanceBetweenInsertionPoints:nil];
-
-    AHTag *tag = _tags[indexOfCharacter];
-    NSNumber *enabled = tag.enabled;
-    tag.enabled = [NSNumber numberWithBool:!enabled.boolValue];
-    [self setTags:_tags];
+    if (indexOfCharacter >= _tags.count) {
+        if (_callback) {
+            _callback(_dicMusic);
+        }
+    }
 }
 
 #pragma mark - Tags setter
 
-- (void)fnSetTags:(NSArray*)tags withScreen:(int)screen {
+- (void)fnSetTags:(NSArray*)tags withDicMusic:(NSDictionary*)dicMusic withScreen:(int)screen {
     _tags = tags;
-    
+    _dicMusic = dicMusic;
     UITableViewCell *cell = [UITableViewCell new];
     NSMutableAttributedString *mutableString = [NSMutableAttributedString new];
     for (NSInteger i = 0; i < tags.count; i++) {
         AHTag *tag = tags[i];
         NSString *title = tag.title;
-//        UIColor *color = tag.color;
-//        NSNumber *enabled = tag.enabled;
-//        color = enabled.boolValue == YES ? color : [UIColor lightGrayColor];
         
         AHTagView *view = [AHTagView new];
         view.label.attributedText = [AHTagsLabel attributedString:title];
-        if (screen == 1) {
+        if (screen == FAVORITE_SCREEN_INFO) {
             view.backgroundColor = UIColorFromRGB(COLOR_BACKGROUND_FAVORITE);
-            view.label.backgroundColor = [UIColor whiteColor];
+            view.label.backgroundColor = UIColorFromRGB(COLOR_VIEWFAVORITE_TAGS);
+            view.label.textColor = [UIColor whiteColor];
         }
         else
         {
@@ -117,7 +119,30 @@
         [mutableString appendAttributedString:attrStr];
         [mutableString endEditing];
     }
-    
+    //ADD Button Share
+    if (screen == FAVORITE_SCREEN_INFO) {
+        
+        AHTagView *view = [AHTagView new];
+        view.backgroundColor = [UIColor whiteColor];
+        view.label.backgroundColor = [UIColor clearColor];
+        view.label.textColor = [UIColor clearColor];
+        view.imgBackGround.image = [UIImage imageNamed:@"ic_favo_share"];
+        CGSize size = [view systemLayoutSizeFittingSize:view.frame.size
+                          withHorizontalFittingPriority:UILayoutPriorityFittingSizeLevel
+                                verticalFittingPriority:UILayoutPriorityFittingSizeLevel];
+        view.frame = CGRectMake(0, 0, 40, size.height);
+        [cell.contentView addSubview:view];
+        
+        UIImage *image = view.image;
+        NSTextAttachment *attachment = [NSTextAttachment new];
+        attachment.image = image;
+        
+        NSAttributedString *attrStr = [NSAttributedString attributedStringWithAttachment:attachment];
+        [mutableString beginEditing];
+        [mutableString appendAttributedString:attrStr];
+        [mutableString endEditing];
+    }
+    //
     NSMutableParagraphStyle *paragraphStyle = [NSMutableParagraphStyle new];
     paragraphStyle.lineSpacing = 5.0;
     [mutableString addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, mutableString.length)];

@@ -8,8 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "AHTag.h"
+typedef void (^AHTagsLabelCallback)(NSDictionary *dicMusic);
 
 @interface AHTagsLabel : UILabel
 @property (nonatomic, strong) NSArray *tags;
-- (void)fnSetTags:(NSArray*)tags withScreen:(int)screen;
+@property (nonatomic, strong) NSDictionary *dicMusic;
+- (void)fnSetTags:(NSArray*)tags withDicMusic:(NSDictionary*)dicMusic withScreen:(int)screen;
+@property (nonatomic,copy) AHTagsLabelCallback callback;
+
 @end

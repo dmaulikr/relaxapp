@@ -11,4 +11,6 @@
 @interface AHTagView : UIView
 @property (nonatomic, strong) UILabel *label;
 @property (nonatomic, copy, readonly) UIImage *image;
+@property (nonatomic, strong) UIImageView *imgBackGround;
+
 @end
