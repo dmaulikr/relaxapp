@@ -9,11 +9,14 @@
 /* Begin PBXBuildFile section */
 		E3B5A0CE7AE4C45DCFBC7D56 /* libPods-RelaxApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 527C56B751CCB97C3D037665 /* libPods-RelaxApp.a */; };
 		EB0582591D9C0D2200E29C9B /* SpringboardLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = EB0582581D9C0D2200E29C9B /* SpringboardLayout.m */; };
-		EB06D3FB1DE14E8000C20784 /* ImageViewAction.m in Sources */ = {isa = PBXBuildFile; fileRef = EB06D3FA1DE14E8000C20784 /* ImageViewAction.m */; };
 		EB06D4001DE14E9600C20784 /* iRate.bundle in Resources */ = {isa = PBXBuildFile; fileRef = EB06D3FD1DE14E9600C20784 /* iRate.bundle */; };
 		EB06D4011DE14E9600C20784 /* iRate.m in Sources */ = {isa = PBXBuildFile; fileRef = EB06D3FF1DE14E9600C20784 /* iRate.m */; };
 		EB06D4061DE14EEA00C20784 /* iVersion.bundle in Resources */ = {isa = PBXBuildFile; fileRef = EB06D4031DE14EEA00C20784 /* iVersion.bundle */; };
 		EB06D4071DE14EEA00C20784 /* iVersion.m in Sources */ = {isa = PBXBuildFile; fileRef = EB06D4051DE14EEA00C20784 /* iVersion.m */; };
+		EB06D40B1DE153AA00C20784 /* WelcomeScreenVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EB06D4091DE153AA00C20784 /* WelcomeScreenVC.m */; };
+		EB06D40C1DE153AA00C20784 /* WelcomeScreenVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB06D40A1DE153AA00C20784 /* WelcomeScreenVC.xib */; };
+		EB06D40F1DE1556F00C20784 /* WSItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = EB06D40E1DE1556F00C20784 /* WSItemView.m */; };
+		EB06D4111DE1558700C20784 /* WSItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB06D4101DE1558700C20784 /* WSItemView.xib */; };
 		EB11EDC61D9AB24900804D34 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EB11EDC51D9AB24900804D34 /* main.m */; };
 		EB11EDC91D9AB24900804D34 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EB11EDC81D9AB24900804D34 /* AppDelegate.m */; };
 		EB11EDD11D9AB24900804D34 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB11EDD01D9AB24900804D34 /* Assets.xcassets */; };
@@ -39,6 +42,12 @@
 		EB17B98B1DB16B27007DBFDF /* SettingCredit.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB17B9881DB16B27007DBFDF /* SettingCredit.xib */; };
 		EB17B98C1DB16B27007DBFDF /* SettingCredit.m in Sources */ = {isa = PBXBuildFile; fileRef = EB17B98A1DB16B27007DBFDF /* SettingCredit.m */; };
 		EB18BD2F1DBE8E7E0087945F /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = EB18BD2E1DBE8E7E0087945F /* Podfile */; };
+		EB19A4AA1DE1811600F0A5D4 /* SettingHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EB19A4A81DE1811600F0A5D4 /* SettingHeaderCell.m */; };
+		EB19A4AB1DE1811600F0A5D4 /* SettingHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB19A4A91DE1811600F0A5D4 /* SettingHeaderCell.xib */; };
+		EB19A4AF1DE1812F00F0A5D4 /* SettingContentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EB19A4AD1DE1812F00F0A5D4 /* SettingContentCell.m */; };
+		EB19A4B01DE1812F00F0A5D4 /* SettingContentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB19A4AE1DE1812F00F0A5D4 /* SettingContentCell.xib */; };
+		EB19A4B71DE19C7B00F0A5D4 /* SettingMD.m in Sources */ = {isa = PBXBuildFile; fileRef = EB19A4B51DE19C7B00F0A5D4 /* SettingMD.m */; };
+		EB19A4B81DE19C7B00F0A5D4 /* SettingMD.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB19A4B61DE19C7B00F0A5D4 /* SettingMD.xib */; };
 		EB19F4711DB003B700A84DE6 /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = EB19F4701DB003B700A84DE6 /* UIImage+ImageEffects.m */; };
 		EB23A9D91DE0D58B002465E4 /* UIImage+ProportionalFill.m in Sources */ = {isa = PBXBuildFile; fileRef = EB23A9D81DE0D58B002465E4 /* UIImage+ProportionalFill.m */; };
 		EB2552E01DA6ABD900FD4BC4 /* MDTimerBackGround.m in Sources */ = {isa = PBXBuildFile; fileRef = EB2552DF1DA6ABD900FD4BC4 /* MDTimerBackGround.m */; };
@@ -157,13 +166,18 @@
 		8695C991756FC49B5BEB0DBB /* libPods-RelaxAppUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RelaxAppUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB0582571D9C0D2200E29C9B /* SpringboardLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpringboardLayout.h; sourceTree = "<group>"; };
 		EB0582581D9C0D2200E29C9B /* SpringboardLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpringboardLayout.m; sourceTree = "<group>"; };
-		EB06D3FA1DE14E8000C20784 /* ImageViewAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageViewAction.m; sourceTree = "<group>"; };
 		EB06D3FD1DE14E9600C20784 /* iRate.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = iRate.bundle; sourceTree = "<group>"; };
 		EB06D3FE1DE14E9600C20784 /* iRate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iRate.h; sourceTree = "<group>"; };
 		EB06D3FF1DE14E9600C20784 /* iRate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iRate.m; sourceTree = "<group>"; };
 		EB06D4031DE14EEA00C20784 /* iVersion.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = iVersion.bundle; sourceTree = "<group>"; };
 		EB06D4041DE14EEA00C20784 /* iVersion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iVersion.h; sourceTree = "<group>"; };
 		EB06D4051DE14EEA00C20784 /* iVersion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iVersion.m; sourceTree = "<group>"; };
+		EB06D4081DE153A900C20784 /* WelcomeScreenVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WelcomeScreenVC.h; sourceTree = "<group>"; };
+		EB06D4091DE153AA00C20784 /* WelcomeScreenVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WelcomeScreenVC.m; sourceTree = "<group>"; };
+		EB06D40A1DE153AA00C20784 /* WelcomeScreenVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WelcomeScreenVC.xib; sourceTree = "<group>"; };
+		EB06D40D1DE1556F00C20784 /* WSItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSItemView.h; sourceTree = "<group>"; };
+		EB06D40E1DE1556F00C20784 /* WSItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSItemView.m; sourceTree = "<group>"; };
+		EB06D4101DE1558700C20784 /* WSItemView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WSItemView.xib; sourceTree = "<group>"; };
 		EB11EDC11D9AB24900804D34 /* RelaxApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RelaxApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB11EDC51D9AB24900804D34 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		EB11EDC71D9AB24900804D34 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -212,6 +226,15 @@
 		EB17B9891DB16B27007DBFDF /* SettingCredit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingCredit.h; sourceTree = "<group>"; };
 		EB17B98A1DB16B27007DBFDF /* SettingCredit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingCredit.m; sourceTree = "<group>"; };
 		EB18BD2E1DBE8E7E0087945F /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		EB19A4A71DE1811600F0A5D4 /* SettingHeaderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingHeaderCell.h; sourceTree = "<group>"; };
+		EB19A4A81DE1811600F0A5D4 /* SettingHeaderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingHeaderCell.m; sourceTree = "<group>"; };
+		EB19A4A91DE1811600F0A5D4 /* SettingHeaderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingHeaderCell.xib; sourceTree = "<group>"; };
+		EB19A4AC1DE1812F00F0A5D4 /* SettingContentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingContentCell.h; sourceTree = "<group>"; };
+		EB19A4AD1DE1812F00F0A5D4 /* SettingContentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingContentCell.m; sourceTree = "<group>"; };
+		EB19A4AE1DE1812F00F0A5D4 /* SettingContentCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingContentCell.xib; sourceTree = "<group>"; };
+		EB19A4B41DE19C7B00F0A5D4 /* SettingMD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingMD.h; sourceTree = "<group>"; };
+		EB19A4B51DE19C7B00F0A5D4 /* SettingMD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingMD.m; sourceTree = "<group>"; };
+		EB19A4B61DE19C7B00F0A5D4 /* SettingMD.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingMD.xib; sourceTree = "<group>"; };
 		EB19F46F1DB003B700A84DE6 /* UIImage+ImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageEffects.h"; sourceTree = "<group>"; };
 		EB19F4701DB003B700A84DE6 /* UIImage+ImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageEffects.m"; sourceTree = "<group>"; };
 		EB23A9D71DE0D58B002465E4 /* UIImage+ProportionalFill.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ProportionalFill.h"; sourceTree = "<group>"; };
@@ -477,10 +500,15 @@
 				EB6DCF101DBEE8A2004B45DC /* RelaxApp.entitlements */,
 				EB56B6101DA2C4A3001AFC87 /* Common */,
 				EB11EDC71D9AB24900804D34 /* AppDelegate.h */,
-				EB06D3FA1DE14E8000C20784 /* ImageViewAction.m */,
 				EB11EDC81D9AB24900804D34 /* AppDelegate.m */,
 				EBFB07B11D9EA1F000AF2569 /* BaseView.h */,
 				EBFB07B21D9EA1F000AF2569 /* BaseView.m */,
+				EB06D4081DE153A900C20784 /* WelcomeScreenVC.h */,
+				EB06D4091DE153AA00C20784 /* WelcomeScreenVC.m */,
+				EB06D40A1DE153AA00C20784 /* WelcomeScreenVC.xib */,
+				EB06D40D1DE1556F00C20784 /* WSItemView.h */,
+				EB06D40E1DE1556F00C20784 /* WSItemView.m */,
+				EB06D4101DE1558700C20784 /* WSItemView.xib */,
 				EBF9B5541DA54CF700F07655 /* VOLUME */,
 				EBF9B5511DA54CC200F07655 /* FAVORITE */,
 				EBF9B5521DA54CD200F07655 /* HOME */,
@@ -798,6 +826,15 @@
 				EB4BE3E51DA81E42006E6803 /* SettingUpdate.h */,
 				EB4BE3E61DA81E42006E6803 /* SettingUpdate.m */,
 				EB4BE3E31DA81E37006E6803 /* SettingUpdate.xib */,
+				EB19A4A71DE1811600F0A5D4 /* SettingHeaderCell.h */,
+				EB19A4A81DE1811600F0A5D4 /* SettingHeaderCell.m */,
+				EB19A4A91DE1811600F0A5D4 /* SettingHeaderCell.xib */,
+				EB19A4AC1DE1812F00F0A5D4 /* SettingContentCell.h */,
+				EB19A4AD1DE1812F00F0A5D4 /* SettingContentCell.m */,
+				EB19A4AE1DE1812F00F0A5D4 /* SettingContentCell.xib */,
+				EB19A4B41DE19C7B00F0A5D4 /* SettingMD.h */,
+				EB19A4B51DE19C7B00F0A5D4 /* SettingMD.m */,
+				EB19A4B61DE19C7B00F0A5D4 /* SettingMD.xib */,
 			);
 			name = SETTING;
 			sourceTree = "<group>";
@@ -981,8 +1018,10 @@
 				EBFF08BE1DBFC97800688968 /* GoogleService-Info.plist in Resources */,
 				EB3072001DABE2B6009D90DD /* RobotoCondensed-BoldItalic.ttf in Resources */,
 				EB3071FC1DABE2B6009D90DD /* Roboto-Regular.ttf in Resources */,
+				EB06D40C1DE153AA00C20784 /* WelcomeScreenVC.xib in Resources */,
 				EBFB07B01D9EA0D300AF2569 /* SettingView.xib in Resources */,
 				EB3072011DABE2B6009D90DD /* RobotoCondensed-Italic.ttf in Resources */,
+				EB19A4B81DE19C7B00F0A5D4 /* SettingMD.xib in Resources */,
 				EB4BE3DB1DA81A9B006E6803 /* SettingAbout.xib in Resources */,
 				EB3071F61DABE2B6009D90DD /* Roboto-BoldItalic.ttf in Resources */,
 				EB3072021DABE2B6009D90DD /* RobotoCondensed-Light.ttf in Resources */,
@@ -1007,6 +1046,7 @@
 				EB3071F81DABE2B6009D90DD /* Roboto-Light.ttf in Resources */,
 				EB11EE001D9AB30B00804D34 /* HomeVC.xib in Resources */,
 				EB3071FA1DABE2B6009D90DD /* Roboto-Medium.ttf in Resources */,
+				EB19A4B01DE1812F00F0A5D4 /* SettingContentCell.xib in Resources */,
 				EB3071F51DABE2B6009D90DD /* Roboto-Bold.ttf in Resources */,
 				EB17B98B1DB16B27007DBFDF /* SettingCredit.xib in Resources */,
 				EB3072031DABE2B6009D90DD /* RobotoCondensed-LightItalic.ttf in Resources */,
@@ -1014,9 +1054,11 @@
 				EB3071FD1DABE2B6009D90DD /* Roboto-Thin.ttf in Resources */,
 				EBFB07A61D9EA07300AF2569 /* FavoriteView.xib in Resources */,
 				EB18BD2F1DBE8E7E0087945F /* Podfile in Resources */,
+				EB06D4111DE1558700C20784 /* WSItemView.xib in Resources */,
 				EB4C7FDE1DA3F3BF003CD3D6 /* CreaterTimer.xib in Resources */,
 				EBFF08C01DBFD5FA00688968 /* GoogleService-Info_p.plist in Resources */,
 				EB3071F31DABE2B6009D90DD /* Roboto-Black.ttf in Resources */,
+				EB19A4AB1DE1811600F0A5D4 /* SettingHeaderCell.xib in Resources */,
 				EB3071F91DABE2B6009D90DD /* Roboto-LightItalic.ttf in Resources */,
 				EB3072041DABE2B6009D90DD /* RobotoCondensed-Regular.ttf in Resources */,
 				EBFF14741DA04C2800CA98F1 /* IDZAQAudioPlayerViewController.xib in Resources */,
@@ -1096,8 +1138,10 @@
 				EBFF14241DA01E4700CA98F1 /* aeskey.c in Sources */,
 				EB4BE3E71DA81E42006E6803 /* SettingUpdate.m in Sources */,
 				EBA0160B1DB6C83700D5477C /* TabVC.m in Sources */,
+				EB06D40B1DE153AA00C20784 /* WelcomeScreenVC.m in Sources */,
 				EBFF142E1DA01E4700CA98F1 /* mztools.c in Sources */,
 				EB4C7FDD1DA3F3BF003CD3D6 /* CreaterTimer.m in Sources */,
+				EB19A4B71DE19C7B00F0A5D4 /* SettingMD.m in Sources */,
 				EBFF14261DA01E4700CA98F1 /* entropy.c in Sources */,
 				EB420B111DAD609500F47C8B /* UIImage+TBTint.m in Sources */,
 				EB11EE6E1D9AF4A300804D34 /* CollectionCell.m in Sources */,
@@ -1107,7 +1151,6 @@
 				EB4C80081DA3FE69003CD3D6 /* SDWebImageManager.m in Sources */,
 				EB17B9831DB12B6D007DBFDF /* MCNewCustomLayeredView.m in Sources */,
 				EB4BE3D91DA81A93006E6803 /* SettingAbout.m in Sources */,
-				EB06D3FB1DE14E8000C20784 /* ImageViewAction.m in Sources */,
 				EBFF142D1DA01E4700CA98F1 /* ioapi.c in Sources */,
 				EBFF13BA1DA00E1700CA98F1 /* AFURLRequestSerialization.m in Sources */,
 				EB4C800C1DA3FE69003CD3D6 /* UIImage+MultiFormat.m in Sources */,
@@ -1128,12 +1171,14 @@
 				EB17B9861DB12B6D007DBFDF /* MCUtil.m in Sources */,
 				EBFF14301DA01E4700CA98F1 /* zip.c in Sources */,
 				EBFF142A1DA01E4700CA98F1 /* pwd2key.c in Sources */,
+				EB06D40F1DE1556F00C20784 /* WSItemView.m in Sources */,
 				EB4C80041DA3FE69003CD3D6 /* SDWebImageCompat.m in Sources */,
 				EB23A9D91DE0D58B002465E4 /* UIImage+ProportionalFill.m in Sources */,
 				EB11EDC61D9AB24900804D34 /* main.m in Sources */,
 				EB4C800A1DA3FE69003CD3D6 /* UIButton+WebCache.m in Sources */,
 				EBFF13B81DA00E1700CA98F1 /* AFNetworkReachabilityManager.m in Sources */,
 				EB605EC91DD0D3A8007802A1 /* Reachability.m in Sources */,
+				EB19A4AA1DE1811600F0A5D4 /* SettingHeaderCell.m in Sources */,
 				EB17B98C1DB16B27007DBFDF /* SettingCredit.m in Sources */,
 				EBFB07B61D9EAD7200AF2569 /* VolumeView.m in Sources */,
 				EBFB07AE1D9EA0C100AF2569 /* SettingView.m in Sources */,
@@ -1158,6 +1203,7 @@
 				EB11EE661D9AEC5200804D34 /* CollectionVC.m in Sources */,
 				EBFF13B71DA00E1700CA98F1 /* AFHTTPSessionManager.m in Sources */,
 				EB4C80011DA3FE69003CD3D6 /* README.md in Sources */,
+				EB19A4AF1DE1812F00F0A5D4 /* SettingContentCell.m in Sources */,
 				EBFF13BB1DA00E1700CA98F1 /* AFURLResponseSerialization.m in Sources */,
 				EBFF142B1DA01E4700CA98F1 /* sha1.c in Sources */,
 				EB14BA6D1DA16FCA00385759 /* VolumeItem.m in Sources */,

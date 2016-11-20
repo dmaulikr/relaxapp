@@ -15,7 +15,7 @@
 #import <RevMobAds/RevMobAdsDelegate.h>
 #import <QuartzCore/QuartzCore.h>
 #import <CoreLocation/CoreLocation.h>
-
+#import "WelcomeScreenVC.h"
 #if defined(__IPHONE_10_0) && __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_10_0
 @import UserNotifications;
 #endif
@@ -140,6 +140,14 @@
     [self.window setRootViewController:self.navigationController ];
 
     [self.window makeKeyAndVisible];
+    //
+//    if (![[NSUserDefaults standardUserDefaults] boolForKey:show_welcome_screen]) {
+        WelcomeScreenVC *ws = [[WelcomeScreenVC alloc] initWithNibName:@"WelcomeScreenVC" bundle:nil];
+        
+        [viewController1 presentViewController:ws animated:NO completion:^{
+        }];
+//    }
+
     [self timerBackGround];
     //[START configure_revabmod]
     [self startSampleApp3Session];

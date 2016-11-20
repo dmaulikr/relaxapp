@@ -1,17 +1,19 @@
 //
-//  SettingView.h
+//  CreaterTimer.h
 //  RelaxApp
 //
-//  Created by JoJo on 9/30/16.
+//  Created by Manh on 10/4/16.
 //  Copyright © 2016 JoJo. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
+#import "Define.h"
 #import "BaseView.h"
-@interface SettingView : BaseView
+typedef void (^SettingCreditCallback)();
+
+@interface SettingMD : BaseView
 @property (nonatomic, strong) IBOutlet UIView *vViewNav;
 @property (nonatomic, strong) IBOutlet UIView *vContent;
-@property (strong, nonatomic) IBOutlet UILabel *lbShare;
-
+@property (nonatomic,copy) SettingCreditCallback callback;
 
 @end

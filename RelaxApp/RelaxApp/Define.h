@@ -40,6 +40,7 @@
 #define COLOR_SOUND_ITEM 0xEFEFF0
 #define COLOR_TABBAR_BOTTOM 0xF8F8F8
 #define COLOR_TEXT_ITEM 0x8D8D8D
+#define COLOR_TEXT_SETTING 0x4A4A4A
 
 #define COLOR_PAGECONTROL_TINT 0x7C7C7C
 #define COLOR_PAGECONTROL_CURRENT 0xEBEBEB
@@ -67,8 +68,6 @@
 #define REVMOB_ID @"581b77b688e696b311e2fd3d"
 
 #define FILE_IAP_SAVE @"IAP"
-//#define kBuyCategoryIdentifier @"com.Relaf.Relaf.RelafPricing"
-//#define kUnlockProProductIdentifier @"com.Relaf.Relaf.UnlockPro"
 #define kTotalRemoveAdsProductIdentifier @"com.relaf.free.removeads"
 #define root_ipa_free @"com.relaf.free."
 #define root_ipa_pro @"com.relaf.pro."
@@ -77,6 +76,8 @@
 
 #define NAME_APP @"RelaF Free"
 #define schemeName @"relaf"
+
+#define show_welcome_screen @"show_welcome_screen"
 
 #define IS_IPHONE_4 (fabs((double)[[UIScreen mainScreen]bounds].size.height - (double)480) < DBL_EPSILON)
 #define IS_IPHONE_5 (fabs((double)[[UIScreen mainScreen]bounds].size.height - (double)568) < DBL_EPSILON)
@@ -119,4 +120,22 @@ typedef enum
     BUTTON_SETTING
     
 }HOME_BUTTON_TYPE;
+typedef enum
+{
+    SETTING_CELL_HEADER = 1,
+    SETTING_CELL_NON_ARROW,
+    SETTING_CELL_COPYRIGHT,
+    SETTING_CELL_CHECK_NOW,
+    SETTING_CELL_CHECK_REMOVE_ADS,
+    SETTING_CELL_CHECK_NO_ADS,
+    SETTING_CELL_CHECK_DOWLOAD,
+    SETTING_CELL_CHECK_PURCHASED,
+    SETTING_CELL_CHECK_MAILTO,
+    SETTING_CELL_CHECK_TWITTER,
+    SETTING_CELL_CHECK_FANPAGE,
+    SETTING_CELL_CHECK_ABOUT,
+    SETTING_CELL_CHECK_CREDIT,
+    SETTING_CELL_CHECK_VERTION,
+    SETTING_CELL_CHECK_PRIVACY,
+}SETTING_CELL_TYPE;
 #endif /* Define_h */

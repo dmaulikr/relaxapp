@@ -24,7 +24,7 @@
                     <subviews>
                         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y7I-jt-Sq9" customClass="MainNavHome">
                             <subviews>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Mdg-Ts-W7C">
+                                <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Mdg-Ts-W7C">
                                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </imageView>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UtZ-Ga-GMI" userLabel="Favorist">
@@ -165,7 +165,6 @@
             <connections>
                 <outlet property="btnSave" destination="ZLi-W1-4tP" id="wv6-O1-1j6"/>
                 <outlet property="imgBG" destination="t5X-4L-0eh" id="hch-RI-YLC"/>
-                <outlet property="imgHeader" destination="Mdg-Ts-W7C" id="dCJ-1b-XNy"/>
                 <outlet property="label" destination="tZt-96-Oe2" id="Go4-AW-Bvy"/>
                 <outlet property="lbCancel" destination="G4a-tp-qCE" id="Ka7-gc-aGQ"/>
                 <outlet property="lbTitle" destination="zn7-gC-1es" id="ZOJ-m7-fck"/>
