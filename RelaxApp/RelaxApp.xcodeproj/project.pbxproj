@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		E3B5A0CE7AE4C45DCFBC7D56 /* libPods-RelaxApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 527C56B751CCB97C3D037665 /* libPods-RelaxApp.a */; };
 		EB0582591D9C0D2200E29C9B /* SpringboardLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = EB0582581D9C0D2200E29C9B /* SpringboardLayout.m */; };
+		EB06D3FB1DE14E8000C20784 /* ImageViewAction.m in Sources */ = {isa = PBXBuildFile; fileRef = EB06D3FA1DE14E8000C20784 /* ImageViewAction.m */; };
+		EB06D4001DE14E9600C20784 /* iRate.bundle in Resources */ = {isa = PBXBuildFile; fileRef = EB06D3FD1DE14E9600C20784 /* iRate.bundle */; };
+		EB06D4011DE14E9600C20784 /* iRate.m in Sources */ = {isa = PBXBuildFile; fileRef = EB06D3FF1DE14E9600C20784 /* iRate.m */; };
+		EB06D4061DE14EEA00C20784 /* iVersion.bundle in Resources */ = {isa = PBXBuildFile; fileRef = EB06D4031DE14EEA00C20784 /* iVersion.bundle */; };
+		EB06D4071DE14EEA00C20784 /* iVersion.m in Sources */ = {isa = PBXBuildFile; fileRef = EB06D4051DE14EEA00C20784 /* iVersion.m */; };
 		EB11EDC61D9AB24900804D34 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EB11EDC51D9AB24900804D34 /* main.m */; };
 		EB11EDC91D9AB24900804D34 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EB11EDC81D9AB24900804D34 /* AppDelegate.m */; };
 		EB11EDD11D9AB24900804D34 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB11EDD01D9AB24900804D34 /* Assets.xcassets */; };
@@ -152,6 +157,13 @@
 		8695C991756FC49B5BEB0DBB /* libPods-RelaxAppUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RelaxAppUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB0582571D9C0D2200E29C9B /* SpringboardLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpringboardLayout.h; sourceTree = "<group>"; };
 		EB0582581D9C0D2200E29C9B /* SpringboardLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpringboardLayout.m; sourceTree = "<group>"; };
+		EB06D3FA1DE14E8000C20784 /* ImageViewAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageViewAction.m; sourceTree = "<group>"; };
+		EB06D3FD1DE14E9600C20784 /* iRate.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = iRate.bundle; sourceTree = "<group>"; };
+		EB06D3FE1DE14E9600C20784 /* iRate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iRate.h; sourceTree = "<group>"; };
+		EB06D3FF1DE14E9600C20784 /* iRate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iRate.m; sourceTree = "<group>"; };
+		EB06D4031DE14EEA00C20784 /* iVersion.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = iVersion.bundle; sourceTree = "<group>"; };
+		EB06D4041DE14EEA00C20784 /* iVersion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iVersion.h; sourceTree = "<group>"; };
+		EB06D4051DE14EEA00C20784 /* iVersion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iVersion.m; sourceTree = "<group>"; };
 		EB11EDC11D9AB24900804D34 /* RelaxApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RelaxApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB11EDC51D9AB24900804D34 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		EB11EDC71D9AB24900804D34 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -419,6 +431,26 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		EB06D3FC1DE14E9600C20784 /* iRate */ = {
+			isa = PBXGroup;
+			children = (
+				EB06D3FD1DE14E9600C20784 /* iRate.bundle */,
+				EB06D3FE1DE14E9600C20784 /* iRate.h */,
+				EB06D3FF1DE14E9600C20784 /* iRate.m */,
+			);
+			path = iRate;
+			sourceTree = "<group>";
+		};
+		EB06D4021DE14EEA00C20784 /* iVersion */ = {
+			isa = PBXGroup;
+			children = (
+				EB06D4031DE14EEA00C20784 /* iVersion.bundle */,
+				EB06D4041DE14EEA00C20784 /* iVersion.h */,
+				EB06D4051DE14EEA00C20784 /* iVersion.m */,
+			);
+			path = iVersion;
+			sourceTree = "<group>";
+		};
 		EB11EDB81D9AB24800804D34 = {
 			isa = PBXGroup;
 			children = (
@@ -445,6 +477,7 @@
 				EB6DCF101DBEE8A2004B45DC /* RelaxApp.entitlements */,
 				EB56B6101DA2C4A3001AFC87 /* Common */,
 				EB11EDC71D9AB24900804D34 /* AppDelegate.h */,
+				EB06D3FA1DE14E8000C20784 /* ImageViewAction.m */,
 				EB11EDC81D9AB24900804D34 /* AppDelegate.m */,
 				EBFB07B11D9EA1F000AF2569 /* BaseView.h */,
 				EBFB07B21D9EA1F000AF2569 /* BaseView.m */,
@@ -654,6 +687,8 @@
 		EB56B6101DA2C4A3001AFC87 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				EB06D4021DE14EEA00C20784 /* iVersion */,
+				EB06D3FC1DE14E9600C20784 /* iRate */,
 				EB137BA81DBBD43100DB1EBB /* InAppRage */,
 				EB3B17351DBB270C00B26A10 /* UIAlertView+Blocks.h */,
 				EB3B17361DBB270C00B26A10 /* UIAlertView+Blocks.m */,
@@ -959,12 +994,14 @@
 				EB3071FE1DABE2B6009D90DD /* Roboto-ThinItalic.ttf in Resources */,
 				EB3071FF1DABE2B6009D90DD /* RobotoCondensed-Bold.ttf in Resources */,
 				EB3071F41DABE2B6009D90DD /* Roboto-BlackItalic.ttf in Resources */,
+				EB06D4061DE14EEA00C20784 /* iVersion.bundle in Resources */,
 				EB11EDD11D9AB24900804D34 /* Assets.xcassets in Resources */,
 				EB3071F71DABE2B6009D90DD /* Roboto-Italic.ttf in Resources */,
 				EB11EE6F1D9AF4A300804D34 /* CollectionCell.xib in Resources */,
 				EB56B60B1DA2B964001AFC87 /* AHTagTableViewCell.xib in Resources */,
 				EB11EE681D9AEC7000804D34 /* CollectionVC.xib in Resources */,
 				EBFF142C1DA01E4700CA98F1 /* Info.plist in Resources */,
+				EB06D4001DE14E9600C20784 /* iRate.bundle in Resources */,
 				EB4C80001DA3FE69003CD3D6 /* LICENSE in Resources */,
 				EBFB07AB1D9EA0A100AF2569 /* TimerView.xib in Resources */,
 				EB3071F81DABE2B6009D90DD /* Roboto-Light.ttf in Resources */,
@@ -1045,6 +1082,7 @@
 				EB56B6001DA2B958001AFC87 /* AHTag.m in Sources */,
 				EBC18F591DA0F508000E00FD /* DownLoadCategory.m in Sources */,
 				EB4C80071DA3FE69003CD3D6 /* SDWebImageDownloaderOperation.m in Sources */,
+				EB06D4011DE14E9600C20784 /* iRate.m in Sources */,
 				EBFF14761DA04C2800CA98F1 /* IDZAQAudioPlayer.m in Sources */,
 				EB56B60F1DA2C497001AFC87 /* FileHelper.m in Sources */,
 				EB137BA41DBBD42500DB1EBB /* IAPHelper.m in Sources */,
@@ -1069,6 +1107,7 @@
 				EB4C80081DA3FE69003CD3D6 /* SDWebImageManager.m in Sources */,
 				EB17B9831DB12B6D007DBFDF /* MCNewCustomLayeredView.m in Sources */,
 				EB4BE3D91DA81A93006E6803 /* SettingAbout.m in Sources */,
+				EB06D3FB1DE14E8000C20784 /* ImageViewAction.m in Sources */,
 				EBFF142D1DA01E4700CA98F1 /* ioapi.c in Sources */,
 				EBFF13BA1DA00E1700CA98F1 /* AFURLRequestSerialization.m in Sources */,
 				EB4C800C1DA3FE69003CD3D6 /* UIImage+MultiFormat.m in Sources */,
@@ -1079,6 +1118,7 @@
 				EBFF13B91DA00E1700CA98F1 /* AFSecurityPolicy.m in Sources */,
 				EB56B60C1DA2B964001AFC87 /* AHTagView.m in Sources */,
 				EBFF14291DA01E4700CA98F1 /* prng.c in Sources */,
+				EB06D4071DE14EEA00C20784 /* iVersion.m in Sources */,
 				EB137BA71DBBD42B00DB1EBB /* RageIAPHelper.m in Sources */,
 				EBFF14251DA01E4700CA98F1 /* aestab.c in Sources */,
 				EB4BE3EA1DA8280B006E6803 /* NSDate+Extensions.m in Sources */,
