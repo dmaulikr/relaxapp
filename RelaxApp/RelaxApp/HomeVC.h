@@ -84,5 +84,5 @@
 @property(nonatomic,assign) HOME_BUTTON_TYPE buttonType;
 @property(nonatomic,assign) HOME_BUTTON_TYPE buttonBefor;
 -(void)loadCache;
-
+-(void)fnGetMusicFromParam:(NSString*)param;
 @end

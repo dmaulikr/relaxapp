@@ -181,15 +181,22 @@ static NSString *identifierSection1 = @"MyTableViewCell1";
 }
 //Share
 - (void)shareSocial:(NSDictionary*)dicMusic {
-    NSString * message = @"© 2016 by Relafapp";
     
-    //    UIImage * image = [UIImage imageNamed:@"icon"];
-    
-    NSArray * shareItems = @[message];
-    
-    UIActivityViewController * avc = [[UIActivityViewController alloc] initWithActivityItems:shareItems applicationActivities:nil];
-    
-    [self.parent presentViewController:avc animated:YES completion:nil];
+    NSMutableString *str = [NSMutableString new];
+    NSArray *arrMusic = dicMusic[@"music"];
+    //relaf://play?1=1,1,20&2,4,20&4,2,8
+    for (NSDictionary *dic in arrMusic) {
+        [str appendString:[NSString stringWithFormat:@"%@=%@,%@&",dic[@"category_id"],dic[@"id"],dic[@"volume"]]];
+    }
+    if (str.length > 0) {
+       NSString *strLink = [str substringToIndex:[str length] - 1];
+        NSString *message = [NSString stringWithFormat:@"￼http://relafapp.com/play?%@",strLink];
+        NSArray * shareItems = @[message];
+        ///0838999666
+        UIActivityViewController * avc = [[UIActivityViewController alloc] initWithActivityItems:shareItems applicationActivities:nil];
+        
+        [self.parent presentViewController:avc animated:YES completion:nil];
+    }
     
 }
 

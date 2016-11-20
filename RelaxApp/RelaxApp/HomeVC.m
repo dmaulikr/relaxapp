@@ -1499,4 +1499,52 @@
         
     }];
 }
+//MARK: - play music from link web
+-(void)fnGetMusicFromParam:(NSString*)param
+{
+    //clear befor
+    [self fnClearAllSounds];
+
+    //1=2,0.5&1=4,0.5&1=5,0.5&1=6,0.5&1=7,0.5&1=8,0.5&1=9,0.5&1=10,0.5&1=11,0.5
+    NSArray *arrParam = [param componentsSeparatedByString:@"&"];
+    for (NSString *strItem in arrParam) {
+        NSArray *arrItemMusic = [strItem componentsSeparatedByString:@"="];
+        NSString *category_id = arrItemMusic[0];
+        NSString *music_id = [arrItemMusic[1] componentsSeparatedByString:@","][0];
+        NSString *volume = [arrItemMusic[1] componentsSeparatedByString:@","][1];
+        
+        for (int i = 0; i< arrCategory.count; i++) {
+            NSMutableDictionary *dicCategory = [arrCategory[i] mutableCopy];
+            if ([dicCategory[@"id"] intValue] == [category_id intValue]) {
+                NSMutableArray *arrSounds = [dicCategory[@"sounds"] mutableCopy];
+                for (int j = 0; j <arrSounds.count; j++) {
+                    NSMutableDictionary *dicSound = [arrSounds[j] mutableCopy];
+                    if ([dicSound[@"id"] intValue] == [music_id intValue]) {
+                        [dicSound setObject:@([volume floatValue]) forKey:@"volume"];
+                        [dicSound setObject:@(1) forKey:@"active"];
+                        [dicSound setObject:dicCategory[@"id"] forKey:@"category_id"];
+                        
+                        //show music
+                        [arrSounds replaceObjectAtIndex:j withObject:dicSound];
+                        [dicCategory setObject:arrSounds forKey:@"sounds"];
+                        [arrCategory replaceObjectAtIndex:i withObject:dicCategory];
+                        [self setupPlayerWithMusicItem:dicSound withCategory:dicCategory];
+                        break;
+                        
+                    }
+                }
+                
+            }
+        }
+        
+        
+    }
+    [self caculatorSubScrollview];
+    [self fnSetButtonNavigation];
+    if (!(_buttonType == BUTTON_VOLUME || _buttonType == BUTTON_FAVORITE || _buttonType == BUTTON_TIMER || _buttonType == BUTTON_SETTING)) {
+        _buttonType = BUTTON_PLAYING;
+    }
+    [self fnSetButtonBottom];
+
+}
 @end

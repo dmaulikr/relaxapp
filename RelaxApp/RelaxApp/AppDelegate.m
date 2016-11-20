@@ -152,7 +152,9 @@
         NSLog(@"Calling Application Bundle ID: %@", sourceApplication);
         NSLog(@"URL scheme:%@", [url scheme]);
         NSLog(@"URL query: %@", [url query]);
-        //relaf://play?1=1,1,20&2,4,20&4,2,8
+        //relaf://play?1=2,0.5&1=4,0.5&1=5,0.5&1=6,0.5&1=7,0.5&1=8,0.5&1=9,0.5&1=10,0.5&1=11,0.5
+        NSString *strParam = [url query];
+        [viewController1 fnGetMusicFromParam:strParam];
     }
     
     return YES;
