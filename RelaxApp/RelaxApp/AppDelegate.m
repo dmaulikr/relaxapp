@@ -23,7 +23,6 @@
 @import FirebaseInstanceID;
 @import FirebaseMessaging;
 #import "iRate.h"
-#import "iVersion.h"
 // Implement UNUserNotificationCenterDelegate to receive display notification via APNS for devices
 // running iOS 10 and above. Implement FIRMessagingDelegate to receive data message via FCM for
 // devices running iOS 10 and above.
@@ -43,29 +42,14 @@
 - (void)initialize
 {
     //overriding the default iRate strings
-    [iRate sharedInstance].appStoreID = APP_ID_BUNDLE;
-    [iRate sharedInstance].messageTitle =  strTitle_app;
-    [iRate sharedInstance].message = strRatingAppStore;
-    [iRate sharedInstance].cancelButtonLabel = @"cancel";
-    [iRate sharedInstance].remindButtonLabel = @"remind";
-    [iRate sharedInstance].rateButtonLabel = @"rate";
-    
     //set the bundle ID. normally you wouldn't need to do this
     //as it is picked up automatically from your Info.plist file
     //but we want to test with an app that's actually on the store
-    [iVersion sharedInstance].appStoreID = APP_ID_BUNDLE;
-    [[iVersion sharedInstance] setUpdateAvailableTitle:@"update"];
-    [[iVersion sharedInstance] setInThisVersionTitle:@"version"];
-    [[iVersion sharedInstance] setRemindButtonLabel:@"remind"];
-    [[iVersion sharedInstance] setOkButtonLabel:@"OK"];
-    [[iVersion sharedInstance] setDownloadButtonLabel:@"Download"];
-    [[iVersion sharedInstance] setIgnoreButtonLabel:@"Ignore"];
+    [iRate sharedInstance].applicationBundleID = APP_ID_BUNDLE;
+    [iRate sharedInstance].onlyPromptIfLatestVersion = NO;
     
-    
-    //configure iVersion. These paths are optional - if you don't set
-    //them, iVersion will just get the release notes from iTunes directly (if your app is on the store)
-    //    [iVersion sharedInstance].remoteVersionsPlistURL = @"http://charcoaldesign.co.uk/iVersion/versions.plist";
-    //    [iVersion sharedInstance].localVersionsPlistPath = @"versions.plist";
+    //enable preview mode
+    [iRate sharedInstance].previewMode = YES;
 }
 
 

@@ -135,6 +135,7 @@
             <connections>
                 <outlet property="imgBackGround" destination="a5a-89-HoJ" id="3mR-bM-1Kx"/>
                 <outlet property="imgHeader" destination="ZgW-bg-vTO" id="qWW-Ak-Fza"/>
+                <outlet property="lbTitle" destination="7MJ-JK-GCd" id="uaf-3Z-VNi"/>
                 <outlet property="tableControl" destination="ram-0n-poI" id="QfT-Vq-oXP"/>
                 <outlet property="vContent" destination="4ik-JB-PoB" id="NxH-LS-cHF"/>
                 <outlet property="vViewNav" destination="034-ae-JVr" id="QBp-kl-hSj"/>

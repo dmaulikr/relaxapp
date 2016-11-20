@@ -9,10 +9,6 @@
 /* Begin PBXBuildFile section */
 		E3B5A0CE7AE4C45DCFBC7D56 /* libPods-RelaxApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 527C56B751CCB97C3D037665 /* libPods-RelaxApp.a */; };
 		EB0582591D9C0D2200E29C9B /* SpringboardLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = EB0582581D9C0D2200E29C9B /* SpringboardLayout.m */; };
-		EB06D4001DE14E9600C20784 /* iRate.bundle in Resources */ = {isa = PBXBuildFile; fileRef = EB06D3FD1DE14E9600C20784 /* iRate.bundle */; };
-		EB06D4011DE14E9600C20784 /* iRate.m in Sources */ = {isa = PBXBuildFile; fileRef = EB06D3FF1DE14E9600C20784 /* iRate.m */; };
-		EB06D4061DE14EEA00C20784 /* iVersion.bundle in Resources */ = {isa = PBXBuildFile; fileRef = EB06D4031DE14EEA00C20784 /* iVersion.bundle */; };
-		EB06D4071DE14EEA00C20784 /* iVersion.m in Sources */ = {isa = PBXBuildFile; fileRef = EB06D4051DE14EEA00C20784 /* iVersion.m */; };
 		EB06D40B1DE153AA00C20784 /* WelcomeScreenVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EB06D4091DE153AA00C20784 /* WelcomeScreenVC.m */; };
 		EB06D40C1DE153AA00C20784 /* WelcomeScreenVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB06D40A1DE153AA00C20784 /* WelcomeScreenVC.xib */; };
 		EB06D40F1DE1556F00C20784 /* WSItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = EB06D40E1DE1556F00C20784 /* WSItemView.m */; };
@@ -112,6 +108,9 @@
 		EB605EC91DD0D3A8007802A1 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = EB605EC81DD0D3A8007802A1 /* Reachability.m */; };
 		EB605ECE1DD0EDFB007802A1 /* RevMobAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB605ECD1DD0EDFB007802A1 /* RevMobAds.framework */; };
 		EB605ED01DD0EE5A007802A1 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB605ECF1DD0EE5A007802A1 /* CoreLocation.framework */; };
+		EB82DDE81DE1F5AC0029D110 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EB82DDE41DE1F5AC0029D110 /* Info.plist */; };
+		EB82DDE91DE1F5AC0029D110 /* iRate.bundle in Resources */ = {isa = PBXBuildFile; fileRef = EB82DDE51DE1F5AC0029D110 /* iRate.bundle */; };
+		EB82DDEA1DE1F5AC0029D110 /* iRate.m in Sources */ = {isa = PBXBuildFile; fileRef = EB82DDE71DE1F5AC0029D110 /* iRate.m */; };
 		EBA0160A1DB6C83700D5477C /* TabVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBA016071DB6C83700D5477C /* TabVC.xib */; };
 		EBA0160B1DB6C83700D5477C /* TabVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EBA016091DB6C83700D5477C /* TabVC.m */; };
 		EBC18F591DA0F508000E00FD /* DownLoadCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = EBC18F581DA0F508000E00FD /* DownLoadCategory.m */; };
@@ -166,12 +165,6 @@
 		8695C991756FC49B5BEB0DBB /* libPods-RelaxAppUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RelaxAppUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB0582571D9C0D2200E29C9B /* SpringboardLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpringboardLayout.h; sourceTree = "<group>"; };
 		EB0582581D9C0D2200E29C9B /* SpringboardLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpringboardLayout.m; sourceTree = "<group>"; };
-		EB06D3FD1DE14E9600C20784 /* iRate.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = iRate.bundle; sourceTree = "<group>"; };
-		EB06D3FE1DE14E9600C20784 /* iRate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iRate.h; sourceTree = "<group>"; };
-		EB06D3FF1DE14E9600C20784 /* iRate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iRate.m; sourceTree = "<group>"; };
-		EB06D4031DE14EEA00C20784 /* iVersion.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = iVersion.bundle; sourceTree = "<group>"; };
-		EB06D4041DE14EEA00C20784 /* iVersion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iVersion.h; sourceTree = "<group>"; };
-		EB06D4051DE14EEA00C20784 /* iVersion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iVersion.m; sourceTree = "<group>"; };
 		EB06D4081DE153A900C20784 /* WelcomeScreenVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WelcomeScreenVC.h; sourceTree = "<group>"; };
 		EB06D4091DE153AA00C20784 /* WelcomeScreenVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WelcomeScreenVC.m; sourceTree = "<group>"; };
 		EB06D40A1DE153AA00C20784 /* WelcomeScreenVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WelcomeScreenVC.xib; sourceTree = "<group>"; };
@@ -333,6 +326,10 @@
 		EB605ECD1DD0EDFB007802A1 /* RevMobAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RevMobAds.framework; path = Frameworks/RevMobAds.framework; sourceTree = "<group>"; };
 		EB605ECF1DD0EE5A007802A1 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		EB6DCF101DBEE8A2004B45DC /* RelaxApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RelaxApp.entitlements; sourceTree = "<group>"; };
+		EB82DDE41DE1F5AC0029D110 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EB82DDE51DE1F5AC0029D110 /* iRate.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = iRate.bundle; sourceTree = "<group>"; };
+		EB82DDE61DE1F5AC0029D110 /* iRate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iRate.h; sourceTree = "<group>"; };
+		EB82DDE71DE1F5AC0029D110 /* iRate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iRate.m; sourceTree = "<group>"; };
 		EBA016071DB6C83700D5477C /* TabVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TabVC.xib; sourceTree = "<group>"; };
 		EBA016081DB6C83700D5477C /* TabVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabVC.h; sourceTree = "<group>"; };
 		EBA016091DB6C83700D5477C /* TabVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabVC.m; sourceTree = "<group>"; };
@@ -452,26 +449,6 @@
 				0C0B061630A6DDFA59C76042 /* Pods-RelaxApp.release.xcconfig */,
 			);
 			name = Pods;
-			sourceTree = "<group>";
-		};
-		EB06D3FC1DE14E9600C20784 /* iRate */ = {
-			isa = PBXGroup;
-			children = (
-				EB06D3FD1DE14E9600C20784 /* iRate.bundle */,
-				EB06D3FE1DE14E9600C20784 /* iRate.h */,
-				EB06D3FF1DE14E9600C20784 /* iRate.m */,
-			);
-			path = iRate;
-			sourceTree = "<group>";
-		};
-		EB06D4021DE14EEA00C20784 /* iVersion */ = {
-			isa = PBXGroup;
-			children = (
-				EB06D4031DE14EEA00C20784 /* iVersion.bundle */,
-				EB06D4041DE14EEA00C20784 /* iVersion.h */,
-				EB06D4051DE14EEA00C20784 /* iVersion.m */,
-			);
-			path = iVersion;
 			sourceTree = "<group>";
 		};
 		EB11EDB81D9AB24800804D34 = {
@@ -715,8 +692,7 @@
 		EB56B6101DA2C4A3001AFC87 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				EB06D4021DE14EEA00C20784 /* iVersion */,
-				EB06D3FC1DE14E9600C20784 /* iRate */,
+				EB82DDE31DE1F5AC0029D110 /* iRate */,
 				EB137BA81DBBD43100DB1EBB /* InAppRage */,
 				EB3B17351DBB270C00B26A10 /* UIAlertView+Blocks.h */,
 				EB3B17361DBB270C00B26A10 /* UIAlertView+Blocks.m */,
@@ -749,6 +725,17 @@
 				EB11EE631D9AEBCF00804D34 /* Nav */,
 			);
 			name = Common;
+			sourceTree = "<group>";
+		};
+		EB82DDE31DE1F5AC0029D110 /* iRate */ = {
+			isa = PBXGroup;
+			children = (
+				EB82DDE41DE1F5AC0029D110 /* Info.plist */,
+				EB82DDE51DE1F5AC0029D110 /* iRate.bundle */,
+				EB82DDE61DE1F5AC0029D110 /* iRate.h */,
+				EB82DDE71DE1F5AC0029D110 /* iRate.m */,
+			);
+			path = iRate;
 			sourceTree = "<group>";
 		};
 		EBF9B5511DA54CC200F07655 /* FAVORITE */ = {
@@ -1026,6 +1013,7 @@
 				EB3071F61DABE2B6009D90DD /* Roboto-BoldItalic.ttf in Resources */,
 				EB3072021DABE2B6009D90DD /* RobotoCondensed-Light.ttf in Resources */,
 				EB3071FB1DABE2B6009D90DD /* Roboto-MediumItalic.ttf in Resources */,
+				EB82DDE91DE1F5AC0029D110 /* iRate.bundle in Resources */,
 				EBA0160A1DB6C83700D5477C /* TabVC.xib in Resources */,
 				EBFF14751DA04C2800CA98F1 /* IDZAudioPlayerViewController.xib in Resources */,
 				EB14BA6E1DA16FCA00385759 /* VolumeItem.xib in Resources */,
@@ -1033,20 +1021,19 @@
 				EB3071FE1DABE2B6009D90DD /* Roboto-ThinItalic.ttf in Resources */,
 				EB3071FF1DABE2B6009D90DD /* RobotoCondensed-Bold.ttf in Resources */,
 				EB3071F41DABE2B6009D90DD /* Roboto-BlackItalic.ttf in Resources */,
-				EB06D4061DE14EEA00C20784 /* iVersion.bundle in Resources */,
 				EB11EDD11D9AB24900804D34 /* Assets.xcassets in Resources */,
 				EB3071F71DABE2B6009D90DD /* Roboto-Italic.ttf in Resources */,
 				EB11EE6F1D9AF4A300804D34 /* CollectionCell.xib in Resources */,
 				EB56B60B1DA2B964001AFC87 /* AHTagTableViewCell.xib in Resources */,
 				EB11EE681D9AEC7000804D34 /* CollectionVC.xib in Resources */,
 				EBFF142C1DA01E4700CA98F1 /* Info.plist in Resources */,
-				EB06D4001DE14E9600C20784 /* iRate.bundle in Resources */,
 				EB4C80001DA3FE69003CD3D6 /* LICENSE in Resources */,
 				EBFB07AB1D9EA0A100AF2569 /* TimerView.xib in Resources */,
 				EB3071F81DABE2B6009D90DD /* Roboto-Light.ttf in Resources */,
 				EB11EE001D9AB30B00804D34 /* HomeVC.xib in Resources */,
 				EB3071FA1DABE2B6009D90DD /* Roboto-Medium.ttf in Resources */,
 				EB19A4B01DE1812F00F0A5D4 /* SettingContentCell.xib in Resources */,
+				EB82DDE81DE1F5AC0029D110 /* Info.plist in Resources */,
 				EB3071F51DABE2B6009D90DD /* Roboto-Bold.ttf in Resources */,
 				EB17B98B1DB16B27007DBFDF /* SettingCredit.xib in Resources */,
 				EB3072031DABE2B6009D90DD /* RobotoCondensed-LightItalic.ttf in Resources */,
@@ -1124,7 +1111,6 @@
 				EB56B6001DA2B958001AFC87 /* AHTag.m in Sources */,
 				EBC18F591DA0F508000E00FD /* DownLoadCategory.m in Sources */,
 				EB4C80071DA3FE69003CD3D6 /* SDWebImageDownloaderOperation.m in Sources */,
-				EB06D4011DE14E9600C20784 /* iRate.m in Sources */,
 				EBFF14761DA04C2800CA98F1 /* IDZAQAudioPlayer.m in Sources */,
 				EB56B60F1DA2C497001AFC87 /* FileHelper.m in Sources */,
 				EB137BA41DBBD42500DB1EBB /* IAPHelper.m in Sources */,
@@ -1133,6 +1119,7 @@
 				EBFF14791DA04C2800CA98F1 /* IDZOggVorbisFileDecoder.mm in Sources */,
 				EBFB07A91D9EA08700AF2569 /* TimerView.m in Sources */,
 				EB11EDC91D9AB24900804D34 /* AppDelegate.m in Sources */,
+				EB82DDEA1DE1F5AC0029D110 /* iRate.m in Sources */,
 				EBFB07B31D9EA1F000AF2569 /* BaseView.m in Sources */,
 				EBFF14771DA04C2800CA98F1 /* IDZAQAudioPlayerAppDelegate.m in Sources */,
 				EBFF14241DA01E4700CA98F1 /* aeskey.c in Sources */,
@@ -1161,7 +1148,6 @@
 				EBFF13B91DA00E1700CA98F1 /* AFSecurityPolicy.m in Sources */,
 				EB56B60C1DA2B964001AFC87 /* AHTagView.m in Sources */,
 				EBFF14291DA01E4700CA98F1 /* prng.c in Sources */,
-				EB06D4071DE14EEA00C20784 /* iVersion.m in Sources */,
 				EB137BA71DBBD42B00DB1EBB /* RageIAPHelper.m in Sources */,
 				EBFF14251DA01E4700CA98F1 /* aestab.c in Sources */,
 				EB4BE3EA1DA8280B006E6803 /* NSDate+Extensions.m in Sources */,

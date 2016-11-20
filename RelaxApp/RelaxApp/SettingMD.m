@@ -36,6 +36,7 @@ static NSString *identifierMD2 = @"identifierMD2";
     self.tableControl.estimatedRowHeight = 44;
     arrData = [NSMutableArray new];
     arrCategory = [NSMutableArray new];
+    self.lbTitle.text = @"Management";
     NSMutableDictionary *dic1 = [@{@"name": @"Management downloaded",
                                    @"type": @(SETTING_CELL_HEADER)} copy];
     [arrData addObject:dic1];

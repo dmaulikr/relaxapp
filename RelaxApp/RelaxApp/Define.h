@@ -19,7 +19,7 @@
 #define pwd_Unzip @"d41d8cd98f00b204e9800998ecf8427e"
 #define VERSION_PRO 0
 
-#define APP_ID_BUNDLE 883300083
+#define APP_ID_BUNDLE @"com.relaf.free"
 #define strTitle_app @"Title_app"
 #define strRatingAppStore @"THANKYOU_FORRATING"
 #define strNewVertionAvailale @"strNewVertionAvailale"
