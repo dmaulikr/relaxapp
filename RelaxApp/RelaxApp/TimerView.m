@@ -23,6 +23,8 @@ static NSString *identifierSection1 = @"MyTableViewCell1";
 {
     [super awakeFromNib];
     self.lbEdit.font = [UIFont fontWithName:@"Roboto-Regular" size:17];
+    self.lbTitle.text = str(kTimer);
+    self.lbEdit.text = str(kEdit);
 
     [self.tableControl registerNib:[UINib nibWithNibName:@"TimerCell" bundle:nil] forCellReuseIdentifier:identifierSection1];
     self.tableControl.estimatedRowHeight = 60;
@@ -70,20 +72,20 @@ static NSString *identifierSection1 = @"MyTableViewCell1";
 }
 -(IBAction)addTimerAction:(id)sender
 {
-    UIAlertController *actionSheet = [UIAlertController alertControllerWithTitle:@"Choose Timer Type" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    UIAlertController *actionSheet = [UIAlertController alertControllerWithTitle:str(kChooseTimerType) message:nil preferredStyle:UIAlertControllerStyleActionSheet];
     
-    [actionSheet addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
+    [actionSheet addAction:[UIAlertAction actionWithTitle:str(kCancel) style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
         
         // Cancel button tappped do nothing.
         
         
     }]];
     
-    [actionSheet addAction:[UIAlertAction actionWithTitle:@"Countdown" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+    [actionSheet addAction:[UIAlertAction actionWithTitle:str(kCountDown) style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
         [self createrTimerWithType:TIMER_COUNTDOWN];
     }]];
 
-    [actionSheet addAction:[UIAlertAction actionWithTitle:@"Clock" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+    [actionSheet addAction:[UIAlertAction actionWithTitle:str(kClock) style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
         
         [self createrTimerWithType:TIMER_CLOCK];
         
@@ -109,11 +111,11 @@ static NSString *identifierSection1 = @"MyTableViewCell1";
 {
     [self.tableControl setEditing: !self.tableControl.editing animated: YES];
     if (self.tableControl.editing) {
-        self.lbEdit.text = @"Done";
+        self.lbEdit.text = str(kDone);
     }
     else
     {
-        self.lbEdit.text = @"Edit";
+        self.lbEdit.text = str(kEdit);
     }
 }
 //section Mes...Mes_groupes
@@ -145,7 +147,7 @@ static NSString *identifierSection1 = @"MyTableViewCell1";
     {
         cell.lbValueTimer.text = [self convertDateToString:dic[@"timer"] withType:[dic[@"type"] intValue]];
     }
-    cell.lbDescription.text = dic[@"description"];
+        cell.lbDescription.text = str(dic[@"description"]) ;
     
     [cell.swOnOff setOn:[dic[@"enabled"] boolValue]];
     [cell.swOnOff addTarget:self action:@selector(switchValueChanged:) forControlEvents:UIControlEventValueChanged];
@@ -244,9 +246,9 @@ static NSString *identifierSection1 = @"MyTableViewCell1";
             return ;
         }
         //show ads
-        [UIAlertView showWithTitle:nil message:@"Watch an ads to enable this timer!"
-                 cancelButtonTitle:@"Cancel"
-                 otherButtonTitles:@[@"OK"]
+        [UIAlertView showWithTitle:str(kCongratulations) message:str(kWatchAdsEnableTimer)
+                 cancelButtonTitle:str(kCancel)
+                 otherButtonTitles:@[str(kuOK)]
                           tapBlock:^(UIAlertView *alertView, NSInteger buttonIndex) {
                               
                               if (buttonIndex == 1) {

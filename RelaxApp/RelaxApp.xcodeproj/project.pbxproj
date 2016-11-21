@@ -30,6 +30,7 @@
 		EB140DB61DB54830006E6FD9 /* ASProgressPopUpView.m in Sources */ = {isa = PBXBuildFile; fileRef = EB140DB21DB54830006E6FD9 /* ASProgressPopUpView.m */; };
 		EB14BA6D1DA16FCA00385759 /* VolumeItem.m in Sources */ = {isa = PBXBuildFile; fileRef = EB14BA6B1DA16FCA00385759 /* VolumeItem.m */; };
 		EB14BA6E1DA16FCA00385759 /* VolumeItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB14BA6C1DA16FCA00385759 /* VolumeItem.xib */; };
+		EB16219F1DE34CD700E16CC6 /* SSTURLShortener.m in Sources */ = {isa = PBXBuildFile; fileRef = EB16219E1DE34CD700E16CC6 /* SSTURLShortener.m */; };
 		EB17B9821DB12B6D007DBFDF /* MCNewCustomLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = EB17B9781DB12B6D007DBFDF /* MCNewCustomLayer.m */; };
 		EB17B9831DB12B6D007DBFDF /* MCNewCustomLayeredView.m in Sources */ = {isa = PBXBuildFile; fileRef = EB17B97A1DB12B6D007DBFDF /* MCNewCustomLayeredView.m */; };
 		EB17B9841DB12B6D007DBFDF /* MCPercentageDoughnutView.m in Sources */ = {isa = PBXBuildFile; fileRef = EB17B97D1DB12B6D007DBFDF /* MCPercentageDoughnutView.m */; };
@@ -111,6 +112,7 @@
 		EB82DDE81DE1F5AC0029D110 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EB82DDE41DE1F5AC0029D110 /* Info.plist */; };
 		EB82DDE91DE1F5AC0029D110 /* iRate.bundle in Resources */ = {isa = PBXBuildFile; fileRef = EB82DDE51DE1F5AC0029D110 /* iRate.bundle */; };
 		EB82DDEA1DE1F5AC0029D110 /* iRate.m in Sources */ = {isa = PBXBuildFile; fileRef = EB82DDE71DE1F5AC0029D110 /* iRate.m */; };
+		EB82DDED1DE1F81E0029D110 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = EB82DDEF1DE1F81E0029D110 /* Localizable.strings */; };
 		EBA0160A1DB6C83700D5477C /* TabVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBA016071DB6C83700D5477C /* TabVC.xib */; };
 		EBA0160B1DB6C83700D5477C /* TabVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EBA016091DB6C83700D5477C /* TabVC.m */; };
 		EBC18F591DA0F508000E00FD /* DownLoadCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = EBC18F581DA0F508000E00FD /* DownLoadCategory.m */; };
@@ -203,6 +205,8 @@
 		EB14BA6A1DA16FCA00385759 /* VolumeItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VolumeItem.h; sourceTree = "<group>"; };
 		EB14BA6B1DA16FCA00385759 /* VolumeItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VolumeItem.m; sourceTree = "<group>"; };
 		EB14BA6C1DA16FCA00385759 /* VolumeItem.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VolumeItem.xib; sourceTree = "<group>"; };
+		EB16219D1DE34CD700E16CC6 /* SSTURLShortener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSTURLShortener.h; sourceTree = "<group>"; };
+		EB16219E1DE34CD700E16CC6 /* SSTURLShortener.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSTURLShortener.m; sourceTree = "<group>"; };
 		EB17B9761DB12B6D007DBFDF /* MCCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCCore.h; sourceTree = "<group>"; };
 		EB17B9771DB12B6D007DBFDF /* MCNewCustomLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCNewCustomLayer.h; sourceTree = "<group>"; };
 		EB17B9781DB12B6D007DBFDF /* MCNewCustomLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCNewCustomLayer.m; sourceTree = "<group>"; };
@@ -330,6 +334,10 @@
 		EB82DDE51DE1F5AC0029D110 /* iRate.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = iRate.bundle; sourceTree = "<group>"; };
 		EB82DDE61DE1F5AC0029D110 /* iRate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iRate.h; sourceTree = "<group>"; };
 		EB82DDE71DE1F5AC0029D110 /* iRate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iRate.m; sourceTree = "<group>"; };
+		EB82DDF01DE1F8250029D110 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		EB82DDF21DE1F8670029D110 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		EB82DDF31DE1F8700029D110 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		EB82DDF41DE1F8910029D110 /* vi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = vi; path = vi.lproj/Localizable.strings; sourceTree = "<group>"; };
 		EBA016071DB6C83700D5477C /* TabVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TabVC.xib; sourceTree = "<group>"; };
 		EBA016081DB6C83700D5477C /* TabVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabVC.h; sourceTree = "<group>"; };
 		EBA016091DB6C83700D5477C /* TabVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabVC.m; sourceTree = "<group>"; };
@@ -492,6 +500,7 @@
 				EBF9B5531DA54CE800F07655 /* TIMER */,
 				EBF9B5551DA54D0500F07655 /* SETTING */,
 				EB11EDD01D9AB24900804D34 /* Assets.xcassets */,
+				EB82DDEF1DE1F81E0029D110 /* Localizable.strings */,
 				EB11EDD51D9AB24900804D34 /* Info.plist */,
 				EB18BD2E1DBE8E7E0087945F /* Podfile */,
 				EBFF08BD1DBFC97800688968 /* GoogleService-Info.plist */,
@@ -580,6 +589,15 @@
 				EB140DB41DB54830006E6FD9 /* ASProgressPopUpView.h */,
 			);
 			name = ASProgressPopUpView;
+			sourceTree = "<group>";
+		};
+		EB1621A01DE34CE100E16CC6 /* BitlyShort */ = {
+			isa = PBXGroup;
+			children = (
+				EB16219D1DE34CD700E16CC6 /* SSTURLShortener.h */,
+				EB16219E1DE34CD700E16CC6 /* SSTURLShortener.m */,
+			);
+			name = BitlyShort;
 			sourceTree = "<group>";
 		};
 		EB17B9871DB12B7D007DBFDF /* PercentageDoughnutView */ = {
@@ -692,6 +710,7 @@
 		EB56B6101DA2C4A3001AFC87 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				EB1621A01DE34CE100E16CC6 /* BitlyShort */,
 				EB82DDE31DE1F5AC0029D110 /* iRate */,
 				EB137BA81DBBD43100DB1EBB /* InAppRage */,
 				EB3B17351DBB270C00B26A10 /* UIAlertView+Blocks.h */,
@@ -984,6 +1003,10 @@
 			knownRegions = (
 				en,
 				Base,
+				de,
+				"zh-Hans",
+				"zh-Hant",
+				vi,
 			);
 			mainGroup = EB11EDB81D9AB24800804D34;
 			productRefGroup = EB11EDC21D9AB24900804D34 /* Products */;
@@ -1035,6 +1058,7 @@
 				EB19A4B01DE1812F00F0A5D4 /* SettingContentCell.xib in Resources */,
 				EB82DDE81DE1F5AC0029D110 /* Info.plist in Resources */,
 				EB3071F51DABE2B6009D90DD /* Roboto-Bold.ttf in Resources */,
+				EB82DDED1DE1F81E0029D110 /* Localizable.strings in Resources */,
 				EB17B98B1DB16B27007DBFDF /* SettingCredit.xib in Resources */,
 				EB3072031DABE2B6009D90DD /* RobotoCondensed-LightItalic.ttf in Resources */,
 				EBFB07B81D9EAD8500AF2569 /* VolumeView.xib in Resources */,
@@ -1182,6 +1206,7 @@
 				EB56B60A1DA2B964001AFC87 /* AHTagTableViewCell.m in Sources */,
 				EBFF14271DA01E4700CA98F1 /* fileenc.c in Sources */,
 				EB0582591D9C0D2200E29C9B /* SpringboardLayout.m in Sources */,
+				EB16219F1DE34CD700E16CC6 /* SSTURLShortener.m in Sources */,
 				EB4C80021DA3FE69003CD3D6 /* NSData+ImageContentType.m in Sources */,
 				EBFF142F1DA01E4700CA98F1 /* unzip.c in Sources */,
 				EB4C800B1DA3FE69003CD3D6 /* UIImage+GIF.m in Sources */,
@@ -1200,6 +1225,17 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		EB82DDEF1DE1F81E0029D110 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EB82DDF01DE1F8250029D110 /* en */,
+				EB82DDF21DE1F8670029D110 /* zh-Hans */,
+				EB82DDF31DE1F8700029D110 /* zh-Hant */,
+				EB82DDF41DE1F8910029D110 /* vi */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		EBFF14651DA04C2800CA98F1 /* IDZAQAudioPlayerViewController.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -1223,6 +1259,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -1274,6 +1311,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";

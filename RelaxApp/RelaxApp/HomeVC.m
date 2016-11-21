@@ -39,6 +39,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    //LAG
+    self.lbVolume.text = str(kuVOLUME);
+    self.lbFavorite.text = str(kuFAVORITE);
+    self.lbTimer.text = str(kuTIMER);
+    self.lbSetting.text = str(kuSETTING);
+
     [self showAds];
     self.imgBackgroundNavigation.backgroundColor = UIColorFromRGB(COLOR_NAVIGATION_HOME);
     self.imgBackGround.backgroundColor = [UIColor whiteColor];
@@ -839,9 +845,9 @@
                      return ;
                  }
                  //show ads
-                 [UIAlertView showWithTitle:nil message:@"Watch an ads to get this sound in 1 days!"
-                          cancelButtonTitle:@"Cancel"
-                          otherButtonTitles:@[@"OK"]
+                 [UIAlertView showWithTitle:str(kWatchOneAdvertisement) message:str(kWatchAnAdsToGetThisSound)
+                          cancelButtonTitle:str(kCancel)
+                          otherButtonTitles:@[str(kuOK)]
                                    tapBlock:^(UIAlertView *alertView, NSInteger buttonIndex) {
                                        
                                        if (buttonIndex == 1) {
@@ -898,10 +904,10 @@
              else
              {
                  if (self.progressView1.hidden == NO) {
-                     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NAME_APP
-                                                                     message:@"Another updating, please wait!"
+                     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:str(kPleaseKeepCalm)
+                                                                     message:str(kAnotherUpdating)
                                                                     delegate:self
-                                                           cancelButtonTitle:@"OK"
+                                                           cancelButtonTitle:str(kuOK)
                                                            otherButtonTitles:nil];
                      [alert show];
                      return;

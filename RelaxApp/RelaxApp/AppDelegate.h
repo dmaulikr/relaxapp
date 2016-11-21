@@ -28,6 +28,6 @@ typedef void (^AIPDelegateCallback)();
 @property(nonatomic, strong) GADInterstitial *interstitial;
 - (void)startNewAds;
 - (void)reloadIAP;
-- (void)shareFavorite:(NSString*)favorite;
+- (void)shareSocial:(NSDictionary*)dicMusic;
 @end
 

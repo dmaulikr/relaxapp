@@ -1,0 +1,89 @@
+/*
+ Localizable.strings
+ RelaxApp
+ 
+ Created by JoJo on 11/20/16.
+ Copyright © 2016 JoJo. All rights reserved.
+ */
+"kCancel" = "取消";
+"kAddToFavorites" = "添加到喜爱";
+"kWriteSomething" = "写些东西...";
+"kSave" = "保存";
+"kuOK" = "好的";
+"kTimer" = "定时器";
+"kPause" = "暂停";
+"kuPLAYWITHFAVORITE" = "打开喜爱列表";
+"kAbout" = "关于";
+"kCredit" = "信誉";
+"kYouLikeApp" = "你喜欢APP么，\n帮我们推广下把";
+"kPrivacy" = "隐私";
+"kCheckNow" = "请验证";
+"kRemoveAds" = "去除广告";
+"kVersion" = "版本";
+"kWatchAdsEnableTimer" = "观看广告后使用定时器";
+"kCopyRight" = "© 2016年Relafapp";
+"kUpdate" = "更新";
+"kCountDown" = "倒计时";
+"kClock" = "时钟";
+"kPremium" = "额外";
+"kPremiumVersionNoAds" = "无广告版本";
+"kManagement" = "管理";
+"kManagementDownloaded" = "下载管理";
+"kRestorePurchased" = "恢复购买";
+"kMailTo" = "发送邮件至";
+"kOurTwitter" = "我们的推特";
+"kOurFanpage" = "我们的主页";
+"kBadNetwork" = "失去连接";
+"kPleaseConnectInternet" = "请连接网络";
+"kAnotherUpdating" = "另一个文件在更新，请您稍候!";
+"kPleaseKeepCalm" = "请您平心静气";
+"kEdit" = "编辑";
+"kuVOLUME" = "音量";
+"kuFAVORITE" = "喜爱";
+"kuTIMER" = "定时器";
+"kuSETTING" = "设置";
+"kWatchAnAdsToGetThisSound" = "观看广告，在一天内可获得此场景音乐";
+"kByClickingOKYouPermit" = "观看广告然后确认您手机下载权限，下载会占用您的一点手机内存哦";
+"kLestTalk" = "请跟我们练习";
+"kBuy" = "更新";
+"kWatchOneAdvertisement" = "观看广告";
+"kCongratulations" = "恭喜！";
+"kFavoCreatedSucessful" = "您已成功建立喜爱的栏目";
+"kTimeCreatedSucessful" = "您已成功建立定时器";
+"kTellUsWhatYouThink" = "告诉我们您的想法";
+"kMessageRate" = "您如何评价RelaF，谢谢您的支持";
+"kAboutUs" = "关于";
+"kBuyWith" = "更新";
+"kFavorite" = "喜爱";
+"kFavorites" = "喜爱的列表";
+"kPlay" = "开始";
+"kPlayWithFavorite" = "打开喜爱列表";
+"kSetting" = "设置";
+"kTimerTyper" = "定时器类型";
+"kVolume" = "音量";
+/*
+ Deficient
+ */
+"kInfoToFavorites" = "Info to favorites";
+"kEditToTavorites" = "Edit to favorites";
+"kSuccess" = "Success";
+"kAdd" = "Add";
+"kPlaying" = "Playing";
+"kuCHOOSETIMER" = "CHOOSE TIMER";
+"kChoosesPause" = "Chooses Pause or Playing";
+"kListFavorites" = "List Favorites";
+"kDone" = "Done";
+"kWatchAdsAavorite" = "Watch an ads to play this favorite";
+"kDownloading" = "Downloading";
+"kDoYouWantUpdate" = "Do you want update something new?";
+"kWatchAdsTime" = "Watch an ads to check update in this time !";
+"kCheckUpdate" = "Check update";
+"kConnectWithUs" = "Connect with us";
+"kProFeatured" = "Pro featured";
+"kUnlockPro" = "Unlock pro featured";
+"kSendFeedback" = "Send us a feedback";
+"kChooseTimerType" = "Choose Timer Type";
+"kOOPS" = "OOPS you are Offline";
+"kNeedConnect" = "You need to connect to Wifi or Mobile data to access data!";
+"kGiveSpecialThanksTo" = "Give special thanks to";
+"kOpenSource" = "Open Source";

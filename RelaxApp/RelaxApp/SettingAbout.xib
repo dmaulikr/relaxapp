@@ -106,7 +106,7 @@
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EI0-aa-v0d">
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k2B-dc-n9l">
-                                            <mutableString key="text">Nowadays, modern life leads to the tension stress. It makes our life becomes more difficult, and no one wants to be pursued by stress.
+                                            <string key="text">Nowadays, modern life leads to the tension stress. It makes our life becomes more difficult, and no one wants to be pursued by stress.
 
 According to a newspaper of the Wall Street Journal, stress causes the decrease in labor productivity, on both obesity and physical inactivity. Moreover, it also makes the bad relationships &amp; come to stress 
 
@@ -121,7 +121,7 @@ Stress can also increase the body's levels of cortisol, chronic as it is dangero
 Childhood Stress also causes heart disease in adulthood. The scientists found that if a person is under stress or psychological trauma in childhood, prone to heart disease later. The cause was interpreted as the tension increases the sensitivity of a hormone that leads to increase blood pressure, which increases the risk of cardiovascular disease later.
 
 Aware of the dangers of stress in your life and it's important that no one can renounce stress life. Relaf was born, we are a team of researching about stress and how to relieve stress in the modern life. Through years of research and find out the methods we realize the music is an indispensable catalyst for human development can prevent stress induced uncontrollable consequences in life. Relaf was born with the aim of being a catalyst for life, bring joys. The application will help you control and minimize the stress everyday, more focus on the job. We will be very happy if you join our fan page at facebook.com/relafapp. One way to encourage us if you notice that you feel comfortable when using.
-</mutableString>
+</string>
                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                             <color key="textColor" red="0.61960784310000006" green="0.61960784310000006" blue="0.61960784310000006" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -172,6 +172,7 @@ Aware of the dangers of stress in your life and it's important that no one can r
             <connections>
                 <outlet property="imgBackGround" destination="a5a-89-HoJ" id="3mR-bM-1Kx"/>
                 <outlet property="imgHeader" destination="ZgW-bg-vTO" id="qWW-Ak-Fza"/>
+                <outlet property="lbTitle" destination="7MJ-JK-GCd" id="34u-aU-fYN"/>
                 <outlet property="vContent" destination="4ik-JB-PoB" id="NxH-LS-cHF"/>
                 <outlet property="vViewNav" destination="034-ae-JVr" id="QBp-kl-hSj"/>
             </connections>

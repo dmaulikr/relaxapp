@@ -91,6 +91,7 @@
             <connections>
                 <outlet property="blurredBgImage" destination="9h3-If-OtD" id="bpz-VE-3rH"/>
                 <outlet property="btnCancel" destination="9d3-dz-Tu1" id="PcQ-uo-Rgx"/>
+                <outlet property="lbDownload" destination="dm8-4C-a5X" id="mUk-xo-1hE"/>
                 <outlet property="percentageDoughnut" destination="uMr-Tb-EsC" id="R1o-vx-R7n"/>
                 <outlet property="viewProgress" destination="Q3L-yg-Xlv" id="RxF-O6-OHr"/>
             </connections>

@@ -29,13 +29,16 @@
     [self.btnCancel.layer setMasksToBounds:YES];
     self.btnCancel.layer.cornerRadius= 23.0;
     self.btnCancel.hidden = YES;
+    //LAG
+    self.lbDownload.text = [NSString stringWithFormat:@"%@%@",str(kDownloading),@"..."];
+
     // Blurred with UIImage+ImageEffects
     //show ads
     areAdsRemoved = VERSION_PRO?1:[[NSUserDefaults standardUserDefaults] boolForKey:kTotalRemoveAdsProductIdentifier];
     if (areAdsRemoved) {
-        [UIAlertView showWithTitle:@"Do you want update something new?" message:@"By Clicking OK you permit the app download and use free storage on your phone"
-                 cancelButtonTitle:@"Cancel"
-                 otherButtonTitles:@[@"OK"]
+        [UIAlertView showWithTitle:str(kWatchOneAdvertisement) message:str(kByClickingOKYouPermit)
+                 cancelButtonTitle:str(kCancel)
+                 otherButtonTitles:@[str(kuOK)]
                           tapBlock:^(UIAlertView *alertView, NSInteger buttonIndex) {
                               
                               if (buttonIndex == 1) {
@@ -57,9 +60,9 @@
             self.btnCancel.hidden = NO;
             return ;
         }
-        [UIAlertView showWithTitle:@"Watch an ads to check update in this time !" message:@"By Clicking OK you permit the app download and use free storage on your phone"
-                 cancelButtonTitle:@"Cancel"
-                 otherButtonTitles:@[@"OK"]
+        [UIAlertView showWithTitle:str(kWatchOneAdvertisement) message:str(kByClickingOKYouPermit)
+                 cancelButtonTitle:str(kCancel)
+                 otherButtonTitles:@[str(kuOK)]
                           tapBlock:^(UIAlertView *alertView, NSInteger buttonIndex) {
                               
                               if (buttonIndex == 1) {
@@ -136,10 +139,10 @@
             [[NSNotificationCenter defaultCenter]postNotificationName:NOTIFCATION_SHOW_ADS object:nil];
             [[NSNotificationCenter defaultCenter]postNotificationName:NOTIFCATION_CATEGORY object:nil];
             
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NAME_APP
-                                                            message:@"Bad network"
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:str(kBadNetwork)
+                                                            message:str(kPleaseConnectInternet)
                                                            delegate:self
-                                                  cancelButtonTitle:@"OK"
+                                                  cancelButtonTitle:kuOK
                                                   otherButtonTitles:nil];
             [alert show];
         }
@@ -148,10 +151,10 @@
         [[NSNotificationCenter defaultCenter]postNotificationName:NOTIFCATION_SHOW_ADS object:nil];
         [[NSNotificationCenter defaultCenter]postNotificationName:NOTIFCATION_CATEGORY object:nil];
         
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NAME_APP
-                                                        message:@"Bad network"
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:str(kBadNetwork)
+                                                        message:str(kPleaseConnectInternet)
                                                        delegate:self
-                                              cancelButtonTitle:@"OK"
+                                              cancelButtonTitle:kuOK
                                               otherButtonTitles:nil];
         [alert show];
     }];

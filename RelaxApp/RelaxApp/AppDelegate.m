@@ -16,6 +16,8 @@
 #import <QuartzCore/QuartzCore.h>
 #import <CoreLocation/CoreLocation.h>
 #import "WelcomeScreenVC.h"
+#import "SSTURLShortener.h"
+
 #if defined(__IPHONE_10_0) && __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_10_0
 @import UserNotifications;
 #endif
@@ -50,6 +52,8 @@
     
     //enable preview mode
     [iRate sharedInstance].previewMode = YES;
+    [iRate sharedInstance].messageTitle = str(kTellUsWhatYouThink);
+    [iRate sharedInstance].message = str(kMessageRate);
 }
 
 
@@ -179,15 +183,6 @@
     }
     
     return YES;
-}
-- (void)shareFavorite:(NSString*)favorite {
-    
-    NSArray * shareItems = @[favorite];
-    
-    UIActivityViewController * avc = [[UIActivityViewController alloc] initWithActivityItems:shareItems applicationActivities:nil];
-    
-    [viewController1 presentViewController:avc animated:YES completion:nil];
-    
 }
 -(void)setCallback:(AppDelegateCallback)callback
 {
@@ -572,6 +567,56 @@ fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
         _callbackDismissAds();
     }
 
+}
+//MARK: - share Socical
+//Share
+- (void)shareSocial:(NSDictionary*)dicMusic {
+    
+    NSMutableString *str = [NSMutableString new];
+    NSArray *arrMusic = dicMusic[@"music"];
+    //relaf://play?1=1,1,20&2,4,20&4,2,8
+    for (NSDictionary *dic in arrMusic) {
+        [str appendString:[NSString stringWithFormat:@"%@=%@,%@&",dic[@"category_id"],dic[@"id"],dic[@"volume"]]];
+    }
+    if (str.length > 0) {
+        NSString *subString = [str substringToIndex:[str length] - 1];
+        NSString *strLink = [NSString stringWithFormat:@"￼http://relafapp.com/play?%@",subString];
+        NSString *codeString = @"\uFFFC";
+        strLink =[strLink stringByReplacingOccurrencesOfString:codeString withString:@""];
+        
+        NSURL *url = [NSURL URLWithString:[self characterTrimming:strLink]];
+        [SSTURLShortener shortenURL:url
+                        accessToken:BITLY_ACCESSTOKEN
+                withCompletionBlock:^(NSURL *shortenedURL, NSError *error) {
+                    [self handleShortenedURL:shortenedURL error:error];
+                }];
+        
+        
+    }
+    
+}
+- (void)handleShortenedURL:(NSURL *)shortenedURL error:(NSError *)error {
+    if (error) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:str(kBadNetwork)
+                                                        message:str(kPleaseConnectInternet)
+                                                       delegate:self
+                                              cancelButtonTitle:kuOK
+                                              otherButtonTitles:nil];
+        [alert show];
+    }
+    else {
+        NSString *message = shortenedURL.absoluteString;
+        NSArray * shareItems = @[message];
+        ///0838999666
+        UIActivityViewController * avc = [[UIActivityViewController alloc] initWithActivityItems:shareItems applicationActivities:nil];
+        
+        [viewController1 presentViewController:avc animated:YES completion:nil];
+        
+    }
+}
+-(NSString *)characterTrimming:(NSString *)str{
+    str = [[str stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    return str;
 }
 
 @end

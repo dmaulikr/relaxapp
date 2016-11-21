@@ -106,6 +106,21 @@
     else
     {
         //NEXT
+        CGRect frame = _scroll_View.frame;
+        frame.origin.x = frame.size.width * (self.pageControl.currentPage+1);
+        frame.origin.y = 0;
+        [_scroll_View scrollRectToVisible:frame animated:YES];
+        
+        self.pageControl.currentPage = (int) self.pageControl.currentPage+1;
+        if (self.pageControl.currentPage == iNumberCollection -1)
+        {
+            [self.btnNext setTitle:@"BEGIN" forState:UIControlStateNormal];
+            
+        }
+        else
+        {
+            [self.btnNext setTitle:@"NEXT" forState:UIControlStateNormal];
+        }
     }
 }
 @end

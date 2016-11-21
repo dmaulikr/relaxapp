@@ -21,5 +21,6 @@
 @property (nonatomic, strong) IBOutlet UIImageView *blurredBgImage;
 @property (strong, nonatomic) IBOutlet MCPercentageDoughnutView *percentageDoughnut;
 @property (nonatomic, strong) IBOutlet UIView *viewProgress;
+@property (strong, nonatomic) IBOutlet UILabel *lbDownload;
 
 @end

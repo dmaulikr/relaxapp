@@ -259,7 +259,7 @@
                 strCover = dicCategory[@"cover"][1][strDevice];
             }
             if (areBuyCategory) {
-                [self.btnDownLoad setTitle:@"Update" forState:UIControlStateNormal];
+                [self.btnDownLoad setTitle:str(kUpdate) forState:UIControlStateNormal];
             }
             else
             {
@@ -270,7 +270,7 @@
                 }
                 else
                 {
-                    [self.btnDownLoad setTitle:@"Update" forState:UIControlStateNormal];
+                    [self.btnDownLoad setTitle:str(kUpdate) forState:UIControlStateNormal];
                 }
             }
         }
@@ -278,7 +278,7 @@
         {
             
             if (areBuyCategory) {
-                [self.btnDownLoad setTitle:@"Update" forState:UIControlStateNormal];
+                [self.btnDownLoad setTitle:str(kUpdate) forState:UIControlStateNormal];
             }
             else
             {
@@ -289,13 +289,13 @@
                     }
                 }
                 if (price) {
-                    [self.btnDownLoad setTitle:@"Buy" forState:UIControlStateNormal];
-                    [self.btnDownLoad setTitle:[NSString stringWithFormat:@"Buy %@%@",@"$",dicCategory[@"price"][@"value"]] forState:UIControlStateNormal];
+                    [self.btnDownLoad setTitle:str(kBuy) forState:UIControlStateNormal];
+                    [self.btnDownLoad setTitle:[NSString stringWithFormat:@"%@ %@%@",str(kBuy),@"$",dicCategory[@"price"][@"value"]] forState:UIControlStateNormal];
                     
                 }
                 else
                 {
-                    [self.btnDownLoad setTitle:@"Update" forState:UIControlStateNormal];
+                    [self.btnDownLoad setTitle:str(kUpdate) forState:UIControlStateNormal];
                 }
             }
             strCover = dicCategory[@"cover"];
@@ -501,7 +501,7 @@
             [[NSUserDefaults standardUserDefaults] setBool:YES forKey:proIdentifier];
             [[NSUserDefaults standardUserDefaults] synchronize];
             areBuyCategory = [[NSUserDefaults standardUserDefaults] boolForKey:proIdentifier];
-            [self.btnDownLoad setTitle:@"Update" forState:UIControlStateNormal];
+            [self.btnDownLoad setTitle:str(kUpdate) forState:UIControlStateNormal];
             [self downloadAction:nil];
         }
     }];

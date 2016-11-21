@@ -28,7 +28,15 @@
     self.lbPause.font = [UIFont fontWithName:@"Roboto-Regular" size:17];
     self.lbChooseTimer.font = [UIFont fontWithName:@"Roboto-Regular" size:13];
     self.lbPlayFavorite.font = [UIFont fontWithName:@"Roboto-Regular" size:13];
+    //LAG
+    self.lbTitle.text = str(kTimer);
+    self.lbAdd.text = str(kAdd);
+    self.lbPause.text = str(kPause);
+    self.lbPlay.text = str(kPlaying);
+    self.lbChooseTimer.text =str(kuCHOOSETIMER);
+    self.lbPlayFavorite.text = str(kuPLAYWITHFAVORITE);
 
+    
     self.imgBackGround.backgroundColor = UIColorFromAlpha(COLOR_NAVIGATION_HOME, 0.8);
     // read cache favorite
     NSString *strPath = [FileHelper pathForApplicationDataFile:FILE_FAVORITE_SAVE];
@@ -37,12 +45,12 @@
     _timeToSetOff.backgroundColor = [UIColor whiteColor];
     if (_timerType == TIMER_COUNTDOWN) {
         _timeToSetOff.datePickerMode =UIDatePickerModeCountDownTimer;
-        self.lbDescription.text = @"Countdown";
+        self.lbDescription.text =str(kCountDown);
     }
     else
     {
         _timeToSetOff.datePickerMode =UIDatePickerModeTime;
-        self.lbDescription.text = @"Clock";
+        self.lbDescription.text = str(kClock);
         
     }
 //    [_timeToSetOff setValue:[UIColor whiteColor] forKey:@"textColor"];
@@ -93,9 +101,9 @@
     if (_tfTitle.text.length > 0) {
         if (statusPlay <= 0) {
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NAME_APP
-                                                            message:@"Chooses Pause or Playing"
+                                                            message:str(kChoosesPause)
                                                            delegate:self
-                                                  cancelButtonTitle:@"OK"
+                                                  cancelButtonTitle:str(kuOK)
                                                   otherButtonTitles:nil];
             [alert show];
             return;
@@ -125,10 +133,10 @@
             [arrSave addObject:dic];
             //save cache
             [arrSave writeToFile:strPath atomically:YES];
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NAME_APP
-                                                            message:@"Success"
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:str(kCongratulations)
+                                                            message:str(kTimeCreatedSucessful)
                                                            delegate:self
-                                                  cancelButtonTitle:@"OK"
+                                                  cancelButtonTitle:str(kuOK)
                                                   otherButtonTitles:nil];
             [alert show];
             [self closeAction:nil];
@@ -142,9 +150,9 @@
     else
     {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NAME_APP
-                                                        message:@"Enter Name"
+                                                        message:str(kEnterName)
                                                        delegate:self
-                                              cancelButtonTitle:@"OK"
+                                              cancelButtonTitle:str(kuOK)
                                               otherButtonTitles:nil];
         [alert show];
 

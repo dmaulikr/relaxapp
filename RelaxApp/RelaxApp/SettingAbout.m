@@ -21,6 +21,7 @@
 {
     [super awakeFromNib];
     self.imgBackGround.backgroundColor = UIColorFromRGB(COLOR_BACKGROUND_FAVORITE);
+    self.lbTitle.text               = str(kAbout);
 
 }
 -(void)setCallback:(SettingAboutCallback)callback

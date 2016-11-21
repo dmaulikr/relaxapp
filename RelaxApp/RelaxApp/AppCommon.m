@@ -43,8 +43,8 @@ static int countNetworkIssue;
         return YES;
     else
     {
-        [UIAlertView showWithTitle:@"OOPS you are Offline" message:@"You need to connect to Wifi or Mobile data to access data!"
-                 cancelButtonTitle:@"OK"
+        [UIAlertView showWithTitle:kOOPS message:str(kNeedConnect)
+                 cancelButtonTitle:str(kuOK)
                  otherButtonTitles:nil
                           tapBlock:^(UIAlertView *alertView, NSInteger buttonIndex) {
                               

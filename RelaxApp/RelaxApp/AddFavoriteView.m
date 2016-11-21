@@ -13,6 +13,12 @@
 -(void)awakeFromNib
 {
     [super awakeFromNib];
+    //LAG
+    self.lbCancel.text = str(kCancel);
+    self.lbTitle.text = str(kAddToFavorites);
+    self.tfTitle.placeholder = str(kWriteSomething);
+    [self.btnSave setTitle:str(kSave) forState:UIControlStateNormal];
+
     self.lbCancel.font = [UIFont fontWithName:@"Roboto-Regular" size:17];
     self.btnSave.titleLabel.font = [UIFont fontWithName:@"Roboto-Regular" size:20];
     [self.vContent.layer setMasksToBounds:YES];
@@ -45,11 +51,11 @@
     if (_modeType == MODE_INFO) {
         _tfTitle.enabled = NO;
         _btnSave.hidden = YES;
-        self.lbTitle.text = @"Info to favorites";
+        self.lbTitle.text =str(kInfoToFavorites);
     }
     else
     {
-        self.lbTitle.text = @"Edit to favorites";
+        self.lbTitle.text = str(kEditToTavorites);
     }
     _tfTitle.text = dicFavorite[@"name"];
     
@@ -90,7 +96,7 @@
     }
     userLanguage = [language substringToIndex:2];
 
-    self.lbTitle.text = @"Add to favorites";
+    self.lbTitle.text = str(kAddToFavorites);
     _dataSource = [NSMutableArray new];
 
     _dataMusic = arr;
@@ -136,10 +142,10 @@
                     [arrSave replaceObjectAtIndex:i withObject:dicSave];
                     [arrSave writeToFile:strPath atomically:YES];
                     [self removeFromSuperview];
-                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NAME_APP
-                                                                    message:@"Success"
+                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:str(kCongratulations)
+                                                                    message:str(kFavoCreatedSucessful)
                                                                    delegate:self
-                                                          cancelButtonTitle:@"OK"
+                                                          cancelButtonTitle:str(kuOK)
                                                           otherButtonTitles:nil];
                     [alert show];
                     if (_callback) {
@@ -166,10 +172,10 @@
             //save cache
             [arrSave writeToFile:strPath atomically:YES];
             [self removeFromSuperview];
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NAME_APP
-                                                            message:@"Success"
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:str(kCongratulations)
+                                                            message:str(kFavoCreatedSucessful)
                                                            delegate:self
-                                                  cancelButtonTitle:@"OK"
+                                                  cancelButtonTitle:str(kuOK)
                                                   otherButtonTitles:nil];
             [alert show];
 
@@ -178,9 +184,9 @@
     else
     {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NAME_APP
-                                                        message:@"Enter Name"
+                                                        message:str(kEnterName)
                                                        delegate:self
-                                              cancelButtonTitle:@"OK"
+                                              cancelButtonTitle:str(kuOK)
                                               otherButtonTitles:nil];
         [alert show];
         

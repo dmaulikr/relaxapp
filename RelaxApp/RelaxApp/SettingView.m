@@ -48,8 +48,8 @@ static NSString *identifierSection2= @"MyTableViewCell2";
     [self.tableControl registerNib:[UINib nibWithNibName:@"SettingContentCell" bundle:nil] forCellReuseIdentifier:identifierSection2];
     self.tableControl.estimatedRowHeight = 44;
     self.lbShare.font = [UIFont fontWithName:@"Roboto-Light" size:20];
-    
-
+    self.lbShare.text = str(kYouLikeApp);
+    self.lbTitle.text =  str(kSetting);
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(caculatorTimeAgo) name: NOTIFCATION_CATEGORY object:nil];
     areAdsRemoved = VERSION_PRO?1:[[NSUserDefaults standardUserDefaults] boolForKey:kTotalRemoveAdsProductIdentifier];
 //    areUnlockPro = [[NSUserDefaults standardUserDefaults] boolForKey:kUnlockProProductIdentifier];
@@ -395,56 +395,56 @@ static NSString *identifierSection2= @"MyTableViewCell2";
 -(void)fnSetData
 {
 
-    NSMutableDictionary *dic1 = [@{@"name": @"Check update",
+    NSMutableDictionary *dic1 = [@{@"name": str(kCheckUpdate),
                                    @"type": @(SETTING_CELL_HEADER)} copy];
 
-    NSMutableDictionary *dic2 = [@{@"name": @"Check now",
+    NSMutableDictionary *dic2 = [@{@"name": str(kCheckNow),
                                    @"desc":@"",
                                    @"type": @(SETTING_CELL_CHECK_NOW)} copy];
     //Preminum
-    NSMutableDictionary *dic3 = [@{@"name": @"Premium",
+    NSMutableDictionary *dic3 = [@{@"name": str(kPremium),
                                    @"type": @(SETTING_CELL_HEADER)} copy];
-    NSMutableDictionary *dic4 = [@{@"name": @"Remove Ads",
+    NSMutableDictionary *dic4 = [@{@"name": str(kRemoveAds),
                                    @"desc":@"$2.99",
                                    @"type": @(SETTING_CELL_CHECK_REMOVE_ADS)} copy];
-    NSMutableDictionary *dic5 = [@{@"name": @"Premium version no Ads",
+    NSMutableDictionary *dic5 = [@{@"name": str(kPremiumVersionNoAds),
                                    @"type": @(SETTING_CELL_CHECK_NO_ADS)} copy];
     //management
-    NSMutableDictionary *dic6 = [@{@"name": @"Management",
+    NSMutableDictionary *dic6 = [@{@"name": str(kManagement),
                                    @"type": @(SETTING_CELL_HEADER)} copy];
 
-    NSMutableDictionary *dic7 = [@{@"name": @"Management downloaded",
+    NSMutableDictionary *dic7 = [@{@"name": str(kManagementDownloaded),
                                    @"type": @(SETTING_CELL_CHECK_DOWLOAD)} copy];
-    NSMutableDictionary *dic8 = [@{@"name": @"Restore purchased",
+    NSMutableDictionary *dic8 = [@{@"name": str(kRestorePurchased),
                                    @"type": @(SETTING_CELL_CHECK_PURCHASED)} copy];
     //let talk with us
-    NSMutableDictionary *dic9 = [@{@"name": @"Let's talk with us",
+    NSMutableDictionary *dic9 = [@{@"name": str(kLestTalk),
                                    @"type": @(SETTING_CELL_HEADER)} copy];
-    NSMutableDictionary *dic10 = [@{@"name": @"Email to",
+    NSMutableDictionary *dic10 = [@{@"name": str(kMailTo),
                                    @"desc":@"support@relafapp.com",
                                    @"type": @(SETTING_CELL_CHECK_MAILTO)} copy];
-    NSMutableDictionary *dic11 = [@{@"name": @"Our twitter",
+    NSMutableDictionary *dic11 = [@{@"name": str(kOurTwitter),
                                    @"desc":@"@relafapp",
                                    @"type": @(SETTING_CELL_CHECK_TWITTER)} copy];
-    NSMutableDictionary *dic12 = [@{@"name": @"Our fanpage",
+    NSMutableDictionary *dic12 = [@{@"name": str(kOurFanpage),
                                     @"desc":@"http://fb.com/relafapp",
                                     @"type": @(SETTING_CELL_CHECK_FANPAGE)} copy];
 //About
-    NSMutableDictionary *dic13 = [@{@"name": @"About",
+    NSMutableDictionary *dic13 = [@{@"name":str(kAbout),
                                    @"type": @(SETTING_CELL_HEADER)} copy];
-    NSMutableDictionary *dic14 = [@{@"name": @"About",
+    NSMutableDictionary *dic14 = [@{@"name": str(kAbout),
                                    @"type": @(SETTING_CELL_CHECK_ABOUT)} copy];
-    NSMutableDictionary *dic15 = [@{@"name": @"Credit",
+    NSMutableDictionary *dic15 = [@{@"name": str(kCredit),
                                    @"type": @(SETTING_CELL_CHECK_CREDIT)} copy];
     NSString *strVersion = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"];
-    NSMutableDictionary *dic16 = [@{@"name": @"Version",
+    NSMutableDictionary *dic16 = [@{@"name": str(kVersion),
                                     @"desc":strVersion?strVersion:@"",
                                    @"type": @(SETTING_CELL_CHECK_VERTION)} copy];
 
-    NSMutableDictionary *dic17 = [@{@"name": @"Privacy",
+    NSMutableDictionary *dic17 = [@{@"name": str(kPrivacy),
                                    @"type": @(SETTING_CELL_CHECK_PRIVACY)} copy];
 //copy right
-    NSMutableDictionary *dic18 = [@{@"name": @"© 2016 by Relafapp",
+    NSMutableDictionary *dic18 = [@{@"name": str(kCopyRight),
                                     @"type": @(SETTING_CELL_COPYRIGHT)} copy];
     [arrData addObject:dic1];
     [arrData addObject:dic2];

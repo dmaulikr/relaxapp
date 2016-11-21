@@ -28,6 +28,7 @@ static NSString *identifierSC2 = @"identifierSC2";
 -(void)awakeFromNib
 {
     [super awakeFromNib];
+    self.lbTitle.text               = str(kCredit);
     [self.tableControl registerNib:[UINib nibWithNibName:@"SettingHeaderCell" bundle:nil] forCellReuseIdentifier:identifierSC1];
     [self.tableControl registerNib:[UINib nibWithNibName:@"SettingContentCell" bundle:nil] forCellReuseIdentifier:identifierSC2];
     self.tableControl.estimatedRowHeight = 44;
@@ -54,14 +55,14 @@ static NSString *identifierSC2 = @"identifierSC2";
 }
 -(void)fnSetData
 {
-    NSMutableDictionary *dic1 = [@{@"name": @"Give special thanks to",
+    NSMutableDictionary *dic1 = [@{@"name": str(kGiveSpecialThanksTo),
                                    @"type": @(SETTING_CELL_HEADER)} copy];
     
     NSMutableDictionary *dic2 = [@{@"name": @"Nguyen Ngoc Anh singer: some sounds in app - fb.com/ngocanhsunflower/"} copy];
     
     NSMutableDictionary *dic3 = [@{@"name": @"Manh Le : IOS Development"} copy];
     
-    NSMutableDictionary *dic4 = [@{@"name": @"Credit",
+    NSMutableDictionary *dic4 = [@{@"name": str(kCredit),
                                    @"type": @(SETTING_CELL_HEADER)} copy];
     
     NSMutableString *strName = [NSMutableString new];
@@ -83,7 +84,7 @@ static NSString *identifierSC2 = @"identifierSC2";
     [strName appendString:@"\nunsplash.com/photos/In5drpv_lml"];
     NSMutableDictionary *dic5 = [@{@"name":strName} copy];
     
-    NSMutableDictionary *dic6 = [@{@"name": @"Open Source",
+    NSMutableDictionary *dic6 = [@{@"name": str(kOpenSource),
                                    @"type": @(SETTING_CELL_HEADER)} copy];
     
     NSMutableDictionary *dic7 = [@{@"name":@"IDZAQAudioPlayer\nAFNetworking\nSSZipArchive\nSDWebImage"} copy];

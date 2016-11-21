@@ -208,8 +208,8 @@ static NSString *identifierMD2 = @"identifierMD2";
             [arrData removeObjectAtIndex:indexPath.row];
             [self.tableControl reloadData];
             
-            [UIAlertView showWithTitle:nil message:@"Success"
-                     cancelButtonTitle:@"OK"
+            [UIAlertView showWithTitle:nil message:str(kSuccess)
+                     cancelButtonTitle:str(kuOK)
                      otherButtonTitles:nil
                               tapBlock:^(UIAlertView *alertView, NSInteger buttonIndex) {
                               }];

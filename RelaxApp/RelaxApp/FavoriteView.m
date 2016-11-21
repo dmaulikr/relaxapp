@@ -27,7 +27,8 @@ static NSString *identifierSection1 = @"MyTableViewCell1";
     self.tableControl.estimatedRowHeight = 60;
     self.tableControl.allowsSelectionDuringEditing = YES;
     self.vViewEdit.hidden = YES;
-    
+    //LAG
+    self.lbTitle.text = str(kListFavorites);
     [self loadCahe];
 }
 -(void)loadCahe
@@ -50,11 +51,11 @@ static NSString *identifierSection1 = @"MyTableViewCell1";
 {
     [self.tableControl setEditing: !self.tableControl.editing animated: YES];
     if (self.tableControl.editing) {
-        self.lbEdit.text = @"Done";
+        self.lbEdit.text = str(kDone);
     }
     else
     {
-        self.lbEdit.text = @"Edit";
+        self.lbEdit.text = str(kEdit);
     }
 }
 //section Mes...Mes_groupes
@@ -81,7 +82,8 @@ static NSString *identifierSection1 = @"MyTableViewCell1";
     [cell fnSetDataWithDicMusic:dicMusic];
     [cell.label setCallback:^(NSDictionary *dicMusic)
      {
-         [self shareSocial:dicMusic];
+         AppDelegate *app = (AppDelegate*)[[UIApplication sharedApplication] delegate];
+         [app shareSocial:dicMusic];
      }];
 //    cell.btnSelect.tag=indexPath.row;
 //    [cell.btnSelect addTarget:self action:@selector(selectCell:) forControlEvents:UIControlEventTouchUpInside];
@@ -131,9 +133,9 @@ static NSString *identifierSection1 = @"MyTableViewCell1";
             if (![COMMON isReachableCheck]) {
                 return ;
             }
-            [UIAlertView showWithTitle:nil message:@"Watch an ads to play this favorite"
-                     cancelButtonTitle:@"Cancel"
-                     otherButtonTitles:@[@"OK"]
+            [UIAlertView showWithTitle:nil message:str(kWatchAdsAavorite)
+                     cancelButtonTitle:str(kCancel)
+                     otherButtonTitles:@[str(kuOK)]
                               tapBlock:^(UIAlertView *alertView, NSInteger buttonIndex) {
                                   
                                   if (buttonIndex == 1) {
@@ -179,25 +181,4 @@ static NSString *identifierSection1 = @"MyTableViewCell1";
         [self loadCahe];
     }
 }
-//Share
-- (void)shareSocial:(NSDictionary*)dicMusic {
-    
-    NSMutableString *str = [NSMutableString new];
-    NSArray *arrMusic = dicMusic[@"music"];
-    //relaf://play?1=1,1,20&2,4,20&4,2,8
-    for (NSDictionary *dic in arrMusic) {
-        [str appendString:[NSString stringWithFormat:@"%@=%@,%@&",dic[@"category_id"],dic[@"id"],dic[@"volume"]]];
-    }
-    if (str.length > 0) {
-       NSString *strLink = [str substringToIndex:[str length] - 1];
-        NSString *message = [NSString stringWithFormat:@"￼http://relafapp.com/play?%@",strLink];
-        NSArray * shareItems = @[message];
-        ///0838999666
-        UIActivityViewController * avc = [[UIActivityViewController alloc] initWithActivityItems:shareItems applicationActivities:nil];
-        
-        [self.parent presentViewController:avc animated:YES completion:nil];
-    }
-    
-}
-
 @end
