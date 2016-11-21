@@ -12,7 +12,9 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="tapandplay" translatesAutoresizingMaskIntoConstraints="NO" id="lmC-o4-58v"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="tapandplay" translatesAutoresizingMaskIntoConstraints="NO" id="lmC-o4-58v">
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="TAP AND PLAY" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NGe-Yb-mkC">
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -23,19 +25,19 @@
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <string key="text">Chỉ cần tap và chơi bản nhạc bạn muốn. Hãy kết hợp những đoạn nhạc với nhau để tạo thành một âm thanh sống động hơn. Dễ tưởng tượng hơn!</string>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="textColor"/>
+                    <color key="textColor" red="0.81568627450980391" green="0.74509803921568629" blue="0.96470588235294119" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="lmC-o4-58v" secondAttribute="trailing" constant="20" id="4cV-v6-WnK"/>
+                <constraint firstAttribute="trailing" secondItem="lmC-o4-58v" secondAttribute="trailing" constant="37" id="4cV-v6-WnK"/>
                 <constraint firstItem="NGe-Yb-mkC" firstAttribute="top" secondItem="lmC-o4-58v" secondAttribute="bottom" constant="20" id="KeJ-JD-PiQ"/>
                 <constraint firstAttribute="trailing" secondItem="dAy-CH-ImA" secondAttribute="trailing" constant="20" id="MRi-kG-TzJ"/>
-                <constraint firstItem="lmC-o4-58v" firstAttribute="leading" secondItem="S35-nv-Bab" secondAttribute="leading" constant="20" id="N4v-wA-bvN"/>
+                <constraint firstItem="lmC-o4-58v" firstAttribute="leading" secondItem="S35-nv-Bab" secondAttribute="leading" constant="37" id="N4v-wA-bvN"/>
                 <constraint firstItem="NGe-Yb-mkC" firstAttribute="leading" secondItem="S35-nv-Bab" secondAttribute="leading" constant="40" id="NsG-C6-L1H"/>
                 <constraint firstAttribute="trailing" secondItem="NGe-Yb-mkC" secondAttribute="trailing" constant="40" id="QhW-tC-BHj"/>
-                <constraint firstAttribute="bottom" secondItem="dAy-CH-ImA" secondAttribute="bottom" constant="20" id="TyG-Tg-Sn7"/>
+                <constraint firstAttribute="bottom" secondItem="dAy-CH-ImA" secondAttribute="bottom" constant="30" id="TyG-Tg-Sn7"/>
                 <constraint firstItem="dAy-CH-ImA" firstAttribute="top" secondItem="NGe-Yb-mkC" secondAttribute="bottom" constant="10" id="Ulp-mL-vhB"/>
                 <constraint firstItem="lmC-o4-58v" firstAttribute="top" secondItem="S35-nv-Bab" secondAttribute="top" constant="20" id="jxA-LA-kRX"/>
                 <constraint firstItem="dAy-CH-ImA" firstAttribute="leading" secondItem="S35-nv-Bab" secondAttribute="leading" constant="20" id="rkg-Qc-1sy"/>

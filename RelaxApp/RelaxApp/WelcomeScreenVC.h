@@ -13,5 +13,7 @@
 @property (nonatomic, strong) IBOutlet UIPageControl *pageControl;
 @property (nonatomic, strong) IBOutlet UIButton *btnNext;
 @property (nonatomic, strong) IBOutlet UIButton *btnSkip;
+@property (nonatomic, strong) IBOutlet UILabel *lbTitle;
+@property (strong, nonatomic) IBOutlet UIImageView *imgBackGround;
 
 @end

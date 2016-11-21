@@ -13,10 +13,15 @@
 {
     [super awakeFromNib];
     self.lbName.font = [UIFont fontWithName:@"Roboto-Regular" size:17];
-    self.lbName.textColor = UIColorFromRGB(COLOR_TEXT_ITEM);
-    self.lbDescription.font = [UIFont fontWithName:@"Roboto-Regular" size:17];
-    self.lbDescription.textColor = UIColorFromRGB(COLOR_TEXT_ITEM);
-
+    self.lbName.textColor = [UIColor whiteColor];
+    self.lbDescription.font = [UIFont fontWithName:@"Roboto-Regular" size:14];
+    self.lbDescription.textColor = UIColorFromRGB(COLOR_WELCOME_SCREEN_DESC);
 }
-
+-(void)fnSetData:(NSDictionary*)dic
+{
+    _dicWS =dic;
+    self.lbName.text = _dicWS[@"name"];
+    self.lbDescription.text = _dicWS[@"desc"];
+    self.imgWS.image = [UIImage imageNamed:_dicWS[@"image"]];
+}
 @end

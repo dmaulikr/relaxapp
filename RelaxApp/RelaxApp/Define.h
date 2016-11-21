@@ -49,7 +49,10 @@
 
 #define COLOR_PAGECONTROL_TINT 0x7C7C7C
 #define COLOR_PAGECONTROL_CURRENT 0xEBEBEB
-
+#define COLOR_WELCOME_SCREEN 0x9770ED
+#define COLOR_WELCOME_SCREEN_PAGECONTROL_TINT 0xAB8DF0
+#define COLOR_WELCOME_SCREEN_PAGECONTROL_CURRENT 0xFFFFFF
+#define COLOR_WELCOME_SCREEN_DESC 0xD0BEF6
 
 #define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 
@@ -219,5 +222,14 @@ typedef enum
 #define kTellUsWhatYouThink @"kTellUsWhatYouThink"
 #define kMessageRate @"kMessageRate"
 #define kSetting @"kSetting"
+
+#define kWSName1 @"kWSName1"
+#define kWSName2 @"kWSName2"
+#define kWSName3 @"kWSName3"
+#define kWSName4 @"kWSName4"
+#define kWSDesc1 @"kWSDesc1"
+#define kWSDesc2 @"kWSDesc2"
+#define kWSDesc3 @"kWSDesc3"
+#define kWSDesc4 @"kWSDesc4"
 
 #endif /* Define_h */

@@ -18,6 +18,8 @@
             <connections>
                 <outlet property="btnNext" destination="oV1-m5-9oK" id="Su6-iC-3Pl"/>
                 <outlet property="btnSkip" destination="9th-D7-BsW" id="ciP-YV-vZt"/>
+                <outlet property="imgBackGround" destination="j1w-lc-vhO" id="Vcp-y7-grU"/>
+                <outlet property="lbTitle" destination="cqE-B4-7w3" id="ved-J9-ZSf"/>
                 <outlet property="pageControl" destination="z6i-FW-0I3" id="IF8-vN-BTj"/>
                 <outlet property="scroll_View" destination="dxK-bA-pc7" id="UUu-yd-5Mn"/>
                 <outlet property="view" destination="xTk-9a-Od3" id="r9X-zH-Hx0"/>
@@ -30,6 +32,13 @@
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mrs-kM-Cdd">
                     <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="j1w-lc-vhO">
+                            <color key="backgroundColor" red="0.6705882353" green="0.43921568630000002" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Relax in the Fantasy" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cqE-B4-7w3">
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                         <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dxK-bA-pc7">
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <connections>
@@ -46,13 +55,13 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KSy-Rn-BHF">
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oV1-m5-9oK">
-                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="45" id="FUJ-Xi-8LL"/>
                                         <constraint firstAttribute="width" constant="152" id="GNQ-0o-It3"/>
                                     </constraints>
                                     <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="17"/>
-                                    <state key="normal" title="NEXT" backgroundImage="ic_btnUpdate"/>
+                                    <state key="normal" title="NEXT"/>
                                     <connections>
                                         <action selector="nextAction:" destination="-1" eventType="touchUpInside" id="2gR-AN-GYe"/>
                                     </connections>
@@ -84,12 +93,19 @@
                     <constraints>
                         <constraint firstItem="z6i-FW-0I3" firstAttribute="leading" secondItem="Mrs-kM-Cdd" secondAttribute="leading" id="0uz-CY-3qw"/>
                         <constraint firstAttribute="trailing" secondItem="dxK-bA-pc7" secondAttribute="trailing" id="1Nn-gT-0Ee"/>
+                        <constraint firstItem="cqE-B4-7w3" firstAttribute="top" secondItem="Mrs-kM-Cdd" secondAttribute="top" constant="39" id="23H-BH-DI2"/>
+                        <constraint firstItem="j1w-lc-vhO" firstAttribute="leading" secondItem="Mrs-kM-Cdd" secondAttribute="leading" id="25I-Pq-ln6"/>
                         <constraint firstAttribute="trailing" secondItem="KSy-Rn-BHF" secondAttribute="trailing" id="4LK-2J-Lbq"/>
                         <constraint firstAttribute="bottom" secondItem="KSy-Rn-BHF" secondAttribute="bottom" id="EgF-ol-uCd"/>
                         <constraint firstItem="dxK-bA-pc7" firstAttribute="leading" secondItem="Mrs-kM-Cdd" secondAttribute="leading" id="V2n-s5-kVV"/>
                         <constraint firstItem="dxK-bA-pc7" firstAttribute="top" secondItem="Mrs-kM-Cdd" secondAttribute="top" id="Vve-j9-G1O"/>
+                        <constraint firstItem="j1w-lc-vhO" firstAttribute="top" secondItem="Mrs-kM-Cdd" secondAttribute="top" id="aHx-X8-usH"/>
+                        <constraint firstAttribute="trailing" secondItem="cqE-B4-7w3" secondAttribute="trailing" constant="10" id="bHd-VE-qjc"/>
                         <constraint firstItem="KSy-Rn-BHF" firstAttribute="top" secondItem="dxK-bA-pc7" secondAttribute="bottom" id="eR6-Xj-ssg"/>
                         <constraint firstAttribute="trailing" secondItem="z6i-FW-0I3" secondAttribute="trailing" id="gld-76-KQJ"/>
+                        <constraint firstItem="cqE-B4-7w3" firstAttribute="leading" secondItem="Mrs-kM-Cdd" secondAttribute="leading" constant="10" id="iKx-Oz-0bw"/>
+                        <constraint firstAttribute="bottom" secondItem="j1w-lc-vhO" secondAttribute="bottom" id="sXT-X1-prb"/>
+                        <constraint firstAttribute="trailing" secondItem="j1w-lc-vhO" secondAttribute="trailing" id="uqn-ex-osf"/>
                         <constraint firstItem="KSy-Rn-BHF" firstAttribute="top" secondItem="z6i-FW-0I3" secondAttribute="bottom" constant="10" id="v0f-mn-05I"/>
                         <constraint firstItem="KSy-Rn-BHF" firstAttribute="leading" secondItem="Mrs-kM-Cdd" secondAttribute="leading" id="xbZ-dw-N4s"/>
                     </constraints>
@@ -106,7 +122,4 @@
             <point key="canvasLocation" x="24.5" y="51.5"/>
         </view>
     </objects>
-    <resources>
-        <image name="ic_btnUpdate" width="456" height="129"/>
-    </resources>
 </document>

@@ -10,8 +10,8 @@
 #import "WSItemView.h"
 @interface WelcomeScreenVC ()
 {
-    int iNumberCollection;
-
+    NSInteger iNumberCollection;
+    NSMutableArray *arrData;
 }
 @end
 
@@ -19,8 +19,21 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    arrData = [NSMutableArray new];
+    [self fnSetData];
     // Do any additional setup after loading the view from its nib.
-    [self.btnSkip setTitleColor:UIColorFromRGB(COLOR_TEXT_ITEM) forState:UIControlStateNormal];
+    self.lbTitle.font = [UIFont fontWithName:@"Roboto-Regular" size:17];
+    self.lbTitle.textColor = [UIColor whiteColor];
+    [self.btnSkip setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    self.pageControl.tintColor = UIColorFromRGB(COLOR_WELCOME_SCREEN_PAGECONTROL_TINT);
+    self.pageControl.currentPageIndicatorTintColor = UIColorFromRGB(COLOR_WELCOME_SCREEN_PAGECONTROL_CURRENT);
+    self.imgBackGround.backgroundColor = UIColorFromRGB(COLOR_WELCOME_SCREEN);
+    
+    [self.btnNext.layer setMasksToBounds:YES];
+    self.btnNext.layer.cornerRadius= 22;
+    [self.btnNext setTitleColor:UIColorFromRGB(COLOR_WELCOME_SCREEN) forState:UIControlStateNormal];
+    self.btnNext.backgroundColor = [UIColor whiteColor];
+
 }
 -(void)viewDidAppear:(BOOL)animated
 {
@@ -31,6 +44,27 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+-(void)fnSetData
+{
+    
+    NSMutableDictionary *dic1 = [@{@"name": str(kWSName1),
+                                   @"desc": str(kWSDesc1),
+                                   @"image": @"ws1"} copy];
+    NSMutableDictionary *dic2 = [@{@"name": str(kWSName2),
+                                   @"desc": str(kWSDesc2),
+                                   @"image": @"ws2"} copy];
+    NSMutableDictionary *dic3 = [@{@"name": str(kWSName3),
+                                   @"desc": str(kWSDesc3),
+                                   @"image": @"ws3"} copy];
+    NSMutableDictionary *dic4 = [@{@"name": str(kWSName4),
+                                   @"desc": str(kWSDesc4),
+                                   @"image": @"ws4"} copy];
+
+    [arrData addObject:dic1];
+    [arrData addObject:dic2];
+    [arrData addObject:dic3];
+    [arrData addObject:dic4];
+}
 
 -(void)addWelcomeScreen
 {
@@ -38,7 +72,7 @@
     for (UIView *view in self.scroll_View.subviews) {
         [view removeFromSuperview];
     }
-    iNumberCollection = 4;
+    iNumberCollection = arrData.count;
     float delta = CGRectGetWidth(self.scroll_View.frame);
     for (int i = 0; i< iNumberCollection; i++) {
         UIView *v =[UIView new];
@@ -46,6 +80,7 @@
         [self.scroll_View addSubview:v];
         WSItemView *view = [[WSItemView alloc] initWithClassName:NSStringFromClass([WSItemView class])];
         [view  addContraintSupview:v];
+        [view fnSetData:arrData[i]];
         [self.scroll_View setContentSize:CGSizeMake(iNumberCollection*delta, CGRectGetHeight(self.scroll_View.frame))];
     }
     
@@ -84,12 +119,13 @@
     self.pageControl.currentPage = (int) currentPage;
     if (currentPage == iNumberCollection -1)
     {
-        [self.btnNext setTitle:@"BEGIN" forState:UIControlStateNormal];
-        
+        [self.btnNext setTitle:@"FINISH" forState:UIControlStateNormal];
+        self.btnSkip.hidden = YES;
     }
     else
     {
         [self.btnNext setTitle:@"NEXT" forState:UIControlStateNormal];
+        self.btnSkip.hidden = NO;
     }
 }
 -(IBAction)closeAction:(id)sender
@@ -114,12 +150,13 @@
         self.pageControl.currentPage = (int) self.pageControl.currentPage+1;
         if (self.pageControl.currentPage == iNumberCollection -1)
         {
-            [self.btnNext setTitle:@"BEGIN" forState:UIControlStateNormal];
-            
+            [self.btnNext setTitle:@"FINISH" forState:UIControlStateNormal];
+            self.btnSkip.hidden = YES;
         }
         else
         {
             [self.btnNext setTitle:@"NEXT" forState:UIControlStateNormal];
+            self.btnSkip.hidden = NO;
         }
     }
 }
