@@ -35,8 +35,8 @@
     self.layer.shadowRadius = 3;
     self.layer.shadowOpacity = 0.4;
 
-    [self.btnDecrease setTitleColor:UIColorFromRGB(COLOR_SLIDER_THUMB) forState:UIControlStateNormal];
-    [self.btnIncrease setTitleColor:UIColorFromRGB(COLOR_SLIDER_THUMB) forState:UIControlStateNormal];
+    [self.btnDecrease setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [self.btnIncrease setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
 
     dicMusic = [NSMutableDictionary new];
 }
@@ -47,26 +47,16 @@
     view.frame = viewSuper.frame;
     
     [viewSuper addSubview:view];
-    [viewSuper addConstraint: [NSLayoutConstraint
-                               constraintWithItem:view attribute:NSLayoutAttributeLeading
-                               relatedBy:NSLayoutRelationEqual
-                               toItem:viewSuper
-                               attribute:NSLayoutAttributeLeading
-                               multiplier:1.0 constant:0] ];
-    
-    
-    [viewSuper addConstraint: [NSLayoutConstraint
-                               constraintWithItem:view attribute:NSLayoutAttributeTrailing
-                               relatedBy:NSLayoutRelationEqual
-                               toItem:viewSuper
-                               attribute:NSLayoutAttributeTrailing
-                               multiplier:1.0 constant:0] ];
+    [viewSuper addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-(3)-[view]-(3)-|"
+                                                                      options:0
+                                                                      metrics:nil
+                                                                        views:NSDictionaryOfVariableBindings(view)]];
     [viewSuper addConstraint: [NSLayoutConstraint
                                constraintWithItem:view attribute:NSLayoutAttributeTop
                                relatedBy:NSLayoutRelationEqual
                                toItem:viewSuper
                                attribute:NSLayoutAttributeTop
-                               multiplier:1.0 constant:0] ];
+                               multiplier:1.0 constant:3] ];
     [self someMethod];
 }
 -(IBAction)decreaseAction:(id)sender

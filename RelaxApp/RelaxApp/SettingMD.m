@@ -30,6 +30,7 @@ static NSString *identifierMD2 = @"identifierMD2";
 -(void)awakeFromNib
 {
     [super awakeFromNib];
+    self.lbEdit.font = [UIFont fontWithName:@"Roboto-Regular" size:17];
     self.imgBackGround.backgroundColor = UIColorFromRGB(COLOR_BACKGROUND_FAVORITE);
     [self.tableControl registerNib:[UINib nibWithNibName:@"SettingHeaderCell" bundle:nil] forCellReuseIdentifier:identifierMD1];
     [self.tableControl registerNib:[UINib nibWithNibName:@"SettingContentCell" bundle:nil] forCellReuseIdentifier:identifierMD2];
@@ -37,23 +38,12 @@ static NSString *identifierMD2 = @"identifierMD2";
     arrData = [NSMutableArray new];
     arrCategory = [NSMutableArray new];
     self.lbTitle.text = @"Management";
-    NSMutableDictionary *dic1 = [@{@"name": @"Management downloaded",
-                                   @"type": @(SETTING_CELL_HEADER)} copy];
-    [arrData addObject:dic1];
+//    NSMutableDictionary *dic1 = [@{@"name": @"Management downloaded",
+//                                   @"type": @(SETTING_CELL_HEADER)} copy];
+//    [arrData addObject:dic1];
     [self loadCache];
     [self.tableControl reloadData];
-//    NSString *path = [self getFullPathWithFileName:dicCategory[@"path"]];
-//    NSFileManager *fileManager = [[NSFileManager alloc] init];
-//    BOOL isDir;
-//    BOOL exists = [fileManager fileExistsAtPath:path isDirectory:&isDir];
-//    if (dicCategory[@"sounds"] && exists) {
-//
-//        
-//        NSString *strPath = [FileHelper pathForApplicationDataFile:FILE_BLACKLIST_CATEGORY_SAVE];
-//        NSArray *blackList = [ NSArray arrayWithContentsOfFile:strPath];
-//        NSMutableArray *arrTmp = [NSMutableArray arrayWithArray:blackList];
-//        [arrTmp addObject:dicCategory[@"id"]];
-//        [arrTmp writeToFile:strPath atomically:YES];
+
 
 
 }
@@ -65,12 +55,24 @@ static NSString *identifierMD2 = @"identifierMD2";
         [arrCategory removeAllObjects];
         //check exist in blacklist
         NSString *strPathBlackList = [FileHelper pathForApplicationDataFile:FILE_BLACKLIST_CATEGORY_SAVE];
-        NSArray *arrBlackList = [NSArray arrayWithContentsOfFile:strPathBlackList];
+        NSArray *arrBL = [NSArray arrayWithContentsOfFile:strPathBlackList];
         
+        NSString *strManagerDownload = [FileHelper pathForApplicationDataFile:FILE_MANAGER_DOWNLOAD_SAVE];
+        NSArray *arrMD = [NSArray arrayWithContentsOfFile:strManagerDownload];
+
+        NSMutableArray *arrFull = [NSMutableArray new];
+        [arrFull addObjectsFromArray:arrBL];
+        [arrFull addObjectsFromArray:arrMD];
         NSArray *arrTmp = dicTmp[@"category"];
         for (NSDictionary *dic in arrTmp) {
-            if (![arrBlackList containsObject:dic[@"id"]]) {
-                [arrCategory addObject:dic];
+            if (![arrFull containsObject:dic[@"id"]]) {
+                NSString *path = [self getFullPathWithFileName:dic[@"path"]];
+                NSFileManager *fileManager = [[NSFileManager alloc] init];
+                BOOL isDir;
+                BOOL exists = [fileManager fileExistsAtPath:path isDirectory:&isDir];
+                if (dic[@"sounds"] && exists) {
+                    [arrCategory addObject:dic];
+                }
             }
         }
     }
@@ -92,6 +94,18 @@ static NSString *identifierMD2 = @"identifierMD2";
     [self removeFromSuperview];
 }
 #pragma mark - TABLEVIEW
+-(IBAction)editingTableViewAction:(id)sender
+{
+    [self.tableControl setEditing: !self.tableControl.editing animated: YES];
+    if (self.tableControl.editing) {
+        self.lbEdit.text = str(kDone);
+    }
+    else
+    {
+        self.lbEdit.text = str(kEdit);
+    }
+}
+
 //section Mes...Mes_groupes
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
@@ -181,41 +195,56 @@ static NSString *identifierMD2 = @"identifierMD2";
 }
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        
-        NSDictionary*dic = arrData[indexPath.row];
-        if (!([dic[@"type"] integerValue] == SETTING_CELL_HEADER)) {
-            NSString *path = [self getFullPathWithFileName:dic[@"path"]];
-            NSFileManager *fileManager = [[NSFileManager alloc] init];
-            BOOL isDir;
-            BOOL exists = [fileManager fileExistsAtPath:path isDirectory:&isDir];
-            if (exists) {
-                
-                NSError *error;
-                BOOL success = [fileManager removeItemAtPath:path error:&error];
-                BOOL success2 = [fileManager removeItemAtPath:[NSString stringWithFormat:@"%@.zip",path] error:&error];
+        [UIAlertView showWithTitle:nil message:str(kSureDelete)
+                 cancelButtonTitle:str(kCancel)
+                 otherButtonTitles:@[str(kuOK)]
+                          tapBlock:^(UIAlertView *alertView, NSInteger buttonIndex) {
+                              
+                              if (buttonIndex == 1) {
+                                  //OK button handler
+                                  NSDictionary*dic = arrData[indexPath.row];
+                                  if (!([dic[@"type"] integerValue] == SETTING_CELL_HEADER)) {
+                                      NSString *path = [self getFullPathWithFileName:dic[@"path"]];
+                                      NSFileManager *fileManager = [[NSFileManager alloc] init];
+                                      BOOL isDir;
+                                      BOOL exists = [fileManager fileExistsAtPath:path isDirectory:&isDir];
+                                      if (exists) {
+                                          
+                                          NSError *error;
+                                          BOOL success = [fileManager removeItemAtPath:path error:&error];
+                                          BOOL success2 = [fileManager removeItemAtPath:[NSString stringWithFormat:@"%@.zip",path] error:&error];
+                                          
+                                          if (!(success && success2)) {
+                                              NSLog(@"Could not delete file -:%@ ",[error localizedDescription]);
+                                              
+                                          }
+                                          
+                                      }
+                                      NSString *strPath = [FileHelper pathForApplicationDataFile:FILE_MANAGER_DOWNLOAD_SAVE];
+                                      NSArray *blackList = [ NSArray arrayWithContentsOfFile:strPath];
+                                      NSMutableArray *arrTmp = [NSMutableArray arrayWithArray:blackList];
+                                      [arrTmp addObject:dic[@"id"]];
+                                      [arrTmp writeToFile:strPath atomically:YES];
+                                      [arrData removeObjectAtIndex:indexPath.row];
+                                      [self.tableControl reloadData];
+                                      
+                                      [UIAlertView showWithTitle:nil message:str(kSuccess)
+                                               cancelButtonTitle:str(kuOK)
+                                               otherButtonTitles:nil
+                                                        tapBlock:^(UIAlertView *alertView, NSInteger buttonIndex) {
+                                                        }];
+                                      [[NSNotificationCenter defaultCenter]postNotificationName:NOTIFCATION_CATEGORY object:nil];
+                                      
+                                  }
+                              }
+                              else
+                              {
+                                  //Cancel button handler
+                                  
+                              }
+                          }];
 
-                if (!(success && success2)) {
-                    NSLog(@"Could not delete file -:%@ ",[error localizedDescription]);
 
-                }
-
-            }
-            NSString *strPath = [FileHelper pathForApplicationDataFile:FILE_BLACKLIST_CATEGORY_SAVE];
-            NSArray *blackList = [ NSArray arrayWithContentsOfFile:strPath];
-            NSMutableArray *arrTmp = [NSMutableArray arrayWithArray:blackList];
-            [arrTmp addObject:dic[@"id"]];
-            [arrTmp writeToFile:strPath atomically:YES];
-            [arrData removeObjectAtIndex:indexPath.row];
-            [self.tableControl reloadData];
-            
-            [UIAlertView showWithTitle:nil message:str(kSuccess)
-                     cancelButtonTitle:str(kuOK)
-                     otherButtonTitles:nil
-                              tapBlock:^(UIAlertView *alertView, NSInteger buttonIndex) {
-                              }];
-            [[NSNotificationCenter defaultCenter]postNotificationName:NOTIFCATION_CATEGORY object:nil];
-
-        }
     }
 }
 

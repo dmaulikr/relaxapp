@@ -51,7 +51,7 @@
     [iRate sharedInstance].onlyPromptIfLatestVersion = NO;
     
     //enable preview mode
-    [iRate sharedInstance].previewMode = YES;
+//    [iRate sharedInstance].previewMode = YES;
     [iRate sharedInstance].messageTitle = str(kTellUsWhatYouThink);
     [iRate sharedInstance].message = str(kMessageRate);
 }
@@ -172,7 +172,16 @@
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url
   sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
 {
-    if([[url scheme] isEqualToString:schemeName])
+    NSString *strRoot = @"";
+    if (VERSION_PRO) {
+        strRoot = @"relaf";
+    }
+    else
+    {
+        strRoot = @"relafree";
+    }
+
+    if([[url scheme] isEqualToString:strRoot])
     {
         NSLog(@"Calling Application Bundle ID: %@", sourceApplication);
         NSLog(@"URL scheme:%@", [url scheme]);
@@ -580,7 +589,15 @@ fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
     }
     if (str.length > 0) {
         NSString *subString = [str substringToIndex:[str length] - 1];
-        NSString *strLink = [NSString stringWithFormat:@"￼http://relafapp.com/play?%@",subString];
+        NSString *strRoot = @"";
+        if (VERSION_PRO) {
+            strRoot = @"http://relafapp.com/play?";
+        }
+        else
+        {
+            strRoot = @"https://www.relafapp.com/fplay?";
+        }
+        NSString *strLink = [NSString stringWithFormat:@"￼%@%@",strRoot,subString];
         NSString *codeString = @"\uFFFC";
         strLink =[strLink stringByReplacingOccurrencesOfString:codeString withString:@""];
         

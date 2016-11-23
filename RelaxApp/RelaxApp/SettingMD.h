@@ -15,5 +15,6 @@ typedef void (^SettingCreditCallback)();
 @property (nonatomic, strong) IBOutlet UIView *vViewNav;
 @property (nonatomic, strong) IBOutlet UIView *vContent;
 @property (nonatomic,copy) SettingCreditCallback callback;
+@property (strong, nonatomic) IBOutlet UILabel *lbEdit;
 
 @end

@@ -24,9 +24,9 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="7jd-fp-JT8" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="FWI-hG-Th3"/>
-                    <constraint firstItem="7jd-fp-JT8" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="10" id="Wcl-2M-7Uv"/>
+                    <constraint firstItem="7jd-fp-JT8" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="15" id="Wcl-2M-7Uv"/>
                     <constraint firstAttribute="trailing" secondItem="7jd-fp-JT8" secondAttribute="trailing" constant="10" id="j62-7t-XLb"/>
-                    <constraint firstAttribute="bottom" secondItem="7jd-fp-JT8" secondAttribute="bottom" constant="5" id="z8h-nr-4Un"/>
+                    <constraint firstAttribute="bottom" secondItem="7jd-fp-JT8" secondAttribute="bottom" constant="10" id="z8h-nr-4Un"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>

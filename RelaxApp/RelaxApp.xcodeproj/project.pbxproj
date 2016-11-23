@@ -13,6 +13,8 @@
 		EB06D40C1DE153AA00C20784 /* WelcomeScreenVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB06D40A1DE153AA00C20784 /* WelcomeScreenVC.xib */; };
 		EB06D40F1DE1556F00C20784 /* WSItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = EB06D40E1DE1556F00C20784 /* WSItemView.m */; };
 		EB06D4111DE1558700C20784 /* WSItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB06D4101DE1558700C20784 /* WSItemView.xib */; };
+		EB0719B51DE607730050E0F9 /* SettingShareSocialCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EB0719B31DE607730050E0F9 /* SettingShareSocialCell.m */; };
+		EB0719B61DE607730050E0F9 /* SettingShareSocialCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB0719B41DE607730050E0F9 /* SettingShareSocialCell.xib */; };
 		EB11EDC61D9AB24900804D34 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EB11EDC51D9AB24900804D34 /* main.m */; };
 		EB11EDC91D9AB24900804D34 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EB11EDC81D9AB24900804D34 /* AppDelegate.m */; };
 		EB11EDD11D9AB24900804D34 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB11EDD01D9AB24900804D34 /* Assets.xcassets */; };
@@ -173,6 +175,9 @@
 		EB06D40D1DE1556F00C20784 /* WSItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSItemView.h; sourceTree = "<group>"; };
 		EB06D40E1DE1556F00C20784 /* WSItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSItemView.m; sourceTree = "<group>"; };
 		EB06D4101DE1558700C20784 /* WSItemView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WSItemView.xib; sourceTree = "<group>"; };
+		EB0719B21DE607730050E0F9 /* SettingShareSocialCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingShareSocialCell.h; sourceTree = "<group>"; };
+		EB0719B31DE607730050E0F9 /* SettingShareSocialCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingShareSocialCell.m; sourceTree = "<group>"; };
+		EB0719B41DE607730050E0F9 /* SettingShareSocialCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingShareSocialCell.xib; sourceTree = "<group>"; };
 		EB11EDC11D9AB24900804D34 /* RelaxApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RelaxApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB11EDC51D9AB24900804D34 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		EB11EDC71D9AB24900804D34 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -838,6 +843,9 @@
 				EB19A4AC1DE1812F00F0A5D4 /* SettingContentCell.h */,
 				EB19A4AD1DE1812F00F0A5D4 /* SettingContentCell.m */,
 				EB19A4AE1DE1812F00F0A5D4 /* SettingContentCell.xib */,
+				EB0719B21DE607730050E0F9 /* SettingShareSocialCell.h */,
+				EB0719B31DE607730050E0F9 /* SettingShareSocialCell.m */,
+				EB0719B41DE607730050E0F9 /* SettingShareSocialCell.xib */,
 				EB19A4B41DE19C7B00F0A5D4 /* SettingMD.h */,
 				EB19A4B51DE19C7B00F0A5D4 /* SettingMD.m */,
 				EB19A4B61DE19C7B00F0A5D4 /* SettingMD.xib */,
@@ -1058,6 +1066,7 @@
 				EB19A4B01DE1812F00F0A5D4 /* SettingContentCell.xib in Resources */,
 				EB82DDE81DE1F5AC0029D110 /* Info.plist in Resources */,
 				EB3071F51DABE2B6009D90DD /* Roboto-Bold.ttf in Resources */,
+				EB0719B61DE607730050E0F9 /* SettingShareSocialCell.xib in Resources */,
 				EB82DDED1DE1F81E0029D110 /* Localizable.strings in Resources */,
 				EB17B98B1DB16B27007DBFDF /* SettingCredit.xib in Resources */,
 				EB3072031DABE2B6009D90DD /* RobotoCondensed-LightItalic.ttf in Resources */,
@@ -1168,6 +1177,7 @@
 				EB4C80091DA3FE69003CD3D6 /* SDWebImagePrefetcher.m in Sources */,
 				EB605EC61DD0D37D007802A1 /* AppCommon.m in Sources */,
 				EB17B9851DB12B6D007DBFDF /* MCSliceLayer.m in Sources */,
+				EB0719B51DE607730050E0F9 /* SettingShareSocialCell.m in Sources */,
 				EB4C800F1DA3FE69003CD3D6 /* UIView+WebCacheOperation.m in Sources */,
 				EBFF13B91DA00E1700CA98F1 /* AFSecurityPolicy.m in Sources */,
 				EB56B60C1DA2B964001AFC87 /* AHTagView.m in Sources */,

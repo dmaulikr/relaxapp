@@ -151,12 +151,18 @@
     if (dicTmp) {
         [arrCategory removeAllObjects];
         //check exist in blacklist
+        NSString *strPathMD = [FileHelper pathForApplicationDataFile:FILE_MANAGER_DOWNLOAD_SAVE];
+        NSArray *arrMD = [NSArray arrayWithContentsOfFile:strPathMD];
+
         NSString *strPathBlackList = [FileHelper pathForApplicationDataFile:FILE_BLACKLIST_CATEGORY_SAVE];
         NSArray *arrBlackList = [NSArray arrayWithContentsOfFile:strPathBlackList];
+        NSMutableArray *arrFull = [NSMutableArray new];
+        [arrFull addObjectsFromArray:arrMD];
+        [arrFull addObjectsFromArray:arrBlackList];
         
         NSArray *arrTmp = dicTmp[@"category"];
         for (NSDictionary *dic in arrTmp) {
-            if (![arrBlackList containsObject:dic[@"id"]]) {
+            if (![arrFull containsObject:dic[@"id"]]) {
                 [arrCategory addObject:dic];
             }
         }
@@ -240,12 +246,18 @@
             //free
             [arrCategory removeAllObjects];
             //check exist in blacklist
+            NSString *strPathMD = [FileHelper pathForApplicationDataFile:FILE_MANAGER_DOWNLOAD_SAVE];
+            NSArray *arrMD = [NSArray arrayWithContentsOfFile:strPathMD];
+            
             NSString *strPathBlackList = [FileHelper pathForApplicationDataFile:FILE_BLACKLIST_CATEGORY_SAVE];
             NSArray *arrBlackList = [NSArray arrayWithContentsOfFile:strPathBlackList];
+            NSMutableArray *arrFull = [NSMutableArray new];
+            [arrFull addObjectsFromArray:arrMD];
+            [arrFull addObjectsFromArray:arrBlackList];
             
             NSMutableArray *arrTmp = [NSMutableArray new];
             for (NSDictionary *dic in responseObject[@"categories"]) {
-                if (![arrBlackList containsObject:dic[@"id"]]) {
+                if (![arrFull containsObject:dic[@"id"]]) {
                     [arrTmp addObject:dic];
                 }
                 

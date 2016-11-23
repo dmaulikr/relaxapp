@@ -18,6 +18,7 @@ typedef void (^DismissCallback)();
 @property (nonatomic, strong) IBOutlet UIButton *btnDecrease;
 @property (nonatomic, strong) IBOutlet UIButton *btnIncrease;
 @property (nonatomic, strong) IBOutlet UIImageView *vBackGround;
+@property (nonatomic, strong) IBOutlet UIImageView *vline;
 -(void)addContraintSupview:(UIView*)viewSuper;
 -(instancetype)initWithClassName:(NSString*)className;
 @property (nonatomic,copy) VolumeViewCallback callback;

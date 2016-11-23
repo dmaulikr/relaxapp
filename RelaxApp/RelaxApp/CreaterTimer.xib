@@ -137,6 +137,31 @@
                                 <constraint firstAttribute="height" constant="1" id="B3m-aE-Gv1"/>
                             </constraints>
                         </imageView>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZRy-NZ-23p">
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CHOOSE TIMER" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5ZP-Fw-xU9">
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <color key="textColor" red="0.42745098039215684" green="0.42745098039215684" blue="0.44705882352941173" alpha="0.5" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.93725490196078431" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="30" id="8aP-s0-8lh"/>
+                                <constraint firstAttribute="trailing" secondItem="5ZP-Fw-xU9" secondAttribute="trailing" constant="8" id="QFJ-2Y-0Ad"/>
+                                <constraint firstItem="5ZP-Fw-xU9" firstAttribute="centerY" secondItem="ZRy-NZ-23p" secondAttribute="centerY" id="bgb-dv-qus"/>
+                                <constraint firstItem="5ZP-Fw-xU9" firstAttribute="leading" secondItem="ZRy-NZ-23p" secondAttribute="leading" constant="45" id="qpF-sJ-oLS"/>
+                            </constraints>
+                        </view>
+                        <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="countDownTimer" minuteInterval="1" useCurrentDate="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5hO-oY-jsh">
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="100" id="qXW-ra-iVW"/>
+                            </constraints>
+                            <date key="date" timeIntervalSinceReferenceDate="497260186.82157701">
+                                <!--2016-10-04 07:49:46 +0000-->
+                            </date>
+                        </datePicker>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i2N-Zj-63b">
                             <subviews>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Checkmark" translatesAutoresizingMaskIntoConstraints="NO" id="Seh-bG-Tob">
@@ -219,41 +244,6 @@
                                 <constraint firstItem="Dsk-tW-5pE" firstAttribute="centerY" secondItem="E6t-Ec-yBY" secondAttribute="centerY" id="wRG-O2-Sy4"/>
                             </constraints>
                         </view>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZRy-NZ-23p">
-                            <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CHOOSE TIMER" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5ZP-Fw-xU9">
-                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                    <color key="textColor" red="0.42745098039215684" green="0.42745098039215684" blue="0.44705882352941173" alpha="0.5" colorSpace="calibratedRGB"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
-                            </subviews>
-                            <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.93725490196078431" alpha="1" colorSpace="calibratedRGB"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="30" id="8aP-s0-8lh"/>
-                                <constraint firstAttribute="trailing" secondItem="5ZP-Fw-xU9" secondAttribute="trailing" constant="8" id="QFJ-2Y-0Ad"/>
-                                <constraint firstItem="5ZP-Fw-xU9" firstAttribute="centerY" secondItem="ZRy-NZ-23p" secondAttribute="centerY" id="bgb-dv-qus"/>
-                                <constraint firstItem="5ZP-Fw-xU9" firstAttribute="leading" secondItem="ZRy-NZ-23p" secondAttribute="leading" constant="45" id="qpF-sJ-oLS"/>
-                            </constraints>
-                        </view>
-                        <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="countDownTimer" minuteInterval="1" useCurrentDate="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5hO-oY-jsh">
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="100" id="qXW-ra-iVW"/>
-                            </constraints>
-                            <date key="date" timeIntervalSinceReferenceDate="497260186.82157701">
-                                <!--2016-10-04 07:49:46 +0000-->
-                            </date>
-                        </datePicker>
-                        <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W2P-Yx-0o0">
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="100" id="Ndo-Tx-Gaf"/>
-                            </constraints>
-                            <connections>
-                                <outlet property="dataSource" destination="-1" id="Tyo-1i-TTL"/>
-                                <outlet property="delegate" destination="-1" id="kQi-GW-0qz"/>
-                            </connections>
-                        </pickerView>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Yv-To-Xhy">
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PLAY WITH FAVORITE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mBW-xU-2Yi">
@@ -270,6 +260,16 @@
                                 <constraint firstAttribute="trailing" secondItem="mBW-xU-2Yi" secondAttribute="trailing" constant="27" id="pcZ-EG-hER"/>
                             </constraints>
                         </view>
+                        <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W2P-Yx-0o0">
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="100" id="Ndo-Tx-Gaf"/>
+                            </constraints>
+                            <connections>
+                                <outlet property="dataSource" destination="-1" id="Tyo-1i-TTL"/>
+                                <outlet property="delegate" destination="-1" id="kQi-GW-0qz"/>
+                            </connections>
+                        </pickerView>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
@@ -290,20 +290,20 @@
                         <constraint firstItem="jx6-9a-Inr" firstAttribute="top" secondItem="034-ae-JVr" secondAttribute="bottom" constant="10" id="KYc-BK-YC1"/>
                         <constraint firstItem="E6t-Ec-yBY" firstAttribute="top" secondItem="i2N-Zj-63b" secondAttribute="bottom" constant="10" id="Kgn-eA-cDk"/>
                         <constraint firstItem="vKg-p9-Jbe" firstAttribute="top" secondItem="jx6-9a-Inr" secondAttribute="bottom" constant="10" id="Lar-wM-CJI"/>
+                        <constraint firstItem="9Yv-To-Xhy" firstAttribute="top" secondItem="E6t-Ec-yBY" secondAttribute="bottom" constant="10" id="ROH-QB-Q1e"/>
                         <constraint firstItem="mXt-ae-FDg" firstAttribute="top" secondItem="4ik-JB-PoB" secondAttribute="top" id="Snr-hW-f1E"/>
                         <constraint firstItem="mXt-ae-FDg" firstAttribute="leading" secondItem="4ik-JB-PoB" secondAttribute="leading" id="b8C-65-ieJ"/>
                         <constraint firstAttribute="trailing" secondItem="W2P-Yx-0o0" secondAttribute="trailing" id="bA1-ej-YsO"/>
+                        <constraint firstItem="i2N-Zj-63b" firstAttribute="top" secondItem="5hO-oY-jsh" secondAttribute="bottom" constant="10" id="cVo-Lx-6lo"/>
                         <constraint firstItem="034-ae-JVr" firstAttribute="leading" secondItem="4ik-JB-PoB" secondAttribute="leading" id="dMa-FK-ikB"/>
                         <constraint firstAttribute="trailing" secondItem="vKg-p9-Jbe" secondAttribute="trailing" constant="50" id="dVn-hO-LOz"/>
                         <constraint firstItem="VGf-SY-VIz" firstAttribute="trailing" secondItem="vKg-p9-Jbe" secondAttribute="trailing" id="eCh-Af-bO7"/>
                         <constraint firstItem="VGf-SY-VIz" firstAttribute="leading" secondItem="vKg-p9-Jbe" secondAttribute="leading" id="hrO-0p-IZ8"/>
-                        <constraint firstItem="ZRy-NZ-23p" firstAttribute="top" secondItem="E6t-Ec-yBY" secondAttribute="bottom" constant="10" id="i2t-9p-Ctb"/>
                         <constraint firstAttribute="bottom" secondItem="W2P-Yx-0o0" secondAttribute="bottom" id="kgv-wJ-rFL"/>
                         <constraint firstItem="5hO-oY-jsh" firstAttribute="leading" secondItem="4ik-JB-PoB" secondAttribute="leading" id="lKd-qm-7Ye"/>
                         <constraint firstItem="5hO-oY-jsh" firstAttribute="top" secondItem="ZRy-NZ-23p" secondAttribute="bottom" id="nPJ-ca-fLV"/>
                         <constraint firstAttribute="bottom" secondItem="mXt-ae-FDg" secondAttribute="bottom" id="pRH-h1-hca"/>
                         <constraint firstItem="034-ae-JVr" firstAttribute="top" secondItem="4ik-JB-PoB" secondAttribute="top" id="rgc-73-Onx"/>
-                        <constraint firstItem="9Yv-To-Xhy" firstAttribute="top" secondItem="5hO-oY-jsh" secondAttribute="bottom" id="rw2-Bg-Ynr"/>
                         <constraint firstItem="vKg-p9-Jbe" firstAttribute="leading" secondItem="4ik-JB-PoB" secondAttribute="leading" constant="50" id="uBM-hp-Tar"/>
                         <constraint firstItem="i2N-Zj-63b" firstAttribute="leading" secondItem="4ik-JB-PoB" secondAttribute="leading" id="xDa-Zs-RmD"/>
                     </constraints>

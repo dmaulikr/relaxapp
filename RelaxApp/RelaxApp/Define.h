@@ -30,6 +30,7 @@
 #define strNewVertionAvailale @"strNewVertionAvailale"
 #define COLOR_SLIDER_THUMB 0x9A6FE9
 #define COLOR_SLIDER_MAX 0xC7C7C7
+#define COLOR_VOLUME_TOTAL_SLIDER_THUMB 0x50E3C2
 
 #define COLOR_NAVIGATION_HOME 0x9A6FE9
 #define COLOR_PAGE_ACTIVE 0x9013FE
@@ -65,6 +66,7 @@
 #define FILE_BLACKLIST_CATEGORY_SAVE @"BACLIST_CATEGORY.save"
 #define FILE_HISTORY_VOLUME_SAVE @"HISTORY_VOLUME.save"
 #define FILE_HISTORY_SHOW_ADS_SAVE @"HISTORY_SHOW_ADS.save"
+#define FILE_MANAGER_DOWNLOAD_SAVE @"MANAGER_DOWNLOAD.save"
 
 #define NOTIFCATION_TIMER @"NOTIFICATION_TIMER"
 #define NOTIFCATION_CATEGORY @"NOTIFCATION_CATEGORY"
@@ -145,6 +147,7 @@ typedef enum
     SETTING_CELL_CHECK_CREDIT,
     SETTING_CELL_CHECK_VERTION,
     SETTING_CELL_CHECK_PRIVACY,
+    SETTING_CELL_SHARE_SOCIAL,
 }SETTING_CELL_TYPE;
 
 //LANGUAG
@@ -222,6 +225,8 @@ typedef enum
 #define kTellUsWhatYouThink @"kTellUsWhatYouThink"
 #define kMessageRate @"kMessageRate"
 #define kSetting @"kSetting"
+#define kTypeAnything @"kTypeAnything"
+#define kSureDelete @"kSureDelete"
 
 #define kWSName1 @"kWSName1"
 #define kWSName2 @"kWSName2"

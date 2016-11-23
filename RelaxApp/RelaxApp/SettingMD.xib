@@ -9,6 +9,9 @@
         <array key="Roboto-Medium.ttf">
             <string>Roboto-Medium</string>
         </array>
+        <array key="Roboto-Regular.ttf">
+            <string>Roboto-Regular</string>
+        </array>
     </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SettingAbout"/>
@@ -28,12 +31,22 @@
                                     <subviews>
                                         <button opaque="NO" tag="10" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="soc-y7-cIQ">
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            <connections>
+                                                <action selector="editingTableViewAction:" destination="Tmx-vs-DOj" eventType="touchUpInside" id="jYl-2X-9Ze"/>
+                                            </connections>
                                         </button>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Edit" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ts0-P1-Q44">
+                                            <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <constraints>
                                         <constraint firstItem="soc-y7-cIQ" firstAttribute="top" secondItem="LBd-3H-hGx" secondAttribute="top" id="B1c-Zf-JSi"/>
                                         <constraint firstAttribute="bottom" secondItem="soc-y7-cIQ" secondAttribute="bottom" id="GKT-Px-tZK"/>
+                                        <constraint firstItem="ts0-P1-Q44" firstAttribute="leading" secondItem="LBd-3H-hGx" secondAttribute="leading" constant="30" id="OjL-pL-Ruj"/>
+                                        <constraint firstItem="ts0-P1-Q44" firstAttribute="top" secondItem="LBd-3H-hGx" secondAttribute="top" constant="28" id="TXs-iJ-zw6"/>
                                         <constraint firstAttribute="width" constant="70" id="a2H-KX-VPE"/>
                                         <constraint firstAttribute="trailing" secondItem="soc-y7-cIQ" secondAttribute="trailing" id="giX-QZ-no6"/>
                                         <constraint firstItem="soc-y7-cIQ" firstAttribute="leading" secondItem="LBd-3H-hGx" secondAttribute="leading" id="gno-C9-yOL"/>
@@ -135,6 +148,7 @@
             <connections>
                 <outlet property="imgBackGround" destination="a5a-89-HoJ" id="3mR-bM-1Kx"/>
                 <outlet property="imgHeader" destination="ZgW-bg-vTO" id="qWW-Ak-Fza"/>
+                <outlet property="lbEdit" destination="ts0-P1-Q44" id="K4m-1Q-ScM"/>
                 <outlet property="lbTitle" destination="7MJ-JK-GCd" id="uaf-3Z-VNi"/>
                 <outlet property="tableControl" destination="ram-0n-poI" id="QfT-Vq-oXP"/>
                 <outlet property="vContent" destination="4ik-JB-PoB" id="NxH-LS-cHF"/>

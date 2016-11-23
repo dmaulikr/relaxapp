@@ -24,8 +24,10 @@
 #import "SettingHeaderCell.h"
 #import "SettingContentCell.h"
 #import "SettingMD.h"
+#import "SettingShareSocialCell.h"
 static NSString *identifierSection1 = @"MyTableViewCell1";
 static NSString *identifierSection2= @"MyTableViewCell2";
+static NSString *identifierSection3= @"MyTableViewCell3";
 
 @interface SettingView () <MFMailComposeViewControllerDelegate>
 {
@@ -46,6 +48,8 @@ static NSString *identifierSection2= @"MyTableViewCell2";
     [self fnSetData];
     [self.tableControl registerNib:[UINib nibWithNibName:@"SettingHeaderCell" bundle:nil] forCellReuseIdentifier:identifierSection1];
     [self.tableControl registerNib:[UINib nibWithNibName:@"SettingContentCell" bundle:nil] forCellReuseIdentifier:identifierSection2];
+    [self.tableControl registerNib:[UINib nibWithNibName:@"SettingShareSocialCell" bundle:nil] forCellReuseIdentifier:identifierSection3];
+
     self.tableControl.estimatedRowHeight = 44;
     self.lbShare.font = [UIFont fontWithName:@"Roboto-Light" size:20];
     self.lbShare.text = str(kYouLikeApp);
@@ -446,13 +450,16 @@ static NSString *identifierSection2= @"MyTableViewCell2";
 //copy right
     NSMutableDictionary *dic18 = [@{@"name": str(kCopyRight),
                                     @"type": @(SETTING_CELL_COPYRIGHT)} copy];
+    NSMutableDictionary *dic19 = [@{@"name": str(kYouLikeApp),
+                                   @"type": @(SETTING_CELL_SHARE_SOCIAL)} copy];
+    [arrData addObject:dic19];
     [arrData addObject:dic1];
     [arrData addObject:dic2];
     if (!VERSION_PRO) {
         [arrData addObject:dic3];
         [arrData addObject:dic4];
     }
-//    [arrData addObject:dic5];
+    [arrData addObject:dic5];
     [arrData addObject:dic6];
     [arrData addObject:dic7];
 //    [arrData addObject:dic8];
@@ -508,6 +515,21 @@ static NSString *identifierSection2= @"MyTableViewCell2";
         
         return cell;
 
+    }
+    else if ([dic[@"type"] integerValue] == SETTING_CELL_SHARE_SOCIAL) {
+        
+        SettingShareSocialCell *cell = nil;
+        
+        cell = (SettingShareSocialCell *)[self.tableControl dequeueReusableCellWithIdentifier:identifierSection3 forIndexPath:indexPath];
+        
+        //FONT
+        cell.lbTitle.text = dic[@"name"];
+        [cell.btnShare addTarget:self action:@selector(shareAction:) forControlEvents:UIControlEventTouchUpInside];
+        cell.backgroundColor=[UIColor whiteColor];
+        [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+        
+        return cell;
+        
     }
     else
     {

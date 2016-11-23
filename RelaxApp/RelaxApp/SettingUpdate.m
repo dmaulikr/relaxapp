@@ -169,6 +169,11 @@
     NSString *strPathBlackList = [FileHelper pathForApplicationDataFile:FILE_BLACKLIST_CATEGORY_SAVE];
     NSArray *arrBlackList =@[];
     [arrBlackList writeToFile:strPathBlackList atomically:YES];
+
+    NSString *strPathMD = [FileHelper pathForApplicationDataFile:FILE_MANAGER_DOWNLOAD_SAVE];
+    NSArray *arrMD =@[];
+    [arrMD writeToFile:strPathMD atomically:YES];
+
 //    areUnlockPro = [[NSUserDefaults standardUserDefaults] boolForKey:kUnlockProProductIdentifier];
     areAdsRemoved = VERSION_PRO?1:[[NSUserDefaults standardUserDefaults] boolForKey:kTotalRemoveAdsProductIdentifier];
     [[NSUserDefaults standardUserDefaults] synchronize];

@@ -65,42 +65,6 @@
                             </constraints>
                         </view>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backgroundBlur" translatesAutoresizingMaskIntoConstraints="NO" id="atI-1s-q46"/>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mp5-HE-dXS">
-                            <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="253" verticalHuggingPriority="253" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TG8-Mu-gUw">
-                                    <string key="text">You like app ?
-Help us share on social</string>
-                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                    <color key="textColor" red="0.61960784313725492" green="0.61960784313725492" blue="0.61960784313725492" alpha="1" colorSpace="calibratedRGB"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="253" verticalHuggingPriority="252" image="share" translatesAutoresizingMaskIntoConstraints="NO" id="EvV-oR-QME">
-                                    <constraints>
-                                        <constraint firstAttribute="width" constant="60" id="PtO-YH-f3g"/>
-                                        <constraint firstAttribute="height" constant="60" id="jV1-7Z-JjO"/>
-                                    </constraints>
-                                </imageView>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cso-Wr-ZYB">
-                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                    <connections>
-                                        <action selector="shareAction:" destination="0oF-rG-BLo" eventType="touchUpInside" id="5aN-iC-sNA"/>
-                                    </connections>
-                                </button>
-                            </subviews>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <constraints>
-                                <constraint firstItem="TG8-Mu-gUw" firstAttribute="top" secondItem="mp5-HE-dXS" secondAttribute="top" constant="5" id="1Uz-LG-4OO"/>
-                                <constraint firstItem="EvV-oR-QME" firstAttribute="centerX" secondItem="TG8-Mu-gUw" secondAttribute="centerX" id="7N2-gj-Cny"/>
-                                <constraint firstItem="Cso-Wr-ZYB" firstAttribute="top" secondItem="EvV-oR-QME" secondAttribute="top" id="SPm-0x-jvj"/>
-                                <constraint firstAttribute="trailing" secondItem="TG8-Mu-gUw" secondAttribute="trailing" id="SlN-U2-2fW"/>
-                                <constraint firstItem="Cso-Wr-ZYB" firstAttribute="trailing" secondItem="EvV-oR-QME" secondAttribute="trailing" id="c5m-h7-Tpe"/>
-                                <constraint firstItem="EvV-oR-QME" firstAttribute="top" secondItem="TG8-Mu-gUw" secondAttribute="bottom" constant="7" id="d2p-IB-sGJ"/>
-                                <constraint firstItem="Cso-Wr-ZYB" firstAttribute="bottom" secondItem="EvV-oR-QME" secondAttribute="bottom" id="g0V-db-xgK"/>
-                                <constraint firstItem="Cso-Wr-ZYB" firstAttribute="leading" secondItem="EvV-oR-QME" secondAttribute="leading" id="k3K-OS-8Wg"/>
-                                <constraint firstItem="TG8-Mu-gUw" firstAttribute="leading" secondItem="mp5-HE-dXS" secondAttribute="leading" id="l5O-IX-itL"/>
-                                <constraint firstAttribute="bottom" secondItem="EvV-oR-QME" secondAttribute="bottom" constant="5" id="lpp-6K-huN"/>
-                            </constraints>
-                        </view>
                         <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="zMj-fY-AjG">
                             <color key="backgroundColor" red="0.9360984564" green="0.93607044220000002" blue="0.93608629700000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
@@ -109,21 +73,18 @@ Help us share on social</string>
                             </connections>
                         </tableView>
                     </subviews>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="trailing" secondItem="mp5-HE-dXS" secondAttribute="trailing" id="8uj-kn-Q4M"/>
-                        <constraint firstItem="mp5-HE-dXS" firstAttribute="leading" secondItem="gBn-Wv-Lpj" secondAttribute="leading" id="C4F-jr-Mij"/>
                         <constraint firstAttribute="bottom" secondItem="atI-1s-q46" secondAttribute="bottom" id="Caw-Ng-BGa"/>
                         <constraint firstAttribute="trailing" secondItem="HqM-zg-CLO" secondAttribute="trailing" id="CwU-8z-Q0O"/>
                         <constraint firstAttribute="trailing" secondItem="zMj-fY-AjG" secondAttribute="trailing" id="J4p-RI-PeW"/>
                         <constraint firstItem="zMj-fY-AjG" firstAttribute="leading" secondItem="gBn-Wv-Lpj" secondAttribute="leading" id="QEW-t5-udS"/>
                         <constraint firstItem="atI-1s-q46" firstAttribute="leading" secondItem="gBn-Wv-Lpj" secondAttribute="leading" id="SMi-hj-0wR"/>
-                        <constraint firstAttribute="bottom" secondItem="zMj-fY-AjG" secondAttribute="bottom" id="Vmk-YY-EgW"/>
+                        <constraint firstAttribute="bottom" secondItem="zMj-fY-AjG" secondAttribute="bottom" constant="10" id="Vmk-YY-EgW"/>
                         <constraint firstAttribute="trailing" secondItem="atI-1s-q46" secondAttribute="trailing" id="b1o-Cc-R76"/>
+                        <constraint firstItem="zMj-fY-AjG" firstAttribute="top" secondItem="HqM-zg-CLO" secondAttribute="bottom" constant="10" id="cmT-gP-N2K"/>
                         <constraint firstItem="HqM-zg-CLO" firstAttribute="top" secondItem="gBn-Wv-Lpj" secondAttribute="top" id="gZX-2E-8ke"/>
-                        <constraint firstItem="mp5-HE-dXS" firstAttribute="top" secondItem="HqM-zg-CLO" secondAttribute="bottom" id="jUp-3g-NiS"/>
                         <constraint firstItem="HqM-zg-CLO" firstAttribute="leading" secondItem="gBn-Wv-Lpj" secondAttribute="leading" id="m94-hx-9h2"/>
-                        <constraint firstItem="zMj-fY-AjG" firstAttribute="top" secondItem="mp5-HE-dXS" secondAttribute="bottom" id="nfb-vk-3J4"/>
                         <constraint firstItem="atI-1s-q46" firstAttribute="top" secondItem="HqM-zg-CLO" secondAttribute="bottom" id="y59-08-YOd"/>
                     </constraints>
                 </view>
@@ -140,7 +101,6 @@ Help us share on social</string>
                 <outlet property="contraintBottom" destination="6Fi-N5-Uno" id="wP0-Xe-iYq"/>
                 <outlet property="imgBackGround" destination="atI-1s-q46" id="X2z-qv-V3z"/>
                 <outlet property="imgHeader" destination="v59-MF-gSx" id="ejh-2r-g3D"/>
-                <outlet property="lbShare" destination="TG8-Mu-gUw" id="dQF-Pg-oWd"/>
                 <outlet property="lbTitle" destination="NG0-iT-9FB" id="vXn-Y7-S3X"/>
                 <outlet property="tableControl" destination="zMj-fY-AjG" id="gev-ro-W1T"/>
                 <outlet property="vContent" destination="gBn-Wv-Lpj" id="oUo-IO-NJq"/>
@@ -151,6 +111,5 @@ Help us share on social</string>
     </objects>
     <resources>
         <image name="backgroundBlur" width="375" height="667"/>
-        <image name="share" width="84" height="84"/>
     </resources>
 </document>

@@ -76,8 +76,8 @@
 
     int numberHozi = 3;
     int numberVertical =3;
-    int item_width = 70;
-    int item_height = 70;
+    int item_width = 100;
+    int item_height = 100;
     
     CGFloat screenHeight = [UIScreen mainScreen].bounds.size.height;
     CGFloat screenWidth = [UIScreen mainScreen].bounds.size.width;
@@ -106,7 +106,7 @@
     layout.minimumInteritemSpacing = 0;
     layout.minimumLineSpacing = 0;
     layout.scrollDirection = UICollectionViewScrollDirectionVertical;
-    layout.sectionInset = UIEdgeInsetsMake(0, 20, 20, 20);
+    layout.sectionInset = UIEdgeInsetsMake(20, 20, 20, 20);
     [self.collectionView setShowsHorizontalScrollIndicator:NO];
     [self.collectionView setShowsVerticalScrollIndicator:NO];
     self.collectionView.hidden = YES;

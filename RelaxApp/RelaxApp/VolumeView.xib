@@ -39,12 +39,20 @@
                         <action selector="increaseAction:" destination="biW-le-DJq" eventType="touchUpInside" id="b5Y-TQ-OTE"/>
                     </connections>
                 </button>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wRX-bd-uBq">
+                    <color key="backgroundColor" red="0.31372549019607843" green="0.8901960784313725" blue="0.76078431372549016" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="k8v-Ed-C6E"/>
+                    </constraints>
+                </imageView>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="qDb-QE-Sv3" secondAttribute="trailing" id="0Rd-th-3vy"/>
                 <constraint firstAttribute="trailing" secondItem="h2X-TV-CCd" secondAttribute="trailing" id="0gL-S1-5VP"/>
+                <constraint firstItem="wRX-bd-uBq" firstAttribute="leading" secondItem="biW-le-DJq" secondAttribute="leading" id="30x-Pj-5JG"/>
                 <constraint firstAttribute="bottom" secondItem="dWv-fh-TEr" secondAttribute="bottom" id="EE0-dz-LLo"/>
+                <constraint firstAttribute="bottom" secondItem="wRX-bd-uBq" secondAttribute="bottom" id="Fii-OT-dq1"/>
                 <constraint firstItem="qDb-QE-Sv3" firstAttribute="top" secondItem="biW-le-DJq" secondAttribute="top" id="JZA-qD-lEs"/>
                 <constraint firstItem="lhm-Tv-Dr3" firstAttribute="centerY" secondItem="biW-le-DJq" secondAttribute="centerY" constant="1" id="UmH-2Y-T0C"/>
                 <constraint firstAttribute="bottom" secondItem="h2X-TV-CCd" secondAttribute="bottom" id="VxS-EO-vp9"/>
@@ -53,6 +61,7 @@
                 <constraint firstItem="h2X-TV-CCd" firstAttribute="top" secondItem="biW-le-DJq" secondAttribute="top" id="p99-g3-g6A"/>
                 <constraint firstItem="dWv-fh-TEr" firstAttribute="top" secondItem="biW-le-DJq" secondAttribute="top" id="pad-BL-9UP"/>
                 <constraint firstItem="lhm-Tv-Dr3" firstAttribute="leading" secondItem="dWv-fh-TEr" secondAttribute="trailing" constant="5" id="qgt-gu-WCU"/>
+                <constraint firstAttribute="trailing" secondItem="wRX-bd-uBq" secondAttribute="trailing" id="vip-ro-Hfg"/>
                 <constraint firstItem="dWv-fh-TEr" firstAttribute="leading" secondItem="biW-le-DJq" secondAttribute="leading" id="vqR-e4-y9d"/>
                 <constraint firstItem="qDb-QE-Sv3" firstAttribute="leading" secondItem="lhm-Tv-Dr3" secondAttribute="trailing" constant="5" id="x8a-3Z-njp"/>
             </constraints>
@@ -62,6 +71,7 @@
                 <outlet property="btnIncrease" destination="qDb-QE-Sv3" id="beS-lK-8Ai"/>
                 <outlet property="slider" destination="lhm-Tv-Dr3" id="k0M-sd-AKl"/>
                 <outlet property="vBackGround" destination="h2X-TV-CCd" id="zu3-np-zs6"/>
+                <outlet property="vline" destination="wRX-bd-uBq" id="dDA-3F-Pqa"/>
             </connections>
         </view>
     </objects>

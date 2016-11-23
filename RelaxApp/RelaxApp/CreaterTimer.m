@@ -55,8 +55,9 @@
     }
 //    [_timeToSetOff setValue:[UIColor whiteColor] forKey:@"textColor"];
 //    [_timeToSetOff setValue:@(0.8) forKey:@"alpha"];
-    [self.tfTitle setValue:[UIColor whiteColor]
+    [self.tfTitle setValue:[[UIColor whiteColor] colorWithAlphaComponent:0.5]
                     forKeyPath:@"_placeholderLabel.textColor"];
+    self.tfTitle.placeholder = str(kTypeAnything);
     self.imgCheckPause.hidden = YES;
     self.imgCheckPlaying.hidden = YES;
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]

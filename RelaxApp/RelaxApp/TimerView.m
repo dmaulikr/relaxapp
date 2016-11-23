@@ -246,7 +246,7 @@ static NSString *identifierSection1 = @"MyTableViewCell1";
             return ;
         }
         //show ads
-        [UIAlertView showWithTitle:str(kCongratulations) message:str(kWatchAdsEnableTimer)
+        [UIAlertView showWithTitle:str(kWatchOneAdvertisement) message:str(kWatchAdsEnableTimer)
                  cancelButtonTitle:str(kCancel)
                  otherButtonTitles:@[str(kuOK)]
                           tapBlock:^(UIAlertView *alertView, NSInteger buttonIndex) {
