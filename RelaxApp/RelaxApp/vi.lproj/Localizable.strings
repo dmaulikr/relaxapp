@@ -90,7 +90,9 @@
 "kOpenSource" = "Mã nguồn mở";
 "kTypeAnything" = "gõ bất cứ điều gì có muốn";
 "kSureDelete" = "Bạn có chắc chắn xóa ?";
-
+"kEnterName" = "Bạn chưa nhập tên";
+"kMessageShareSocial" =  "Tôi đề khuyên bạn sử dụng RelaF để thư giãn - nhận được nó trên https://goo.gl/TsNxXP";
+"kHelpTranslate" = "giúp chúng tôi dịch";
 
 "kWSName1" = "TAP VÀ CHƠI";
 "kWSName2" = "CUỘC SỐNG CÁ NHÂN";

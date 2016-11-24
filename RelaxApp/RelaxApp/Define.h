@@ -148,6 +148,7 @@ typedef enum
     SETTING_CELL_CHECK_VERTION,
     SETTING_CELL_CHECK_PRIVACY,
     SETTING_CELL_SHARE_SOCIAL,
+    SETTING_CELL_HELP_TRANSLATE,
 }SETTING_CELL_TYPE;
 
 //LANGUAG
@@ -227,6 +228,9 @@ typedef enum
 #define kSetting @"kSetting"
 #define kTypeAnything @"kTypeAnything"
 #define kSureDelete @"kSureDelete"
+#define kMessageShareSocial @"kMessageShareSocial"
+#define kHelpTranslate @"kHelpTranslate"
+
 
 #define kWSName1 @"kWSName1"
 #define kWSName2 @"kWSName2"

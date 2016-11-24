@@ -58,14 +58,15 @@ static NSString *identifierSC2 = @"identifierSC2";
     NSMutableDictionary *dic1 = [@{@"name": str(kGiveSpecialThanksTo),
                                    @"type": @(SETTING_CELL_HEADER)} copy];
     
-    NSMutableDictionary *dic2 = [@{@"name": @"Nguyen Ngoc Anh singer: some sounds in app - fb.com/ngocanhsunflower/"} copy];
-    
-    NSMutableDictionary *dic3 = [@{@"name": @"Manh Le : IOS Development"} copy];
-    
+    NSMutableDictionary *dic2 = [@{@"name": @"Nguyen Ngoc Anh singer"} copy];
+    NSMutableDictionary *dic3 = [@{@"name": @"Manh Le : iOS development"} copy];
+    NSMutableDictionary *dic8 = [@{@"name": @"Kevin Xu: Chinese translate"} copy];
+
     NSMutableDictionary *dic4 = [@{@"name": str(kCredit),
                                    @"type": @(SETTING_CELL_HEADER)} copy];
     
     NSMutableString *strName = [NSMutableString new];
+    /*
     [strName appendString:@"Li Yang"];
     [strName appendString:@"\nunsplash.com/photos/_vPCiuXL2HE"];
     [strName appendString:@"\n\nGriffin Keller"];
@@ -82,6 +83,9 @@ static NSString *identifierSC2 = @"identifierSC2";
     [strName appendString:@"\nunsplash.com/photos/wpMQWrjwPLs"];
     [strName appendString:@"\n\nVicentiu Solomon"];
     [strName appendString:@"\nunsplash.com/photos/In5drpv_lml"];
+     */
+    [strName appendString:@"photos from unsplash.com and pexels.com"];
+
     NSMutableDictionary *dic5 = [@{@"name":strName} copy];
     
     NSMutableDictionary *dic6 = [@{@"name": str(kOpenSource),
@@ -91,6 +95,7 @@ static NSString *identifierSC2 = @"identifierSC2";
     [arrData addObject:dic1];
     [arrData addObject:dic2];
     [arrData addObject:dic3];
+    [arrData addObject:dic8];
     [arrData addObject:dic4];
     [arrData addObject:dic5];
     [arrData addObject:dic6];

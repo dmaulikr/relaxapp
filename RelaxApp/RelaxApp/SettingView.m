@@ -81,7 +81,7 @@ static NSString *identifierSection3= @"MyTableViewCell3";
 
 }
 - (IBAction)shareAction:(id)sender {
-    NSString * message = @"© 2016 by Relafapp";
+    NSString * message = str(kMessageShareSocial);
     
 //    UIImage * image = [UIImage imageNamed:@"icon"];
     
@@ -225,6 +225,16 @@ static NSString *identifierSection3= @"MyTableViewCell3";
 {
     [self openUrlInBrowser:@"https://www.relafapp.com/privacy.html"];
 
+}
+-(IBAction)helpTranslate:(id)sender
+{
+    [self openUrlInBrowser:@"http://relafapp.oneskyapp.com/collaboration/"];
+    
+}
+-(IBAction)premiumVersionNoAds:(id)sender
+{
+    [self openUrlInBrowser:@"https://itunes.apple.com/us/app/relax-in-fantasy-live-less/id1167034842?mt=8"];
+    
 }
 - (IBAction)switchUnlockProValueChanged:(id)sender
 {
@@ -433,6 +443,11 @@ static NSString *identifierSection3= @"MyTableViewCell3";
     NSMutableDictionary *dic12 = [@{@"name": str(kOurFanpage),
                                     @"desc":@"http://fb.com/relafapp",
                                     @"type": @(SETTING_CELL_CHECK_FANPAGE)} copy];
+    NSMutableDictionary *dic20 = [@{@"name": str(kHelpTranslate),
+                                    @"desc":@"http://relafapp.oneskyapp.com/collaboration/",
+                                    @"type": @(SETTING_CELL_HELP_TRANSLATE)} copy];
+
+    
 //About
     NSMutableDictionary *dic13 = [@{@"name":str(kAbout),
                                    @"type": @(SETTING_CELL_HEADER)} copy];
@@ -467,6 +482,7 @@ static NSString *identifierSection3= @"MyTableViewCell3";
     [arrData addObject:dic10];
     [arrData addObject:dic11];
     [arrData addObject:dic12];
+    [arrData addObject:dic20];
     [arrData addObject:dic13];
     [arrData addObject:dic14];
     [arrData addObject:dic15];
@@ -546,6 +562,8 @@ static NSString *identifierSection3= @"MyTableViewCell3";
             case SETTING_CELL_CHECK_TWITTER:
             case SETTING_CELL_CHECK_FANPAGE:
             case SETTING_CELL_CHECK_VERTION:
+            case SETTING_CELL_HELP_TRANSLATE:
+
             {
                 cell.lbDescription.text = dic[@"desc"];
 
@@ -646,6 +664,17 @@ static NSString *identifierSection3= @"MyTableViewCell3";
             [self managerDownloadAction:nil];
         }
             break;
+        case SETTING_CELL_HELP_TRANSLATE:
+        {
+            [self helpTranslate:nil];
+        }
+            break;
+        case SETTING_CELL_CHECK_NO_ADS:
+        {
+            [self premiumVersionNoAds:nil];
+        }
+            break;
+        
         default:
             break;
     }

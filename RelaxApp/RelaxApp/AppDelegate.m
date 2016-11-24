@@ -129,12 +129,12 @@
 
     [self.window makeKeyAndVisible];
     //
-//    if (![[NSUserDefaults standardUserDefaults] boolForKey:show_welcome_screen]) {
+    if (![[NSUserDefaults standardUserDefaults] boolForKey:show_welcome_screen]) {
         WelcomeScreenVC *ws = [[WelcomeScreenVC alloc] initWithNibName:@"WelcomeScreenVC" bundle:nil];
         
         [viewController1 presentViewController:ws animated:NO completion:^{
         }];
-//    }
+    }
 
     [self timerBackGround];
     //[START configure_revabmod]

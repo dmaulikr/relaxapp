@@ -89,7 +89,9 @@
 "kOpenSource" = "Open Source";
 "kTypeAnything" = "type anything you want";
 "kSureDelete" = "are you sure delete?";
-
+"kEnterName" = "Please enter timer's name";
+"kMessageShareSocial" =  "I recommended you using RelaF for relax - get it on https://goo.gl/TsNxXP";
+"kHelpTranslate" = "help us translate";
 
 "kWSName1" = "TAP AND PLAY";
 "kWSName2" = "PERSONALIZED FOR LIFE";

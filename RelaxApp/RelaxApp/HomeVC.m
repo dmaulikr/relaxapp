@@ -1522,8 +1522,19 @@
 {
     //clear befor
     [self fnClearAllSounds];
+    //check exist in blacklist
+    NSString *strPathBlackList = [FileHelper pathForApplicationDataFile:FILE_BLACKLIST_CATEGORY_SAVE];
+    NSArray *arrBL = [NSArray arrayWithContentsOfFile:strPathBlackList];
+    
+    NSString *strManagerDownload = [FileHelper pathForApplicationDataFile:FILE_MANAGER_DOWNLOAD_SAVE];
+    NSArray *arrMD = [NSArray arrayWithContentsOfFile:strManagerDownload];
+    
+    NSMutableArray *arrFull = [NSMutableArray new];
+    [arrFull addObjectsFromArray:arrBL];
+    [arrFull addObjectsFromArray:arrMD];
 
     //1=2,0.5&1=4,0.5&1=5,0.5&1=6,0.5&1=7,0.5&1=8,0.5&1=9,0.5&1=10,0.5&1=11,0.5
+    int count = 0;
     NSArray *arrParam = [param componentsSeparatedByString:@"&"];
     for (NSString *strItem in arrParam) {
         NSArray *arrItemMusic = [strItem componentsSeparatedByString:@"="];
@@ -1533,36 +1544,50 @@
         
         for (int i = 0; i< arrCategory.count; i++) {
             NSMutableDictionary *dicCategory = [arrCategory[i] mutableCopy];
-            if ([dicCategory[@"id"] intValue] == [category_id intValue]) {
-                NSMutableArray *arrSounds = [dicCategory[@"sounds"] mutableCopy];
-                for (int j = 0; j <arrSounds.count; j++) {
-                    NSMutableDictionary *dicSound = [arrSounds[j] mutableCopy];
-                    if ([dicSound[@"id"] intValue] == [music_id intValue]) {
-                        [dicSound setObject:@([volume floatValue]) forKey:@"volume"];
-                        [dicSound setObject:@(1) forKey:@"active"];
-                        [dicSound setObject:dicCategory[@"id"] forKey:@"category_id"];
-                        
-                        //show music
-                        [arrSounds replaceObjectAtIndex:j withObject:dicSound];
-                        [dicCategory setObject:arrSounds forKey:@"sounds"];
-                        [arrCategory replaceObjectAtIndex:i withObject:dicCategory];
-                        [self setupPlayerWithMusicItem:dicSound withCategory:dicCategory];
-                        break;
+            if (![arrFull containsObject:dicCategory[@"id"]]) {
+                
+                NSString *path = [self getFullPathWithFileName:dicCategory[@"path"]];
+                NSFileManager *fileManager = [[NSFileManager alloc] init];
+                BOOL isDir;
+                BOOL exists = [fileManager fileExistsAtPath:path isDirectory:&isDir];
+                
+                if (dicCategory[@"sounds"] && exists) {
+                    if ([dicCategory[@"id"] intValue] == [category_id intValue]) {
+                        NSMutableArray *arrSounds = [dicCategory[@"sounds"] mutableCopy];
+                        for (int j = 0; j <arrSounds.count; j++) {
+                            NSMutableDictionary *dicSound = [arrSounds[j] mutableCopy];
+                            if ([dicSound[@"id"] intValue] == [music_id intValue]) {
+                                [dicSound setObject:@([volume floatValue]) forKey:@"volume"];
+                                [dicSound setObject:@(1) forKey:@"active"];
+                                [dicSound setObject:dicCategory[@"id"] forKey:@"category_id"];
+                                
+                                //show music
+                                [arrSounds replaceObjectAtIndex:j withObject:dicSound];
+                                [dicCategory setObject:arrSounds forKey:@"sounds"];
+                                [arrCategory replaceObjectAtIndex:i withObject:dicCategory];
+                                [self setupPlayerWithMusicItem:dicSound withCategory:dicCategory];
+                                count++;
+                                break;
+                                
+                            }
+                        }
                         
                     }
                 }
-                
             }
+
         }
         
         
     }
-    [self caculatorSubScrollview];
-    [self fnSetButtonNavigation];
-    if (!(_buttonType == BUTTON_VOLUME || _buttonType == BUTTON_FAVORITE || _buttonType == BUTTON_TIMER || _buttonType == BUTTON_SETTING)) {
-        _buttonType = BUTTON_PLAYING;
+    if (count >0) {
+        [self caculatorSubScrollview];
+        [self fnSetButtonNavigation];
+        if (!(_buttonType == BUTTON_VOLUME || _buttonType == BUTTON_FAVORITE || _buttonType == BUTTON_TIMER || _buttonType == BUTTON_SETTING)) {
+            _buttonType = BUTTON_PLAYING;
+        }
+        [self fnSetButtonBottom];
     }
-    [self fnSetButtonBottom];
 
 }
 @end
