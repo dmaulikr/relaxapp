@@ -36,7 +36,7 @@
     //show ads
     areAdsRemoved = VERSION_PRO?1:[[NSUserDefaults standardUserDefaults] boolForKey:kTotalRemoveAdsProductIdentifier];
     if (areAdsRemoved) {
-        [UIAlertView showWithTitle:str(kWatchOneAdvertisement) message:str(kByClickingOKYouPermit)
+        [UIAlertView showWithTitle:nil message:str(kClickUpdate)
                  cancelButtonTitle:str(kCancel)
                  otherButtonTitles:@[str(kuOK)]
                           tapBlock:^(UIAlertView *alertView, NSInteger buttonIndex) {

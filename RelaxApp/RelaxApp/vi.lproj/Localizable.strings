@@ -22,7 +22,7 @@
 "kVersion" = "Phiên bản";
 "kWatchAdsEnableTimer" = "Xem một quảng cáo để bật thời gian này!";
 "kCopyRight" = "© 2016 bởi Relafapp";
-"kUpdate" = "Cập nhật";
+"kUpdate" = "Tải về";
 "kCountDown" = "Đếm ngược";
 "kClock" = "Đồng hồ";
 "kPremium" = "Cao cấp";
@@ -44,6 +44,8 @@
 "kuSETTING" = "CÀI ĐẶT";
 "kWatchAnAdsToGetThisSound" = "Xem một quảng cáo trước khi nhận được âm thanh này trong 1 ngày!";
 "kByClickingOKYouPermit" = "Xem một quảng cáo để kiểm tra cập nhật khi bạn nhấp ok đồng nghĩa bạn cho ứng dụng có quyền sử dụng dung lượng trống trong điện thoại của bạn.";
+"kClickUpdate" = "Khi bạn nhấp ok đồng nghĩa bạn cho ứng dụng có quyền sử dụng dung lượng trống trong điện thoại của bạn.";
+
 "kLestTalk" = "Nói chuyện với chúng tôi";
 "kBuy" = "Mua";
 "kWatchOneAdvertisement" = "Xem một quảng cáo";
@@ -91,8 +93,9 @@
 "kTypeAnything" = "gõ bất cứ điều gì có muốn";
 "kSureDelete" = "Bạn có chắc chắn xóa ?";
 "kEnterName" = "Bạn chưa nhập tên";
-"kMessageShareSocial" =  "Tôi đề khuyên bạn sử dụng RelaF để thư giãn - nhận được nó trên https://goo.gl/TsNxXP";
+"kMessageShareSocial" =  "Tôi đề khuyên bạn sử dụng RelaF để thư giãn - nhận được nó trên";
 "kHelpTranslate" = "giúp chúng tôi dịch";
+"kMissingSounds" = "you are missing sounds please download another to enjoy!";
 
 "kWSName1" = "TAP VÀ CHƠI";
 "kWSName2" = "CUỘC SỐNG CÁ NHÂN";

@@ -591,7 +591,7 @@ fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
         NSString *subString = [str substringToIndex:[str length] - 1];
         NSString *strRoot = @"";
         if (VERSION_PRO) {
-            strRoot = @"http://relafapp.com/play?";
+            strRoot = @"https://relafapp.com/play?";
         }
         else
         {
@@ -622,7 +622,7 @@ fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
         [alert show];
     }
     else {
-        NSString *message = shortenedURL.absoluteString;
+        NSString *message = [NSString stringWithFormat:@"I'm relaxing with @relafapp, let's relax with me %@",shortenedURL.absoluteString] ;
         NSArray * shareItems = @[message];
         ///0838999666
         UIActivityViewController * avc = [[UIActivityViewController alloc] initWithActivityItems:shareItems applicationActivities:nil];

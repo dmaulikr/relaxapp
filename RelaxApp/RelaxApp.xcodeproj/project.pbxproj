@@ -1371,7 +1371,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = RelaxApp/RelaxApp.entitlements;
 				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				DEVELOPMENT_TEAM = LZ8SEY56U7;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1383,10 +1383,10 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = com.relaf.free;
+				PRODUCT_BUNDLE_IDENTIFIER = com.relaf.pro;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "de26215f-60d9-48fd-aa34-8abc6029daf7";
-				PROVISIONING_PROFILE_SPECIFIER = "Relax in the Fantasy Free";
+				PROVISIONING_PROFILE = "f6c03f4b-0bd1-4048-a123-258b31c53f7f";
+				PROVISIONING_PROFILE_SPECIFIER = "Relax in the Fantasy Free Distribution";
 			};
 			name = Debug;
 		};
@@ -1398,7 +1398,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = RelaxApp/RelaxApp.entitlements;
 				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				DEVELOPMENT_TEAM = LZ8SEY56U7;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1410,10 +1410,10 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = com.relaf.free;
+				PRODUCT_BUNDLE_IDENTIFIER = com.relaf.pro;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "de26215f-60d9-48fd-aa34-8abc6029daf7";
-				PROVISIONING_PROFILE_SPECIFIER = "Relax in the Fantasy Free";
+				PROVISIONING_PROFILE = "f6c03f4b-0bd1-4048-a123-258b31c53f7f";
+				PROVISIONING_PROFILE_SPECIFIER = "Relax in the Fantasy Free Distribution";
 			};
 			name = Release;
 		};

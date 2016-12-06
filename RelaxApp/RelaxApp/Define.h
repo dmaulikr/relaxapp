@@ -13,13 +13,18 @@
 //#define BASE_IMAGE_URL @"https://data.relafapp.com/data-examples/data/img/"
 //#define pwd_Unzip @"0000" //d41d8cd98f00b204e9800998ecf8427e
 
+//#define BASE_URL @"https://dev.relafapp.com/product/"
+//#define BASE_IMAGE_URL @"https://dev.relafapp.com/product/img/"
+//#define pwd_Unzip @"d41d8cd98f00b204e9800998ecf8427e" //d41d8cd98f00b204e9800998ecf8427e
+
 //
 #define BASE_URL @"https://data.relafapp.com/product/"
 #define BASE_IMAGE_URL @"https://data.relafapp.com/product/img/"
 #define pwd_Unzip @"d41d8cd98f00b204e9800998ecf8427e"
-#define VERSION_PRO 0
-#define APP_ID_BUNDLE @"com.relaf.free"
-#define strTitle_app @"Title_app"
+#define VERSION_PRO 1
+#define APP_ID_BUNDLE @"com.relaf.pro"
+#define NAME_APP @"RelaF"
+#define schemeName @"relaf"
 
 #define BITLY_ACCESSTOKEN @"29ea51a80802fd5fcc8f6ac9ed5145d90b2db48a"
 #define BITLY_API_KEY @"R_d75fbe9cea5844b280ac4858a9793c1d"
@@ -60,6 +65,7 @@
 #define UIColorFromAlpha(rgbValue , a) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:((float)(a))]
 
 //
+#define strTitle_app @"Title_app"
 #define FILE_FAVORITE_SAVE @"FAVORITE.save"
 #define FILE_TIMER_SAVE @"TIMER.save"
 #define FILE_CATEGORY_SAVE @"CATEGORY.save"
@@ -84,8 +90,6 @@
 
 #define DEFAULT_VOLUME 0.5
 
-#define NAME_APP @"RelaF Free"
-#define schemeName @"relaf"
 
 #define show_welcome_screen @"show_welcome_screen"
 
@@ -184,6 +188,7 @@ typedef enum
 #define kDownloading @"kDownloading"
 #define kDoYouWantUpdate @"kDoYouWantUpdate"
 #define kByClickingOKYouPermit @"kByClickingOKYouPermit"
+#define kClickUpdate @"kClickUpdate"
 #define kWatchAdsTime @"kWatchAdsTime"
 #define kBadNetwork @"kBadNetwork"
 #define kYouLikeApp @"kYouLikeApp"
@@ -230,6 +235,8 @@ typedef enum
 #define kSureDelete @"kSureDelete"
 #define kMessageShareSocial @"kMessageShareSocial"
 #define kHelpTranslate @"kHelpTranslate"
+#define kMissingSounds @"kMissingSounds"
+
 
 
 #define kWSName1 @"kWSName1"

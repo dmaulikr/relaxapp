@@ -81,7 +81,15 @@ static NSString *identifierSection3= @"MyTableViewCell3";
 
 }
 - (IBAction)shareAction:(id)sender {
-    NSString * message = str(kMessageShareSocial);
+    NSString *strLink = @"";
+    if (VERSION_PRO) {
+        strLink = @"https://goo.gl/ZbwJP8";
+    }
+    else
+    {
+        strLink = @"https://goo.gl/TsNxXP";
+    }
+    NSString * message = [NSString stringWithFormat:@"%@ %@",str(kMessageShareSocial),@"https://goo.gl/TsNxXP"] ;
     
 //    UIImage * image = [UIImage imageNamed:@"icon"];
     
@@ -473,8 +481,8 @@ static NSString *identifierSection3= @"MyTableViewCell3";
     if (!VERSION_PRO) {
         [arrData addObject:dic3];
         [arrData addObject:dic4];
+        [arrData addObject:dic5];
     }
-    [arrData addObject:dic5];
     [arrData addObject:dic6];
     [arrData addObject:dic7];
 //    [arrData addObject:dic8];

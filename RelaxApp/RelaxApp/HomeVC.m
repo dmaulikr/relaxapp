@@ -1588,6 +1588,13 @@
         }
         [self fnSetButtonBottom];
     }
+    if (count < arrParam.count) {
+        [UIAlertView showWithTitle:nil message:str(kMissingSounds)
+                 cancelButtonTitle:str(kuOK)
+                 otherButtonTitles:nil
+                          tapBlock:^(UIAlertView *alertView, NSInteger buttonIndex) {
+                          }];
+    }
 
 }
 @end
